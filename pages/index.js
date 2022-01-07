@@ -1,4 +1,4 @@
-import Button from "@/components/form/Button";
+import Button from '@/components/form/Button';
 
 export default function Home() {
   return (
@@ -15,12 +15,12 @@ export default function Home() {
       <Button outline>Sign in</Button>
 
       <Button outline color="secondary">
-        try it now
+        Try it now
       </Button>
     </>
   );
 }
 
 const styles = {
-  header: "text-3xl font-bold underline text-red-500",
+  header: 'text-3xl font-bold underline text-red-500'
 };
