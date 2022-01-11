@@ -15,7 +15,7 @@ const Input = ({ children, placeholder, type }) => {
     </div>
   );
 };
-Input.PropTypes = {
+Input.propTypes = {
   placeholder: PropTypes.string,
   type: PropTypes.string
 };
