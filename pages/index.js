@@ -21,9 +21,14 @@ export default function Home() {
       <Button outline color="secondary">
         Try it now
       </Button>
-      <Input placeholder="Email address" type="Email">
-        {<EmailIcon className="w-4 h-4 fill-[#292D32]" />}
-      </Input>
+      <br />
+      <Input
+        name="email"
+        label="email"
+        placeholder="Email address"
+        type="email"
+        Icon={<EmailIcon className="w-4 h-4 fill-[#292D32]" />}
+      />
       <br />
       <Input placeholder="Password" type="password" />
       <br />
