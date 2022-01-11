@@ -1,5 +1,6 @@
-import Button from '@/components/form/Button';
+import { Button, Input } from '@/components/form';
 import Navbar from '@/components/Navbar';
+import { EmailIcon } from '../assets/svgs';
 
 export default function Home() {
   return (
@@ -20,6 +21,12 @@ export default function Home() {
       <Button outline color="secondary">
         Try it now
       </Button>
+      <Input placeholder="Email address" type="Email">
+        {<EmailIcon className="w-4 h-4 fill-[#292D32]" />}
+      </Input>
+      <br />
+      <Input placeholder="Password" type="password" />
+      <br />
     </>
   );
 }
