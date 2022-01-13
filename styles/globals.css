@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input:focus ~ label,
+input:valid ~ label {
+  @apply top-[14px] left-0 text-[#01a1df];
+}
+
+input:focus {
+  @apply border-2 border-[#01a1df];
+}
