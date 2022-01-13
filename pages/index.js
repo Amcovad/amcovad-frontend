@@ -12,7 +12,7 @@ export default function Home() {
       <h2>Solid Button</h2>
       <Button>Sign in</Button>
 
-      <Button color="secondary">try it now</Button>
+      <Button color="secondary">Try it now</Button>
 
       <h2>Outline Button</h2>
 
