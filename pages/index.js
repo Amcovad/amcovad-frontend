@@ -29,7 +29,6 @@ export default function Home() {
         type="password"
         Icon={<PasswordCheckIcon className="w-4 h-4 fill-[#292D32]" />}
       />
-      <br />
     </>
   );
 }

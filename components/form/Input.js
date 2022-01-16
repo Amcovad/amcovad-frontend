@@ -21,7 +21,12 @@ const Input = ({ Icon, label, name, type }) => {
 };
 Input.propTypes = {
   label: PropTypes.string,
-  name: PropTypes.string,
+  name: PropTypes.string.required,
   type: PropTypes.string
+};
+
+Input.defaultProps = {
+  label: null,
+  type: 'text'
 };
 export default Input;
