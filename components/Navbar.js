@@ -12,7 +12,7 @@ const Navbar = () => {
         </div>
         <ul className="hidden sm:flex flex-1 justify-end items-center gap-1 mr-20">
           <Button outline>Sign in</Button>
-          <Button>try it now</Button>
+          <Button>Try it now</Button>
         </ul>
       </nav>
     </header>
