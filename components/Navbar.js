@@ -8,7 +8,7 @@ const Navbar = () => {
     <header>
       <nav className="flex items-center bg-[#F5F6F8]  h-[4.8125rem] p-8">
         <div className="ml-16">
-          <Image src={Logo} alt="logo" />
+          <Image src={Logo} width="167" height="42" alt="logo" />
         </div>
         <ul className="hidden sm:flex flex-1 justify-end items-center gap-1 mr-20">
           <Button outline>Sign in</Button>
