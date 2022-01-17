@@ -21,7 +21,7 @@ const Input = ({ Icon, label, name, type }) => {
 };
 Input.propTypes = {
   label: PropTypes.string,
-  name: PropTypes.string.required,
+  name: PropTypes.string.isRequired,
   type: PropTypes.string
 };
 
