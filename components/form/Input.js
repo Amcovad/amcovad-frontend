@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ Icon, label, name, type, className }) => {
+const Input = ({ className, Icon, label, name, placeholder, type }) => {
   return (
     <div className="w-1/3 mx-2">
       <div className="flex relative">
         <input
           className={`h-12 outline-none px-2 w-full bg-[#D6D9DD] mt-8 rounded-md pr-8 border border-[#D6D9DD] transition-all ${className}`}
           name={name}
+          placeholder={label ? null : placeholder}
           type={type}
           required
         />
@@ -21,18 +22,20 @@ const Input = ({ Icon, label, name, type, className }) => {
 };
 Input.propTypes = {
   className: PropTypes.string,
-  label: PropTypes.string,
   Icon: PropTypes.shape({
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     fill: PropTypes.string.isRequired
   }),
+  label: PropTypes.string,
   name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   type: PropTypes.string
 };
 
 Input.defaultProps = {
   label: null,
-  type: 'text'
+  type: 'text',
+  placeholder: null
 };
 export default Input;
