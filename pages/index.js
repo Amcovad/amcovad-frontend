@@ -27,7 +27,7 @@ export default function Home() {
         label="Password"
         name="password"
         type="password"
-        Icon={<PasswordCheckIcon className="w-4 h-4 fill-[#292D32]" />}
+        Icon={<PasswordCheckIcon width="18px" height="18px" fill="#292D32" />}
       />
     </>
   );
