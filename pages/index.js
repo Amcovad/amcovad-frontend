@@ -2,10 +2,11 @@ import { Button, Input } from '@/components/form';
 import Navbar from '@/components/Navbar';
 import { PasswordCheckIcon } from '../assets/svgs';
 
+
 export default function Home() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <h1 className={styles.header}>Welcome to Amcovad</h1>
 
