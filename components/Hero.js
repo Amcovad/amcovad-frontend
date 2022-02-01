@@ -21,7 +21,7 @@ import Button from '../components/form/Button';
 const Hero = () => {
   return (
     <div className="overflow-hidden">
-      <section className="px-2 py-32  bg-cover  bg-top bg-opacity-20 bg-[url('../assets/hexagons.png')] md:px-0">
+      <section className="px-2 py-32  bg-cover  bg-top bg-opacity-20 bg-[url('../assets/images/hexagons.png')] md:px-0">
         <div className="container items-center max-w-6xl px-8 mx-auto xl:px-5">
           <div className="flex flex-wrap items-center sm:-mx-3">
             <div className="w-full md:w-1/2 md:px-3">
@@ -31,7 +31,7 @@ const Hero = () => {
                   <span className="block xl:inline">Digital approach to </span>
                   <span className="block xl:inline">a secure deal & transactions</span>
                 </h1>
-                <p className="text-amcovad-secondary-darker font-Inter text-[0.75rem] sm:font-[500] font-normal mx-auto sm:max-w-md lg:text-xl md:max-w-3xl">
+                <p className="text-amcovad-tertiary font-Inter text-[0.75rem] sm:font-[500] font-normal mx-auto sm:max-w-md lg:text-xl md:max-w-3xl">
                   Gallia est omnis divisa in partes tres, quarum. Fabio vel iudice vincam, sunt in culpa qui officia.
                   Salutantibus vitae elit libero, a pharetra augue.
                 </p>
@@ -261,7 +261,7 @@ const Hero = () => {
         </div>
       </section>
 
-      <footer className="bg-amcovad-secondary-darker bg-cover bg-left lg:bg-top  bg-[url('../assets/footer-hexagons.png')]">
+      <footer className="bg-amcovad-tertiary bg-cover bg-left lg:bg-top  bg-[url('../assets/images/footer-hexagons.png')]">
         <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full pb-24 lg:max-w-screen-xl md:px-24 lg:px-8">
           <div className="container px-6 py-4 mx-auto">
             <div className="grid gap-4 lg:gap-20 row-gap-10 mb-8 lg:grid-cols-6">

@@ -28,7 +28,7 @@ module.exports = {
           600: '#5D6677',
           700: '#344055'
         },
-        'amcovad-secondary-darker': '#0C1A2C',
+        'amcovad-tertiary': '#0C1A2C',
         'amcovad-info': '#01C4DF',
         'amcovad-white': '#FFFFFF',
         'amcovad-black': '#000000',

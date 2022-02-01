@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({ children, color, onClick, outline }) => {
+const Button = ({ children, color, onClick, outline, className }) => {
   const outlineClass = outline ? 'outline' : 'solid';
 
   return (
-    <button className={`${styles[outlineClass][color]}`} onClick={onClick}>
+    <button className={`${styles[outlineClass][color]} ${className}`} onClick={onClick}>
       {children}
     </button>
   );
@@ -27,7 +27,7 @@ Button.defaultProps = {
 const styles = {
   solid: {
     primary:
-      'h-10 px-5 m-2 text-white transition-colors uppercase duration-150 bg-amcovad-primary-500 rounded-md focus:shadow-outline hover:bg-amcovad-secondary-600 hover:text-white',
+      'h-10 px-5 m-2 transition-colors uppercase duration-150 bg-amcovad-primary-500 rounded-md focus:shadow-outline hover:bg-amcovad-secondary-600 hover:text-white',
     secondary:
       'h-10 px-5 m-2 text-white transition-colors uppercase duration-150 bg-amcovad-secondary-600 rounded-md focus:shadow-outline hover:bg-amcovad-primary-500 hover:text-white'
   },

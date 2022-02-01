@@ -1,15 +1,3 @@
-export { default as Hexagons } from './hexagons.png';
-export { default as Lock } from './lock.png';
-export { default as Phone } from './phone.png';
-export { default as User } from './user-image.png';
-export { default as Blog3 } from './blog1.png';
-export { default as Blog2 } from './blog2.png';
-export { default as Blog1 } from './blog3.png';
-export { default as FooterLogo } from './footer-logo.svg';
-export { default as Instagram } from './instagram.svg';
-export { default as Facebook } from './facebook.svg';
-export { default as Linkin } from './linkin.svg';
-export { default as Twitter } from './twitter.svg';
-export { default as Call } from './call.svg';
-export { default as Mail } from './mail.svg';
-export { default as Location } from './location.svg';
+export * from './blog';
+export * from './svgs';
+export * from './images';

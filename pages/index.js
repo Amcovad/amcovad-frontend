@@ -23,8 +23,8 @@ export default function Home() {
         Try it now
       </Button>
 
-      <Input label="Email address" name="email" type="email" />
-      <Input
+      <Input label="Email address" name="email" type="email" />*/}
+      {/* <Input
         label="Password"
         name="password"
         type="password"

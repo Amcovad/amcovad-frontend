@@ -12,3 +12,7 @@ input:valid ~ label {
 input:focus {
   @apply border-2 border-[#01a1df];
 }
+input[type='checkbox']:focus ~ label,
+input[type='checkbox']:valid ~ label {
+  @apply top-[14px] left-0 text-amcovad-secondary-700;
+}
