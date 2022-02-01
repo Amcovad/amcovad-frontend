@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed z-10 outline-[5px] lg:hidden w-screen">
+    <header className=" z-10 outline-[5px] lg:hidden w-screen">
       <div className="px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
         <div className="lg:px-20 relative flex items-center justify-between mt-5 ">
           <a href="#" aria-label="Company" title="Company" className="inline-flex items-center">
@@ -36,7 +36,7 @@ const Navbar = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <div className="absolute top-0 left-0 w-full">
+              <div className="z-20 absolute top-0 left-0 w-full">
                 <div className="p-5 bg-amcovad-white border rounded shadow-sm">
                   <div className="relative flex items-center justify-between mb-4">
                     <div>
