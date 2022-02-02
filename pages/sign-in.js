@@ -10,10 +10,10 @@ const SignIn = () => {
   return (
     <>
       <section className="lg:bg-amcovad-primary-500 overflow-hidden min-h-full">
-        <div className=" bg-cover bg-[url('../assets/images/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../assets/images/hexagons.png')]">
+        <div className=" bg-cover pb-24 lg:pb-0 bg-[url('../assets/images/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../assets/images/hexagons.png')]">
           <MnavBar />
           <div className="flex ">
-            <div className="flex flex-col justify-center flex-1 px-4 py-2 sm:px-6 lg:flex-none lg:px-20 xl:px-24 ">
+            <div className="flex flex-col justify-center flex-1 px-4 py-8 sm:px-6 lg:flex-none lg:px-20 xl:px-24 ">
               <div className="w-full max-w-[43rem] lg:w-[38rem]  mx-auto pt-5 lg:pt-0 ">
                 <div className="relative lg:py-10 lg:px-8 lg:my-4 lg:max-w-[38rem] lg:w-[580px]">
                   <div className=" hidden lg:block absolute left-3 top-[-8px]">
