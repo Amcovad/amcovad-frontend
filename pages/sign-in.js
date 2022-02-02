@@ -9,7 +9,7 @@ import { PasswordCheckIcon } from '../assets/svgs/svgs';
 const SignIn = () => {
   return (
     <>
-      <section className="lg:bg-amcovad-primary-500 overflow-hidden min-h-full">
+      <section className="lg:bg-amcovad-primary-500 overflow-hidden min-h-screen">
         <div className=" bg-cover pb-24 lg:pb-0 bg-[url('../assets/images/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../assets/images/hexagons.png')]">
           <MnavBar />
           <div className="flex ">
@@ -31,7 +31,7 @@ const SignIn = () => {
                     </div>
                     <div className="mt-8">
                       <form action="#" method="POST" className="space-y-1">
-                        <div className="mt-4">
+                        <div className="">
                           <div className="">
                             <Input label="Email address" name="email" type="email" required placeholder=" " />
                           </div>
@@ -54,8 +54,7 @@ const SignIn = () => {
                               className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
                             >
                               <a href="#" className=" text-amcovad-black ">
-                                {' '}
-                                Forgot password?{' '}
+                                Forgot password?
                               </a>
                             </label>
                           </div>
