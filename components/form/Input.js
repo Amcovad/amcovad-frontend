@@ -3,23 +3,23 @@ import PropTypes from 'prop-types';
 
 const Input = ({ className, Icon, label, name, placeholder, type }) => {
   return (
-    <div className="flex relative">
+    <div className="relative z-0 mb-6 w-full group">
       <input
-        className={`h-12 outline-none px-2 w-full bg-[#D6D9DD] mt-8 rounded-md pr-8 border border-[#D6D9DD] transition-all ${className}`}
         name={name}
-        placeholder={label ? null : placeholder}
+        //placeholder={label ? null : placeholder}
+        placeholder={placeholder}
         type={type}
-        required
         id={name}
+        className={`block py-2.5 px-0 w-full text-sm text-amcovad-secondary-700 bg-transparent  border-2 rounded-md border-amcovad-secondary-300 appearance-none dark:text-white dark:border-amcovad-secondary-600 dark:focus:border-amcovad-primary-500 focus:outline-none focus:ring-0 focus:border-amcovad-primary-500 peer ${className}`}
       />
       <label
         htmlFor={name}
-        className="text-sm absolute top-11 text-[#344055] left-2 pointer-events-none transition-all"
+        className={`absolute text-sm text-amcovad-secondary-700 dark:text-gray-400 duration-300 transform -translate-y-7 scale-75 top-3 left-1 z-10 origin-[0] peer-focus:left-1 peer-focus:text-amcovad-primary-500 peer-focus:dark:text-amcovad-primary-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7`}
       >
         {label}
       </label>
       {Icon && (
-        <span className="absolute top-12 right-2 cursor-pointer" data-testid="icon">
+        <span className="absolute top-4 right-2 cursor-pointer" data-testid="icon">
           {Icon}
         </span>
       )}
