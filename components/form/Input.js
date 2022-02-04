@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ className, Icon, label, name, placeholder, type }) => {
+const Input = ({ className, Icon, label, name, placeholder, type, register }) => {
   return (
     <div className="relative z-0 mb-4 w-full group">
       <input
         name={name}
-        //placeholder={label ? null : placeholder}
-        placeholder={placeholder}
+        placeholder={placeholder ? placeholder : label}
         type={type}
         id={name}
-        className={` block py-2.5 px-0 w-full text-sm text-amcovad-secondary-700 bg-transparent  border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0 focus:border-amcovad-primary-500 peer ${className}`}
+        {...register}
+        className={` block py-2.5 px-0 w-full text-sm text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0 focus:border-amcovad-primary-500 peer ${className}`}
       />
       <label
         htmlFor={name}
