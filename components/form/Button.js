@@ -27,15 +27,15 @@ Button.defaultProps = {
 const styles = {
   solid: {
     primary:
-      'h-10 px-5 m-2 transition-colors uppercase duration-150 bg-amcovad-primary-500 rounded-md focus:shadow-outline hover:bg-amcovad-secondary-600 hover:text-white',
+      'h-10 px-5 transition-colors uppercase duration-150 bg-amcovad-primary-500 rounded-md focus:shadow-outline hover:bg-amcovad-secondary-600 hover:text-white',
     secondary:
-      'h-10 px-5 m-2 text-white transition-colors uppercase duration-150 bg-amcovad-secondary-600 rounded-md focus:shadow-outline hover:bg-amcovad-primary-500 hover:text-white'
+      'h-10 px-5 text-white transition-colors uppercase duration-150 bg-amcovad-secondary-600 rounded-md focus:shadow-outline hover:bg-amcovad-primary-500 hover:text-white'
   },
   outline: {
     primary:
-      'h-10 px-5 m-2 text-amcovad-secondary-600 uppercase transition-colors duration-150 border border-amcovad-secondary-600 rounded-md focus:shadow-outline hover:bg-amcovad-primary-500 hover:border-amcovad-primary-500 hover:text-white',
+      'h-10 px-5 text-amcovad-secondary-600 uppercase transition-colors duration-150 border border-amcovad-secondary-600 rounded-md focus:shadow-outline hover:bg-amcovad-primary-500 hover:border-amcovad-primary-500 hover:text-white',
     secondary:
-      'h-10 px-5 m-2 text-amcovad-primary-500 uppercase transition-colors duration-150 border border-amcovad-primary-500 rounded-md focus:shadow-outline hover:bg-amcovad-secondary-600 hover:border-amcovad-primary-500 hover:text-white'
+      'h-10 px-5 text-amcovad-primary-500 uppercase transition-colors duration-150 border border-amcovad-primary-500 rounded-md focus:shadow-outline hover:bg-amcovad-secondary-600 hover:border-amcovad-primary-500 hover:text-white'
   }
 };
 

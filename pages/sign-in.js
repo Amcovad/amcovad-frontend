@@ -57,52 +57,41 @@ const SignIn = () => {
                         </p>
                       </div>
                       <div className="mt-8">
-                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-1">
-                          <div className="">
-                            <div className="">
-                              <Input
-                                label="Email address"
-                                name="email"
-                                type="email"
-                                register={register('email', { required: true })}
+                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
+                          <Input
+                            label="Email address"
+                            name="email"
+                            type="email"
+                            register={register('email')}
+                            errors={errors.email}
+                          />
+                          <Input
+                            label="Password"
+                            name="password"
+                            type={showPassword ? 'text' : 'password'}
+                            Icon={
+                              <PasswordCheckIcon
+                                width="18px"
+                                height="18px"
+                                fill="#292D32"
+                                onClick={handleShowPassword}
                               />
-                              <div className=" text-amcovad-danger mb-3 ">
-                                <p>{errors.email?.message}</p>
-                              </div>
-                            </div>
-                            <div>
-                              <Input
-                                label="Password"
-                                name="password"
-                                type={showPassword ? 'text' : 'password'}
-                                Icon={
-                                  <PasswordCheckIcon
-                                    width="18px"
-                                    height="18px"
-                                    fill="#292D32"
-                                    onClick={handleShowPassword}
-                                  />
-                                }
-                                register={register('password', { required: true })}
-                              />
-                              <div className=" text-amcovad-danger ">
-                                <p>{errors.password?.message}</p>
-                              </div>
-                            </div>
+                            }
+                            register={register('password')}
+                            errors={errors.password}
+                          />
+
+                          <div className="flex items-center  mb-3">
+                            <label
+                              htmlFor="forgot password"
+                              className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
+                            >
+                              <a href="#" className=" text-amcovad-black ">
+                                Forgot password?
+                              </a>
+                            </label>
                           </div>
 
-                          <div className="">
-                            <div className="flex items-center  mb-3">
-                              <label
-                                htmlFor="forgot password"
-                                className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
-                              >
-                                <a href="#" className=" text-amcovad-black ">
-                                  Forgot password?
-                                </a>
-                              </label>
-                            </div>
-                          </div>
                           <div>
                             <Button className=" w-full font-[600] text-amcovad-black"> Sign in</Button>
                           </div>

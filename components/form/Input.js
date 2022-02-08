@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ className, Icon, label, name, placeholder, type, register }) => {
+const Input = ({ className, Icon, label, name, placeholder, type, register, errors }) => {
+  const hasErrors = !!errors?.[name];
+  const errorClass = hasErrors ? 'border-red-500' : '';
+
   return (
     <div className="relative z-0 mb-4 w-full group">
       <input
@@ -10,7 +13,7 @@ const Input = ({ className, Icon, label, name, placeholder, type, register }) =>
         type={type}
         id={name}
         {...register}
-        className={` block py-2.5 px-0 w-full text-sm text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0 focus:border-amcovad-primary-500 peer ${className}`}
+        className={`${errorClass} block py-2.5 px-0 w-full text-sm text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0 focus:border-amcovad-primary-500 peer ${className}`}
       />
       <label
         htmlFor={name}
@@ -22,6 +25,12 @@ const Input = ({ className, Icon, label, name, placeholder, type, register }) =>
         <span className="absolute top-4 right-2 cursor-pointer" data-testid="icon">
           {Icon}
         </span>
+      )}
+
+      {errors?.[name] && (
+        <div className="text-amcovad-danger py-1">
+          <p>{errors?.[name]?.message}</p>
+        </div>
       )}
     </div>
   );
