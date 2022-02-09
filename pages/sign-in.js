@@ -63,22 +63,15 @@ const SignIn = () => {
                             name="email"
                             type="email"
                             register={register('email')}
-                            errors={errors.email}
+                            errors={errors}
                           />
                           <Input
                             label="Password"
                             name="password"
                             type={showPassword ? 'text' : 'password'}
-                            Icon={
-                              <PasswordCheckIcon
-                                width="18px"
-                                height="18px"
-                                fill="#292D32"
-                                onClick={handleShowPassword}
-                              />
-                            }
+                            Icon
                             register={register('password')}
-                            errors={errors.password}
+                            errors={errors}
                           />
 
                           <div className="flex items-center  mb-3">

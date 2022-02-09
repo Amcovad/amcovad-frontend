@@ -19,7 +19,7 @@ const Navbar = () => {
               <Button outline>Sign in</Button>
             </li>
             <li>
-              <Button className="text-white">Try it now</Button>
+              <Button className="text-white ml-4">Try it now</Button>
             </li>
           </ul>
           <div className="lg:hidden ">
