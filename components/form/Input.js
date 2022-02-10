@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { PasswordCheckIcon } from '../../assets/svgs/svgs';
+import { ShowPasswordIcon, HidePasswordIcon } from '../../assets/svgs/svgs';
 
-const Input = ({ className, Icon, label, name, placeholder, onClick, type, register, errors }) => {
+const Input = ({ className, Icon, label, name, placeholder, type, register, errors }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowPassword = () => {
     setShowPassword((show) => !show);
   };
 
-  const HasIcon = `${(<PasswordCheckIcon width="18px" height="18px" fill="#292D32" onClick={handleShowPassword} />)}`;
+  const PasswordIcon = showPassword ? (
+    <HidePasswordIcon width="18px" height="18px" fill="#A9ABAD" onClick={handleShowPassword} />
+  ) : (
+    <ShowPasswordIcon width="18px" height="18px" fill="#A9ABAD" onClick={handleShowPassword} />
+  );
+  const isPasswordField = type === 'password';
+  const inputIcon = isPasswordField ? PasswordIcon : Icon;
 
   const hasErrors = !!errors?.[name];
 
@@ -21,7 +27,7 @@ const Input = ({ className, Icon, label, name, placeholder, onClick, type, regis
       <input
         name={name}
         placeholder={placeholder ? placeholder : label}
-        type={type}
+        type={isPasswordField ? (showPassword ? 'text' : 'password') : type}
         id={name}
         {...register}
         className={`${errorClass} block py-2.5 px-0 w-full text-sm  text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0  peer ${className}`}
@@ -32,9 +38,9 @@ const Input = ({ className, Icon, label, name, placeholder, onClick, type, regis
       >
         {label}
       </label>
-      {Icon && (
+      {inputIcon && (
         <span className="absolute top-4 right-2 cursor-pointer" data-testid="icon">
-          {Icon ? HasIcon : ''}
+          {inputIcon}
         </span>
       )}
 
@@ -62,6 +68,7 @@ Input.propTypes = {
 Input.defaultProps = {
   label: null,
   type: 'text',
-  placeholder: null
+  placeholder: null,
+  Icon: null
 };
 export default Input;

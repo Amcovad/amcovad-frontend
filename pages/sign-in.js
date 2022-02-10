@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
@@ -7,7 +7,6 @@ import * as yup from 'yup';
 import { Button, Input, MnavBar } from '@/components/index';
 
 import { LogoBlack, SignInImage } from '../assets';
-import { PasswordCheckIcon } from '../assets/svgs/svgs';
 
 const SignIn = () => {
   const schema = yup
@@ -28,11 +27,7 @@ const SignIn = () => {
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
   };
-  const [showPassword, setShowPassword] = useState(false);
 
-  const handleShowPassword = () => {
-    setShowPassword((show) => !show);
-  };
   return (
     <>
       <div className="max-w-screen-2xl">
@@ -68,8 +63,7 @@ const SignIn = () => {
                           <Input
                             label="Password"
                             name="password"
-                            type={showPassword ? 'text' : 'password'}
-                            Icon
+                            type="password"
                             register={register('password')}
                             errors={errors}
                           />
