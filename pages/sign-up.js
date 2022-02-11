@@ -1,10 +1,29 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button, Input, MnavBar } from '@/components/index';
+import * as yup from 'yup';
+import HookForm from '@/components/form/Form';
 
 import { LogoBlack, SignUpImage } from '../assets';
-import { PasswordCheckIcon } from '../assets/svgs/svgs';
+
 const SignUp = () => {
+  const SignUpSchema = yup
+    .object({
+      email: yup.string().email('Kindly provide a valid email address').required('Email is required'),
+      password: yup
+        .string()
+        .required('password is required')
+        .min(6, 'Password should be of minimum 6 characters length'),
+      confirmPassword: yup
+        .string()
+        .required('Confirm password is required')
+        .oneOf([yup.ref('password')], "Password's not match")
+    })
+    .required();
+
+  const onSubmit = (data) => {
+    alert(JSON.stringify(data));
+  };
   return (
     <>
       <div className="max-w-screen-2xl">
@@ -29,26 +48,13 @@ const SignUp = () => {
                         </p>
                       </div>
                       <div className="">
-                        <form action="#" method="POST" className="space-y-1">
-                          <div>
-                            <Input label="Email address" name="email" type="email" className="w-full" />
-                          </div>
-                          <div className="">
-                            <Input
-                              label="Password"
-                              name="password"
-                              type="password"
-                              Icon={<PasswordCheckIcon width="18px" height="18px" fill="#292D32" />}
-                            />
-                          </div>
-                          <div className="">
-                            <Input
-                              label="Confirm Password"
-                              name="confirm-password"
-                              type="password"
-                              Icon={<PasswordCheckIcon width="18px" height="18px" fill="#292D32" />}
-                            />
-                          </div>
+                        <HookForm onSubmit={onSubmit} schema={SignUpSchema} className="space-y-1">
+                          <Input label="Email address" name="email" type="email" />
+
+                          <Input label="Password" name="password" type="password" />
+
+                          <Input label="Confirm Password" name="confirmPassword" type="password" />
+
                           <div className="">
                             <div className="flex items-center mt-8 mb-3">
                               <input
@@ -78,7 +84,6 @@ const SignUp = () => {
                                 id="remember-me"
                                 name="remember-me"
                                 type="checkbox"
-                                placeholder="Your password"
                                 className="w-4 h-4 text-amcovad-primary-400 border-gray-200 rounded focus:ring-amcovad-primary-300 "
                               />
                               <label
@@ -88,7 +93,7 @@ const SignUp = () => {
                                 I agree to be contacted by
                                 <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
                                   {' '}
-                                  amcovad{' '}
+                                  amcovad
                                 </a>
                               </label>
                             </div>
@@ -96,7 +101,7 @@ const SignUp = () => {
                           <div>
                             <Button className=" w-full font-[600] text-amcovad-secondary-700">Create account</Button>
                           </div>
-                        </form>
+                        </HookForm>
                       </div>
                     </div>
                   </div>

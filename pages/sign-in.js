@@ -1,28 +1,18 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { Button, Input, MnavBar } from '@/components/index';
-
+import HookForm from '@/components/form/Form';
 import { LogoBlack, SignInImage } from '../assets';
 
 const SignIn = () => {
-  const schema = yup
+  const SignInSchema = yup
     .object({
       email: yup.string().email('Kindly provide a valid email address').required('Email is required'),
       password: yup.string().required('password is required').min(6, 'Password must be atleast 6 character long')
     })
     .required();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm({
-    resolver: yupResolver(schema)
-  });
 
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
@@ -52,21 +42,9 @@ const SignIn = () => {
                         </p>
                       </div>
                       <div className="mt-8">
-                        <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
-                          <Input
-                            label="Email address"
-                            name="email"
-                            type="email"
-                            register={register('email')}
-                            errors={errors}
-                          />
-                          <Input
-                            label="Password"
-                            name="password"
-                            type="password"
-                            register={register('password')}
-                            errors={errors}
-                          />
+                        <HookForm onSubmit={onSubmit} schema={SignInSchema} className="space-y-2">
+                          <Input label="Email address" name="email" type="email" />
+                          <Input label="Password" name="password" type="password" />
 
                           <div className="flex items-center  mb-3">
                             <label
@@ -78,11 +56,10 @@ const SignIn = () => {
                               </a>
                             </label>
                           </div>
-
                           <div>
                             <Button className=" w-full font-[600] text-amcovad-black"> Sign in</Button>
                           </div>
-                        </form>
+                        </HookForm>
                         <p className="block ml-2 text-center text-[14px] text-[#344055] font-normal font-Inter ">
                           Don’t have account?{' '}
                           <Link href="/sign-up">

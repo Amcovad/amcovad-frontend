@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { ShowPasswordIcon, HidePasswordIcon } from '../../assets/svgs/svgs';
 
-const Input = ({ className, Icon, label, name, placeholder, type, register, errors }) => {
+const Input = ({ className, Icon, label, name, placeholder, type }) => {
+  const {
+    register,
+    formState: { errors }
+  } = useFormContext();
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleShowPassword = () => {
@@ -29,7 +35,7 @@ const Input = ({ className, Icon, label, name, placeholder, type, register, erro
         placeholder={placeholder ? placeholder : label}
         type={isPasswordField ? (showPassword ? 'text' : 'password') : type}
         id={name}
-        {...register}
+        {...register(name)}
         className={`${errorClass} block py-2.5 px-0 w-full text-sm  text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0  peer ${className}`}
       />
       <label
