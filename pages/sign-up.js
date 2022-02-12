@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button, Input, MnavBar } from '@/components/index';
+import { Button, Checkbox, Input, MnavBar } from '@/components/index';
 import * as yup from 'yup';
 import HookForm from '@/components/form/Form';
 
@@ -17,7 +17,9 @@ const SignUp = () => {
       confirmPassword: yup
         .string()
         .required('Confirm password is required')
-        .oneOf([yup.ref('password')], "Password's not match")
+        .oneOf([yup.ref('password')], "Password's not match"),
+      acceptTerms: yup.boolean().oneOf([true], 'Must Accept Terms and Conditions'),
+      agreeContact: yup.boolean()
     })
     .required();
 
@@ -54,46 +56,45 @@ const SignUp = () => {
 
                         <Input label="Confirm Password" name="confirmPassword" type="password" />
 
-                        <div className="flex items-center mt-8 mb-3">
-                          <input
-                            id="remember-me"
-                            name="remember-me"
+                        <div className=" mt-8 mb-3">
+                          <Checkbox
+                            name="acceptTerms"
                             type="checkbox"
-                            placeholder="Your password"
-                            className="w-4 h-4 text-amcovad-primary-400 border-gray-200 rounded focus:ring-amcovad-primary-300 "
+                            other={
+                              <label
+                                htmlFor="remember-me"
+                                className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
+                              >
+                                I have read, and I agree to the
+                                <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                                  {' '}
+                                  Terms of Service{' '}
+                                </a>
+                                and{' '}
+                                <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                                  Privacy Policy
+                                </a>
+                              </label>
+                            }
                           />
-                          <label
-                            htmlFor="remember-me"
-                            className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
-                          >
-                            I have read, and I agree to the
-                            <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                              {' '}
-                              Terms of Service{' '}
-                            </a>
-                            and{' '}
-                            <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                              Privacy Policy
-                            </a>
-                          </label>
                         </div>
                         <div className="flex items-center mt-3 mb-6">
-                          <input
-                            id="remember-me"
-                            name="remember-me"
+                          <Checkbox
+                            name="agreeContact"
                             type="checkbox"
-                            className="w-4 h-4 text-amcovad-primary-400 border-gray-200 rounded focus:ring-amcovad-primary-300 "
+                            other={
+                              <label
+                                htmlFor="remember-me"
+                                className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
+                              >
+                                I agree to be contacted by
+                                <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                                  {' '}
+                                  amcovad
+                                </a>
+                              </label>
+                            }
                           />
-                          <label
-                            htmlFor="remember-me"
-                            className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
-                          >
-                            I agree to be contacted by
-                            <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                              {' '}
-                              amcovad
-                            </a>
-                          </label>
                         </div>
 
                         <div>
