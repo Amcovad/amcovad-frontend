@@ -42,7 +42,7 @@ const SignIn = () => {
                         </p>
                       </div>
                       <div className="mt-8">
-                        <HookForm onSubmit={onSubmit} schema={SignInSchema} className="space-y-2">
+                        <HookForm onSubmit={onSubmit} schema={SignInSchema}>
                           <Input label="Email address" name="email" type="email" />
                           <Input label="Password" name="password" type="password" />
 

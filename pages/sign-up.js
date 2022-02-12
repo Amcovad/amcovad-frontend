@@ -47,62 +47,59 @@ const SignUp = () => {
                           officia. Salutantibus vitae elit libero, a pharetra augue.
                         </p>
                       </div>
-                      <div className="">
-                        <HookForm onSubmit={onSubmit} schema={SignUpSchema} className="space-y-1">
-                          <Input label="Email address" name="email" type="email" />
+                      <HookForm onSubmit={onSubmit} schema={SignUpSchema}>
+                        <Input label="Email address" name="email" type="email" />
 
-                          <Input label="Password" name="password" type="password" />
+                        <Input label="Password" name="password" type="password" />
 
-                          <Input label="Confirm Password" name="confirmPassword" type="password" />
+                        <Input label="Confirm Password" name="confirmPassword" type="password" />
 
-                          <div className="">
-                            <div className="flex items-center mt-8 mb-3">
-                              <input
-                                id="remember-me"
-                                name="remember-me"
-                                type="checkbox"
-                                placeholder="Your password"
-                                className="w-4 h-4 text-amcovad-primary-400 border-gray-200 rounded focus:ring-amcovad-primary-300 "
-                              />
-                              <label
-                                htmlFor="remember-me"
-                                className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
-                              >
-                                I have read, and I agree to the
-                                <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                  {' '}
-                                  Terms of Service{' '}
-                                </a>
-                                and{' '}
-                                <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                  Privacy Policy
-                                </a>
-                              </label>
-                            </div>
-                            <div className="flex items-center mt-3 mb-6">
-                              <input
-                                id="remember-me"
-                                name="remember-me"
-                                type="checkbox"
-                                className="w-4 h-4 text-amcovad-primary-400 border-gray-200 rounded focus:ring-amcovad-primary-300 "
-                              />
-                              <label
-                                htmlFor="remember-me"
-                                className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
-                              >
-                                I agree to be contacted by
-                                <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                  {' '}
-                                  amcovad
-                                </a>
-                              </label>
-                            </div>
-                          </div>
-                          <div>
-                            <Button className=" w-full font-[600] text-amcovad-secondary-700">Create account</Button>
-                          </div>
-                        </HookForm>
-                      </div>
+                        <div className="flex items-center mt-8 mb-3">
+                          <input
+                            id="remember-me"
+                            name="remember-me"
+                            type="checkbox"
+                            placeholder="Your password"
+                            className="w-4 h-4 text-amcovad-primary-400 border-gray-200 rounded focus:ring-amcovad-primary-300 "
+                          />
+                          <label
+                            htmlFor="remember-me"
+                            className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
+                          >
+                            I have read, and I agree to the
+                            <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                              {' '}
+                              Terms of Service{' '}
+                            </a>
+                            and{' '}
+                            <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                              Privacy Policy
+                            </a>
+                          </label>
+                        </div>
+                        <div className="flex items-center mt-3 mb-6">
+                          <input
+                            id="remember-me"
+                            name="remember-me"
+                            type="checkbox"
+                            className="w-4 h-4 text-amcovad-primary-400 border-gray-200 rounded focus:ring-amcovad-primary-300 "
+                          />
+                          <label
+                            htmlFor="remember-me"
+                            className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
+                          >
+                            I agree to be contacted by
+                            <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                              {' '}
+                              amcovad
+                            </a>
+                          </label>
+                        </div>
+
+                        <div>
+                          <Button className=" w-full font-[600] text-amcovad-secondary-700">Create account</Button>
+                        </div>
+                      </HookForm>
                     </div>
                   </div>
                 </div>
