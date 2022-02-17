@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button, Checkbox, Input, MnavBar } from '@/components/index';
+import { Button, Checkbox, CheckBoxGroup, Input, MnavBar } from '@/components/index';
 import * as yup from 'yup';
 import HookForm from '@/components/form/Form';
 
@@ -19,9 +19,23 @@ const SignUp = () => {
         .required('Confirm password is required')
         .oneOf([yup.ref('password')], "Password's not match"),
       acceptTerms: yup.boolean().oneOf([true], 'Must Accept Terms and Conditions'),
-      agreeContact: yup.boolean()
+      agreeContact: yup.boolean(),
+      acceptMulti: yup
+        .array()
+        .min(1, 'Must Accept Terms and Conditions')
+        .required('At least one checkbox is required')
+        .nullable()
     })
     .required();
+
+  const options = [
+    {
+      name: 'acceptMulti',
+      label: ' I have read, and I agree to the Terms of Service and Privacy Policy',
+      value: 'acceptTerms'
+    },
+    { name: 'acceptMulti', label: 'I agree to be contacted by amcovad', value: 'agreeContact' }
+  ];
 
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
@@ -57,10 +71,11 @@ const SignUp = () => {
                         <Input label="Confirm Password" name="confirmPassword" type="password" />
 
                         <div className=" mt-8 mb-3">
+                          <CheckBoxGroup options={options} />
                           <Checkbox
                             name="acceptTerms"
                             type="checkbox"
-                            other={
+                            label={
                               <label
                                 htmlFor="remember-me"
                                 className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
@@ -82,7 +97,7 @@ const SignUp = () => {
                           <Checkbox
                             name="agreeContact"
                             type="checkbox"
-                            other={
+                            label={
                               <label
                                 htmlFor="remember-me"
                                 className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
