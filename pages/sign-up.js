@@ -30,11 +30,10 @@ const SignUp = () => {
 
   const options = [
     {
-      name: 'acceptMulti',
       label: ' I have read, and I agree to the Terms of Service and Privacy Policy',
       value: 'acceptTerms'
     },
-    { name: 'acceptMulti', label: 'I agree to be contacted by amcovad', value: 'agreeContact' }
+    { label: 'I agree to be contacted by amcovad', value: 'agreeContact' }
   ];
 
   const onSubmit = (data) => {
@@ -71,7 +70,7 @@ const SignUp = () => {
                         <Input label="Confirm Password" name="confirmPassword" type="password" />
 
                         <div className=" mt-8 mb-3">
-                          <CheckBoxGroup options={options} />
+                          <CheckBoxGroup name="acceptMulti" options={options} />
                           <Checkbox
                             name="acceptTerms"
                             type="checkbox"

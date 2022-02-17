@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
-export function Checkbox({ name, label, type }) {
+export function Checkbox({ name, label, value }) {
   const {
     register,
     formState: { errors }
@@ -11,53 +11,44 @@ export function Checkbox({ name, label, type }) {
     <>
       <div className="flex items-center">
         <input
-          name={name}
-          type={type}
+          id={`options-${value}`}
           className="w-4 h-4 text-amcovad-primary-400 border-gray-200 rounded focus:ring-amcovad-primary-300 "
+          name={name}
+          type="checkbox"
+          value={value}
           {...register(name)}
         />
-        {label}
+
+        <label
+          htmlFor={`options-${value}`}
+          className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
+        >
+          {label}
+        </label>
       </div>
-      {errors?.[name] && <span className="text-amcovad-danger py-1 text-sm ">{errors?.[name]?.message}</span>}
     </>
   );
 }
 
 Checkbox.propTypes = {
+  label: PropTypes.node.isRequired,
   name: PropTypes.string,
-  type: PropTypes.string
+  value: PropTypes.any.isRequired
 };
 Checkbox.defaultProps = {
-  type: 'checkbox'
+  name: null
 };
 
-export function CheckBoxGroup({ options }) {
+export function CheckBoxGroup({ name, options }) {
   const {
-    register,
     formState: { errors }
   } = useFormContext();
   return (
     <>
-      {options.map((option) => (
-        <>
-          <div className="flex items-center mb-3">
-            <input
-              key={option}
-              name={option.name}
-              value={option.value}
-              type="checkbox"
-              className="w-4 h-4 text-amcovad-primary-400 border-gray-200 rounded focus:ring-amcovad-primary-300 "
-              {...register(option.name)}
-            />
-            <label htmlFor="sign-up" className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter ">
-              {option.label}
-            </label>
-          </div>
-          {errors?.[option.name] && (
-            <span className="text-amcovad-danger py-1 text-sm ">{errors?.[option.name]?.message}</span>
-          )}
-        </>
-      ))}
+      {options.map(({ label, value }, index) => {
+        return <Checkbox key={index} name={name} value={value} label={label} />;
+      })}
+      {errors?.[name] && <span className="text-amcovad-danger py-1 text-sm "> {errors?.[name]?.message}</span>}
     </>
   );
 }
