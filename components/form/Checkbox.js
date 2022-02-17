@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFormContext, Controller } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 export function Checkbox({ name, label, type }) {
   const {
