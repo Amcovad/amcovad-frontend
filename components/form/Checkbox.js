@@ -6,7 +6,7 @@ export function Checkbox({ name, label, value }) {
     register,
     formState: { errors }
   } = useFormContext();
-
+  if (!value && !label) return null;
   return (
     <>
       <div className="flex items-center">
@@ -18,7 +18,6 @@ export function Checkbox({ name, label, value }) {
           value={value}
           {...register(name)}
         />
-
         <label
           htmlFor={`options-${value}`}
           className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
@@ -46,7 +45,10 @@ export function CheckBoxGroup({ name, options }) {
   return (
     <>
       {options.map(({ label, value }, index) => {
-        return <Checkbox key={index} name={name} value={value} label={label} />;
+        if (!value && !label) return null;
+        const optionLabel = label || value;
+        const optionValue = value || label;
+        return <Checkbox key={index} name={name} value={optionValue} label={optionLabel} />;
       })}
       {errors?.[name] && <span className="text-amcovad-danger py-1 text-sm "> {errors?.[name]?.message}</span>}
     </>

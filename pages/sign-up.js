@@ -6,6 +6,14 @@ import HookForm from '@/components/form/Form';
 
 import { LogoBlack, SignUpImage } from '../assets';
 
+export const valueToOptions = (values, defaultLabel = null) => {
+  const output = values.map((value) => ({
+    value: value.toString(),
+    label: value.toString()
+  }));
+  return defaultLabel ? [{ value: '', label: defaultLabel }, ...output] : output;
+};
+
 const SignUp = () => {
   const SignUpSchema = yup
     .object({
@@ -28,7 +36,7 @@ const SignUp = () => {
     })
     .required();
 
-  const options = [
+  const output = [
     {
       label: ' I have read, and I agree to the Terms of Service and Privacy Policy',
       value: 'acceptTerms'
@@ -70,15 +78,11 @@ const SignUp = () => {
                         <Input label="Confirm Password" name="confirmPassword" type="password" />
 
                         <div className=" mt-8 mb-3">
-                          <CheckBoxGroup name="acceptMulti" options={options} />
+                          <CheckBoxGroup name="acceptMulti" options={output} />
                           <Checkbox
                             name="acceptTerms"
-                            type="checkbox"
                             label={
-                              <label
-                                htmlFor="remember-me"
-                                className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
-                              >
+                              <label>
                                 I have read, and I agree to the
                                 <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
                                   {' '}
@@ -95,12 +99,8 @@ const SignUp = () => {
                         <div className="flex items-center mt-3 mb-6">
                           <Checkbox
                             name="agreeContact"
-                            type="checkbox"
                             label={
-                              <label
-                                htmlFor="remember-me"
-                                className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
-                              >
+                              <label>
                                 I agree to be contacted by
                                 <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
                                   {' '}
