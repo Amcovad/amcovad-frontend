@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button, Checkbox, CheckboxGroup, Input, MnavBar, RadioButton, RadioButtonGroup } from '@/components/index';
+import { Button, CheckboxGroup, CheckboxGroups, Input, MnavBar } from '@/components/index';
 import * as yup from 'yup';
 import HookForm from '@/components/form/Form';
 
@@ -19,35 +19,11 @@ const SignUp = () => {
         .required('Confirm password is required')
         .oneOf([yup.ref('password')], "Password's not match"),
       acceptTerms: yup.boolean().oneOf([true], 'Must Accept Terms and Conditions'),
-      agreeContact: yup.boolean(),
-      acceptMulti: yup
-        .array()
-        .min(1, 'Must Accept Terms and Conditions')
-        .required('At least one checkbox is required')
-        .nullable(),
-      radioGroup: yup.string().required('A radio option is required').nullable(),
-      radioGroup1: yup.string().required('A radio group option is required').nullable()
+      agreeContact: yup.boolean()
     })
     .required();
 
-  const output = [
-    {
-      label: ' I have read, and I agree to the Terms of Service and Privacy Policy',
-      value: 'acceptTerms'
-    },
-    { label: 'I agree to be contacted by amcovad', value: 'agreeContact' }
-  ];
-
-  const outputsample = [
-    {
-      label: 'Privacy Policy',
-      value: 'PrivacyPolicy'
-    },
-    { label: ' Sign amcovad', value: 'Signamcovad' },
-    { label: ' Sign in Today', value: 'SigninToday' }
-  ];
   const onSubmit = (data) => {
-    console.log(onSubmit);
     alert(JSON.stringify(data));
   };
   return (
@@ -81,15 +57,13 @@ const SignUp = () => {
                         <Input label="Confirm Password" name="confirmPassword" type="password" />
 
                         <div className=" mt-8 mb-3">
-                          <CheckboxGroup name="acceptMulti" options={output} />
-                          <Checkbox
+                          <CheckboxGroup
                             name="acceptTerms"
                             label={
                               <label>
                                 I have read, and I agree to the
                                 <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                  {' '}
-                                  Terms of Service{' '}
+                                  Terms of Service
                                 </a>
                                 and{' '}
                                 <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
@@ -99,8 +73,8 @@ const SignUp = () => {
                             }
                           />
                         </div>
-                        <div className="mt-3 mb-6">
-                          <Checkbox
+                        <div className="flex items-center mt-3 mb-6">
+                          <CheckboxGroup
                             name="agreeContact"
                             label={
                               <label>
@@ -112,10 +86,6 @@ const SignUp = () => {
                               </label>
                             }
                           />
-                        </div>
-                        <RadioButton name="radioGroup" label="Amcovad radio" value="radioGroup" />
-                        <div className="flex flex-row flex-wrap mb-2">
-                          <RadioButtonGroup name="radioGroup1" options={outputsample} />
                         </div>
 
                         <div>
