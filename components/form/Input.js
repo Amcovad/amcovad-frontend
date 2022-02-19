@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { ErrorLabel, FloatLabel } from '.';
 import PropTypes from 'prop-types';
 import { ShowPasswordIcon, HidePasswordIcon } from '../../assets/svgs/svgs';
 
@@ -38,23 +39,13 @@ const Input = ({ className, Icon, label, name, placeholder, type }) => {
         {...register(name)}
         className={`${errorClass} block py-2.5 px-0 w-full text-sm  text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0  peer ${className}`}
       />
-      <label
-        htmlFor={name}
-        className={`${errorLabel} absolute text-sm text-amcovad-secondary-700 duration-300 transform -translate-y-7 scale-75 top-3 left-1 z-10 origin-[0] peer-focus:left-1  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7`}
-      >
-        {label}
-      </label>
+      <FloatLabel errorLabel={errorLabel} htmlFor={name} label={label} />
       {inputIcon && (
         <span className="absolute top-4 right-2 cursor-pointer" data-testid="icon">
           {inputIcon}
         </span>
       )}
-
-      {errors?.[name] && (
-        <div className="text-amcovad-danger py-1">
-          <p>{errors?.[name]?.message}</p>
-        </div>
-      )}
+      <ErrorLabel name={name} />
     </div>
   );
 };

@@ -1,18 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button, Checkbox, CheckBoxGroup, Input, MnavBar } from '@/components/index';
+import { Button, Checkbox, CheckboxGroup, Input, MnavBar, RadioButton, RadioButtonGroup } from '@/components/index';
 import * as yup from 'yup';
 import HookForm from '@/components/form/Form';
 
 import { LogoBlack, SignUpImage } from '../assets';
-
-export const valueToOptions = (values, defaultLabel = null) => {
-  const output = values.map((value) => ({
-    value: value.toString(),
-    label: value.toString()
-  }));
-  return defaultLabel ? [{ value: '', label: defaultLabel }, ...output] : output;
-};
 
 const SignUp = () => {
   const SignUpSchema = yup
@@ -32,7 +24,9 @@ const SignUp = () => {
         .array()
         .min(1, 'Must Accept Terms and Conditions')
         .required('At least one checkbox is required')
-        .nullable()
+        .nullable(),
+      radioGroup: yup.string().required('A radio option is required').nullable(),
+      radioGroup1: yup.string().required('A radio group option is required').nullable()
     })
     .required();
 
@@ -44,7 +38,16 @@ const SignUp = () => {
     { label: 'I agree to be contacted by amcovad', value: 'agreeContact' }
   ];
 
+  const outputsample = [
+    {
+      label: 'Privacy Policy',
+      value: 'PrivacyPolicy'
+    },
+    { label: ' Sign amcovad', value: 'Signamcovad' },
+    { label: ' Sign in Today', value: 'SigninToday' }
+  ];
   const onSubmit = (data) => {
+    console.log(onSubmit);
     alert(JSON.stringify(data));
   };
   return (
@@ -78,7 +81,7 @@ const SignUp = () => {
                         <Input label="Confirm Password" name="confirmPassword" type="password" />
 
                         <div className=" mt-8 mb-3">
-                          <CheckBoxGroup name="acceptMulti" options={output} />
+                          <CheckboxGroup name="acceptMulti" options={output} />
                           <Checkbox
                             name="acceptTerms"
                             label={
@@ -96,7 +99,7 @@ const SignUp = () => {
                             }
                           />
                         </div>
-                        <div className="flex items-center mt-3 mb-6">
+                        <div className="mt-3 mb-6">
                           <Checkbox
                             name="agreeContact"
                             label={
@@ -109,6 +112,10 @@ const SignUp = () => {
                               </label>
                             }
                           />
+                        </div>
+                        <RadioButton name="radioGroup" label="Amcovad radio" value="radioGroup" />
+                        <div className="flex flex-row flex-wrap mb-2">
+                          <RadioButtonGroup name="radioGroup1" options={outputsample} />
                         </div>
 
                         <div>
