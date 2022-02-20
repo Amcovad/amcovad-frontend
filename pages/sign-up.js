@@ -26,8 +26,8 @@ const SignUp = () => {
   };
   return (
     <>
-      <div className="max-w-screen-2xl">
-        <section className="lg:bg-amcovad-primary-500 overflow-hidden  max-w-[84rem]">
+      <div className="w-full 2xl:mx-auto 2xl:container">
+        <section className="lg:bg-amcovad-primary-500 overflow-hidden  max-w-full">
           <div className=" bg-cover bg-[url('../assets/images/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../assets/images/hexagons.png')]">
             <MnavBar />
             <div className="flex ">

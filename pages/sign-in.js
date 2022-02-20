@@ -20,8 +20,8 @@ const SignIn = () => {
 
   return (
     <>
-      <div className="max-w-screen-2xl">
-        <section className="lg:bg-amcovad-primary-500 overflow-hidden max-w-[84rem] ">
+      <div className="w-full 2xl:mx-auto 2xl:container">
+        <section className="lg:bg-amcovad-primary-500 overflow-hidden max-w-full ">
           <div className=" bg-cover pb-24 lg:pb-0 bg-[url('../assets/images/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../assets/images/hexagons.png')]">
             <MnavBar />
             <div className="flex ">
@@ -71,7 +71,7 @@ const SignIn = () => {
                   </div>
                 </div>
               </div>
-              <div className="relative lg:flex flex-1 hidden lg:w-screen ">
+              <div className="relative lg:flex justify-end hidden lg:w-screen lg bottom-0 ">
                 <Image src={SignInImage} alt=" Sign up image" />
               </div>
             </div>

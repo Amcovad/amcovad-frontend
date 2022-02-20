@@ -1,45 +1,33 @@
 import React from 'react';
 import Image from 'next/image';
-import {
-  Blog1,
-  Blog2,
-  Blog3,
-  FooterLogo,
-  Lock,
-  Phone,
-  User,
-  Instagram,
-  Facebook,
-  Linkin,
-  Twitter,
-  Call,
-  Mail,
-  Location
-} from '../assets';
+import { Lock, Phone, User } from '../assets';
 import Button from '../components/form/Button';
+import Footer from './Footer';
+import Blog from './Blog';
 
 const Hero = () => {
   return (
     <div className="overflow-hidden">
-      <section className="px-2 py-32  bg-cover  bg-top bg-opacity-20 bg-[url('../assets/images/hexagons.png')] md:px-0">
-        <div className="container items-center max-w-6xl px-8 mx-auto xl:px-5">
-          <div className="flex flex-wrap items-center sm:-mx-3">
-            <div className="w-full md:w-1/2 md:px-3">
-              {/* Content */}
-              <div className="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
-                <h1 className="text-4xl font-RozhaOne  font-extrabold tracking-tight text-amcovad-primary-500 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
-                  <span className="block xl:inline">Digital approach to </span>
-                  <span className="block xl:inline">a secure deal & transactions</span>
-                </h1>
-                <p className="text-amcovad-tertiary font-Inter text-[0.75rem] sm:font-[500] font-normal mx-auto sm:max-w-md lg:text-xl md:max-w-3xl">
-                  Gallia est omnis divisa in partes tres, quarum. Fabio vel iudice vincam, sunt in culpa qui officia.
-                  Salutantibus vitae elit libero, a pharetra augue.
-                </p>
-                <Button>Start now</Button>
+      <section className=" bg-cover py-2 md:py-10 lg:pb-28  bg-top bg-opacity-20 bg-[url('../assets/images/hexagons.png')] md:px-0">
+        <div className="px-4 py-12 mt-24 lg:mt-0 xl:py-28  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+          <div className="grid gap-5 row-gap-8 lg:grid-cols-2">
+            <div className="flex flex-col justify-center">
+              <div className="max-w-xl mb-6 px-4 md:px-0">
+                <div className="w-full pb-6 space-y-6 sm:max-w-md md:max-w-full  lg:max-w-lg xl:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0 lg:pl-8 xl:pl-0">
+                  <h1 className="text-4xl font-RozhaOne  font-extrabold tracking-tight text-amcovad-primary-500  md:text-4xl lg:text-5xl xl:text-6xl">
+                    <span className="block ">Digital approach to </span>
+                    <span className="block ">a secure deal & transactions</span>
+                  </h1>
+                  <p className="text-amcovad-tertiary font-Inter text-[0.75rem] sm:font-[500] font-normal mx-auto sm:max-w-md lg:text-xl md:max-w-3xl">
+                    Gallia est omnis divisa in partes tres, quarum. Fabio vel iudice vincam, sunt in culpa qui officia.
+                    Salutantibus vitae elit libero, a pharetra augue.
+                  </p>
+                  <Button>Start now</Button>
+                </div>
               </div>
             </div>
-            <div className="w-4/5 md:w-1/2 hidden md:block ">
-              <div className=" w-full h-auto overflow-hidden rounded-md  sm:rounded-xl">
+            <div className="hidden lg:block ">
+              <div className=" w-[70%] h-auto mx-auto overflow-hidden ">
                 <Image src={Lock} alt="lock" />
               </div>
             </div>
@@ -48,44 +36,47 @@ const Hero = () => {
       </section>
 
       <section className="text-amcovad-secondary-300 bg-amcovad-secondary-100 lg:bg-gradient-section ">
-        <div className="container px-8 py-24 mx-auto flex flex-wrap">
-          <div className="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:text-left sm:text-left ">
-            <div className="flex flex-col mb-10 lg:items-start items-center">
-              <div className="w-full relative pb-6 sm:space-x-4 space-y-4 md:space-x-6 sm:max-w-[300.96px] lg:max-w-[387px] md:space-y-[0.5rem] lg:space-y-[0.5rem] xl:space-y-[0.5rem] sm:pr-5 lg:pr-0 md:pb-0">
-                <h1 className=" pb-8 lg:pb-16  text-4xl font-RozhaOne  font-extrabold tracking-tight text-amcovad-secondary-600 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
-                  <span className="block xl:inline  ">
-                    How <span className="text-amcovad-primary-500">Amcovad </span>secure your transactions.
-                  </span>
-                </h1>
+        <div className="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:pt-20">
+          <div className="grid gap-5 row-gap-8 lg:grid-cols-2 lg">
+            <div className="lg:p-12 xl:p-0">
+              <div className="w-full relative pb-6 my-20 sm:pr-5 lg:pr-0 md:pb-0">
+                <div className="px-2 max-w-[300.96px] md:max-w-[400px] lg:max-w-[387px]">
+                  <h1 className=" pb-8 lg:pb-12  text-4xl font-RozhaOne  font-extrabold tracking-tight text-amcovad-secondary-600 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+                    <span className="block">
+                      How <span className="text-amcovad-primary-500">Amcovad </span>secure your transactions.
+                    </span>
+                  </h1>
+                </div>
 
-                <p className="text-amcovad-secondary-700 z-10 pl-10 font-Inter text-[0.875rem] font-[700] mx-auto sm:max-w-md lg:text-sm md:max-w-3xl">
+                <p className="text-amcovad-secondary-700 z-10 pl-16 pb-6 font-Inter text-[0.875rem] font-[700] mx-auto sm:max-w-md lg:text-sm md:max-w-3xl">
                   Setup your account
                 </p>
-                <p className="lg:max-w-[379px] z-10 text-amcovad-secondary-600 font-Inter font-normal">
+                <p className="max-w-[20.25rem] md:max-w-[27rem] lg:max-w-[23.6875rem] z-10   text-amcovad-secondary-600 font-Inter font-normal">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum et accumsan nulla posuere aliquet
                   ac eleifend erat viverra. Nisi maecenas laoreet aenean suscipit. Blandit at vulputate non nunc, mollis
                   amet
                 </p>
 
-                <span className=" text-[248px] top-8 left-[-48px] lg:top-20 absolute font-normal text-amcovad-black opacity-10">
+                <span className="font-['Inter'] block text-[15.5rem] md:text-[12.5rem] lg:text-[16rem] left-[-1.3125rem] md:left-[-0.625rem] lg:left-[-1.625rem] top-[3.4rem] md:top-[2rem] lg:top-20 xl:top-[7.6rem] absolute font-normal text-amcovad-black opacity-10">
                   1
                 </span>
               </div>
             </div>
-          </div>
-          <div className="hidden md:w-1/2 lg:w-1/2 w-full lg:flex justify-center items-center mb-10 lg:mb-0 rounded-lg overflow-hidden ">
-            <Image src={Phone} height="650" width="395" alt="phone image" />
+
+            <div className="hidden w-[75%] mx-auto lg:flex justify-center items-center pr-5 ">
+              <Image src={Phone} height="650" width="395" alt="phone image" />
+            </div>
           </div>
         </div>
       </section>
 
       <section className="py-20 bg-amcovad-primary-600">
-        <div className="container items-center max-w-6xl px-4  mx-auto sm:px-20 md:px-32 lg:px-16">
+        <div className="container items-center px-4 xl:px-8  mx-auto sm:px-20 md:px-32 lg:px-16">
           <div className="flex flex-wrap items-center -mx-3">
-            <div className="order-1 w-full px-3 lg:w-3/5 lg:order-0">
+            <div className="order-1 w-full px-3 lg:w-3/5 ">
               <div className="w-full relative lg:max-w-md">
                 <div className=" lg:max-w-[336px]">
-                  <h2 className="mb-4 text-3xl lg:max-w-[276px] font-RozhaOne text-white font-bold leading-tight tracking-tight sm:text-4xl font-heading">
+                  <h2 className="mb-4 text-3xl max-w-[14rem] md:max-w-[17.25rem] font-RozhaOne text-white font-bold leading-tight tracking-tight sm:text-4xl font-heading">
                     Real Story from real Amcovad.
                   </h2>
                   <p className="mb-4 font-Inter font-normal tracking-tight text-amcovad-secondary-100 xl:mb-6">
@@ -93,7 +84,7 @@ const Hero = () => {
                   </p>
                 </div>
 
-                <div className=" bg-amcovad-secondary-100 lg:ml-20 dark:bg-gray-800 w-full rounded-md px-10 py-8 mb-6 shadow sm:inline-block">
+                <div className=" bg-amcovad-secondary-100 lg:ml-12 dark:bg-gray-800 w-full rounded-md px-10 py-8 mb-6 shadow sm:inline-block">
                   <div className="flex items-start text-left">
                     <div className="flex-shrink-0">
                       <div className="inline-block relative">
@@ -208,195 +199,8 @@ const Hero = () => {
           </div>
         </div>
       </section>
-
-      <section className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
-            <span className="relative">Articles & Guide</span>
-          </h2>
-          <p className="text-base text-gray-700 md:text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum et accumsan
-          </p>
-        </div>
-        <div className="grid gap-6 row-gap-5 mb-8 lg:grid-cols-3 sm:row-gap-6 sm:grid-cols-2">
-          <a href="#" aria-label="View Item">
-            <div className="relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-              <Image className="object-cover w-full h-56 md:h-64 xl:h-80" src={Blog1} alt="blogs images" />
-              <div className="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-black bg-opacity-[0.6] opacity-0 hover:opacity-100">
-                <p className="mb-4 text-lg font-bold text-gray-100">Mona Lisa</p>
-                <p className="text-sm tracking-wide text-gray-300">
-                  Painted between 1503 and 1517, Da Vincis alluring portrait has been dogged by two questions since the
-                  day it was made: Whos the subject and why is she smiling?
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" aria-label="View Item">
-            <div className=" hidden lg:block relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-              <Image className="object-cover w-full h-56 md:h-64 xl:h-80" src={Blog2} alt="blogs images" />
-              <div className="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-black bg-opacity-[0.6] opacity-0 hover:opacity-100">
-                <p className="mb-4 text-lg font-bold text-gray-100">The Kiss</p>
-                <p className="text-sm tracking-wide text-gray-300">
-                  Opulently gilded and extravagantly patterned, The Kiss, Gustav Klimts fin-de-siècle portrayal of
-                  intimacy, is a mix of Symbolism and Vienna Jugendstil, the Austrian variant of Art Nouveau.
-                </p>
-              </div>
-            </div>
-          </a>
-          <a href="#" aria-label="View Item">
-            <div className="hidden lg:block relative overflow-hidden transition duration-200 transform rounded shadow-lg hover:-translate-y-2 hover:shadow-2xl">
-              <Image className="object-cover w-full h-56 md:h-64 xl:h-80" src={Blog3} alt="blogs images" />
-              <div className="absolute inset-0 px-6 py-4 transition-opacity duration-200 bg-black bg-opacity-[0.6] opacity-0 hover:opacity-100">
-                <div className="bottom-2">
-                  <p className="mb-2 text-lg font-bold text-gray-100">The Harvesters</p>
-                  <p className="text-sm tracking-wide text-gray-300">
-                    Bruegels fanfare for the common man is considered one of the defining works of Western art. This
-                    composition was one of six created on the theme of the seasons.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <footer className="bg-amcovad-tertiary bg-cover bg-left lg:bg-top  bg-[url('../assets/images/footer-hexagons.png')]">
-        <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full pb-24 lg:max-w-screen-xl md:px-24 lg:px-8">
-          <div className="container px-6 py-4 mx-auto">
-            <div className="grid gap-4 lg:gap-20 row-gap-10 mb-8 lg:grid-cols-6">
-              <div className="md:max-w-md lg:col-span-2">
-                <a href="#" aria-label="Go home" title="Company" className="inline-flex items-center">
-                  <Image src={FooterLogo} alt="footer logo" />
-                </a>
-                <div className="mt-4 lg:max-w-sm">
-                  <div className="flex flex-col justify-between pt-1 pb-10 sm:flex-row">
-                    <div className="flex items-center mt-4 space-x-4 sm:mt-0">
-                      <a
-                        href="#"
-                        className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                      >
-                        <Image src={Instagram} alt="social icon logo" />
-                      </a>
-                      <a
-                        href="#"
-                        className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                      >
-                        <Image src={Facebook} alt="social icon logo" />
-                      </a>
-                      <a
-                        href="#"
-                        className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                      >
-                        <Image src={Linkin} alt="social icon logo" />
-                      </a>
-                      <a
-                        href="#"
-                        className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                      >
-                        <Image src={Twitter} alt="social icon logo" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-5 row-gap-5 lg:col-span-4 md:grid-cols-4">
-                <div>
-                  <ul className="mt-2 space-y-2">
-                    <li>
-                      <a
-                        href="#"
-                        className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                      >
-                        Services & Products
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                      >
-                        FAQs
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                      >
-                        Privacy Policy
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <ul className="mt-2 space-y-2">
-                    <li>
-                      <a
-                        href="#"
-                        className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                      >
-                        Careers
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                      >
-                        Updates
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                      >
-                        Blog
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-span-2 md:max-w-md lg:col-span-2">
-                  <ul className="mt-2 space-y-2">
-                    <li>
-                      <div className="flex  lg:items-center lg:flex-row">
-                        <div className="flex items-center justify-center w-10 h-10 mb-4 mr-2 rounded-full  lg:mb-0">
-                          <Image src={Call} alt="social icon logo" />
-                        </div>
-                        <h6 className="font-normal text-amcovad-secondary-300 leading-5 mt-2 lg:mt-0">
-                          + 234 (0) 90400032453
-                        </h6>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div className="flex  lg:items-center lg:flex-row">
-                        <div className="flex items-center justify-center w-10 h-10 mb-4 mr-2 rounded-full  lg:mb-0">
-                          <Image src={Mail} alt="social icon logo" />
-                        </div>
-                        <h6 className="font-normal text-amcovad-secondary-300 leading-5 mt-2 lg:mt-0">
-                          contactus@amcovad.com
-                        </h6>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="flex  lg:items-center lg:flex-row">
-                        <div className="flex items-center justify-center w-10 h-10 mb-4 mr-2 rounded-full  lg:mb-0">
-                          <Image src={Location} alt="social icon logo" />
-                        </div>
-                        <h6 className="font-normal text-amcovad-secondary-300 leading-5 mt-2 lg:mt-0">
-                          3rd Floor, Central District Area, Abuja.
-                        </h6>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Blog />
+      <Footer />
     </div>
   );
 };

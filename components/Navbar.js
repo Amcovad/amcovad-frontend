@@ -3,23 +3,32 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Logo from '../public/logo.svg';
 import Button from '../components/form/Button';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed z-10 outline-[5px] border-b  border-amcovad-primary-200 w-screen">
-      <div className="px-4 bg-amcovad-secondary-100 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-        <div className="lg:px-20 relative flex items-center justify-between">
-          <a href="#" aria-label="Company" title="Company" className="inline-flex items-center">
+    <header className="fixed z-10 outline-[5px] border-b  border-amcovad-primary-200 2xl:mx-auto w-full">
+      <div className="px-4 bg-amcovad-secondary-100 py-2 mx-auto md:max-w-full md:px-20 lg:px-8 2xl:px-60">
+        <div className="lg:pl-8  lg:pr-16 relative flex items-center justify-between">
+          <a href="#" aria-label="Company" title="Company" className="inline-flex items-center xl:pl-11">
             <Image src={Logo} width="167" height="42" alt="logo" />
           </a>
           <ul className="flex items-center hidden lg:flex">
             <li>
-              <Button outline>Sign in</Button>
+              <Link href="/sign-in">
+                <a>
+                  <Button outline>Sign in</Button>
+                </a>
+              </Link>
             </li>
             <li>
-              <Button className="text-white ml-4">Try it now</Button>
+              <Link href="/sign-up">
+                <a>
+                  <Button className="text-white ml-4">Try it now</Button>
+                </a>
+              </Link>
             </li>
           </ul>
           <div className="lg:hidden ">
@@ -104,9 +113,11 @@ const Navbar = () => {
                       </li>
 
                       <li>
-                        <a href="#" className="" aria-label="Sign in" title="Sign in">
-                          <Button>Sign in</Button>
-                        </a>
+                        <Link href="/sign-in">
+                          <a>
+                            <Button>Sign in</Button>
+                          </a>
+                        </Link>
                       </li>
                     </ul>
                   </nav>
