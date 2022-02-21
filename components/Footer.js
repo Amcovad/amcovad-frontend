@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { FooterLogo, Instagram, Facebook, Linkin, Twitter, Call, Mail, Location } from '../assets';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -9,36 +10,34 @@ const Footer = () => {
         <div className="container px-2 py-4 mx-auto">
           <div className="grid gap-4 lg:gap-20 row-gap-10 mb-8 lg:grid-cols-6">
             <div className="lg:col-span-2">
-              <a href="#" aria-label="Go home" title="Company" className="inline-flex items-center">
-                <Image src={FooterLogo} alt="footer logo" />
-              </a>
+              <Link passHref href="/">
+                <span className="inline-flex items-center cursor-pointer">
+                  <Image src={FooterLogo} alt="footer logo" />
+                </span>
+              </Link>
               <div className="mt-4 lg:max-w-sm">
                 <div className="flex flex-col justify-between pt-1 pb-10 sm:flex-row">
                   <div className="flex items-center mt-4 space-x-4 sm:mt-0">
-                    <a
-                      href="#"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                    >
-                      <Image src={Instagram} alt="social icon logo" />
-                    </a>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                    >
-                      <Image src={Facebook} alt="social icon logo" />
-                    </a>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                    >
-                      <Image src={Linkin} alt="social icon logo" />
-                    </a>
-                    <a
-                      href="#"
-                      className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                    >
-                      <Image src={Twitter} alt="social icon logo" />
-                    </a>
+                    <span className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400 cursor-pointer">
+                      <Link href="https://instagram.com/" passHref>
+                        <Image src={Instagram} alt="social icon logo" />
+                      </Link>
+                    </span>
+                    <span className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400 cursor-pointer">
+                      <Link href="https://facebook.com/" passHref>
+                        <Image src={Facebook} alt="social icon logo" />
+                      </Link>
+                    </span>
+                    <span className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400 cursor-pointer">
+                      <Link href="https://linkin.com/#" passHref>
+                        <Image src={Linkin} alt="social icon logo" />
+                      </Link>
+                    </span>
+                    <span className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400 cursor-pointer">
+                      <Link href="https://twitter.com/" passHref>
+                        <Image src={Twitter} alt="social icon logo" />
+                      </Link>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -46,57 +45,29 @@ const Footer = () => {
             <div className="grid grid-cols-2 gap-5 row-gap-5 lg:col-span-4 md:grid-cols-4">
               <div>
                 <ul className="mt-2 space-y-2">
-                  <li>
-                    <a
-                      href="#"
-                      className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                    >
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400 cursor-pointer ">
+                    <Link passHref href="/services">
                       Services & Products
-                    </a>
+                    </Link>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                    >
-                      FAQs
-                    </a>
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                    <Link href="/faq">FAQs</Link>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                    >
-                      Privacy Policy
-                    </a>
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                    <Link href="#">Privacy Policy</Link>
                   </li>
                 </ul>
               </div>
               <div>
                 <ul className="mt-2 space-y-2">
-                  <li>
-                    <a
-                      href="#"
-                      className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                    >
-                      Careers
-                    </a>
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                    <Link href="#">Careers</Link>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                    >
-                      Updates
-                    </a>
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                    <Link href="#">Updates</Link>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                    >
-                      Blog
-                    </a>
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                    <Link href="/blog">Blog</Link>
                   </li>
                 </ul>
               </div>
@@ -108,7 +79,7 @@ const Footer = () => {
                         <Image src={Call} alt="social icon logo" />
                       </div>
                       <h6 className="font-normal text-amcovad-secondary-300 leading-5 mt-2 lg:mt-0">
-                        + 234 (0) 90400032453
+                        <Link href="tel:+23490400032453">+ 234 (0) 90400032453</Link>
                       </h6>
                     </div>
                   </li>
@@ -119,7 +90,7 @@ const Footer = () => {
                         <Image src={Mail} alt="social icon logo" />
                       </div>
                       <h6 className="font-normal text-amcovad-secondary-300 leading-5 mt-2 lg:mt-0">
-                        contactus@amcovad.com
+                        <Link href="mailto:contactus@amcovad.com">contactus@amcovad.com</Link>
                       </h6>
                     </div>
                   </li>
