@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import HookForm from '@/components/form/Form';
 
 import { LogoBlack, SignUpImage } from '../assets';
+import Link from 'next/link';
 
 const SignUp = () => {
   const SignUpSchema = yup
@@ -50,41 +51,58 @@ const SignUp = () => {
                         </p>
                       </div>
                       <HookForm onSubmit={onSubmit} schema={SignUpSchema}>
-                        <Input label="Email address" name="email" type="email" />
+                        <Input text="Email address" name="email" type="email" />
 
-                        <Input label="Password" name="password" type="password" />
+                        <Input text="Password" name="password" type="password" />
 
-                        <Input label="Confirm Password" name="confirmPassword" type="password" />
+                        <Input text="Confirm Password" name="confirmPassword" type="password" />
 
                         <div className=" mt-8 mb-3">
                           <CheckboxGroup
                             name="acceptTerms"
-                            label={
-                              <label>
-                                I have read, and I agree to the
-                                <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                  Terms of Service
-                                </a>
-                                and{' '}
-                                <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                  Privacy Policy
-                                </a>
-                              </label>
-                            }
+                            options={[
+                              {
+                                label: (
+                                  <>
+                                    I have read, and I agree to the
+                                    <Link href="#" passHref>
+                                      <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                                        {' '}
+                                        Terms of Service{' '}
+                                      </a>
+                                    </Link>
+                                    and
+                                    <Link href="#" passHref>
+                                      <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                                        {' '}
+                                        Privacy Policy
+                                      </a>
+                                    </Link>
+                                  </>
+                                ),
+                                value: true
+                              }
+                            ]}
                           />
                         </div>
                         <div className="flex items-center mt-3 mb-6">
                           <CheckboxGroup
                             name="agreeContact"
-                            label={
-                              <label>
-                                I agree to be contacted by
-                                <a href="#" className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                  {' '}
-                                  amcovad
-                                </a>
-                              </label>
-                            }
+                            options={[
+                              {
+                                label: (
+                                  <>
+                                    <Link href="#" passHref>
+                                      <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                                        amcovad{' '}
+                                      </a>
+                                    </Link>
+                                    I agree to be contacted by
+                                  </>
+                                ),
+                                value: true
+                              }
+                            ]}
                           />
                         </div>
 
