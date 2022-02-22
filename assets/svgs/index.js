@@ -8,3 +8,4 @@ export { default as Mail } from './mail.svg';
 export { default as Location } from './location.svg';
 export { default as LogoBlack } from './logo-black.svg';
 export { default as PasswordCheckIcon } from './password-check.svg';
+export { default as WhiteLogo } from './logo-white.svg';

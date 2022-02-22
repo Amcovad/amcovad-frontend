@@ -4,10 +4,14 @@ import Image from 'next/image';
 import Logo from '../public/logo.svg';
 import Button from '../components/form/Button';
 import Link from 'next/link';
+import { WhiteLogo, HamburgerMenu } from '../assets';
+import NavLink from './NavLink';
+import NavBarLink from '../data/menu';
 
 const style = {
-  container: `relative top-1/4 w-full text-left pl-16 mt-8`,
+  container: `relative top-1/4 w-full text-left pl-16 md:pl-32 mt-8`,
   item: `text-3xl text-amcovad-white cursor-pointer  hover:amcovad-secondary-100`,
+  logo: `absolute top-8 left-8 md:left-20`,
   menu: {
     isMenuOpen: `h-full w-full `,
     close: `w-0 h-full`,
@@ -43,52 +47,19 @@ const MenuItem = ({ href, children }) => {
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggle = () => {
-    setIsMenuOpen((prevState) => !prevState);
-  };
-
   return (
     <header className="fixed z-10 outline-[5px] border-b  border-amcovad-primary-200 2xl:mx-auto w-full">
       <div className="px-4 bg-amcovad-secondary-100 py-2 mx-auto md:max-w-full md:px-20 lg:px-8 2xl:px-60">
         <div className="lg:pl-8  lg:pr-16 relative flex items-center justify-between">
           <Link href="/" passHref>
-            <div className="inline-flex items-center cursor-pointer xl:pl-11">
+            <a className="inline-flex items-center cursor-pointer xl:pl-11">
               <Image src={Logo} width="160" height="36" alt="logo" />
-            </div>
+            </a>
           </Link>
           <ul className="items-center hidden space-x-8 lg:flex">
-            <li>
-              <Link
-                href="/about"
-                className="font-medium tracking-wide text-amcovad-black transition-colors duration-200 font-Inter text-sm"
-              >
-                About us
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/products"
-                className="font-medium tracking-wide text-amcovad-black transition-colors duration-200 font-Inter text-sm"
-              >
-                Products
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/pricing"
-                className="font-medium tracking-wide text-amcovad-black transition-colors duration-200 font-Inter text-sm"
-              >
-                Pricing
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                className="font-medium tracking-wide text-amcovad-black transition-colors duration-200 font-Inter text-sm"
-              >
-                Contact us
-              </Link>
-            </li>
+            {NavBarLink.map((data, index) => {
+              return <NavLink key={index} title={data.title} url={data.url} />;
+            })}
           </ul>
           <ul className="items-center hidden lg:flex">
             <li>
@@ -110,31 +81,34 @@ const Navbar = () => {
             <button
               aria-label="Open Menu"
               title="Open Menu"
-              className="p-2 bg-amcovad-secondary-200 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
-              onClick={toggle}
+              className="p-2  -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
+              onClick={() => setIsMenuOpen(true)}
             >
-              <svg className="w-5 text-amcovad-black" viewBox="0 0 24 24">
-                <path fill="currentColor" d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z" />
-                <path fill="currentColor" d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z" />
-                <path fill="currentColor" d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z" />
-              </svg>
+              <Image src={HamburgerMenu} alt="hamburger icon" />
             </button>
             {setIsMenuOpen && (
               <Menu isMenuOpen={isMenuOpen}>
-                <button
-                  aria-label="Close"
-                  className="absolute top-3 right-5 text-5xl text-amcovad-white cursor-pointer "
-                  onClick={toggle}
-                >
-                  &times;
-                </button>
-                <MenuContainer>
-                  <MenuItem href="/about">About </MenuItem>
-                  <MenuItem href="/products">Product</MenuItem>
-                  <MenuItem href="/pricing">Pricing</MenuItem>
-                  <MenuItem href="/contact">Contact</MenuItem>
-                  <MenuItem href="/sign-up">Sign Up</MenuItem>
-                </MenuContainer>
+                <>
+                  <div className="relative">
+                    <div className={style.logo}>
+                      <Image src={WhiteLogo} alt="icon logo" />
+                    </div>
+                  </div>
+                  <button
+                    aria-label="Close"
+                    className="absolute top-3 right-5 text-5xl text-amcovad-white cursor-pointer "
+                    onClick={() => setIsMenuOpen()}
+                  >
+                    &times;
+                  </button>
+                  <MenuContainer>
+                    <MenuItem href="/about">About </MenuItem>
+                    <MenuItem href="/products">Product</MenuItem>
+                    <MenuItem href="/pricing">Pricing</MenuItem>
+                    <MenuItem href="/contact">Contact</MenuItem>
+                    <MenuItem href="/sign-up">Sign Up</MenuItem>
+                  </MenuContainer>
+                </>
               </Menu>
             )}
           </div>

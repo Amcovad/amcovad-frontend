@@ -1,7 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import { FooterLogo, Instagram, Facebook, Linkin, Twitter, Call, Mail, Location } from '../assets';
+import { FooterLogo, Call, Mail, Location } from '../assets';
 import Link from 'next/link';
+import SocialLink from './SocialLink';
+import SocialMediaLinks from '../data/social';
 
 const Footer = () => {
   return (
@@ -18,26 +20,9 @@ const Footer = () => {
               <div className="mt-4 lg:max-w-sm">
                 <div className="flex flex-col justify-between pt-1 pb-10 sm:flex-row">
                   <div className="flex items-center mt-4 space-x-4 sm:mt-0">
-                    <span className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400 cursor-pointer">
-                      <Link href="https://instagram.com/" passHref>
-                        <Image src={Instagram} alt="social icon logo" />
-                      </Link>
-                    </span>
-                    <span className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400 cursor-pointer">
-                      <Link href="https://facebook.com/" passHref>
-                        <Image src={Facebook} alt="social icon logo" />
-                      </Link>
-                    </span>
-                    <span className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400 cursor-pointer">
-                      <Link href="https://linkin.com/#" passHref>
-                        <Image src={Linkin} alt="social icon logo" />
-                      </Link>
-                    </span>
-                    <span className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400 cursor-pointer">
-                      <Link href="https://twitter.com/" passHref>
-                        <Image src={Twitter} alt="social icon logo" />
-                      </Link>
-                    </span>
+                    {SocialMediaLinks.map((data, index) => {
+                      return <SocialLink key={index} src={data.image} url={data.url} />;
+                    })}
                   </div>
                 </div>
               </div>
@@ -45,28 +30,28 @@ const Footer = () => {
             <div className="grid grid-cols-2 gap-5 row-gap-5 lg:col-span-4 md:grid-cols-4">
               <div>
                 <ul className="mt-2 space-y-2">
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400 cursor-pointer ">
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300   ">
                     <Link passHref href="/services">
                       Services & Products
                     </Link>
                   </li>
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 ">
                     <Link href="/faq">FAQs</Link>
                   </li>
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 ">
                     <Link href="#">Privacy Policy</Link>
                   </li>
                 </ul>
               </div>
               <div>
                 <ul className="mt-2 space-y-2">
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 ">
                     <Link href="#">Careers</Link>
                   </li>
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 ">
                     <Link href="#">Updates</Link>
                   </li>
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                  <li className="text-amcovad-secondary-300 transition-colors duration-300 ">
                     <Link href="/blog">Blog</Link>
                   </li>
                 </ul>

@@ -1,9 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 
 import BlogCard from './BlogCard';
-import BlogData from '../data/blogdata';
+import BlogData from '../data/blog';
 
 const Blog = () => {
   return (
