@@ -28,9 +28,11 @@ const SignIn = () => {
               <div className="flex flex-col justify-center flex-1 px-4 py-8 sm:px-6 lg:flex-none lg:px-20 xl:px-24 ">
                 <div className="w-full max-w-[43rem] lg:w-[38rem]  mx-auto pt-5 lg:pt-0 ">
                   <div className="relative lg:py-10 lg:px-8 lg:my-4 lg:max-w-[38rem] lg:w-[580px]">
-                    <div className=" hidden lg:block absolute left-3 top-[-8px]">
-                      <Image src={LogoBlack} alt="black logo" />
-                    </div>
+                    <Link passHref href="/">
+                      <a className=" hidden lg:block absolute left-3 top-[-8px] cursor-pointer">
+                        <Image src={LogoBlack} alt="black logo" />
+                      </a>
+                    </Link>
                     <div className="bg-amcovad-secondary-100 p-6 lg:p-8 ">
                       <div>
                         <h2 className=" font-RozhaOne max-w-[300px] md:max-w-[424px] text-2xl md:text-4xl font-extrabold lg:font-bold text-amcovad-tertiary pb-2">

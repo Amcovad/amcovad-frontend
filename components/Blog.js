@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BlogCard from './BlogCard';
-import BlogData from '../data/blog';
+import blogData from '../data/blog';
 
 const Blog = () => {
   return (
@@ -16,8 +16,16 @@ const Blog = () => {
       </div>
       <div className="grid gap-6 row-gap-5 mb-8 lg:grid-cols-3 sm:row-gap-6 sm:grid-cols-2">
         <>
-          {BlogData.map((data, index) => {
-            return <BlogCard key={index} article={data.article} src={data.image} press_release={data.press_release} />;
+          {blogData.map((data, index) => {
+            return (
+              <BlogCard
+                key={index}
+                article={data.article}
+                src={data.image}
+                pressRelease={data.pressRelease}
+                slug={data.slug}
+              />
+            );
           })}
         </>
       </div>

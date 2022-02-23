@@ -4,38 +4,33 @@ import Image from 'next/image';
 import Logo from '../public/logo.svg';
 import Link from 'next/link';
 import { WhiteLogo, HamburgerMenu } from '../assets';
+import NavLink from './NavLink';
+import navBarLink from '../data/menu';
 
 const style = {
   container: `relative top-1/4 w-full text-left pl-16 md:pl-32 mt-8`,
   item: `text-3xl text-amcovad-white cursor-pointer  hover:amcovad-secondary-100`,
   logo: `absolute top-8 left-8 md:left-20`,
   menu: {
-    isMenuOpen: `h-full w-full `,
+    open: `h-full w-full `,
     close: `w-0 h-full`,
     default: `overflow-x-hidden md:overflow-hidden transition-all duration-700 fixed z-10 top-0 left-0 bg-amcovad-primary-500`
   }
 };
 
 const Menu = ({ children, isMenuOpen }) => {
-  return (
-    <div
-      className={`${style.menu.default} 
-       ${isMenuOpen ? style.menu.isMenuOpen : style.menu.close}`}
-    >
-      {children}
-    </div>
-  );
+  return <div className={`${style.menu.default} ${isMenuOpen ? style.menu.open : style.menu.close}`}>{children}</div>;
 };
 
 const MenuContainer = ({ children }) => {
   return <div className={style.container}>{children}</div>;
 };
 
-const MenuItem = ({ href, children }) => {
+const MenuItem = ({ title, url }) => {
   return (
     <div className="p-2">
-      <Link href={href} passHref>
-        <span className={style.item}>{children}</span>
+      <Link href={url} passHref>
+        <span className={style.item}>{title}</span>
       </Link>
     </div>
   );
@@ -79,11 +74,10 @@ const Navbar = () => {
                     &times;
                   </button>
                   <MenuContainer>
-                    <MenuItem href="/about">About </MenuItem>
-                    <MenuItem href="/products">Product</MenuItem>
-                    <MenuItem href="/pricing">Pricing</MenuItem>
-                    <MenuItem href="/contact">Contact</MenuItem>
-                    <MenuItem href="/sign-up">Sign Up</MenuItem>
+                    {navBarLink.map((data, index) => {
+                      return <MenuItem key={index} title={data.title} url={data.url} />;
+                    })}
+                    <MenuItem url="/sign-up" title="Sign Up" />
                   </MenuContainer>
                 </>
               </Menu>

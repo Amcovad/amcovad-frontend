@@ -3,7 +3,9 @@ import Image from 'next/image';
 import { FooterLogo, Call, Mail, Location } from '../assets';
 import Link from 'next/link';
 import SocialLink from './SocialLink';
-import SocialMediaLinks from '../data/social';
+import socialMediaLinks from '../data/social';
+import FooterLink from './FooterLink';
+import footerMenuLinks from '../data/footer';
 
 const Footer = () => {
   return (
@@ -20,7 +22,7 @@ const Footer = () => {
               <div className="mt-4 lg:max-w-sm">
                 <div className="flex flex-col justify-between pt-1 pb-10 sm:flex-row">
                   <div className="flex items-center mt-4 space-x-4 sm:mt-0">
-                    {SocialMediaLinks.map((data, index) => {
+                    {socialMediaLinks.map((data, index) => {
                       return <SocialLink key={index} src={data.image} url={data.url} />;
                     })}
                   </div>
@@ -30,30 +32,16 @@ const Footer = () => {
             <div className="grid grid-cols-2 gap-5 row-gap-5 lg:col-span-4 md:grid-cols-4">
               <div>
                 <ul className="mt-2 space-y-2">
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300   ">
-                    <Link passHref href="/services">
-                      Services & Products
-                    </Link>
-                  </li>
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 ">
-                    <Link href="/faq">FAQs</Link>
-                  </li>
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 ">
-                    <Link href="#">Privacy Policy</Link>
-                  </li>
+                  {footerMenuLinks.slice(0, 3).map((data, id) => {
+                    return <FooterLink key={id} title={data.title} url={data.url} />;
+                  })}
                 </ul>
               </div>
               <div>
                 <ul className="mt-2 space-y-2">
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 ">
-                    <Link href="#">Careers</Link>
-                  </li>
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 ">
-                    <Link href="#">Updates</Link>
-                  </li>
-                  <li className="text-amcovad-secondary-300 transition-colors duration-300 ">
-                    <Link href="/blog">Blog</Link>
-                  </li>
+                  {footerMenuLinks.slice(3, 6).map((data, id) => {
+                    return <FooterLink key={id} title={data.title} url={data.url} />;
+                  })}
                 </ul>
               </div>
               <div className="col-span-2 md:max-w-md lg:col-span-2">
