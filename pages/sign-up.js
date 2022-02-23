@@ -51,11 +51,11 @@ const SignUp = () => {
                         </p>
                       </div>
                       <HookForm onSubmit={onSubmit} schema={SignUpSchema}>
-                        <Input text="Email address" name="email" type="email" />
+                        <Input label="Email address" name="email" type="email" />
 
-                        <Input text="Password" name="password" type="password" />
+                        <Input label="Password" name="password" type="password" />
 
-                        <Input text="Confirm Password" name="confirmPassword" type="password" />
+                        <Input label="Confirm Password" name="confirmPassword" type="password" />
 
                         <div className=" mt-8 mb-3">
                           <CheckboxGroup

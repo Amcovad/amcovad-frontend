@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { ShowPasswordIcon, HidePasswordIcon } from '../../assets/svgs/svgs';
-import { Label, ErrorLabel } from '.';
+import { Label, ErrorMessage } from '.';
 
-const Input = ({ className, Icon, labelClassName, name, placeholder, text, type }) => {
+const Input = ({ className, Icon, labelClassName, name, placeholder, label, type }) => {
   const {
     register,
     formState: { errors }
@@ -33,13 +33,13 @@ const Input = ({ className, Icon, labelClassName, name, placeholder, text, type 
     <div className="relative z-0 mb-4 w-full group">
       <input
         name={name}
-        placeholder={placeholder ? placeholder : text}
+        placeholder={placeholder ? placeholder : label}
         type={isPasswordField ? (showPassword ? 'text' : 'password') : type}
         id={name}
         {...register(name)}
         className={`${errorClass} block py-2.5 px-0 w-full text-sm  text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0  peer ${className}`}
       />
-      <Label htmlFor={name} floatLabel text={text} className={`${errorLabel}${labelClassName}`} />
+      <Label htmlFor={name} floatLabel text={label} className={`${errorLabel}${labelClassName}`} />
 
       {inputIcon && (
         <span className="absolute top-4 right-2 cursor-pointer" data-testid="icon">
@@ -47,7 +47,7 @@ const Input = ({ className, Icon, labelClassName, name, placeholder, text, type 
         </span>
       )}
 
-      <ErrorLabel name={name} />
+      <ErrorMessage name={name} />
     </div>
   );
 };

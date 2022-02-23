@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
-export function ErrorLabel({ errorClassName, name }) {
+export function ErrorMessage({ errorClassName, name }) {
   const {
     formState: { errors }
   } = useFormContext();
@@ -11,10 +11,11 @@ export function ErrorLabel({ errorClassName, name }) {
     </>
   );
 }
-ErrorLabel.PropTypes = {
-  name: PropTypes.string
+ErrorMessage.propTypes = {
+  name: PropTypes.string,
+  errorClassName: PropTypes.string
 };
 
-ErrorLabel.defaultProps = {
+ErrorMessage.defaultProps = {
   name: null
 };

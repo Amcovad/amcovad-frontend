@@ -1,9 +1,9 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import PropTypes from 'prop-types';
-import { Label, ErrorLabel } from '.';
+import propTypes from 'prop-types';
+import { Label, ErrorMessage } from '.';
 
-export function Checkbox({ containerClassName, inputClassName, text, name, value }) {
+export function Checkbox({ containerClassName, inputClassName, label, name, value }) {
   const { register } = useFormContext();
   return (
     <>
@@ -16,7 +16,7 @@ export function Checkbox({ containerClassName, inputClassName, text, name, value
           {...register(name)}
           value={value}
         />
-        <Label name={name} htmlFor={`checkbox-${name}-${value.toString()}`} text={text} />
+        <Label name={name} htmlFor={`checkbox-${name}-${value.toString()}`} text={label} />
       </div>
     </>
   );
@@ -28,19 +28,17 @@ export function CheckboxGroup({ name, options }) {
         if (!value || !label) return null;
         const optionLabel = label || value;
         const optionValue = value || label;
-        return <Checkbox key={index} name={name} value={optionValue} text={optionLabel} containerClassName="pb-1" />;
+        return <Checkbox key={index} name={name} value={optionValue} label={optionLabel} containerClassName="pb-1" />;
       })}
-      <ErrorLabel name={name} errorClassName="text-sm" />
+      <ErrorMessage name={name} errorClassName="text-sm" />
     </>
   );
 }
 
 CheckboxGroup.propTypes = {
-  label: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.any
+  name: propTypes.string.isRequired,
+  options: propTypes.array
 };
 CheckboxGroup.defaultProps = {
-  label: null,
-  value: null
+  options: null
 };
