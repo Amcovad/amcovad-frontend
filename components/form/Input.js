@@ -27,7 +27,6 @@ const Input = ({ className, Icon, labelClassName, name, placeholder, label, type
   const hasErrors = !!errors?.[name];
 
   const errorClass = hasErrors ? 'focus:border-amcovad-danger' : 'focus:border-amcovad-primary-500';
-  const errorLabel = hasErrors ? 'peer-focus:text-amcovad-danger' : 'peer-focus:text-amcovad-primary-500';
 
   return (
     <div className="relative z-0 mb-4 w-full group">
@@ -39,7 +38,7 @@ const Input = ({ className, Icon, labelClassName, name, placeholder, label, type
         {...register(name)}
         className={`${errorClass} block py-2.5 px-0 w-full text-sm  text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0  peer ${className}`}
       />
-      <Label htmlFor={name} floatLabel text={label} className={`${errorLabel}${labelClassName}`} />
+      <Label name={name} htmlFor={name} floatLabel text={label} className={`${labelClassName}`} />
 
       {inputIcon && (
         <span className="absolute top-4 right-2 cursor-pointer" data-testid="icon">

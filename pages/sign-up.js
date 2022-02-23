@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button, CheckboxGroup, CheckboxGroups, Input, MnavBar } from '@/components/index';
+import { Button, CheckboxGroup, Input, MnavBar } from '@/components/index';
 import * as yup from 'yup';
 import HookForm from '@/components/form/Form';
 

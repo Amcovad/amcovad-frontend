@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
 
 export function Checkbox({ containerClassName, inputClassName, label, name, value }) {
@@ -36,8 +36,8 @@ export function CheckboxGroup({ name, options }) {
 }
 
 CheckboxGroup.propTypes = {
-  name: propTypes.string.isRequired,
-  options: propTypes.array
+  name: PropTypes.string.isRequired,
+  options: PropTypes.array
 };
 CheckboxGroup.defaultProps = {
   options: null

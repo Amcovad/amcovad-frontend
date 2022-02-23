@@ -17,5 +17,6 @@ ErrorMessage.propTypes = {
 };
 
 ErrorMessage.defaultProps = {
-  name: null
+  name: null,
+  errorClassName: null
 };
