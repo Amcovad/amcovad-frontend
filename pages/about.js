@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Footer, Navbar } from '@/components/index';
-import tabData from '../data/tab';
+import tabData from '../data/about/tab';
 
 const About = () => {
   const [visibleTab, setVisibleTab] = useState(tabData[0].id);
