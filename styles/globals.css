@@ -11,3 +11,13 @@ input:-webkit-autofill:active {
   @apply bg-amcovad-secondary-300;
   -webkit-box-shadow: 0 0 0 30px #f5f6f8 inset !important;
 }
+
+p.paragraphs::first-letter {
+  @apply text-[280%] text-amcovad-secondary-600;
+
+  font-size: 330%;
+  line-height: 2rem;
+  padding: 4px 1px;
+  margin-right: 2px;
+  float: left;
+}
