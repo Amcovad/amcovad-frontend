@@ -78,7 +78,7 @@ const Contact = () => {
                       <Input label="Subject" className="!bg-amcovad-secondary-200" name="subject" type="text" />
                     </div>
                     <div className="col-span-full">
-                      <Textarea label="Your message" name="message" className="bg-amcovad-secondary-200" />
+                      <Textarea label="Your message" name="message" className="!bg-amcovad-secondary-200" />
                     </div>
                   </div>
                   <div className="pt-2">
