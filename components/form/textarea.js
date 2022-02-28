@@ -12,8 +12,6 @@ const Textarea = ({ className, label, name, placeholder }) => {
   const hasErrors = !!errors?.[name];
 
   const errorClass = hasErrors ? 'focus:border-amcovad-danger' : 'focus:border-amcovad-primary-500';
-  const errorLabel = hasErrors ? 'peer-focus:text-amcovad-danger' : 'peer-focus:text-amcovad-primary-500';
-
   return (
     <div className="relative z-0 mb-4 w-full group">
       <textarea
@@ -36,6 +34,7 @@ Textarea.propTypes = {
 };
 
 Textarea.defaultProps = {
+  className: null,
   label: null,
   placeholder: null
 };
