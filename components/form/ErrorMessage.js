@@ -14,11 +14,11 @@ export function ErrorMessage({ className, name }) {
   );
 }
 ErrorMessage.propTypes = {
-  name: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  name: PropTypes.string
 };
 
 ErrorMessage.defaultProps = {
-  name: null,
-  className: null
+  className: null,
+  name: null
 };
