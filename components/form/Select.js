@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ErrorMessage } from './ErrorMessage';
+import { Label, ErrorMessage } from '.';
 import { useFormContext } from 'react-hook-form';
 
-export function SelectField({ label, name, ...options }) {
+export function SelectField({ className, containerClassName, label, labelClassName, name, ...options }) {
   const {
     register,
     formState: { errors }
@@ -19,20 +19,24 @@ export function SelectField({ label, name, ...options }) {
   };
 
   return (
-    <div className={`${style.container}`}>
-      <label htmlFor={name} className="text-amcovad-secondary-700 text-sm font-Inter ">
-        {label}
-      </label>
-      <select className={`${style.default}`} {...register(name)} id={name} name={name} {...options}></select>
+    <div className={`${style.container} ${containerClassName}`}>
+      <Label htmlFor={name} name={name} text={label} className={`!text-sm ${labelClassName}`} />
+      <select
+        className={`${style.default} ${className}`}
+        {...register(name)}
+        id={name}
+        name={name}
+        {...options}
+      ></select>
     </div>
   );
 }
 
-const Select = ({ label, name, options }) => {
+const Select = ({ defaultOption, label, name, options }) => {
   return (
     <>
       <SelectField label={label} name={name}>
-        <option value=""> Select an option..</option>
+        {defaultOption && <option value=""> {defaultOption}</option>}
         {options.map(({ title, value }, id) => {
           if (!value || !title) return null;
           const optionTitle = title || value;
@@ -52,12 +56,14 @@ const Select = ({ label, name, options }) => {
 export default Select;
 
 Select.propTypes = {
+  defaultOption: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   options: PropTypes.array
 };
 
 Select.defaultProps = {
+  defaultOption: null,
   label: null,
   options: []
 };
