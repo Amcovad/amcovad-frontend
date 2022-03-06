@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
 import { useFormContext } from 'react-hook-form';
 
-export function SelectField({ className, containerClassName, label, labelClassName, name, ...options }) {
+export function SelectField({ children, className, containerClassName, label, labelClassName, name }) {
   const {
     register,
     formState: { errors }
@@ -21,13 +21,9 @@ export function SelectField({ className, containerClassName, label, labelClassNa
   return (
     <div className={`${style.container} ${containerClassName}`}>
       <Label htmlFor={name} name={name} text={label} className={`!text-sm ${labelClassName}`} />
-      <select
-        className={`${style.default} ${className}`}
-        {...register(name)}
-        id={name}
-        name={name}
-        {...options}
-      ></select>
+      <select className={`${style.default} ${className}`} {...register(name)} id={name} name={name}>
+        {children}
+      </select>
     </div>
   );
 }
@@ -36,7 +32,11 @@ const Select = ({ defaultOption, label, name, options }) => {
   return (
     <>
       <SelectField label={label} name={name}>
-        {defaultOption && <option value=""> {defaultOption}</option>}
+        {defaultOption && (
+          <option key={name} value="">
+            {defaultOption}
+          </option>
+        )}
         {options.map(({ title, value }, id) => {
           if (!value || !title) return null;
           const optionTitle = title || value;
@@ -48,7 +48,7 @@ const Select = ({ defaultOption, label, name, options }) => {
           );
         })}
       </SelectField>
-      <ErrorMessage name={name} errorClassName="text-sm" />
+      <ErrorMessage name={name} className="text-sm" />
     </>
   );
 };

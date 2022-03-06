@@ -20,8 +20,7 @@ const SignUp = () => {
         .required('Confirm password is required')
         .oneOf([yup.ref('password')], "Password's not match"),
       acceptTerms: yup.boolean().oneOf([true], 'Must Accept Terms and Conditions'),
-      agreeContact: yup.boolean(),
-      select: yup.string().required('A select option is required!')
+      agreeContact: yup.boolean()
     })
     .required();
 
