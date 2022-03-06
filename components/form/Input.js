@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import { ShowPasswordIcon, HidePasswordIcon } from '../../assets/svgs/svgs';
+import { ShowPasswordIcon, HidePasswordIcon } from '../../public/assets/svg/passwordSvgs';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Phone } from '../../assets';
+import Phone from '../../public/assets/hero/phone.png';
 
 const howItWork = () => {
   return (
@@ -17,15 +17,15 @@ const howItWork = () => {
                 </h1>
               </div>
 
-              <p className="text-amcovad-secondary-700 z-10 pl-16 pb-6 font-Inter text-[0.875rem] font-[700] mx-auto sm:max-w-md lg:text-sm md:max-w-3xl">
+              <p className="text-amcovad-secondary-700 z-10 pl-16 pb-4 font-Inter text-[13.6833px] md:text-sm lg:text-base font-[700] mx-auto sm:max-w-md  md:max-w-3xl">
                 Setup your account
               </p>
-              <p className="max-w-[20.25rem] md:max-w-[27rem] lg:max-w-[23.6875rem] z-10   text-amcovad-secondary-600 font-Inter font-normal">
+              <p className="max-w-[20.25rem] md:max-w-[27rem] lg:max-w-[23.6875rem] z-10 text-[13.6833px] md:text-sm lg:text-base  text-amcovad-secondary-600 font-Inter font-normal">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum et accumsan nulla posuere aliquet ac
                 eleifend erat viverra. Nisi maecenas laoreet aenean suscipit. Blandit at vulputate non nunc, mollis amet
               </p>
 
-              <span className="font-['Inter'] block text-[15.5rem] md:text-[12.5rem] lg:text-[16rem] left-[-1.3125rem] md:left-[-0.625rem] lg:left-[-1.625rem] top-[3.4rem] md:top-[2rem] lg:top-20 xl:top-[7.6rem] absolute font-normal text-amcovad-black opacity-10">
+              <span className="font-['Inter'] block text-[15.5rem] md:text-[12.5rem] lg:text-[16rem] left-[-1.3125rem] md:left-[-0.625rem] lg:left-[-1.625rem] top-[3rem] md:top-[1.5rem] lg:top-20 xl:top-[7.6rem] absolute font-normal text-amcovad-black opacity-10">
                 1
               </span>
             </div>

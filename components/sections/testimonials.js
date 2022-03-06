@@ -13,7 +13,7 @@ const Testimonials = () => {
                 <h2 className="mb-4 text-3xl max-w-[14rem] md:max-w-[17.25rem] font-RozhaOne text-white font-bold leading-tight tracking-tight sm:text-4xl font-heading">
                   Real Story from real Amcovad.
                 </h2>
-                <p className="mb-4 font-Inter font-normal tracking-tight text-amcovad-secondary-100 xl:mb-6">
+                <p className="mb-4 font-Inter text-sm md:text-base font-normal tracking-tight text-amcovad-secondary-100 xl:mb-6">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elementum et accumsan nulla
                 </p>
               </div>

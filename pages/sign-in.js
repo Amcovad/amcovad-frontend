@@ -4,8 +4,7 @@ import Link from 'next/link';
 import * as yup from 'yup';
 import { Button, Input, Label, Navbar } from '@/components/index';
 import HookForm from '@/components/form/Form';
-import { LogoBlack, SignInImage } from '../assets';
-// import { Label } from '../components/form/Label';
+import { LogoBlack, SignInImage } from '/public/assets/signUp';
 
 const SignIn = () => {
   const SignInSchema = yup
@@ -23,7 +22,7 @@ const SignIn = () => {
     <>
       <div className="w-full 2xl:mx-auto 2xl:container">
         <section className="lg:bg-amcovad-primary-500 overflow-hidden max-w-full ">
-          <div className=" bg-cover pb-24 lg:pb-0 bg-[url('../assets/images/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../assets/images/hexagons.png')]">
+          <div className=" bg-cover pb-24 lg:pb-0 bg-[url('../public/assets/signUp/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../public/assets/signUp/hexagons.png')]">
             <Navbar authPageOnly />
             <div className="flex ">
               <div className="flex flex-col justify-center flex-1 px-4 py-8 sm:px-6 lg:flex-none lg:px-20 xl:px-24 ">

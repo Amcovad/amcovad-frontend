@@ -1,6 +1,4 @@
-import { Button, Input } from '@/components/form';
 import { Navbar, Hero } from '@/components/index';
-import { PasswordCheckIcon } from '../assets/svgs';
 
 export default function Home() {
   return (

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
 import Image from 'next/image';
-import Logo from '../public/logo.svg';
 import Button from '../components/form/Button';
 import Link from 'next/link';
-import { WhiteLogo, HamburgerMenu } from '../assets';
+import { Logo, HamburgerMenu, WhiteLogo } from '../public/assets/logo/';
 import NavLink from './NavLink';
 import navBarLink from '../data/menu';
 import classNames from 'classnames';

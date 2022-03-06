@@ -4,7 +4,7 @@ import { Button, CheckboxGroup, Input, Navbar } from '@/components/index';
 import * as yup from 'yup';
 import HookForm from '@/components/form/Form';
 
-import { LogoBlack, SignUpImage } from '../assets';
+import { LogoBlack, SignUpImage } from '/public/assets/signUp';
 import Link from 'next/link';
 
 const SignUp = () => {
@@ -31,7 +31,7 @@ const SignUp = () => {
     <>
       <div className="w-full 2xl:mx-auto 2xl:container">
         <section className="lg:bg-amcovad-primary-500 overflow-hidden  max-w-full">
-          <div className=" bg-cover bg-[url('../assets/images/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../assets/images/hexagons.png')]">
+          <div className=" bg-cover bg-[url('../public/assets/signUp/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../public/assets/signUp/hexagons.png')]">
             <Navbar authPageOnly />
             <div className="flex ">
               <div className="flex flex-col justify-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24 ">
