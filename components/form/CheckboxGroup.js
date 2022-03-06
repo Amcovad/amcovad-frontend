@@ -2,20 +2,22 @@ import React from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
+import classNames from 'classnames';
 
 export function Checkbox({ containerClassName, inputClassName, label, name, value }) {
   const { register } = useFormContext();
   return (
     <>
-      <div className={`flex items-center ${containerClassName}`}>
+      <div className={classNames('flex items-center', containerClassName)}>
         <input
           id={`checkbox-${name}-${value.toString()}`}
-          className={`w-4 h-4 text-amcovad-primary-400 border-gray-200 rounded focus:ring-amcovad-primary-300 ${inputClassName} `}
+          className={classNames('appearance-none', inputClassName)}
           name={name}
           type="checkbox"
           {...register(name)}
           value={value}
         />
+
         <Label name={name} htmlFor={`checkbox-${name}-${value.toString()}`} text={label} />
       </div>
     </>

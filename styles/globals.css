@@ -21,3 +21,20 @@ p.paragraphs::first-letter {
   margin-right: 2px;
   float: left;
 }
+
+input[type='checkbox'] + label:before {
+  @apply w-4 h-4 border border-amcovad-secondary-400 pb-2 pl-[2px] mr-2.5 rounded-sm;
+  content: '\2714';
+  display: inline-block;
+  vertical-align: bottom;
+  color: transparent;
+  transition: 0.2s;
+}
+
+input[type='checkbox'] + label:active:before {
+  @apply scale-0;
+}
+
+input[type='checkbox']:checked + label:before {
+  @apply bg-amcovad-primary-500 border-amcovad-primary-400 text-amcovad-white h-[1.0625rem];
+}
