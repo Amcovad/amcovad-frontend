@@ -20,7 +20,7 @@ export function SelectField({ children, className, containerClassName, label, la
 
   return (
     <div className={`${style.container} ${containerClassName}`}>
-      <Label htmlFor={name} name={name} text={label} className={`!text-sm ${labelClassName}`} />
+      <Label htmlFor={name} name={name} text={label} className={` ${(fontSize = 'sm')} ${labelClassName}`} />
       <select className={`${style.default} ${className}`} {...register(name)} id={name} name={name}>
         {children}
       </select>
