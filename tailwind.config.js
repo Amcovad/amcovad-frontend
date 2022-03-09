@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     fontFamily: {
       RozhaOne: ['Rozha One', 'serif'],
-      Inter: ['Inter', 'sans-serif']
+      Inter: ['Inter', 'sans-serif'],
+      Poppins: ['Poppins', 'sans-serif']
     },
     extend: {
       backgroundImage: {
