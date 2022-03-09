@@ -7,7 +7,7 @@ const NavLink = ({ containerClassName, icon, name, url }) => {
   const { asPath } = useRouter();
   return (
     <li
-      className={`relative px-6 pb-2 pt-3 my-3  ${
+      className={`relative px-6 pb-2 pt-3 my-3  hover:bg-amcovad-secondary-200 ${
         url === asPath ? 'bg-amcovad-secondary-200 border-r-4 border-amcovad-primary-400 ' : ''
       } ${containerClassName}`}
     >

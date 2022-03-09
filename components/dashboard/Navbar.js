@@ -62,7 +62,7 @@ const Navbar = () => {
                       <div className="rounded-full">
                         {profile ? (
                           <div className="">
-                            <ul className="pt-2 w-40  px-1  bg-white absolute rounded right-0 lg:left-0 shadow mt-12 sm:mt-16 ">
+                            <ul className="pt-2 w-40  px-1  bg-amcovad-secondary-200 absolute rounded right-0 lg:left-0 shadow mt-12 sm:mt-16 ">
                               <li className="flex justify-between text-amcovad-secondary-700 p-2 hover:text-amcovad-primary-500 cursor-pointer items-center">
                                 <div className="flex items-center">
                                   <UserIcon width={18} height={18} />
