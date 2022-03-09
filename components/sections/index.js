@@ -1,3 +1,3 @@
-export { default as HowItWork } from './How-it-work';
-export { default as WelcomeArea } from './Welcome-area';
+export { default as HowItWork } from './HowItWork';
+export { default as WelcomeArea } from './WelcomeArea';
 export { default as Testimonials } from './Testimonials';
