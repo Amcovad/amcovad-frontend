@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as yup from 'yup';
-import { Button, Input, MnavBar } from '@/components/index';
+import { Button, Input, Label, Navbar } from '@/components/index';
 import HookForm from '@/components/form/Form';
-import { LogoBlack, SignInImage } from '../assets';
+import { LogoBlack, SignInImage } from '/public/assets/signUp';
 
 const SignIn = () => {
   const SignInSchema = yup
@@ -22,8 +22,8 @@ const SignIn = () => {
     <>
       <div className="w-full 2xl:mx-auto 2xl:container">
         <section className="lg:bg-amcovad-primary-500 overflow-hidden max-w-full ">
-          <div className=" bg-cover pb-24 lg:pb-0 bg-[url('../assets/images/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../assets/images/hexagons.png')]">
-            <MnavBar />
+          <div className=" bg-cover pb-24 lg:pb-0 bg-[url('../public/assets/signUp/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../public/assets/signUp/hexagons.png')]">
+            <Navbar authPageOnly />
             <div className="flex ">
               <div className="flex flex-col justify-center flex-1 px-4 py-8 sm:px-6 lg:flex-none lg:px-20 xl:px-24 ">
                 <div className="w-full max-w-[43rem] lg:w-[38rem]  mx-auto pt-5 lg:pt-0 ">
@@ -47,25 +47,28 @@ const SignIn = () => {
                         <HookForm onSubmit={onSubmit} schema={SignInSchema}>
                           <Input label="Email address" name="email" type="email" />
                           <Input label="Password" name="password" type="password" />
-
                           <div className="flex items-center  mb-3">
-                            <label
+                            <Label
+                              className="mt-[-10px] !text-sm "
                               htmlFor="forgot password"
-                              className="block ml-2 text-[0.75rem] text-[#344055] font-normal font-Inter "
-                            >
-                              <a href="#" className=" text-amcovad-black ">
-                                Forgot password?
-                              </a>
-                            </label>
+                              name="forgotPassword"
+                              text={
+                                <Link href="forgot-password" passHref>
+                                  Forgot password?
+                                </Link>
+                              }
+                            />
                           </div>
                           <div>
                             <Button className=" w-full font-[600] text-amcovad-black"> Sign in</Button>
                           </div>
                         </HookForm>
-                        <p className="block ml-2 text-center text-[14px] text-[#344055] font-normal font-Inter ">
+                        <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">
                           Don’t have account?{' '}
                           <Link href="/sign-up">
-                            <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">Sign Up</a>
+                            <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                              <b>Sign Up</b>
+                            </a>
                           </Link>
                         </p>
                       </div>

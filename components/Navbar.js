@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 import Image from 'next/image';
-import Logo from '../public/logo.svg';
 import Button from '../components/form/Button';
 import Link from 'next/link';
-import { WhiteLogo, HamburgerMenu } from '../assets';
+import { Logo, HamburgerMenu, WhiteLogo } from '../public/assets/logo/';
 import NavLink from './NavLink';
 import navBarLink from '../data/menu';
+import classNames from 'classnames';
 
 const style = {
   container: `relative top-1/4 w-full text-left pl-16 md:pl-32 mt-8`,
@@ -37,15 +37,39 @@ const MenuItem = ({ title, url }) => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ authPageOnly }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed z-10 outline-[5px] border-b  border-amcovad-primary-200 2xl:mx-auto w-full">
-      <div className="px-4 bg-amcovad-secondary-100 py-2 mx-auto md:max-w-full md:px-20 lg:px-8 2xl:px-60">
-        <div className="lg:pl-8  lg:pr-16 relative flex items-center justify-between">
+    <header
+      className={classNames(
+        'z-10 outline-[5px]',
+        { 'fixed border-b border-amcovad-primary-200 2xl:mx-auto w-full': !authPageOnly },
+        {
+          ' lg:hidden w-screen': authPageOnly
+        }
+      )}
+    >
+      <div
+        className={classNames(
+          'py-2 mx-auto px-4 md:max-w-full lg:px-8',
+          { 'bg-amcovad-secondary-100 md:px-20 2xl:px-60': !authPageOnly },
+          {
+            'sm:max-w-xl lg:max-w-screen-xl md:px-24': authPageOnly
+          }
+        )}
+      >
+        <div
+          className={classNames(
+            'relative flex items-center justify-between',
+            { 'lg:pl-8 lg:pr-16 ': !authPageOnly },
+            {
+              'lg:px-20 mt-5': authPageOnly
+            }
+          )}
+        >
           <Link href="/" passHref>
-            <a className="inline-flex items-center cursor-pointer xl:pl-11">
+            <a className={classNames({ 'xl:pl-11': !authPageOnly }, 'inline-flex items-center cursor-pointer ')}>
               <Image src={Logo} width="160" height="36" alt="logo" />
             </a>
           </Link>
@@ -70,11 +94,12 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
+
           <div className="lg:hidden ">
             <button
               aria-label="Open Menu"
               title="Open Menu"
-              className="p-2  -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
+              className="p-2  -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline "
               onClick={() => setIsMenuOpen(true)}
             >
               <Image src={HamburgerMenu} alt="hamburger icon" />

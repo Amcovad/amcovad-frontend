@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import sidebarData from '../../data/dashboard/sidebar';
 import NavLink from './NavLink';
-import Logo from '../../public/logo.svg';
+import Logo from '../../public/assets/logo/logo.svg';
 import Settings from '../../public/assets/dashboard/Setting.svg';
 import User from '../../public/assets/dashboard/alliyy-adams.svg';
 import {

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import NavLink from './NavLink';
-import Logo from '../../public/logo.svg';
+import Logo from '../../public/assets/logo/logo.svg';
 import sidebarData from '../../data/dashboard/sidebar';
 import Settings from '../../public/assets/dashboard/Setting.svg';
 

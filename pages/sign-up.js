@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button, CheckboxGroup, Input, MnavBar } from '@/components/index';
+import { Button, CheckboxGroup, Input, Navbar } from '@/components/index';
 import * as yup from 'yup';
 import HookForm from '@/components/form/Form';
 
-import { LogoBlack, SignUpImage } from '../assets';
+import { LogoBlack, SignUpImage } from '/public/assets/signUp';
 import Link from 'next/link';
 
 const SignUp = () => {
@@ -31,8 +31,8 @@ const SignUp = () => {
     <>
       <div className="w-full 2xl:mx-auto 2xl:container">
         <section className="lg:bg-amcovad-primary-500 overflow-hidden  max-w-full">
-          <div className=" bg-cover bg-[url('../assets/images/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../assets/images/hexagons.png')]">
-            <MnavBar />
+          <div className=" bg-cover bg-[url('../public/assets/signUp/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../public/assets/signUp/hexagons.png')]">
+            <Navbar authPageOnly />
             <div className="flex ">
               <div className="flex flex-col justify-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24 ">
                 <div className="w-full max-w-[43rem] lg:w-[38rem]  mx-auto pt-5 lg:pt-0 ">
@@ -87,19 +87,20 @@ const SignUp = () => {
                             ]}
                           />
                         </div>
-                        <div className="flex items-center mt-3 mb-6">
+                        <div className="flex items-center mt-2 mb-6">
                           <CheckboxGroup
                             name="agreeContact"
                             options={[
                               {
                                 label: (
                                   <>
+                                    I agree to be contacted by
                                     <Link href="#" passHref>
                                       <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                        amcovad{' '}
+                                        {' '}
+                                        amcovad
                                       </a>
                                     </Link>
-                                    I agree to be contacted by
                                   </>
                                 ),
                                 value: true

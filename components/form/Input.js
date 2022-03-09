@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
-import { ShowPasswordIcon, HidePasswordIcon } from '../../assets/svgs/svgs';
+import { ShowPasswordIcon, HidePasswordIcon } from '../../public/assets/svg/passwordSvgs';
 import { Label, ErrorMessage } from '.';
+import classNames from 'classnames';
 
 const Input = ({ className, Icon, labelClassName, name, placeholder, label, type }) => {
   const {
@@ -26,8 +27,6 @@ const Input = ({ className, Icon, labelClassName, name, placeholder, label, type
 
   const hasErrors = !!errors?.[name];
 
-  const errorClass = hasErrors ? 'focus:border-amcovad-danger' : 'focus:border-amcovad-primary-500';
-
   return (
     <div className="relative z-0 mb-4 w-full group">
       <input
@@ -36,9 +35,14 @@ const Input = ({ className, Icon, labelClassName, name, placeholder, label, type
         type={isPasswordField ? (showPassword ? 'text' : 'password') : type}
         id={name}
         {...register(name)}
-        className={`${errorClass} block py-2.5 px-0 w-full text-sm  text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0  peer ${className}`}
+        className={classNames(
+          'block py-2.5 px-0 w-full text-sm  text-amcovad-secondary-700 bg-transparent placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0  peer',
+          className,
+          { 'focus:border-amcovad-danger': hasErrors },
+          { 'focus:border-amcovad-primary-500': !hasErrors }
+        )}
       />
-      <Label name={name} htmlFor={name} floatLabel text={label} className={`${labelClassName}`} />
+      <Label name={name} htmlFor={name} floatLabel text={label} className={classNames(labelClassName)} />
 
       {inputIcon && (
         <span className="absolute top-4 right-2 cursor-pointer" data-testid="icon">

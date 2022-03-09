@@ -1,5 +1,6 @@
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 export function ErrorMessage({ className, name }) {
   const {
     formState: { errors }
@@ -8,7 +9,7 @@ export function ErrorMessage({ className, name }) {
   return (
     <>
       {errors?.[name] && (
-        <div className={`text-amcovad-danger py-1 text-sm ${className} `}>{errors?.[name]?.message}</div>
+        <div className={classNames('text-amcovad-danger py-1 text-sm ', className)}>{errors?.[name]?.message}</div>
       )}
     </>
   );
