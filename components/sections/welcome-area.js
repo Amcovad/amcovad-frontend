@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Button from '../form/Button';
 import Lock from '../../public/assets/hero/lock.png';
 
-const welcomeArea = () => {
+const WelcomeArea = () => {
   return (
     <section className=" bg-cover py-2 md:py-10 lg:pb-28  bg-top bg-opacity-20 bg-[url('../public/assets/signUp/hexagons.png')] md:px-0">
       <div className="px-4 py-12 mt-24 lg:mt-0 xl:py-28  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -33,4 +33,4 @@ const welcomeArea = () => {
   );
 };
 
-export default welcomeArea;
+export default WelcomeArea;

@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 
-const testimonialCard = ({ bigCard, containerClassName, image, name, rating, testimony, testimony2 }) => {
+const TestimonialCard = ({ bigCard, containerClassName, image, name, rating, testimony }) => {
   const paragraphsStyle =
-    'mt-1 max-w-[420px] xl:max-w-[480px] text-[0.8125rem] md:text-sm text-amcovad-secondary-600 font-Inter font-normal';
+    'mt-2 max-w-[420px] xl:max-w-[480px] text-[0.8125rem] md:text-sm text-amcovad-secondary-600 font-Inter font-normal';
   return (
     <div
       className={classNames(
@@ -36,10 +36,9 @@ const testimonialCard = ({ bigCard, containerClassName, image, name, rating, tes
       </div>
       <div className="mt-3">
         <p className={paragraphsStyle}>{testimony}</p>
-        <p className={paragraphsStyle}>{testimony2}</p>
       </div>
     </div>
   );
 };
 
-export default testimonialCard;
+export default TestimonialCard;

@@ -1,5 +1,5 @@
 import React from 'react';
-import TestimonialCard from './testimonialCard';
+import TestimonialCard from './TestimonialCard';
 import testimony from '../../data/testimony';
 
 const Testimonials = () => {
@@ -36,17 +36,8 @@ const Testimonials = () => {
             </div>
           </div>
           <div className=" hidden lg:block w-full px-2 mb-12 lg:w-2/5  lg:mb-0">
-            {testimony.slice(1).map((data, index) => {
-              return (
-                <TestimonialCard
-                  key={index}
-                  image={data.image}
-                  name={data.name}
-                  rating={data.rating}
-                  testimony={data.testimony}
-                  testimony2={data.testimony2}
-                />
-              );
+            {testimony.slice(1).map(({ image, name, rating, testimony }, index) => {
+              return <TestimonialCard key={index} image={image} name={name} rating={rating} testimony={testimony} />;
             })}
           </div>
         </div>
