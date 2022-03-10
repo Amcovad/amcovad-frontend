@@ -1,11 +1,11 @@
 import React from 'react';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
-function Dashboard() {
+function drafts() {
   return (
     <>
-      <DashboardLayout title="Dashboard" />
+      <DashboardLayout title="Drafts" />
     </>
   );
 }
 
-export default Dashboard;
+export default drafts;

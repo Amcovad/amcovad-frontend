@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
 import { useFormContext } from 'react-hook-form';
-
+import classNames from 'classnames';
 export function SelectField({ children, className, containerClassName, label, labelClassName, name }) {
   const {
     register,
@@ -11,17 +11,20 @@ export function SelectField({ children, className, containerClassName, label, la
 
   const hasErrors = !!errors?.[name];
 
-  const errorClass = hasErrors ? 'focus:border-amcovad-danger' : 'focus:border-amcovad-primary-500';
-
-  const style = {
-    container: `relative my-1 `,
-    default: `${errorClass} relative flex flex-1 w-full mt-1 rounded-md py-2 px-2 bg-transparent text-amcovad-secondary-700 placeholder-amcovad-secondary-700 border border-amcovad-secondary-300 text-base focus:outline-none focus:ring-1 peer border-2 `
-  };
-
   return (
-    <div className={`${style.container} ${containerClassName}`}>
-      <Label htmlFor={name} name={name} text={label} fontSize="!text-sm" className={`${labelClassName}`} />
-      <select className={`${style.default} ${className}`} {...register(name)} id={name} name={name}>
+    <div className={classNames('relative my-1', containerClassName)}>
+      <Label htmlFor={name} name={name} text={label} fontSize="text-sm" className={classNames(labelClassName)} />
+      <select
+        className={classNames(
+          'relative flex flex-1 w-full mt-1 rounded-md py-2 px-2 bg-transparent text-amcovad-secondary-700 placeholder-amcovad-secondary-700 border-amcovad-secondary-300 text-base focus:outline-none border-2',
+          className,
+          { 'focus:border-amcovad-danger border-amcovad-danger': hasErrors },
+          { 'focus:border-amcovad-primary-500': !hasErrors }
+        )}
+        {...register(name)}
+        id={name}
+        name={name}
+      >
         {children}
       </select>
     </div>

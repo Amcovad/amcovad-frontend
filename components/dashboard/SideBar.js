@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import NavLink from './NavLink';
-import Logo from '../../public/assets/logo/logo.svg';
-import sidebarData from '../../data/dashboard/sidebar';
-import Settings from '../../public/assets/dashboard/Setting.svg';
+import Logo from '@/public/assets/logo/logo.svg';
+import sidebarData from '@/data/dashboard/sidebar';
+import Settings from '@/public/assets/dashboard/Setting.svg';
 
 const SideBar = () => {
   return (
@@ -20,7 +20,7 @@ const SideBar = () => {
           </div>
           <div className="absolute lg:relative  h-full shadow bg-amcovad-secondary-100 hidden lg:block pt-20">
             <div className="overflow-y-auto ">
-              <ul className=" py-6">
+              <ul className=" pb-6">
                 {sidebarData.map((data, index) => {
                   return <NavLink key={index} name={data.name} url={data.url} icon={data.icon} />;
                 })}
