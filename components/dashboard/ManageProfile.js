@@ -6,7 +6,7 @@ import User from '@/public/assets/dashboard/alliyy-adams.svg';
 export const ManageSetting = () => {
   return (
     <div>
-      <ul className="pt-2 w-40  px-1  bg-amcovad-secondary-200 absolute rounded right-0 lg:left-0 shadow mt-12 sm:mt-16 ">
+      <ul className="pt-2 w-40 px-1 bg-amcovad-secondary-200 absolute rounded right-0 lg:left-0 shadow mt-12 sm:mt-16">
         <li className="flex justify-between text-amcovad-secondary-700 p-2 hover:text-amcovad-primary-500 cursor-pointer items-center">
           <div className="flex items-center">
             <UserIcon width={18} height={18} />
@@ -30,7 +30,7 @@ const ManageProfile = () => {
     <>
       <div className="flex items-center relative cursor-pointer" onClick={() => setProfile(!profile)}>
         <div className="rounded-full">
-          {profile ? <ManageSetting /> : ''}
+          {profile && <ManageSetting />}
           <div className="relative w-10 h-10">
             <Image src={User} alt="profile image" />
           </div>

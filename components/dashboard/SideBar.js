@@ -9,9 +9,9 @@ import Settings from '@/public/assets/dashboard/Setting.svg';
 const SideBar = () => {
   return (
     <>
-      <aside className="h-full overflow-y-auto lg:block lg:relative lg:w-1/4 lg:z-auto right-0 hidden scrollbar">
-        <div className="relative hidden lg:block ">
-          <div className="h-[73px] bg-amcovad-secondary-100 z-50 lg:w-1/4 flex items-center px-8 top-0 fixed">
+      <aside className="h-full bg-amcovad-secondary-100 overflow-y-auto lg:block  lg:relative lg:w-1/5 lg:z-auto right-0 hidden scrollbar">
+        <div className="relative hidden lg:block  mb-10 ">
+          <div className="h-[73px] bg-amcovad-secondary-100 z-50 lg:w-1/5 flex items-center px-8 top-0 fixed">
             <Link href="/" passHref>
               <a>
                 <Image src={Logo} width="167" height="42" alt="logo" />

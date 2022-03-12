@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
-      <div className="fixed z-10 w-full lg:w-3/4">
+      <div className="fixed z-10 w-full lg:w-4/5">
         <nav className="bg-amcovad-secondary-200 ">
           <div className="container px-6 pb-2 md:py-2 lg:py-4">
             <div className="flex items-center justify-between">
@@ -56,7 +56,7 @@ const Navbar = () => {
           className={
             isMenuOpen
               ? 'w-full h-full fixed top-0 z-40  transform  translate-x-0  '
-              : '   w-full h-full absolute z-40  transform -translate-x-full'
+              : 'w-full h-full absolute z-40 transform -translate-x-full'
           }
           id="mobile-nav"
         >
