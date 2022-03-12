@@ -50,18 +50,3 @@ Toggle.defaultProps = {
 };
 
 export default Toggle;
-
-export const ToggleInput = () => {
-  return (
-    <>
-      <div className="relative flex items-center text-xl">
-        <input
-          type="checkbox"
-          className="absolute left-1/2 -translate-x-1/2 w-full h-full peer appearance-none rounded-md"
-        />
-        <span className="w-12 h-6 flex items-center flex-shrink-0  p-1 bg-gray-300 rounded-full duration-300 ease-in-out peer-checked:bg-green-400 after:w-5 after:h-5 after:bg-white after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-5" />
-        {/* <span className="ml-3 text-gray-900 text-sm font-medium">Toggle me (checked)</span> */}
-      </div>
-    </>
-  );
-};
