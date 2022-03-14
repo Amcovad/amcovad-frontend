@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
 
-export function Label({ fontSize, floatLabel, htmlFor, labelClassName, name, text }) {
+export function Label({ fontSize, floatLabel, htmlFor, className, name, text }) {
   const {
     formState: { errors }
   } = useFormContext();
@@ -21,7 +21,7 @@ export function Label({ fontSize, floatLabel, htmlFor, labelClassName, name, tex
         },
         { 'cursor-pointer text-amcovad-secondary-700 font-normal font-Inter': !floatLabel },
         { [fontSize]: !floatLabel },
-        { [labelClassName]: !floatLabel },
+        { [className]: !floatLabel },
         { 'focus:text-amcovad-danger': hasErrors },
         { 'focus:text-amcovad-primary-500': !hasErrors }
       )}

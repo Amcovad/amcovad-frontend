@@ -32,7 +32,7 @@ export function CheckboxGroup({ name, options }) {
         const optionValue = value || label;
         return <Checkbox key={index} name={name} value={optionValue} label={optionLabel} containerClassName="pb-1" />;
       })}
-      <ErrorMessage name={name} className="text-sm" />
+      <ErrorMessage name={name} />
     </>
   );
 }

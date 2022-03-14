@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { Button, CheckboxGroup, Input, Navbar } from '@/components/index';
 import * as yup from 'yup';
 import HookForm from '@/components/form/Form';
-
 import { LogoBlack, SignUpImage } from '/public/assets/signUp';
 import Link from 'next/link';
 
