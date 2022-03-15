@@ -82,7 +82,9 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="pt-2">
-                    <Button className="text-white lg:h-12 lg:px-8  ">Send message</Button>
+                    <Button primary className="text-white lg:h-12 lg:px-8  ">
+                      Send message
+                    </Button>
                   </div>
                 </HookForm>
               </div>

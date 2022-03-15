@@ -109,7 +109,9 @@ const SignUp = () => {
                         </div>
 
                         <div>
-                          <Button className=" w-full font-[600] text-amcovad-secondary-700">Create account</Button>
+                          <Button primary className=" w-full font-semibold">
+                            Create account
+                          </Button>
                         </div>
                       </HookForm>
                     </div>

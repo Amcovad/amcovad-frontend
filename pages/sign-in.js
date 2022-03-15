@@ -60,7 +60,9 @@ const SignIn = () => {
                             />
                           </div>
                           <div>
-                            <Button className=" w-full font-[600] text-amcovad-black"> Sign in</Button>
+                            <Button primary className=" w-full font-semibold text-amcovad-black">
+                              Sign in
+                            </Button>
                           </div>
                         </HookForm>
                         <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">

@@ -82,14 +82,16 @@ const Navbar = ({ authPageOnly }) => {
             <li>
               <Link href="/sign-in">
                 <a>
-                  <Button outline>Sign in</Button>
+                  <Button outlineSecondary>Sign in</Button>
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/sign-up">
                 <a>
-                  <Button className="text-white ml-4">Try it now</Button>
+                  <Button primary className="text-white ml-4">
+                    Try it now
+                  </Button>
                 </a>
               </Link>
             </li>
