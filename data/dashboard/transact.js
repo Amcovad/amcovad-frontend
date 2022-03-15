@@ -1,31 +1,21 @@
-import { LightPinIcon, PinIcon, MoreIcon } from '@/public/assets/dashboard/navBarIcon';
-
 const transactData = [
   {
     date: 'Today - 11.30 AM',
-    firstIcon: <PinIcon />,
-    text: 'Turpis ullamcorper tristique duis..',
-    secondIcon: <MoreIcon />,
+    text: 'Review candidate applications..',
     title: 'Priority'
   },
   {
     date: 'Today - 10.30 AM',
-    firstIcon: <LightPinIcon />,
-    text: 'Dui risus curabitur magnis convallis.',
-    secondIcon: <MoreIcon />,
+    text: 'Meeting with Ui/Ux Designers for new project',
     title: 'Other'
   },
   {
     date: 'Today - 09.15 AM',
-    firstIcon: <LightPinIcon />,
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec lorem.',
-    secondIcon: <MoreIcon />
+    text: 'Short meeting with product designer from IT Departement.'
   },
   {
     date: 'Today - 08.45 AM',
-    firstIcon: <PinIcon />,
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nec lorem.',
-    secondIcon: <MoreIcon />
+    text: 'Interview with candidates for new tech roles avalaible.'
   }
 ];
 export default transactData;

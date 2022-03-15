@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
-const StatCard = ({ amount, graph, monthStat, title, verified, unverified }) => {
+const GraphCard = ({ amount, graph, monthStat, title, verified, unverified }) => {
   return (
     <div className="w-full lg:w-1/2 ">
       <div className="py-1 px-2 my-4 ">
@@ -28,4 +29,20 @@ const StatCard = ({ amount, graph, monthStat, title, verified, unverified }) => 
   );
 };
 
-export default StatCard;
+GraphCard.propTypes = {
+  amount: PropTypes.number,
+  graph: PropTypes.node,
+  monthStat: PropTypes.string,
+  verified: PropTypes.string,
+  unverified: PropTypes.string
+};
+
+GraphCard.defaultProps = {
+  amount: null,
+  graph: null,
+  monthStat: null,
+  verified: null,
+  unverified: null
+};
+
+export default GraphCard;

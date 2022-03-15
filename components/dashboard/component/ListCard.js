@@ -1,6 +1,8 @@
 import React from 'react';
+import { LightPinIcon, PinIcon, MoreIcon } from '@/public/assets/dashboard/navBarIcon';
+import PropTypes from 'prop-types';
 
-const PublishCard = ({ date, firstIcon, text, title, secondIcon }) => {
+const ListCard = ({ date, text, pinned, title }) => {
   return (
     <>
       {title && <p className="py-2 font-Poppins text-amcovad-secondary-500 text-sm">{title}</p>}
@@ -12,12 +14,26 @@ const PublishCard = ({ date, firstIcon, text, title, secondIcon }) => {
           </div>
         </div>
         <div className="flex items-center justify-center mt-1">
-          <span className="pr-4">{firstIcon}</span>
-          {secondIcon}
+          <span className="pr-4">{pinned ? <PinIcon /> : <LightPinIcon />}</span>
+          <MoreIcon />
         </div>
       </div>
     </>
   );
 };
 
-export default PublishCard;
+ListCard.propTypes = {
+  date: PropTypes.string,
+  pinned: PropTypes.bool,
+  text: PropTypes.string,
+  title: PropTypes.string
+};
+
+ListCard.defaultProps = {
+  date: null,
+  pinned: null,
+  text: null,
+  title: null
+};
+
+export default ListCard;

@@ -1,6 +1,7 @@
 import React from 'react';
-import classNames from 'classnames';
-const ActiveCard = ({ backgroundColor, icon, title, total }) => {
+import PropTypes from 'prop-types';
+
+const ColoredCard = ({ backgroundColor, icon, title, total }) => {
   return (
     <div className="w-full lg:w-4/12 transition duration-500 hover:scale-105 ">
       <div className="p-2">
@@ -16,4 +17,17 @@ const ActiveCard = ({ backgroundColor, icon, title, total }) => {
   );
 };
 
-export default ActiveCard;
+ColoredCard.propTypes = {
+  backgroundColor: PropTypes.string,
+  icon: PropTypes.node,
+  title: PropTypes.string,
+  total: PropTypes.string
+};
+
+ColoredCard.defaultProps = {
+  backgroundColor: null,
+  icon: null,
+  title: null,
+  total: null
+};
+export default ColoredCard;

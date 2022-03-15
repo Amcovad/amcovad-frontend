@@ -1,5 +1,4 @@
 import React from 'react';
-import * as yup from 'yup';
 import { Button, Footer, Input, Navbar, Textarea } from '@/components/index';
 
 import HookForm from '@/components/form/Form';
@@ -7,30 +6,9 @@ import contactImg from '../public/assets/contact/contact-img.png';
 import smContactImg from '../public/assets/contact/sm-contact-img.png';
 
 import Image from 'next/image';
+import { contactUsSchema } from '../schema/Schema';
 
 const Contact = () => {
-  const contactUsSchema = yup
-    .object({
-      fullName: yup
-        .string()
-        .required('Full name is required')
-        .min(4, 'Mininum 4 characters')
-        .max(40, 'Maximum 30 characters'),
-
-      email: yup.string().email('Kindly provide a valid email').required('Email is required'),
-      phone: yup
-        .string()
-        .required('Phone number is required')
-        .matches(
-          /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
-          'Phone number is not valid'
-        )
-        .min(11, 'Mininum of 11 numbers '),
-      subject: yup.string().required('Subject is required'),
-      message: yup.string().required('Message is required').min(50)
-    })
-    .required();
-
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
   };
@@ -65,20 +43,40 @@ const Contact = () => {
                 <HookForm onSubmit={onSubmit} schema={contactUsSchema}>
                   <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                     <div className="col-span-full sm:col-span-2">
-                      <Input label="Your name here" className="!bg-amcovad-secondary-200" name="fullName" type="text" />
+                      <Input
+                        label="Your name here"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-8 peer-focus:-translate-y-8"
+                        name="fullName"
+                        type="text"
+                      />
                     </div>
                     <div className="col-span-full sm:col-span-2">
-                      <Input label="Your email" className="!bg-amcovad-secondary-200" name="email" type="text" />
+                      <Input
+                        label="Your email"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-8 peer-focus:-translate-y-8"
+                        name="email"
+                        type="text"
+                      />
                     </div>
                     <div className="col-span-full sm:col-span-2">
-                      <Input label="Phone" className="!bg-amcovad-secondary-200" name="phone" type="number" />
+                      <Input
+                        label="Phone"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-8 peer-focus:-translate-y-8"
+                        name="phone"
+                        type="number"
+                      />
                     </div>
 
                     <div className="col-span-full ">
-                      <Input label="Subject" className="!bg-amcovad-secondary-200" name="subject" type="text" />
+                      <Input
+                        label="Subject"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-8 peer-focus:-translate-y-8"
+                        name="subject"
+                        type="text"
+                      />
                     </div>
                     <div className="col-span-full">
-                      <Textarea label="Your message" name="message" className="bg-amcovad-secondary-200" />
+                      <Textarea label="Your message" name="message" className="bg-amcovad-secondary-100" />
                     </div>
                   </div>
                   <div className="pt-2">

@@ -1,4 +1,3 @@
-// import  graph from '../../public/assets/dashboard/graph.svg';
 const statsData = [
   {
     amount: 216,

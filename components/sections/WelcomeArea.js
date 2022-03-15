@@ -18,9 +18,7 @@ const WelcomeArea = () => {
                   Gallia est omnis divisa in partes tres, quarum. Fabio vel iudice vincam, sunt in culpa qui officia.
                   Salutantibus vitae elit libero, a pharetra augue.
                 </p>
-                <Button primary className="text-amcovad-white">
-                  Start now
-                </Button>
+                <Button className="text-amcovad-white">Start now</Button>
               </div>
             </div>
           </div>

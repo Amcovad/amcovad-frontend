@@ -1,12 +1,7 @@
 import React from 'react';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
-import activeData from '@/data/dashboard/active';
-import statsData from '@/data/dashboard/stats';
-import publishData from '@/data/dashboard/published';
-import transactData from '@/data/dashboard/transact';
-import ActiveCard from '@/components/dashboard/component/ActiveCard';
-import StatCard from '@/components/dashboard/component/StatCard';
-import PublishCard from '@/components/dashboard/component/PublishCard';
+import { coloredData, graphData, listData, transactData } from '@/data/dashboard/index';
+import { ColoredCard, GraphCard, ListCard } from '@/components/dashboard/component/index';
 
 import { Button } from '../components';
 function Dashboard() {
@@ -17,23 +12,23 @@ function Dashboard() {
           <div className="flex flex-wrap">
             <div className="w-full lg:w-[65%] mb-16 ">
               <div className="flex flex-wrap">
-                {activeData.map((data, index) => {
+                {coloredData.map(({ backgroundColor, icon, title, total }, index) => {
                   return (
-                    <ActiveCard
+                    <ColoredCard
                       key={index}
-                      backgroundColor={data.backgroundColor}
-                      title={data.title}
-                      icon={data.icon}
-                      total={data.total}
+                      backgroundColor={backgroundColor}
+                      title={title}
+                      icon={icon}
+                      total={total}
                     />
                   );
                 })}
               </div>
 
               <div className="flex flex-wrap">
-                {statsData.map(({ amount, graph, monthStat, title, verified, unverified }, index) => {
+                {graphData.map(({ amount, graph, monthStat, title, verified, unverified }, index) => {
                   return (
-                    <StatCard
+                    <GraphCard
                       key={index}
                       amount={amount}
                       graph={graph}
@@ -55,22 +50,13 @@ function Dashboard() {
                       </p>
                     </div>
                     <div className="scrollbar max-h-60 overflow-y-auto ">
-                      {publishData.map(({ date, firstIcon, text, secondIcon }, index) => {
-                        return (
-                          <PublishCard
-                            key={index}
-                            date={date}
-                            firstIcon={firstIcon}
-                            text={text}
-                            secondIcon={secondIcon}
-                          />
-                        );
+                      {listData.map(({ date, pinned, text }, index) => {
+                        return <ListCard key={`listData-${index}`} date={date} pinned={pinned} text={text} />;
                       })}
-                      {/* */}
                     </div>
                   </div>
                   <div className="w-full p-2.5 bg-amcovad-white border rounded-b-lg border-amcovad-secondary-200 absolute bottom-0 z-30">
-                    <p className="text-center text-amcovad-primary-400 font-Inter text-[15px]">Create a new template</p>
+                    <p className="text-center text-amcovad-primary-400 font-Inter text-[15px]">See All Announcement</p>
                   </div>
                 </div>
               </div>
@@ -94,11 +80,7 @@ function Dashboard() {
                       </div>
                       <div className="flex items-center justify-between">
                         <p className=" text-sm font-normal">Today you makes 12 Activity</p>
-                        <Button
-                          primary
-                          fontSize="px-3 py-1.5"
-                          className="text-sm font-medium lg:text-xs xl:text-sm capitalize"
-                        >
+                        <Button fontSize="px-3 py-1.5" className="text-sm font-medium lg:text-xs xl:text-sm capitalize">
                           See All Activity
                         </Button>
                       </div>
@@ -116,19 +98,9 @@ function Dashboard() {
                       </p>
                     </div>
                     <div className="scrollbar max-h-[23.5rem] overflow-y-auto ">
-                      {transactData.map(({ date, firstIcon, text, title, secondIcon }, index) => {
-                        return (
-                          <PublishCard
-                            key={index}
-                            title={title}
-                            date={date}
-                            firstIcon={firstIcon}
-                            text={text}
-                            secondIcon={secondIcon}
-                          />
-                        );
+                      {transactData.map(({ date, text, title }, index) => {
+                        return <ListCard key={`transactData-${index}`} title={title} date={date} text={text} />;
                       })}
-                      {/* */}
                     </div>
                   </div>
                   <div className="w-full p-2.5 bg-amcovad-white border rounded-b-lg border-amcovad-secondary-200 absolute bottom-0 z-30">

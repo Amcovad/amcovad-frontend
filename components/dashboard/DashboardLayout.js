@@ -21,13 +21,13 @@ const DashboardLayout = ({ children, title }) => {
 };
 
 DashboardLayout.propTypes = {
-  title: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  title: PropTypes.string
 };
 
 DashboardLayout.defaultProps = {
-  title: null,
-  children: null
+  children: null,
+  title: null
 };
 
 export default DashboardLayout;

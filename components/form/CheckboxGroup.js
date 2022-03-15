@@ -12,7 +12,6 @@ export function Checkbox({ containerClassName, inputClassName, label, name, valu
         <input
           id={`checkbox-${name}-${value.toString()}`}
           className={classNames('appearance-none', inputClassName)}
-          name={name}
           type="checkbox"
           {...register(name)}
           value={value}
