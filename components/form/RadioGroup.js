@@ -10,7 +10,7 @@ export function Radio({ name, label, value }) {
     <>
       <div className="flex items-center my-1 space-x-1 text-[20px] mr-2 ">
         <input
-          className="cursor-pointer"
+          className="cursor-pointer h-5 w-5"
           id={`radio-${value}`}
           name={name}
           {...register(name)}
@@ -32,7 +32,7 @@ Radio.defaultProps = {
   name: null,
   value: null
 };
-export function RadioGroup({ column, name, options }) {
+const RadioGroup = ({ column, name, options }) => {
   const hasColumn = column ? 'flex-col mb-2' : '';
   return (
     <>
@@ -48,7 +48,7 @@ export function RadioGroup({ column, name, options }) {
       <ErrorMessage name={name} />
     </>
   );
-}
+};
 
 RadioGroup.propTypes = {
   name: PropTypes.string.isRequired,
@@ -57,3 +57,5 @@ RadioGroup.propTypes = {
 RadioGroup.defaultProps = {
   options: []
 };
+
+export default RadioGroup;
