@@ -4,8 +4,7 @@ import Link from 'next/link';
 import * as yup from 'yup';
 import { Button, Input, Navbar } from '@/components/index';
 import HookForm from '@/components/form/Form';
-import { LogoBlack, SignInImage } from '/public/assets/signUp';
-import Lock from '/public/assets/hero/lock.png';
+import { LogoBlack } from '/public/assets/signUp';
 
 const ForgotPassword = () => {
   const SignInSchema = yup
@@ -64,9 +63,6 @@ const ForgotPassword = () => {
                   </div>
                 </div>
               </div>
-              {/* <div className="relative lg:flex justify-end hidden lg:w-screen lg bottom-0 ">
-                <Image src={Lock} alt=" Sign up image" />
-              </div> */}
             </div>
           </div>
         </section>
