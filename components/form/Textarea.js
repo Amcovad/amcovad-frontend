@@ -24,7 +24,7 @@ const Textarea = ({ className, label, labelClassName, name, placeholder }) => {
           className
         )}
       />
-      <Label htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />
+      <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />
 
       <ErrorMessage name={name} />
     </div>
@@ -41,7 +41,7 @@ Textarea.propTypes = {
 Textarea.defaultProps = {
   className: null,
   label: null,
-  labelClassName: 'italic bg-transparent peer-focus:bg-transparent -translate-y-8 peer-focus:-translate-y-8',
+  labelClassName: 'italic bg-transparent peer-focus:bg-transparent -translate-y-[32px] peer-focus:-translate-y-[32px]',
   placeholder: null
 };
 export default Textarea;

@@ -80,7 +80,7 @@ function Dashboard() {
                       </div>
                       <div className="flex items-center justify-between">
                         <p className=" text-sm font-normal">Today you makes 12 Activity</p>
-                        <Button fontSize="px-3 py-1.5" className="text-sm font-medium lg:text-xs xl:text-sm capitalize">
+                        <Button className="px-2.5 py-1.5 text-sm font-medium lg:text-xs xl:text-sm capitalize">
                           See All Activity
                         </Button>
                       </div>

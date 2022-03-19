@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ColoredCard = ({ backgroundColor, icon, title, total }) => {
   return (
-    <div className="w-full lg:w-4/12 transition duration-500 hover:scale-105 ">
+    <section className="w-full lg:w-4/12 transition duration-500 hover:scale-105 ">
       <div className="p-2">
         <div className="rounded-[0.625rem]" style={{ backgroundColor: `${backgroundColor}` }}>
           <div className="px-4 pt-4 ">{icon}</div>
@@ -13,7 +13,7 @@ const ColoredCard = ({ backgroundColor, icon, title, total }) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

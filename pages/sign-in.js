@@ -44,8 +44,7 @@ const SignIn = () => {
                           <Input label="Password" name="password" type="password" />
                           <div className="flex items-center  mb-3">
                             <Label
-                              className="mt-[-10px] mb-4"
-                              fontSize="text-sm"
+                              className="mt-[-10px] mb-4 text-sm"
                               htmlFor="forgot password"
                               name="forgotPassword"
                               text={
@@ -56,7 +55,7 @@ const SignIn = () => {
                             />
                           </div>
                           <div>
-                            <Button className=" w-full font-semibold text-amcovad-black">Sign in</Button>
+                            <Button className="w-full font-semibold text-amcovad-black py-2.5 px-5">Sign in</Button>
                           </div>
                         </HookForm>
                         <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">

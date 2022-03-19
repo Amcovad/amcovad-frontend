@@ -10,7 +10,7 @@ export function Radio({ name, label, value }) {
     <>
       <div className="flex items-center my-1 space-x-1 text-[20px] mr-2 ">
         <input className="cursor-pointer" id={`radio-${value}`} {...register(name)} type="radio" value={value} />
-        <Label htmlFor={`radio-${value}`} text={label} />
+        <Label name={name} htmlFor={`radio-${value}`} text={label} />
       </div>
     </>
   );

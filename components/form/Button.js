@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Button = ({ className, children, fontSize, color, onClick, outline }) => {
+const Button = ({ className, children, color, onClick, outline }) => {
   const outlineClass = outline ? 'outline' : 'solid';
 
   return (
-    <button className={classNames(styles[outlineClass][color], className, fontSize)} onClick={onClick}>
+    <button className={classNames(className, styles[outlineClass][color])} onClick={onClick}>
       {children}
     </button>
   );
@@ -21,7 +21,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   color: 'primary',
-  fontSize: 'py-2.5 px-5',
+  className: 'py-2.5 px-5',
   outline: false,
   onClick: () => {}
 };
