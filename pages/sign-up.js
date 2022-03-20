@@ -1,28 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button, CheckboxGroup, Input, Navbar } from '@/components/index';
-import * as yup from 'yup';
 import HookForm from '@/components/form/Form';
 import { LogoBlack, SignUpImage } from '/public/assets/signUp';
 import Link from 'next/link';
+import { SignUpSchema } from '../schema/authSchema';
 
 const SignUp = () => {
-  const SignUpSchema = yup
-    .object({
-      email: yup.string().email('Kindly provide a valid email address').required('Email is required'),
-      password: yup
-        .string()
-        .required('password is required')
-        .min(6, 'Password should be of minimum 6 characters length'),
-      confirmPassword: yup
-        .string()
-        .required('Confirm password is required')
-        .oneOf([yup.ref('password')], "Password's not match"),
-      acceptTerms: yup.boolean().oneOf([true], 'Must Accept Terms and Conditions'),
-      agreeContact: yup.boolean()
-    })
-    .required();
-
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
   };
@@ -53,9 +37,9 @@ const SignUp = () => {
                       </div>
                       <HookForm onSubmit={onSubmit} schema={SignUpSchema}>
                         <Input label="Email address" name="email" type="email" />
-
-                        <Input label="Password" name="password" type="password" />
-
+                        <div className="my-5">
+                          <Input label="Password" name="password" type="password" />
+                        </div>
                         <Input label="Confirm Password" name="confirmPassword" type="password" />
 
                         <div className=" mt-8 mb-3">
@@ -109,8 +93,18 @@ const SignUp = () => {
                         </div>
 
                         <div>
-                          <Button className=" w-full font-[600] text-amcovad-secondary-700">Create account</Button>
+                          <Button className=" w-full font-semibold text-amcovad-black py-2.5 px-5">
+                            Create account
+                          </Button>
                         </div>
+                        <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">
+                          Have an account,{' '}
+                          <Link href="/sign-in">
+                            <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                              <b>Sign In</b>
+                            </a>
+                          </Link>
+                        </p>
                       </HookForm>
                     </div>
                   </div>

@@ -22,7 +22,7 @@ const Toggle = ({ className, containerClassName, label, name }) => {
             className
           )}
         />
-        <Label name={name} htmlFor={name} text={label} className="ml-2" fontSize="text-base" />
+        <Label name={name} htmlFor={name} text={label} className="ml-2 text-base" />
       </div>
 
       <ErrorMessage name={name} />

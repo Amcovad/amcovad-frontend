@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
 
-export function Label({ fontSize, floatLabel, htmlFor, className, name, text }) {
+export function Label({ className, floatLabel, floatLabelClass, htmlFor, name, text }) {
   const {
     formState: { errors }
   } = useFormContext();
@@ -12,18 +12,17 @@ export function Label({ fontSize, floatLabel, htmlFor, className, name, text }) 
 
   return (
     <label
-      name={name}
-      htmlFor={htmlFor}
+      htmlFor={htmlFor || name}
       className={classNames(
         {
-          'absolute text-sm text-amcovad-secondary-700 duration-300 transform -translate-y-7 scale-75 top-3 left-3 z-10 origin-[0] peer-focus:left-1  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-7':
+          'absolute text-sm text-amcovad-secondary-700 duration-300 transform -translate-y-7 peer-focus:-translate-y-7 p-2 scale-75 top-2 left-2 z-10 origin-[0] peer-focus:left-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 ':
             floatLabel
         },
         { 'cursor-pointer text-amcovad-secondary-700 font-normal font-Inter': !floatLabel },
-        { [fontSize]: !floatLabel },
         { [className]: !floatLabel },
-        { 'focus:text-amcovad-danger': hasErrors },
-        { 'focus:text-amcovad-primary-500': !hasErrors }
+        { [floatLabelClass]: floatLabel },
+        { 'peer-focus:text-amcovad-danger': hasErrors },
+        { 'peer-focus:text-amcovad-primary-500': !hasErrors }
       )}
     >
       {text}
@@ -32,17 +31,19 @@ export function Label({ fontSize, floatLabel, htmlFor, className, name, text }) 
 }
 
 Label.propTypes = {
-  fontSize: PropTypes.oneOf(['text-xs', 'text-sm', 'text-base']),
+  className: PropTypes.string,
   floatLabel: PropTypes.any,
-  fontSize: PropTypes.string,
+  floatLabelClass: PropTypes.string,
   htmlFor: PropTypes.string,
   name: PropTypes.string.isRequired,
   text: PropTypes.node
 };
 
 Label.defaultProps = {
+  className: 'text-xs',
+  floatLabel: null,
+  floatLabelClass: 'bg-amcovad-secondary-100 peer-focus:bg-amcovad-secondary-100',
   htmlFor: null,
-  text: null,
-  fontSize: 'text-xs',
-  floatLabel: null
+  name: null,
+  text: null
 };

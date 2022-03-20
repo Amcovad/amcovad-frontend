@@ -13,7 +13,7 @@ export function SelectField({ children, className, containerClassName, label, la
 
   return (
     <div className={classNames('relative my-1', containerClassName)}>
-      <Label htmlFor={name} name={name} text={label} fontSize="text-sm" className={classNames(labelClassName)} />
+      <Label name={name} htmlFor={name} text={label} className={classNames('text-sm', labelClassName)} />
       <select
         className={classNames(
           'relative flex flex-1 w-full mt-1 rounded-md py-2 px-2 bg-transparent text-amcovad-secondary-700 placeholder-amcovad-secondary-700 border-amcovad-secondary-300 text-base focus:outline-none border-2',
@@ -23,7 +23,6 @@ export function SelectField({ children, className, containerClassName, label, la
         )}
         {...register(name)}
         id={name}
-        name={name}
       >
         {children}
       </select>
@@ -51,7 +50,7 @@ const Select = ({ defaultOption, label, name, options }) => {
           );
         })}
       </SelectField>
-      <ErrorMessage name={name} className="text-sm" />
+      <ErrorMessage name={name} />
     </>
   );
 };
