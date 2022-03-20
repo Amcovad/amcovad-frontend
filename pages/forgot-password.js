@@ -1,21 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import * as yup from 'yup';
 import { Button, Input, Navbar } from '@/components/index';
 import HookForm from '@/components/form/Form';
 import { LogoBlack } from '/public/assets/signUp';
+import { ForgotPasswordSchema } from '../schema/authSchema';
 
 const ForgotPassword = () => {
-  const SignInSchema = yup
-    .object({
-      email: yup.string().email('Kindly provide a valid email address').required('Email address is required')
-    })
-    .required();
-
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
   };
+
   return (
     <>
       <div className="w-full 2xl:mx-auto 2xl:container">
@@ -42,7 +37,7 @@ const ForgotPassword = () => {
                         </p>
                       </div>
                       <div className="mt-8">
-                        <HookForm onSubmit={onSubmit} schema={SignInSchema}>
+                        <HookForm onSubmit={onSubmit} schema={ForgotPasswordSchema}>
                           <div className="mb-6">
                             <Input label="Email address" name="email" type="email" />
                           </div>

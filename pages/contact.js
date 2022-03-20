@@ -45,7 +45,7 @@ const Contact = () => {
                     <div className="col-span-full sm:col-span-2 ">
                       <Input
                         label="Your name here"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-[34px] peer-focus:-translate-y-[34px]"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-9"
                         name="fullName"
                         type="text"
                       />
@@ -53,7 +53,7 @@ const Contact = () => {
                     <div className="col-span-full sm:col-span-2">
                       <Input
                         label="Your email"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-[34px] peer-focus:-translate-y-[34px]"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-9"
                         name="email"
                         type="text"
                       />
@@ -61,7 +61,7 @@ const Contact = () => {
                     <div className="col-span-full sm:col-span-2">
                       <Input
                         label="Phone"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-[34px] peer-focus:-translate-y-[34px]"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-9"
                         name="phone"
                         type="number"
                       />
@@ -70,7 +70,7 @@ const Contact = () => {
                     <div className="col-span-full ">
                       <Input
                         label="Subject"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-[34px] peer-focus:-translate-y-[34px]"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-9"
                         name="subject"
                         type="text"
                       />
@@ -80,14 +80,14 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="pt-2">
-                    <Button primary className="text-white lg:h-12 lg:px-[34px]  ">
+                    <Button primary className="text-white lg:h-12 lg:px-9  ">
                       Send message
                     </Button>
                   </div>
                 </HookForm>
               </div>
             </div>
-            <div className=" w-full md:w-1/3 pl-[34px] hidden lg:block ">
+            <div className=" w-full md:w-1/3 pl-9 hidden lg:block ">
               <h2 className="text-2xl font-semibold text-amcovad-secondary-600">HEADQUARTER</h2>
               <div className="pt-4">
                 <h2 className="text-lg font-bold pb-1 text-amcovad-secondary-600">Lagos Address</h2>

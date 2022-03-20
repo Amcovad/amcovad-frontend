@@ -19,3 +19,9 @@ export const SignUpSchema = yup
     agreeContact: yup.boolean()
   })
   .required();
+
+export const ForgotPasswordSchema = yup
+  .object({
+    email: yup.string().email('Kindly provide a valid email address').required('Email address is required')
+  })
+  .required();
