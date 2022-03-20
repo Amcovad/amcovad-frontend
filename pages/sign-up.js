@@ -4,7 +4,7 @@ import { Button, CheckboxGroup, Input, Navbar } from '@/components/index';
 import HookForm from '@/components/form/Form';
 import { LogoBlack, SignUpImage } from '/public/assets/signUp';
 import Link from 'next/link';
-import { SignUpSchema } from '../schema/Schema';
+import { SignUpSchema } from '../schema/authSchema';
 
 const SignUp = () => {
   const onSubmit = (data) => {

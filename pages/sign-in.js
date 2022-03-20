@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button, Input, Label, Navbar } from '@/components/index';
 import HookForm from '@/components/form/Form';
 import { LogoBlack, SignInImage } from '/public/assets/signUp';
-import { SignInSchema } from '../schema/Schema';
+import { SignInSchema } from '../schema/authSchema';
 
 const SignIn = () => {
   const onSubmit = (data) => {

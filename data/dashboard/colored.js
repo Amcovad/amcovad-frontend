@@ -1,8 +1,8 @@
-import { ActiveTranction, PublishIcon, WalletIcon } from '@/public/assets/dashboard/navBarIcon';
+import { ActiveTransaction, PublishIcon, WalletIcon } from '@/public/assets/dashboard/navBarIcon';
 const activeData = [
   {
     backgroundColor: 'rgba(251, 54, 64, 0.15)',
-    icon: <ActiveTranction />,
+    icon: <ActiveTransaction />,
     title: 'Active Transaction',
     total: '24'
   },

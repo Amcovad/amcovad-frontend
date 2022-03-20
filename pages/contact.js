@@ -6,7 +6,7 @@ import contactImg from '../public/assets/contact/contact-img.png';
 import smContactImg from '../public/assets/contact/sm-contact-img.png';
 
 import Image from 'next/image';
-import { contactUsSchema } from '../schema/Schema';
+import { contactUsSchema } from '../schema/contactUsSchema';
 
 const Contact = () => {
   const onSubmit = (data) => {
