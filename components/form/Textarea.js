@@ -41,7 +41,7 @@ Textarea.propTypes = {
 Textarea.defaultProps = {
   className: null,
   label: null,
-  labelClassName: 'italic bg-transparent peer-focus:bg-transparent -translate-y-[32px] peer-focus:-translate-y-[32px]',
+  labelClassName: 'italic bg-transparent peer-focus:bg-transparent -translate-y-[34px] peer-focus:-translate-y-[34px]',
   placeholder: null
 };
 export default Textarea;
