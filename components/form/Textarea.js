@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
 
-const Textarea = ({ className, label, name, placeholder }) => {
+const Textarea = ({ className, label, labelClassName, name, placeholder }) => {
   const {
     register,
     formState: { errors }
@@ -15,7 +15,6 @@ const Textarea = ({ className, label, name, placeholder }) => {
   return (
     <div className="relative z-0 mb-4 w-full group">
       <textarea
-        name={name}
         placeholder={placeholder ? placeholder : label}
         {...register(name)}
         className={classNames(
@@ -25,7 +24,7 @@ const Textarea = ({ className, label, name, placeholder }) => {
           className
         )}
       />
-      <Label name={name} htmlFor={name} floatLabel text={label} />
+      <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />
 
       <ErrorMessage name={name} />
     </div>
@@ -34,6 +33,7 @@ const Textarea = ({ className, label, name, placeholder }) => {
 Textarea.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string,
+  labelClassName: PropTypes.string,
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string
 };
@@ -41,6 +41,7 @@ Textarea.propTypes = {
 Textarea.defaultProps = {
   className: null,
   label: null,
+  labelClassName: 'italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-9',
   placeholder: null
 };
 export default Textarea;

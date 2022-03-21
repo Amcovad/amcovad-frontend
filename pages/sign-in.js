@@ -1,19 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import * as yup from 'yup';
 import { Button, Input, Label, Navbar } from '@/components/index';
 import HookForm from '@/components/form/Form';
 import { LogoBlack, SignInImage } from '/public/assets/signUp';
+import { SignInSchema } from '../schema/authSchema';
 
 const SignIn = () => {
-  const SignInSchema = yup
-    .object({
-      email: yup.string().email('Kindly provide a valid email address').required('Email is required'),
-      password: yup.string().required('password is required').min(6, 'Password must be atleast 6 character long')
-    })
-    .required();
-
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
   };
@@ -45,11 +38,13 @@ const SignIn = () => {
                       </div>
                       <div className="mt-8">
                         <HookForm onSubmit={onSubmit} schema={SignInSchema}>
-                          <Input label="Email address" name="email" type="email" />
+                          <div className="mb-6">
+                            <Input label="Email address" name="email" type="email" />
+                          </div>
                           <Input label="Password" name="password" type="password" />
                           <div className="flex items-center  mb-3">
                             <Label
-                              className="mt-[-10px] !text-sm "
+                              className="mt-[-10px] mb-4 text-sm"
                               htmlFor="forgot password"
                               name="forgotPassword"
                               text={
@@ -60,7 +55,7 @@ const SignIn = () => {
                             />
                           </div>
                           <div>
-                            <Button className=" w-full font-[600] text-amcovad-black"> Sign in</Button>
+                            <Button className="w-full font-semibold text-amcovad-black py-2.5 px-5">Sign in</Button>
                           </div>
                         </HookForm>
                         <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">
