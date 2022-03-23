@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Navbar } from '@/components/index';
 import { LogoBlack } from '/public/assets/signUp';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 const AuthPage = ({ children, image, imagealt, paragraph, heading }) => {
   return (
@@ -41,6 +42,20 @@ const AuthPage = ({ children, image, imagealt, paragraph, heading }) => {
       </div>
     </section>
   );
+};
+
+AuthPage.propTypes = {
+  children: PropTypes.node,
+  image: PropTypes.any,
+  imagealt: PropTypes.string,
+  paragraph: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired
+};
+
+AuthPage.defaultProps = {
+  children: null,
+  image: null,
+  imagealt: 'auth page image'
 };
 
 export default AuthPage;
