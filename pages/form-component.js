@@ -98,7 +98,9 @@ const SignIn = () => {
                           <Textarea label="Your message" name="message" className="bg-amcovad-secondary-200" />
 
                           <div>
-                            <Button className=" w-full font-[600] text-amcovad-black"> Set Up Amcovad UI</Button>
+                            <Button className=" w-full font-semibold py-2.5 px-5 text-amcovad-black">
+                              Set Up Amcovad UI
+                            </Button>
                           </div>
                         </HookForm>
                       </div>
