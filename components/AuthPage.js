@@ -55,7 +55,7 @@ AuthPage.propTypes = {
 AuthPage.defaultProps = {
   children: null,
   image: null,
-  imagealt: 'auth page image'
+  imagealt: 'authencation page image'
 };
 
 export default AuthPage;
