@@ -7,6 +7,7 @@ import { Logo, HamburgerMenu, WhiteLogo } from '../public/assets/logo/';
 import NavLink from './NavLink';
 import navBarLink from '../data/menu';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const style = {
   container: `relative top-1/4 w-full text-left pl-16 md:pl-32 mt-8`,
@@ -102,14 +103,14 @@ const Navbar = ({ authPageOnly }) => {
               className="p-2  -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline "
               onClick={() => setIsMenuOpen(true)}
             >
-              <Image src={HamburgerMenu} alt="hamburger icon" />
+              <Image src={HamburgerMenu} width="30px" height="30px" alt="hamburger icon" />
             </button>
             {setIsMenuOpen && (
               <Menu isMenuOpen={isMenuOpen}>
                 <>
                   <div className="relative">
                     <div className={style.logo}>
-                      <Image src={WhiteLogo} alt="icon logo" />
+                      <Image src={WhiteLogo} width="160" height="36" alt="icon logo" />
                     </div>
                   </div>
                   <button
@@ -133,6 +134,13 @@ const Navbar = ({ authPageOnly }) => {
       </div>
     </header>
   );
+};
+
+Navbar.propTypes = {
+  authPageOnly: PropTypes.bool
+};
+Navbar.defaultProps = {
+  authPageOnly: false
 };
 
 export default Navbar;
