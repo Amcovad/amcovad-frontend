@@ -13,7 +13,7 @@ const Textarea = ({ className, label, labelClassName, name, placeholder }) => {
   const hasErrors = !!errors?.[name];
 
   return (
-    <div className="relative z-0 mb-4 w-full group">
+    <div className="relative z-0 w-full mb-4 group">
       <textarea
         placeholder={placeholder ? placeholder : label}
         {...register(name)}

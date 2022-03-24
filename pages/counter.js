@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import { Footer, Navbar } from '@/components/index';
 import { useSelector, useDispatch } from 'react-redux';
 import { decrement, increment, incrementByAmount, incrementAsync, selectCount } from '../app/reducers/counterSlice';
+import Link from 'next/link';
+import { add, selectQuote } from '../app/reducers/quoteSlice';
 
 const Counter = () => {
   const count = useSelector(selectCount);
+  const quote = useSelector(selectQuote);
+
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
+
+  const increaseCounter = () => {
+    dispatch(increment());
+    dispatch(add({ quote: 'Auto-generated quote' }));
+  };
 
   const styles = {
     row: 'container mx-auto w-full',
@@ -34,7 +43,7 @@ const Counter = () => {
                   <span className="block mt-10 text-5xl text-gray-900">{count}</span>
                 </h2>
                 <div className="flex justify-center pb-10 mt-8">
-                  <button className={styles.button} aria-label="Increment value" onClick={() => dispatch(increment())}>
+                  <button className={styles.button} aria-label="Increment value" onClick={increaseCounter}>
                     +
                   </button>
                   <button className={styles.button} aria-label="Decrement value" onClick={() => dispatch(decrement())}>
@@ -64,6 +73,10 @@ const Counter = () => {
                   </div>
                 </div>
               </div>
+
+              <Link href="/quote" passHref>
+                <a className="block mt-5 text-indigo-500 center">Go to Quote Page. You have {quote.length} quotes</a>
+              </Link>
             </div>
           </div>
         </div>
