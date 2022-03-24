@@ -1,9 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Rozha+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500,600&display=swap'); */
 
 @layer base {
   p,
@@ -28,6 +28,9 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px #f5f6f8 inset !important;
 }
 
+.is-sticky {
+  @apply bg-amcovad-secondary-100;
+}
 p.paragraphs::first-letter {
   @apply text-[280%] text-amcovad-secondary-600;
 
