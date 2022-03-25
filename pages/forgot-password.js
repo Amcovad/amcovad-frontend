@@ -1,9 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Button, Input, Navbar } from '@/components/index';
+import { Button, Input } from '@/components/index';
 import HookForm from '@/components/form/Form';
-import { LogoBlack } from '/public/assets/signUp';
+import { SignInImage } from '/public/assets/signUp';
 import { ForgotPasswordSchema } from '../schema/authSchema';
 import AuthPage from '@/components/AuthPage';
 
@@ -14,8 +13,10 @@ const ForgotPassword = () => {
 
   return (
     <AuthPage
-      heading="Forgot your password?"
-      paragraph=" Please enter the email address associated with your account and We will email you a link to reset your password."
+      title="Forgot your password?"
+      text=" Please enter the email address associated with your account and We will email you a link to reset your password."
+      image={SignInImage}
+      imagealt="sign in page image"
     >
       <div className="mt-8">
         <HookForm onSubmit={onSubmit} schema={ForgotPasswordSchema}>

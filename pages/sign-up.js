@@ -13,8 +13,8 @@ const SignUp = () => {
   return (
     <>
       <AuthPage
-        heading="Get your transactions covered and secured."
-        paragraph="Gallia est omnis divisa in partes tres, quarum. Fabio vel iudice vincam, sunt in culpa qui officia. Salutantibus vitae elit libero, a pharetra augue."
+        title="Get your transactions covered and secured."
+        text="Gallia est omnis divisa in partes tres, quarum. Fabio vel iudice vincam, sunt in culpa qui officia. Salutantibus vitae elit libero, a pharetra augue."
         image={SignUpImage}
         imagealt="sign up page image"
       >

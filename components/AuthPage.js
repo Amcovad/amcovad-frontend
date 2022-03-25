@@ -5,7 +5,7 @@ import { LogoBlack } from '/public/assets/signUp';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-const AuthPage = ({ children, image, imagealt, paragraph, heading }) => {
+const AuthPage = ({ children, image, imagealt, text, title }) => {
   return (
     <section className="w-full 2xl:m-auto  2xl:container">
       <div className="lg:bg-amcovad-primary-500 overflow-y-scroll  max-w-full h-screen">
@@ -23,9 +23,9 @@ const AuthPage = ({ children, image, imagealt, paragraph, heading }) => {
                   <div className="bg-amcovad-secondary-100  p-6 lg:p-8 ">
                     <div className="mb-8">
                       <h2 className=" font-RozhaOne max-w-[300px] md:max-w-[424px] text-2xl md:text-4xl font-extrabold lg:font-bold text-amcovad-tertiary pb-2">
-                        {heading}
+                        {title}
                       </h2>
-                      <p className="text-amcovad-secondary-700 text-[14px]">{paragraph}</p>
+                      <p className="text-amcovad-secondary-700 text-[14px]">{text}</p>
                     </div>
                     {children}
                   </div>
@@ -48,8 +48,8 @@ AuthPage.propTypes = {
   children: PropTypes.node,
   image: PropTypes.any,
   imagealt: PropTypes.string,
-  paragraph: PropTypes.string.isRequired,
-  heading: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 AuthPage.defaultProps = {
