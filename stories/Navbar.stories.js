@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+import Navbar from '@/components/Navbar';
 
 const HeaderStories = {
   title: 'Components/Header',
@@ -7,9 +7,15 @@ const HeaderStories = {
 
 export default HeaderStories;
 
+const defaultParameters = {
+  authPageOnly: false
+};
+
 const Template = (args) => <Navbar {...args} />;
 
-export const SignIn = Template.bind({});
-SignIn.args = {
-  user: {}
+export const Default = Template.bind({});
+
+export const MobileAuthPage = Template.bind({});
+MobileAuthPage.args = {
+  ...defaultParameters
 };
