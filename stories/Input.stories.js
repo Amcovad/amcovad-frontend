@@ -1,6 +1,7 @@
 import Input from '@/components/form/Input';
 import HookForm from '@/components/form/Form';
 import { ShowPasswordIcon } from '@/public/assets/signUp/passwordSvgs';
+import { ChatIcon } from '@/public/assets/dashboard/navBarIcon';
 
 const InputStories = {
   title: 'Components/Input',
@@ -39,5 +40,13 @@ export const withLabelAndIcon = Template.bind({});
 withLabelAndIcon.args = {
   ...defaultParameters,
   label: 'Email address',
+  Icon: <ChatIcon width="18px" height="18px" fill="#AEB3BB" />
+};
+
+export const PasswordField = Template.bind({});
+PasswordField.args = {
+  ...defaultParameters,
+  label: 'Password',
+  type: 'password',
   Icon: <ShowPasswordIcon width="18px" height="18px" fill="#A9ABAD" />
 };
