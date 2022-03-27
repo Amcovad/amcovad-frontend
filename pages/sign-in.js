@@ -5,11 +5,30 @@ import HookForm from '@/components/form/Form';
 import { SignInImage } from '/public/assets/signUp';
 import { SignInSchema } from '../schema/authSchema';
 import AuthPage from '@/components/AuthPage';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { login, defaultUser } from '../app/reducers/authSlice';
 
 const SignIn = () => {
+  const dispatch = useDispatch();
+  const defaultlogin = useSelector(defaultUser);
+
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
+    dispatch(login(defaultlogin));
+    dispatch(login(data));
   };
+  const router = useRouter();
+
+  useEffect(() => {
+    // redirect to dashboard if already logged in
+
+    if (dispatch(login(data))) {
+      router.push('/dashboard');
+    }
+  }, []);
 
   return (
     <AuthPage
