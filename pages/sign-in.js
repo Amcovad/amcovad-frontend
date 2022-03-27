@@ -22,13 +22,11 @@ const SignIn = () => {
   };
   const router = useRouter();
 
-  useEffect(() => {
-    // redirect to dashboard if already logged in
-
-    if (dispatch(login(data))) {
-      router.push('/dashboard');
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (dispatch(login(data))) {
+  //     router.push('/dashboard');
+  //   }
+  // }, []);
 
   return (
     <AuthPage
