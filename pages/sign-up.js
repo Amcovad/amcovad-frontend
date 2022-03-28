@@ -42,6 +42,7 @@ const SignUp = () => {
                       </Link>
                     </>
                   ),
+                  name: 'acceptTerms',
                   value: true
                 }
               ]}
@@ -60,6 +61,7 @@ const SignUp = () => {
                       </Link>
                     </>
                   ),
+                  name: 'agreeContact',
                   value: true
                 }
               ]}

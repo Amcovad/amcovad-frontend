@@ -25,7 +25,7 @@ export function Checkbox({ containerClassName, inputClassName, label, name, valu
 export function CheckboxGroup({ name, options }) {
   return (
     <>
-      {options.map(({ label, value }, index) => {
+      {options.map(({ label, name, value }, index) => {
         if (!value || !label) return null;
         const optionLabel = label || value;
         const optionValue = value || label;
