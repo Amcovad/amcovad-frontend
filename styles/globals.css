@@ -69,3 +69,17 @@ input[type='checkbox'] + label:active:before {
 input[type='checkbox']:checked + label:before {
   @apply bg-amcovad-primary-500 border-amcovad-primary-400 text-amcovad-white h-[1.0625rem];
 }
+
+.slick-dots li button:before {
+  font-size: 8px !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+
+@media (min-width: 1024px) {
+  .slick-dots li button:before {
+    font-size: 12px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+}

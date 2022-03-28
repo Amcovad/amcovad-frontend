@@ -45,13 +45,13 @@ export const Slide = ({ count, image, orderLast, title, text }) => {
 
 const HowItWork = () => {
   const slideSettings = {
-    dots: false,
+    dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 4000,
-    pauseOnHover: false
+    pauseOnHover: true
   };
   const slideSettingsMobile = {
     dots: true,
@@ -60,21 +60,23 @@ const HowItWork = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
-    pauseOnHover: false
+    pauseOnHover: true
   };
   return (
     <>
       <section className="lg:hidden text-amcovad-secondary-300 h-[615px] md:h-[550px] lg:h-[850px] bg-amcovad-secondary-100 lg:bg-gradient-section overflow-hidden ">
         <Slider {...slideSettingsMobile}>
-          {slideData.map(({ count, image, text, title }, index) => {
-            return <Slide key={index} count={count} image={image} title={title} text={text} />;
+          {slideData.map(({ image, text, title }, index) => {
+            return <Slide key={index} count={index + 1} image={image} title={title} text={text} />;
           })}
         </Slider>
       </section>
       <section className="hidden lg:block text-amcovad-secondary-300 h-[615px] md:h-[550px] lg:h-[850px] bg-amcovad-secondary-100 lg:bg-gradient-section overflow-hidden ">
         <Slider {...slideSettings}>
-          {slideData.map(({ count, image, orderLast, title, text }, index) => {
-            return <Slide key={index} count={count} image={image} orderLast={orderLast} title={title} text={text} />;
+          {slideData.map(({ image, orderLast, title, text }, index) => {
+            return (
+              <Slide key={index} count={index + 1} image={image} orderLast={orderLast} title={title} text={text} />
+            );
           })}
         </Slider>
       </section>
