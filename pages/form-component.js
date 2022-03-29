@@ -18,7 +18,7 @@ const SignIn = () => {
       toggle: yup.boolean().oneOf([true], 'Click the toggle button '),
       select: yup.string().required('A select option is required!'),
       radio: yup.string().required('A Radio button option is required!').nullable(),
-      datePicker: yup.string().required('Date is required')
+      datePicker: yup.string().required('Date is required').nullable()
     })
     .required();
   const sampleData = [
