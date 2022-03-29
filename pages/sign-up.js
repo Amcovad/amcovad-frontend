@@ -1,10 +1,10 @@
 import React from 'react';
-import Image from 'next/image';
-import { Button, CheckboxGroup, Input, Navbar } from '@/components/index';
+import { Button, CheckboxGroup, Input } from '@/components/index';
 import HookForm from '@/components/form/Form';
-import { LogoBlack, SignUpImage } from '/public/assets/signUp';
+import { SignUpImage } from '/public/assets/signUp';
 import Link from 'next/link';
 import { SignUpSchema } from '../schema/authSchema';
+import AuthPage from '@/components/AuthPage';
 
 const SignUp = () => {
   const onSubmit = (data) => {
@@ -12,111 +12,73 @@ const SignUp = () => {
   };
   return (
     <>
-      <div className="w-full 2xl:mx-auto 2xl:container">
-        <section className="lg:bg-amcovad-primary-500 overflow-hidden  max-w-full">
-          <div className=" bg-cover bg-[url('../public/assets/signUp/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../public/assets/signUp/hexagons.png')]">
-            <Navbar authPageOnly />
-            <div className="flex ">
-              <div className="flex flex-col justify-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24 ">
-                <div className="w-full max-w-[43rem] lg:w-[38rem]  mx-auto pt-5 lg:pt-0 ">
-                  <div className="relative lg:py-10 lg:px-8 lg:my-4 lg:max-w-[38rem] lg:w-[580px]">
-                    <Link passHref href="/">
-                      <a className=" hidden lg:block absolute left-3 top-[-8px] cursor-pointer">
-                        <Image src={LogoBlack} alt="black logo" />
-                      </a>
-                    </Link>
-                    <div className="bg-amcovad-secondary-100  p-6 lg:p-8 ">
-                      <div className="mb-8">
-                        <h2 className=" font-RozhaOne max-w-[300px] md:max-w-[424px] text-2xl md:text-4xl font-extrabold lg:font-bold text-amcovad-tertiary pb-2">
-                          Get your transactions covered and secured.
-                        </h2>
-                        <p className="text-amcovad-secondary-700 text-[14px]">
-                          Gallia est omnis divisa in partes tres, quarum. Fabio vel iudice vincam, sunt in culpa qui
-                          officia. Salutantibus vitae elit libero, a pharetra augue.
-                        </p>
-                      </div>
-                      <HookForm onSubmit={onSubmit} schema={SignUpSchema}>
-                        <Input label="Email address" name="email" type="email" />
-                        <div className="my-5">
-                          <Input label="Password" name="password" type="password" />
-                        </div>
-                        <Input label="Confirm Password" name="confirmPassword" type="password" />
-
-                        <div className=" mt-8 mb-3">
-                          <CheckboxGroup
-                            name="acceptTerms"
-                            options={[
-                              {
-                                label: (
-                                  <>
-                                    I have read, and I agree to the
-                                    <Link href="#" passHref>
-                                      <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                        {' '}
-                                        Terms of Service{' '}
-                                      </a>
-                                    </Link>
-                                    and
-                                    <Link href="#" passHref>
-                                      <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                        {' '}
-                                        Privacy Policy
-                                      </a>
-                                    </Link>
-                                  </>
-                                ),
-                                value: true
-                              }
-                            ]}
-                          />
-                        </div>
-                        <div className="flex items-center mt-2 mb-6">
-                          <CheckboxGroup
-                            name="agreeContact"
-                            options={[
-                              {
-                                label: (
-                                  <>
-                                    I agree to be contacted by
-                                    <Link href="#" passHref>
-                                      <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                        {' '}
-                                        amcovad
-                                      </a>
-                                    </Link>
-                                  </>
-                                ),
-                                value: true
-                              }
-                            ]}
-                          />
-                        </div>
-
-                        <div>
-                          <Button className=" w-full font-semibold text-amcovad-black py-2.5 px-5">
-                            Create account
-                          </Button>
-                        </div>
-                        <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">
-                          Have an account,{' '}
-                          <Link href="/sign-in">
-                            <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                              <b>Sign In</b>
-                            </a>
-                          </Link>
-                        </p>
-                      </HookForm>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="relative lg:flex flex-1 hidden lg:w-screen bottom-0 ">
-                <Image src={SignUpImage} alt=" Sign up image" />
-              </div>
-            </div>
+      <AuthPage
+        title="Get your transactions covered and secured."
+        text="Gallia est omnis divisa in partes tres, quarum. Fabio vel iudice vincam, sunt in culpa qui officia. Salutantibus vitae elit libero, a pharetra augue."
+        image={SignUpImage}
+        imagealt="sign up page image"
+      >
+        <HookForm onSubmit={onSubmit} schema={SignUpSchema}>
+          <Input label="Email address" name="email" type="email" />
+          <div className="my-5">
+            <Input label="Password" name="password" type="password" />
           </div>
-        </section>
-      </div>
+          <Input label="Confirm Password" name="confirmPassword" type="password" />
+
+          <div className=" mt-8 mb-3">
+            <CheckboxGroup
+              name="acceptTerms"
+              options={[
+                {
+                  label: (
+                    <>
+                      I have read, and I agree to the
+                      <Link href="#" passHref>
+                        <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500"> Terms of Service </a>
+                      </Link>
+                      and
+                      <Link href="#" passHref>
+                        <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500"> Privacy Policy</a>
+                      </Link>
+                    </>
+                  ),
+                  value: true
+                }
+              ]}
+            />
+          </div>
+          <div className="flex items-center mt-2 mb-6">
+            <CheckboxGroup
+              name="agreeContact"
+              options={[
+                {
+                  label: (
+                    <>
+                      I agree to be contacted by
+                      <Link href="#" passHref>
+                        <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500"> amcovad</a>
+                      </Link>
+                    </>
+                  ),
+                  value: true
+                }
+              ]}
+            />
+          </div>
+
+          <div>
+            <Button className=" w-full font-semibold text-amcovad-black py-2.5 px-5">Create account</Button>
+          </div>
+          <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">
+            Have an account,{' '}
+            <Link href="/sign-in">
+              <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+                <b>Sign In</b>
+              </a>
+            </Link>
+          </p>
+        </HookForm>
+      </AuthPage>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Image from 'next/image';
 import Button from '../components/form/Button';
@@ -7,6 +7,7 @@ import { Logo, HamburgerMenu, WhiteLogo } from '../public/assets/logo/';
 import NavLink from './NavLink';
 import navBarLink from '../data/menu';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const style = {
   container: `relative top-1/4 w-full text-left pl-16 md:pl-32 mt-8`,
@@ -40,29 +41,42 @@ const MenuItem = ({ title, url }) => {
 const Navbar = ({ authPageOnly }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  useEffect(() => {
+    window.addEventListener('scroll', isSticky);
+    return () => {
+      window.removeEventListener('scroll', isSticky);
+    };
+  });
+
+  const isSticky = (e) => {
+    const header = document.querySelector('.mobile-bg');
+    const scrollTop = window.scrollY;
+    scrollTop >= 150 ? header.classList.add('is-sticky') : header.classList.remove('is-sticky');
+  };
+
   return (
     <header
       className={classNames(
         'z-10 outline-[5px]',
-        { 'fixed border-b border-amcovad-primary-200 2xl:mx-auto w-full': !authPageOnly },
+        { 'fixed lg:border-b lg:border-amcovad-primary-200 2xl:mx-auto w-full': !authPageOnly },
         {
-          ' lg:hidden w-screen': authPageOnly
+          'lg:hidden w-screen': authPageOnly
         }
       )}
     >
       <div
         className={classNames(
           'py-2 mx-auto px-4 md:max-w-full lg:px-8',
-          { 'bg-amcovad-secondary-100 md:px-20 2xl:px-60': !authPageOnly },
+          { 'mobile-bg lg:bg-amcovad-secondary-100 md:px-20 2xl:px-60': !authPageOnly },
           {
-            'sm:max-w-xl lg:max-w-screen-xl md:px-24': authPageOnly
+            'mobile-bg sm:max-w-xl lg:max-w-screen-xl md:px-24': authPageOnly
           }
         )}
       >
         <div
           className={classNames(
             'relative flex items-center justify-between',
-            { 'lg:pl-8 lg:pr-16 ': !authPageOnly },
+            { 'lg:pl-8 lg:pr-16 pt-1.5': !authPageOnly },
             {
               'lg:px-20 mt-5': authPageOnly
             }
@@ -102,14 +116,14 @@ const Navbar = ({ authPageOnly }) => {
               className="p-2  -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline "
               onClick={() => setIsMenuOpen(true)}
             >
-              <Image src={HamburgerMenu} alt="hamburger icon" />
+              <Image src={HamburgerMenu} width="30px" height="30px" alt="hamburger icon" />
             </button>
             {setIsMenuOpen && (
               <Menu isMenuOpen={isMenuOpen}>
                 <>
                   <div className="relative">
                     <div className={style.logo}>
-                      <Image src={WhiteLogo} alt="icon logo" />
+                      <Image src={WhiteLogo} width="160" height="36" alt="icon logo" />
                     </div>
                   </div>
                   <button
@@ -133,6 +147,13 @@ const Navbar = ({ authPageOnly }) => {
       </div>
     </header>
   );
+};
+
+Navbar.propTypes = {
+  authPageOnly: PropTypes.bool
+};
+Navbar.defaultProps = {
+  authPageOnly: false
 };
 
 export default Navbar;
