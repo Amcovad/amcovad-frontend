@@ -21,8 +21,7 @@ const defaultParameters = {
           </Link>
         </>
       ),
-      name: 'acceptTerms',
-      value: true
+      value: 'acceptTerms'
     }
   ]
 };
@@ -44,10 +43,9 @@ withMulitpleCheckbox.args = {
   options: [
     {
       label: ' I have read, and I agree to the Terms of Service ',
-      name: 'agreeService',
-      value: true
+      value: 'agreeService'
     },
-    { label: 'I agree to be contacted by amcovad', name: 'agreeContact', value: true },
-    { label: 'I have read, and I agree to the Privacy Policy', name: 'agreePolicy', value: true }
+    { label: 'I agree to be contacted by amcovad', value: 'agreeContact' },
+    { label: 'I have read, and I agree to the Privacy Policy', value: 'agreePolicy' }
   ]
 };
