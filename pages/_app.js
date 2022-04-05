@@ -1,3 +1,4 @@
+import 'rsuite/dist/rsuite.min.css';
 import '../styles/globals.css';
 // slick-carousel
 import 'slick-carousel/slick/slick.css';

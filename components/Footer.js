@@ -76,9 +76,9 @@ const Footer = () => {
                     <div className="flex items-center justify-center w-10 h-10 mb-4 mr-2 rounded-full  lg:mb-0">
                       <Image src={Location} alt="social icon logo" />
                     </div>
-                    <h6 className="font-normal text-amcovad-secondary-300 leading-5 mt-2 lg:mt-0">
+                    <p className="font-normal text-amcovad-secondary-300 leading-5 mt-2 lg:mt-0">
                       3rd Floor, Central District Area, Abuja.
-                    </h6>
+                    </p>
                   </div>
                 </li>
               </ul>
