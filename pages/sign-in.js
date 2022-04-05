@@ -1,33 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { Button, Input, Label } from '@/components/index';
 import HookForm from '@/components/form/Form';
 import { SignInImage } from '/public/assets/signUp';
 import { SignInSchema } from '../schema/authSchema';
 import AuthPage from '@/components/AuthPage';
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { login, defaultUser } from '../app/reducers/authSlice';
+import { login } from '../app/reducers/authSlice';
 
 const SignIn = () => {
+  const router = useRouter();
   const dispatch = useDispatch();
-  const defaultlogin = useSelector(defaultUser);
+  const { errors, isAuthenticated } = useSelector((state) => state.auth);
 
   const onSubmit = (data) => {
     // alert(JSON.stringify(data));
-    dispatch(login(defaultlogin));
     dispatch(login(data));
   };
-  const router = useRouter();
 
-  // useEffect(() => {
-  //   if (dispatch(login(data))) {
-  //     router.push('/dashboard');
-  //   }
-  // }, []);
-
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push('/dashboard');
+    }
+  }, [isAuthenticated, router]);
   return (
     <AuthPage
       title="Get your transactions covered and secured."
@@ -57,6 +54,11 @@ const SignIn = () => {
             <Button className="w-full font-semibold text-amcovad-black py-2.5 px-5">Sign in</Button>
           </div>
         </HookForm>
+        {errors && (
+          <p className="block pt-2 text-base font-normal text-center text-amcovad-danger font-Inter ">
+            Error: {errors}
+          </p>
+        )}
         <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">
           Don’t have account?{' '}
           <Link href="/sign-up">

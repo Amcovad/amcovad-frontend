@@ -29,7 +29,7 @@ const SideBar = () => {
             <div className="w-full">
               <div className="w-full flex items-center justify-between ">
                 <div className="  px-6 py-2 w-full bg-amcovad-secondary-300 ">
-                  <Link href="/settings" passHref>
+                  <Link href="/settings/profile" passHref>
                     <a className="inline-flex items-center w-full text-sm font-normal font-Inter text-amcovad-secondary-700 focus:text-amcovad-secondary-700 transition-colors duration-150 hover:text-amcovad-primary-400 ">
                       <Image src={Settings} width="22" height="20" className="object-cover " alt="icon" />
                       <span className="ml-4">Settings</span>

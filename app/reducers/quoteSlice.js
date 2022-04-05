@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const quoteSlice = createSlice({
   name: 'quote',
-  initialState: { value: [{ id: 1, text: 'Hello' }] },
+  initialState: { value: [{ id: 1, text: 'Hello from Qoute' }] },
   reducers: {
     add: (state, action) => {
       state.value = [...state.value, { id: state.value.length + 1, text: action.payload.quote }];

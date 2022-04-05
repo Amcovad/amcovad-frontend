@@ -4,7 +4,18 @@ import { coloredData, graphData, listData, transactData } from '@/data/dashboard
 import { ColoredCard, GraphCard, ListCard } from '@/components/dashboard/component/index';
 
 import { Button } from '../components';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+
 function Dashboard() {
+  const router = useRouter();
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
+  React.useEffect(() => {
+    if (!isAuthenticated) {
+      router.push('/sign-in');
+    }
+  }, [isAuthenticated, router]);
   return (
     <>
       <DashboardLayout title="Dashboard">

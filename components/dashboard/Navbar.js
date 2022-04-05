@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
-      <div className="fixed z-10 w-full lg:w-4/5">
+      <div className="fixed z-40 w-full lg:w-4/5">
         <nav className="bg-amcovad-secondary-200 ">
           <div className="container px-6 pb-2 md:py-2 lg:py-4">
             <div className="flex items-center justify-between">

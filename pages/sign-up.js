@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, CheckboxGroup, Input } from '@/components/index';
 import HookForm from '@/components/form/Form';
 import { SignUpImage } from '/public/assets/signUp';
 import Link from 'next/link';
 import { SignUpSchema } from '../schema/authSchema';
 import AuthPage from '@/components/AuthPage';
+import { useRouter } from 'next/router';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { signup } from '../app/reducers/authSlice';
 
 const SignUp = () => {
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const { errors, registerSuccess } = useSelector((state) => state.auth);
+  const onSubmit = ({ email, password }) => {
+    dispatch(signup({ name: email.slice(0, -10), email: email, password: password }));
   };
+
+  useEffect(() => {
+    if (registerSuccess) {
+      router.push('/sign-in');
+    }
+  }, [registerSuccess, router]);
   return (
     <>
       <AuthPage
@@ -67,8 +80,13 @@ const SignUp = () => {
           </div>
 
           <div>
-            <Button className=" w-full font-semibold text-amcovad-black py-2.5 px-5">Create account</Button>
+            <Button className="w-full font-semibold text-amcovad-black py-2.5 px-5">Create account</Button>
           </div>
+          {errors && (
+            <p className="block pt-2 text-base font-normal text-center text-amcovad-danger font-Inter ">
+              Error: {errors}
+            </p>
+          )}
           <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">
             Have an account,{' '}
             <Link href="/sign-in">
