@@ -15,20 +15,13 @@ import {
 
 export const SingleProduct = ({ id, name, price }) => {
   const dispatch = useDispatch();
-  const product = useSelector(productData);
   const [editModal, setEditModal] = useState(false);
   const [isfavourite, setIsFavourite] = useState(false);
-
-  // const onSubmit = (data) => {
-  //   dispatch(editProduct(data));
-  //   //alert(JSON.stringify(data));
-  // };
 
   return (
     <tr className="text-gray-700 ">
       <td className="px-4 py-3">
         <div className="flex items-center text-sm">
-          {/* Avatar with inset shadow */}
           <div className="relative hidden w-16 h-16 mr-3 md:block">
             <img
               className="object-cover w-full h-full rounded-full"
@@ -126,39 +119,15 @@ export const SingleProduct = ({ id, name, price }) => {
 };
 
 export const EditForm = ({ closeModal }) => {
-  // const productUpdate = useSelector((state) => state.product.value.find((product) => product.id === productData.id));
-
   const dispatch = useDispatch();
   const product = useSelector((state) => state.value);
 
   const onSubmit = ({ name, price }) => {
     dispatch(editProduct({ name, price }));
-    //alert(JSON.stringify(data));
     dispatch(closeModal);
   };
   return (
     <HookForm onSubmit={onSubmit} schema={ProductSchema}>
-      {/* {productsDB.map(({ id, name, price }, index) => (
-                  <>
-                    <div
-                      key={index}
-                      id={id}
-                      className="space-y-2 p-4 mt-3 text-[15.5px] leading-relaxed text-gray-500 "
-                    >
-                      <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
-                        <div className="col-span-full ">
-                          <Input label="Name" name="name" value={name} type="text" />
-                        </div>
-                        <div className="col-span-full ">
-                          <Input label="Price" name="price" value={price} type="number" />
-                        </div>
-                        <div className="col-span-full ">
-                          <Input label="Image URL" name="image" type="file" />
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                ))} */}
       <div className="space-y-2 p-4 mt-3 text-[15.5px] leading-relaxed text-gray-500 ">
         <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
           <div className="col-span-full ">
@@ -203,7 +172,6 @@ const AddItem = () => {
 
   const onSubmit = (data) => {
     dispatch(addProduct(data));
-    // alert(JSON.stringify(data));
     dispatch(() => setModal(false));
   };
 
@@ -225,24 +193,6 @@ const AddItem = () => {
                 <p className="text-sm py-6 font-normal text-amcovad-secondary-500">
                   Amazing products Everyday Start Shopping now!
                 </p>
-                {/* <HookForm onSubmit={onSubmit} schema={contactUsSchema}>
-                  <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
-                    <div className="col-span-full ">
-                      <Input label="Name" name="name" type="text" />
-                    </div>
-                    <div className="col-span-full ">
-                      <Input label="Price" name="price" type="number" />
-                    </div>
-                    <div className="col-span-full ">
-                      <Input label="Image URL" name="image" type="file" />
-                    </div>
-                  </div>
-                  <div className="pt-2">
-                    <Button primary className="text-white h-12 px-9  ">
-                      Add item
-                    </Button>
-                  </div>
-                </HookForm> */}
               </div>
 
               {modal && (
@@ -312,7 +262,7 @@ const AddItem = () => {
                   </div>
                 </div>
               )}
-              {/* table start */}
+
               {!isEmptyCart ? (
                 <div className="w-full overflow-hidden rounded-lg shadow-xs">
                   <div className="w-full overflow-x-auto">
@@ -353,7 +303,7 @@ const AddItem = () => {
                   </Button>
                 </div>
               )}
-              {/* table end */}
+
               <div className="flex p-4  justify-center">
                 <Button outline className=" px-4 py-3">
                   <Link passHref href="/shop/favourite">
