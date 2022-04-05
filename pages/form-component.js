@@ -47,7 +47,7 @@ const SignIn = () => {
                     </Link>
                     <div className="bg-amcovad-secondary-100 p-6 lg:p-8 ">
                       <div>
-                        <h1 className="font-RozhaOne max-w-[300px] md:max-w-[424px] text-2xl md:text-4xl font-extrabold lg:font-bold text-amcovad-tertiary pb-2">
+                        <h1 className="font-RozhaOne max-w-[300px] md:max-w-[424px] text-2xl md:text-4xl font-extrabold lg:font-bold text-amcovad-secondary-600 pb-2">
                           Form Components UI
                         </h1>
                         <p className="text-amcovad-secondary-700 text-[14px]">
