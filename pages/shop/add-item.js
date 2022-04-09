@@ -10,7 +10,7 @@ import {
   productData,
   deleteProduct,
   resetCart,
-  updateProduct
+  markFavourite
 } from '../../app/reducers/productSlice';
 
 export const SingleProduct = ({ id, name, price }) => {
@@ -41,7 +41,15 @@ export const SingleProduct = ({ id, name, price }) => {
 
       <td className="px-4 py-3">
         <div className="flex items-center space-x-4 text-sm">
-          {isfavourite ? (
+          <span
+            onClick={() => {
+              dispatch(markFavourite());
+            }}
+            className="px-2 py-1 cursor-pointer font-semibold leading-tight text-white bg-amcovad-primary-400 rounded-full"
+          >
+            Favorite
+          </span>
+          {/* {isfavourite ? (
             <span
               onClick={() => setIsFavourite(false)}
               className="px-2 py-1 cursor-pointer font-semibold leading-tight text-white bg-amcovad-warning rounded-full"
@@ -55,7 +63,7 @@ export const SingleProduct = ({ id, name, price }) => {
             >
               Favorite
             </span>
-          )}
+          )} */}
 
           <button
             onClick={() => setEditModal(true)}
@@ -109,7 +117,7 @@ export const SingleProduct = ({ id, name, price }) => {
                   </svg>
                 </button>
               </div>
-              <EditForm closeModal={() => setEditModal(false)} />
+              <EditForm id={id} name={name} price={price} closeModal={() => setEditModal(false)} />
             </div>
           </div>
         </div>
@@ -118,23 +126,21 @@ export const SingleProduct = ({ id, name, price }) => {
   );
 };
 
-export const EditForm = ({ closeModal }) => {
+export const EditForm = ({ id, name, price, closeModal }) => {
   const dispatch = useDispatch();
-  const product = useSelector((state) => state.value);
-
   const onSubmit = ({ name, price }) => {
-    dispatch(editProduct({ name, price }));
+    dispatch(editProduct({ id, name, price }));
     dispatch(closeModal);
   };
   return (
-    <HookForm onSubmit={onSubmit} schema={ProductSchema}>
+    <HookForm onSubmit={onSubmit} defaultValues={{ name, price }} schema={ProductSchema}>
       <div className="space-y-2 p-4 mt-3 text-[15.5px] leading-relaxed text-gray-500 ">
         <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
           <div className="col-span-full ">
-            <Input label="Name" name="name" value={product?.name} type="text" />
+            <Input label="Name" name="name" type="text" />
           </div>
           <div className="col-span-full ">
-            <Input label="Price" name="price" value={product?.price} type="number" />
+            <Input label="Price" name="price" type="number" />
           </div>
           <div className="col-span-full ">
             <Input label="Image URL" name="image" type="file" />
