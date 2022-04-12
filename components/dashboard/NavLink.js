@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-const NavLink = ({ containerClassName, icon, name, url }) => {
+const NavLink = ({ activeIcon, containerClassName, icon, name, url }) => {
   const { asPath } = useRouter();
   return (
     <li
@@ -19,7 +19,11 @@ const NavLink = ({ containerClassName, icon, name, url }) => {
     >
       <Link href={url} passHref>
         <a className="inline-flex items-center w-full text-sm font-normal font-Inter text-amcovad-secondary-700 focus:text-amcovad-secondary-700 transition-colors duration-150 hover:text-amcovad-primary-400 ">
-          <Image src={icon} width="22" height="20" className="object-cover " alt="icon" />
+          {asPath === url ? (
+            <Image src={activeIcon} width="22px" height="20px" className="object-cover " alt="icon" />
+          ) : (
+            <Image src={icon} width="22px" height="20px" className="object-cover " alt="icon" />
+          )}
           <span className="ml-4">{name}</span>
         </a>
       </Link>

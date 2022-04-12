@@ -1,15 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const ColoredCard = ({ backgroundColor, icon, title, total }) => {
+const ColoredCard = ({ backgroundColor, fourColumn, icon, title, threeColumn, total }) => {
   return (
-    <section className="w-full lg:w-4/12 transition duration-500 hover:scale-105 ">
+    <section
+      className={classNames(
+        'w-full  transition duration-500 hover:scale-105 ',
+        { 'lg:w-3/12': threeColumn },
+        { 'lg:w-4/12': fourColumn }
+      )}
+    >
       <div className="p-2">
         <div className="rounded-[0.625rem]" style={{ backgroundColor: `${backgroundColor}` }}>
           <div className="px-4 pt-4 ">{icon}</div>
           <div className="px-4 py-2">
             <p className="font-Inter font-medium text-base leading-7">{title}</p>
-            <p className=" pt-2 pb-1 text-4xl font-Poppins font-normal leading-7 text-amcovad-tertiary">{total}</p>
+            <p className=" pt-2 pb-1 text-4xl font-Poppins font-medium leading-7 text-amcovad-tertiary">{total}</p>
           </div>
         </div>
       </div>

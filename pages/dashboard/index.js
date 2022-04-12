@@ -1,9 +1,9 @@
 import React from 'react';
-import DashboardLayout from '../components/dashboard/DashboardLayout';
+import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { coloredData, graphData, listData, transactData } from '@/data/dashboard/index';
 import { ColoredCard, GraphCard, ListCard } from '@/components/dashboard/component/index';
 
-import { Button } from '../components';
+import { Button } from '@/components/form';
 function Dashboard() {
   return (
     <>
@@ -15,6 +15,7 @@ function Dashboard() {
                 {coloredData.map(({ backgroundColor, icon, title, total }, index) => {
                   return (
                     <ColoredCard
+                      fourColumn
                       key={index}
                       backgroundColor={backgroundColor}
                       title={title}

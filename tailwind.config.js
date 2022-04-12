@@ -1,5 +1,7 @@
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}', './data/**/*.{js,ts,jsx,tsx}'],
+  safelist: ['bg-amcovad-secondary-green', 'bg-amcovad-primary-200', 'bg-amcovad-secondary-green'],
+  mode: 'jit',
   theme: {
     fontFamily: {
       RozhaOne: ['Rozha One', 'serif'],
@@ -29,7 +31,8 @@ module.exports = {
           400: '#AEB3BB',
           500: '#858C99',
           600: '#5D6677',
-          700: '#344055'
+          700: '#344055',
+          green: '#2FB07E'
         },
         'amcovad-tertiary': '#0C1A2C',
         'amcovad-info': '#01C4DF',
@@ -38,7 +41,10 @@ module.exports = {
         'amcovad-danger': '#FB3640',
         'amcovad-success': '#00CA69',
         'amcovad-warning': '#F3C000',
-        'amcovad-tertiary-color': '#161E54'
+        'amcovad-warning-dark': '#B58F00',
+        'amcovad-tertiary-color': '#161E54',
+        'amcovad-orange': '#F5993F',
+        'amcovad-purple': '#9B51E0'
       }
     }
   },

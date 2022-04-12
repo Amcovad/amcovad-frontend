@@ -3,13 +3,14 @@ import SideBar from './SideBar';
 import Navbar from './Navbar';
 import PropTypes from 'prop-types';
 
-const DashboardLayout = ({ children, title }) => {
+const DashboardLayout = ({ children, title, showAlertHere }) => {
   return (
     <div className="flex h-screen">
       <SideBar />
       <div className="relative w-full lg:w-4/5 h-full overflow-y-auto scrollbar">
         <Navbar />
         <div className="w-full mt-20 lg:mt-[90px] px-6">
+          {showAlertHere}
           <h1 className="text-xl leading-9 lg:text-2xl font-Inter lg:leading-10 font-medium text-amcovad-tertiary-color/90 ">
             {title}
           </h1>
@@ -22,12 +23,14 @@ const DashboardLayout = ({ children, title }) => {
 
 DashboardLayout.propTypes = {
   children: PropTypes.node,
-  title: PropTypes.string
+  title: PropTypes.string,
+  showAlertHere: PropTypes.any
 };
 
 DashboardLayout.defaultProps = {
   children: null,
-  title: null
+  title: null,
+  showAlertHere: null
 };
 
 export default DashboardLayout;
