@@ -5,15 +5,16 @@ const sidebar = [
     url: '/dashboard'
   },
   {
-    icon: '/assets/dashboard/published.svg',
-    name: 'Published Templates',
-    url: '/published-templates'
+    icon: '/assets/dashboard/active-transaction.svg',
+    name: 'Transaction',
+    url: '/dashboard/transaction'
   },
   {
-    icon: '/assets/dashboard/active-transaction.svg',
-    name: 'Active Transaction',
-    url: '/active-transaction'
+    icon: '/assets/dashboard/published.svg',
+    name: 'Templates',
+    url: '/dashboard/templates'
   },
+
   {
     icon: '/assets/dashboard/draft.svg',
     name: 'Drafts',

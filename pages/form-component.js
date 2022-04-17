@@ -90,7 +90,7 @@ const SignIn = () => {
                               ]}
                             />
                           </div>
-                          <DatePicker name="datePicker" />
+                          <DatePicker name="datePicker" placeholder="Pick a Date options" />
 
                           <div className="my-4">
                             <RadioGroup name="radio" options={sampleData} />

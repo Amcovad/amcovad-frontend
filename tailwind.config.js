@@ -1,5 +1,13 @@
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  safelist: [
+    'bg-[#01a1df]',
+    ' bg-[#9B51E0]',
+    ' bg-[#2F80ED]',
+    'text-amcovad-secondary-100',
+    'bg-amcovad-secondary-400',
+    'bg-amcovad-primary-500'
+  ],
   theme: {
     fontFamily: {
       RozhaOne: ['Rozha One', 'serif'],

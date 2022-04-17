@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
+import { BlackCaret } from '@/public/assets/dashboard/navBarIcon';
 export function SelectField({ children, className, containerClassName, label, labelClassName, name }) {
   const {
     register,
@@ -12,20 +13,25 @@ export function SelectField({ children, className, containerClassName, label, la
   const hasErrors = !!errors?.[name];
 
   return (
-    <div className={classNames('relative my-1', containerClassName)}>
-      <Label name={name} htmlFor={name} text={label} className={classNames('text-sm', labelClassName)} />
-      <select
-        className={classNames(
-          'relative flex flex-1 w-full mt-1 rounded-md py-2 px-2 bg-transparent text-amcovad-secondary-700 placeholder-amcovad-secondary-700 border-amcovad-secondary-300 text-base focus:outline-none border-2',
-          className,
-          { 'focus:border-amcovad-danger border-amcovad-danger': hasErrors },
-          { 'focus:border-amcovad-primary-500': !hasErrors }
-        )}
-        {...register(name)}
-        id={name}
-      >
-        {children}
-      </select>
+    <div className={classNames('relative ', containerClassName)}>
+      {label && <Label name={name} htmlFor={name} text={label} className={classNames('text-sm', labelClassName)} />}
+      <div className="flex justify-center items-center">
+        <select
+          className={classNames(
+            'relative flex flex-1 w-full rounded-md p-3.5 appearance-none transition ease-in-out bg-transparent text-amcovad-secondary-700 placeholder-amcovad-secondary-700 border-amcovad-secondary-300 text-base focus:outline-none border-2',
+            className,
+            { 'focus:border-amcovad-danger border-amcovad-danger': hasErrors },
+            { 'focus:border-amcovad-primary-500': !hasErrors }
+          )}
+          {...register(name)}
+          id={name}
+        >
+          {children}
+        </select>
+        <span className="absolute right-4 pointer-events-none " data-testid="icon">
+          <BlackCaret />
+        </span>
+      </div>
     </div>
   );
 }
