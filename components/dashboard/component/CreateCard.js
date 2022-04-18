@@ -1,26 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
-import classNames from 'classnames';
+import { PlusIcon } from '@/public/assets/dashboard/navBarIcon';
 
-const CreateCard = ({ backgroundColor, fourColumn, icon, title, threeColumn, url }) => {
+const CreateCard = () => {
   return (
-    <section
-      className={classNames(
-        'w-full  transition duration-500 hover:scale-105 ',
-        { 'lg:w-3/12': threeColumn },
-        { 'lg:w-4/12': fourColumn }
-      )}
-    >
+    <section className="w-full  transition duration-500 hover:scale-105 lg:w-3/12">
       <div className="p-2">
-        <div className="rounded-[0.625rem]" style={{ backgroundColor: `${backgroundColor}` }}>
+        <div className="rounded-[0.625rem]" style={{ backgroundColor: '#EBECEE' }}>
           <div className="p-4 py-8">
-            <Link href={url} passHref>
+            <Link href="transaction/create" passHref>
               <a>
-                <div className="flex justify-center pt-4 ">{icon}</div>
+                <div className="flex justify-center pt-4 ">
+                  <PlusIcon />
+                </div>
                 <div className="px-4 py-2">
                   <p className="font-Inter font-medium text-base text-center leading-7 cursor-pointer text-amcovad-secondary-500">
-                    {title}
+                    Create Transaction
                   </p>
                 </div>
               </a>
@@ -32,15 +27,4 @@ const CreateCard = ({ backgroundColor, fourColumn, icon, title, threeColumn, url
   );
 };
 
-CreateCard.propTypes = {
-  backgroundColor: PropTypes.string,
-  icon: PropTypes.node,
-  title: PropTypes.string
-};
-
-CreateCard.defaultProps = {
-  backgroundColor: null,
-  icon: null,
-  title: null
-};
 export default CreateCard;

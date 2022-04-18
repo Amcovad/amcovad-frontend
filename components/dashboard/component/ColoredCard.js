@@ -2,14 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const ColoredCard = ({ backgroundColor, fourColumn, icon, title, threeColumn, total }) => {
+const ColoredCard = ({ backgroundColor, className, isThreeColumn, icon, title, total }) => {
   return (
     <section
-      className={classNames(
-        'w-full  transition duration-500 hover:scale-105 ',
-        { 'lg:w-3/12': threeColumn },
-        { 'lg:w-4/12': fourColumn }
-      )}
+      className={classNames('w-full transition duration-500 hover:scale-105', className, {
+        'lg:w-3/12': isThreeColumn
+      })}
     >
       <div className="p-2">
         <div className="rounded-[0.625rem]" style={{ backgroundColor: `${backgroundColor}` }}>
@@ -27,6 +25,8 @@ const ColoredCard = ({ backgroundColor, fourColumn, icon, title, threeColumn, to
 ColoredCard.propTypes = {
   backgroundColor: PropTypes.string,
   icon: PropTypes.node,
+  className: PropTypes.string,
+  isThreeColumn: PropTypes.bool,
   title: PropTypes.string,
   total: PropTypes.string
 };
@@ -34,6 +34,8 @@ ColoredCard.propTypes = {
 ColoredCard.defaultProps = {
   backgroundColor: null,
   icon: null,
+  className: 'lg:w-4/12',
+  isThreeColumn: false,
   title: null,
   total: null
 };

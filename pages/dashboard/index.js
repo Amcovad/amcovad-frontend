@@ -15,7 +15,6 @@ function Dashboard() {
                 {coloredData.map(({ backgroundColor, icon, title, total }, index) => {
                   return (
                     <ColoredCard
-                      fourColumn
                       key={index}
                       backgroundColor={backgroundColor}
                       title={title}

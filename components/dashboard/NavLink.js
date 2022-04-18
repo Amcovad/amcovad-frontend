@@ -7,23 +7,27 @@ import PropTypes from 'prop-types';
 
 const NavLink = ({ activeIcon, containerClassName, icon, name, url }) => {
   const { asPath } = useRouter();
+  const isActiveIcon = url === asPath;
   return (
     <li
       className={classNames(
         'relative px-6 pb-2 pt-3 my-3  hover:bg-amcovad-secondary-200',
         {
-          'bg-amcovad-secondary-200 border-r-4 border-amcovad-primary-400 ': url === asPath
+          'bg-amcovad-secondary-200 border-r-4 border-amcovad-primary-400 ': isActiveIcon
         },
         containerClassName
       )}
     >
       <Link href={url} passHref>
         <a className="inline-flex items-center w-full text-sm font-normal font-Inter text-amcovad-secondary-700 focus:text-amcovad-secondary-700 transition-colors duration-150 hover:text-amcovad-primary-400 ">
-          {asPath === url ? (
-            <Image src={activeIcon} width="22px" height="20px" className="object-cover " alt="icon" />
-          ) : (
-            <Image src={icon} width="22px" height="20px" className="object-cover " alt="icon" />
-          )}
+          <Image
+            src={isActiveIcon ? activeIcon : icon}
+            width="22px"
+            height="20px"
+            className="object-cover "
+            alt="icon"
+          />
+
           <span className="ml-4">{name}</span>
         </a>
       </Link>
