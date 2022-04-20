@@ -6,7 +6,8 @@ const ColoredCard = ({ backgroundColor, className, isThreeColumn, icon, title, t
   return (
     <section
       className={classNames('w-full transition duration-500 hover:scale-105', className, {
-        'lg:w-3/12': isThreeColumn
+        'lg:w-3/12': isThreeColumn,
+        'lg:w-4/12': !isThreeColumn
       })}
     >
       <div className="p-2">
@@ -34,7 +35,6 @@ ColoredCard.propTypes = {
 ColoredCard.defaultProps = {
   backgroundColor: null,
   icon: null,
-  className: 'lg:w-4/12',
   isThreeColumn: false,
   title: null,
   total: null

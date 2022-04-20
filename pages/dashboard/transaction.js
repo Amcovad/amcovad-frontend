@@ -13,15 +13,9 @@ import Chart from '@/public/assets/dashboard/Chart.png';
 import Alert from '@/components/dashboard/component/Alert';
 
 function Transaction() {
-  const [showAlert, setShowAlert] = React.useState(true);
   return (
     <>
-      <DashboardLayout
-        title="Dashboard"
-        alert={
-          showAlert && <Alert message="Transaction created successfully!" success onClick={() => setShowAlert(false)} />
-        }
-      >
+      <DashboardLayout title="Dashboard" alert={<Alert message="Transaction created successfully!" type="success" />}>
         <main className="h-screen w-full pb-36 pt-4 px-2 lg:px-4 lg:pt-2">
           <div className="flex flex-wrap">
             <div className="w-full mb-16 ">
