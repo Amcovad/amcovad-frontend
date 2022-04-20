@@ -90,7 +90,13 @@ const SignIn = () => {
                               ]}
                             />
                           </div>
-                          <DatePicker name="datePicker" placeholder="Pick a Date options" />
+                          <div className="py-1">
+                            <DatePicker
+                              name="datePicker"
+                              label="Click to select your age"
+                              placeholder="Pick a Date options"
+                            />
+                          </div>
 
                           <div className="my-4">
                             <RadioGroup name="radio" options={sampleData} />

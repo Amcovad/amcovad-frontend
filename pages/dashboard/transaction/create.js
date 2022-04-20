@@ -4,8 +4,8 @@ import HookForm from '@/components/form/Form';
 import classNames from 'classnames';
 import ColoredCard from '@/components/dashboard/Transaction/TransactionColoredCard';
 import coloredCardData from '@/data/dashboard/transaction/coloredCard';
-import StepperControl from '@/components/dashboard/Transaction/StepperControl';
-import data from '@/data/dashboard/transaction/component';
+import StepNavigation from '@/components/dashboard/Transaction/StepNavigation';
+import data from '@/data/dashboard/transaction/steps';
 
 function Create() {
   const [visibleStep, setVisibleStep] = React.useState(data[0].id);
@@ -61,7 +61,7 @@ function Create() {
             <div className="lg:w-full ">
               <div className="bg-amcovad-secondary-700 h-1 flex items-center justify-between">{Steps}</div>
               <HookForm>{Content}</HookForm>
-              <StepperControl handleClick={handleClick} visibleStep={visibleStep} data={data} />
+              <StepNavigation handleClick={handleClick} visibleStep={visibleStep} data={data} />
             </div>
 
             <div className=" relative ">

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import React from 'react';
 
-const StepperControl = ({ handleClick, visibleStep, data }) => {
+const StepNavigation = ({ handleClick, visibleStep, data }) => {
   return (
     <div className="flex justify-between items-center py-10 mt-5">
       <Button onClick={() => handleClick()} outline className={`capitalize py-2.5 px-5 text-sm  `} color="secondary">
@@ -30,13 +30,13 @@ const StepperControl = ({ handleClick, visibleStep, data }) => {
   );
 };
 
-StepperControl.propTypes = {
+StepNavigation.propTypes = {
   handleClick: PropTypes.func,
   data: PropTypes.array
 };
 
-StepperControl.defaultProps = {
+StepNavigation.defaultProps = {
   handleClick: () => {},
   data: []
 };
-export default StepperControl;
+export default StepNavigation;
