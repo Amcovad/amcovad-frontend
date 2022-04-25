@@ -31,12 +31,9 @@ export const productSlice = createSlice({
       });
     },
 
-    markFavourite: (state, action) => {
-      state.value.map((product) => {
-        if (product.favourite === false) {
-          state.isFavourite = false;
-        }
-      });
+    markFavourite(state, action) {
+      const existingIndex = state.value.findIndex((item) => item.id === action.payload);
+      state.isFavourite.push(existingIndex);
     },
 
     logout: (state) => {
