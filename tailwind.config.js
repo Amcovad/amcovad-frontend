@@ -1,6 +1,13 @@
 module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}', './data/**/*.{js,ts,jsx,tsx}'],
-  safelist: ['bg-amcovad-secondary-green', 'bg-amcovad-primary-200', 'bg-amcovad-secondary-green'],
+  safelist: [
+    'bg-amcovad-secondary-green',
+    'bg-amcovad-primary-200',
+    'border-amcovad-danger/70 bg-amcovad-danger/10',
+    'border-amcovad-info/70 bg-amcovad-info/10',
+    'border-amcovad-success/70 bg-amcovad-success/10',
+    'border-amcovad-warning/70 bg-amcovad-warning/10'
+  ],
   mode: 'jit',
   theme: {
     fontFamily: {

@@ -1,15 +1,13 @@
 import React from 'react';
 import { XIcon } from '@/public/assets/dashboard/navBarIcon';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 const Alert = ({ message, type }) => {
   const [showAlert, setShowAlert] = React.useState(true);
   return (
     <>
       {message && showAlert && type && (
         <div
-          onClick={() => setShowAlert(false)}
-          className={classNames('flex items-center justify-between p-3 mb-2 border-2  rounded-md', styles[type])}
+          className={`flex items-center justify-between p-3 pr-4 mb-2 border-2 rounded-md border-amcovad-${type}/70 bg-amcovad-${type}/10`}
         >
           <strong className="text-sm font-medium text-amcovad-secondary-700">{message}</strong>
           <button className="opacity-100" type="button" onClick={() => setShowAlert(false)}>
@@ -20,12 +18,6 @@ const Alert = ({ message, type }) => {
       )}
     </>
   );
-};
-const styles = {
-  danger: 'border-amcovad-danger/70 bg-amcovad-danger/10',
-  info: 'border-amcovad-info/70 bg-amcovad-info/10',
-  success: 'border-amcovad-success/70 bg-amcovad-success/10',
-  warning: 'border-amcovad-warning/70 bg-amcovad-warning/10'
 };
 
 Alert.propTypes = {

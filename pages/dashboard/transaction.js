@@ -10,12 +10,11 @@ import {
 } from '@/components/dashboard/component/index';
 import Image from 'next/image';
 import Chart from '@/public/assets/dashboard/Chart.png';
-import Alert from '@/components/dashboard/component/Alert';
 
 function Transaction() {
   return (
     <>
-      <DashboardLayout title="Dashboard" alert={<Alert message="Transaction created successfully!" type="success" />}>
+      <DashboardLayout title="Transaction" alert={{ message: 'Transaction created successfully!', type: 'success' }}>
         <main className="h-screen w-full pb-36 pt-4 px-2 lg:px-4 lg:pt-2">
           <div className="flex flex-wrap">
             <div className="w-full mb-16 ">
