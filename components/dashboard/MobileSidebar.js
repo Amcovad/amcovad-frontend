@@ -27,7 +27,9 @@ const MobileSidebar = ({ onClick }) => {
           </div>
           <ul className=" pt-6 ">
             {sidebarData.map((data, index) => {
-              return <NavLink key={index} name={data.name} url={data.url} icon={data.icon} />;
+              return (
+                <NavLink key={index} name={data.name} activeIcon={data.activeIcon} url={data.url} icon={data.icon} />
+              );
             })}
           </ul>
         </div>
