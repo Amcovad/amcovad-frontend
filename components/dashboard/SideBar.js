@@ -22,7 +22,15 @@ const SideBar = () => {
             <div className="overflow-y-auto ">
               <ul className=" pb-6">
                 {sidebarData.map((data, index) => {
-                  return <NavLink key={index} name={data.name} url={data.url} icon={data.icon} />;
+                  return (
+                    <NavLink
+                      key={index}
+                      name={data.name}
+                      url={data.url}
+                      icon={data.icon}
+                      activeIcon={data.activeIcon}
+                    />
+                  );
                 })}
               </ul>
             </div>
