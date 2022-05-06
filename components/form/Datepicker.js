@@ -2,11 +2,22 @@ import React from 'react';
 import { DatePicker } from 'rsuite';
 import { Controller, useFormContext } from 'react-hook-form';
 import { ErrorMessage } from '.';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { Label } from './Label';
 
-const Datepicker = ({ name }) => {
+const Datepicker = ({ name, label, labelClassName, placeholder }) => {
   const { control } = useFormContext();
   return (
     <>
+      {label && (
+        <Label
+          name={name}
+          htmlFor={name}
+          text={label}
+          className={classNames('text-sm text-amcovad-secondary-700', labelClassName)}
+        />
+      )}
       <Controller
         control={control}
         name={name}
@@ -17,7 +28,7 @@ const Datepicker = ({ name }) => {
             format="dd-MM-yyyy"
             isoWeek
             appearance="default"
-            placeholder="Pick a Date options"
+            placeholder={placeholder}
             style={{ width: '100%' }}
             value={field.value}
             onChange={(e) => field.onChange(e)}
@@ -27,6 +38,17 @@ const Datepicker = ({ name }) => {
       <ErrorMessage name={name} />
     </>
   );
+};
+
+Datepicker.propTypes = {
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  placeholder: PropTypes.string
+};
+
+Datepicker.defaultProps = {
+  label: null,
+  placeholder: null
 };
 
 export default Datepicker;

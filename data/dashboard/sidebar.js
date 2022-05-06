@@ -17,6 +17,7 @@ const sidebar = [
     name: 'Templates',
     url: '/published-templates'
   },
+
   {
     activeIcon: '/assets/dashboard/draft.svg',
     icon: '/assets/dashboard/draft.svg',

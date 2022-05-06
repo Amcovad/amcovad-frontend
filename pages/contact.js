@@ -35,8 +35,10 @@ const Contact = () => {
           <div className="ml-20 max-w-6xl flex flex-col md:flex-row">
             <div className="w-full lg:w-2/3">
               <div className=" md:px-12 lg:px-0 lg:pl-20 ">
-                <h2 className="text-2xl font-semibold text-amcovad-secondary-600 ">Fill the contact form</h2>
-                <p className="text-sm py-6 font-normal text-amcovad-secondary-500">
+                <h2 className="text-2xl font-Poppins font-semibold text-amcovad-secondary-600 ">
+                  Fill the contact form
+                </h2>
+                <p className="text-sm py-6 font-Poppins font-normal text-amcovad-secondary-500">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet in fames bibendum rhoncus, sit.
                   Turpis est nam pellentesque fames.
                 </p>
@@ -45,7 +47,7 @@ const Contact = () => {
                     <div className="col-span-full sm:col-span-2 ">
                       <Input
                         label="Your name here"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-9"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-8"
                         name="fullName"
                         type="text"
                       />
@@ -53,7 +55,7 @@ const Contact = () => {
                     <div className="col-span-full sm:col-span-2">
                       <Input
                         label="Your email"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-9"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-8"
                         name="email"
                         type="text"
                       />
@@ -61,7 +63,7 @@ const Contact = () => {
                     <div className="col-span-full sm:col-span-2">
                       <Input
                         label="Phone"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-9"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-8"
                         name="phone"
                         type="number"
                       />
@@ -70,7 +72,7 @@ const Contact = () => {
                     <div className="col-span-full ">
                       <Input
                         label="Subject"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-9"
+                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-8"
                         name="subject"
                         type="text"
                       />
@@ -88,17 +90,19 @@ const Contact = () => {
               </div>
             </div>
             <div className=" w-full md:w-1/3 pl-9 hidden lg:block ">
-              <h2 className="text-2xl font-semibold text-amcovad-secondary-600">HEADQUARTER</h2>
+              <h2 className="text-2xl font-Poppins font-semibold text-amcovad-secondary-600">HEADQUARTER</h2>
               <div className="pt-4">
-                <h2 className="text-lg font-bold pb-1 text-amcovad-secondary-600">Lagos Address</h2>
-                <p className="text-base font-semibold pb-3 text-[#5A6D77]"> 3rd Floor, Central District Area, Abuja.</p>
+                <h2 className="text-lg font-bold pb-1 font-Poppins text-amcovad-secondary-600">Lagos Address</h2>
+                <p className="text-base font-normal font-Poppins pb-3 text-[#5A6D77]">
+                  3rd Floor, Central District Area, Abuja.
+                </p>
               </div>
-              <div className="text-base font-semibold text-[#5A6D77]">
+              <div className="text-base font-medium text-[#5A6D77]">
                 <p>
-                  <b className="text-amcovad-primary-500 pb-4">Tel:</b> 08055xxxxxxxxx, 08022xxxxxxxxxxx
+                  <b className="text-amcovad-primary-500 font-Poppins pb-4">Tel:</b> 08055xxxxxxxxx, 08022xxxxxxxxxxx
                 </p>
                 <p>
-                  <b className="text-amcovad-primary-500">Email:</b> amcovad@gmail.com
+                  <b className="text-amcovad-primary-500 font-Poppins">Email:</b> amcovad@gmail.com
                 </p>
               </div>
             </div>

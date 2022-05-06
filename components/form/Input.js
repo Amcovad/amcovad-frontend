@@ -35,13 +35,21 @@ const Input = ({ className, Icon, labelClassName, name, placeholder, label, type
         id={name}
         {...register(name)}
         className={classNames(
-          'block py-[16.5px] px-3.5 w-full text-sm  text-amcovad-secondary-700 bg-amcovad-secondary-100 placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0  peer',
+          'block py-[16.5px] px-3.5 w-full text-sm  border-2 rounded-md  focus:outline-none focus:ring-0  peer',
           className,
           { 'focus:border-amcovad-danger': hasErrors },
-          { 'focus:border-amcovad-primary-500': !hasErrors }
+          { 'focus:border-amcovad-primary-500': !hasErrors },
+          {
+            'placeholder-transparent border-amcovad-secondary-300 appearance-none bg-amcovad-secondary-100 text-amcovad-secondary-700':
+              label
+          },
+          {
+            ' border-amcovad-secondary-300 bg-amcovad-secondary-100 placeholder:text-amcovad-secondary-700 font-Poppins text-amcovad-secondary-700':
+              placeholder
+          }
         )}
       />
-      <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />
+      {label && <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />}
 
       {inputIcon && (
         <span className="absolute top-5 right-3 cursor-pointer" data-testid="icon">
