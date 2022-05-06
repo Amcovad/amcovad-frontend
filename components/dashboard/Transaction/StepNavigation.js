@@ -21,7 +21,7 @@ const StepNavigation = ({ handleClick, visibleStep, data }) => {
           <Button className="text-white py-2.5 px-5 capitalize" Icon={<WhiteCaret />}>
             Save as Template
           </Button>
-          <Link href="/dashboard" passHref>
+          <Link href="/dashboard/transaction/new" passHref>
             <Button className="text-white py-2.5 px-5 capitalize">Create</Button>
           </Link>
         </div>
