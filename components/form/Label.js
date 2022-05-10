@@ -15,7 +15,7 @@ export function Label({ className, floatLabel, floatLabelClass, htmlFor, name, t
       htmlFor={htmlFor || name}
       className={classNames(
         {
-          'absolute text-sm text-amcovad-secondary-700 duration-300 transform -translate-y-7 peer-focus:-translate-y-7 p-2 scale-75 top-2 left-2 z-10 origin-[0] peer-focus:left-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 ':
+          'absolute text-sm text-amcovad-secondary-700 duration-300 transform p-2 scale-75 top-2 left-2 z-10 origin-[0] peer-focus:left-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 ':
             floatLabel
         },
         { 'cursor-pointer text-amcovad-secondary-700 font-normal font-Inter': !floatLabel },
@@ -42,7 +42,8 @@ Label.propTypes = {
 Label.defaultProps = {
   className: 'text-xs',
   floatLabel: null,
-  floatLabelClass: 'bg-amcovad-secondary-100 peer-focus:bg-amcovad-secondary-100',
+  floatLabelClass:
+    'bg-amcovad-secondary-100 peer-focus:bg-amcovad-secondary-100 -translate-y-7 peer-focus:-translate-y-7',
   htmlFor: null,
   name: null,
   text: null
