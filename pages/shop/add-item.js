@@ -13,10 +13,9 @@ import {
   markFavourite
 } from '../../app/reducers/productSlice';
 
-export const SingleProduct = ({ id, name, price }) => {
+export const SingleProduct = ({ id, name, price, favourite }) => {
   const dispatch = useDispatch();
   const [editModal, setEditModal] = useState(false);
-  const [isfavourite, setIsFavourite] = useState(false);
 
   return (
     <tr className="text-gray-700 ">
@@ -41,29 +40,25 @@ export const SingleProduct = ({ id, name, price }) => {
 
       <td className="px-4 py-3">
         <div className="flex items-center space-x-4 text-sm">
-          <span
-            onClick={() => {
-              dispatch(markFavourite());
-            }}
-            className="px-2 py-1 cursor-pointer font-semibold leading-tight text-white bg-amcovad-primary-400 rounded-full"
-          >
-            Favorite
-          </span>
-          {/* {isfavourite ? (
+          {favourite ? (
             <span
-              onClick={() => setIsFavourite(false)}
-              className="px-2 py-1 cursor-pointer font-semibold leading-tight text-white bg-amcovad-warning rounded-full"
+              onClick={() => {
+                dispatch(markFavourite({ id }));
+              }}
+              className="px-2 py-1 cursor-pointer font-semibold leading-tight text-white bg-amcovad-danger rounded-full"
             >
-              ill-Favored
+             ❤
             </span>
           ) : (
             <span
-              onClick={() => setIsFavourite(true)}
+              onClick={() => {
+                dispatch(markFavourite({ id }));
+              }}
               className="px-2 py-1 cursor-pointer font-semibold leading-tight text-white bg-amcovad-primary-400 rounded-full"
             >
-              Favorite
+            ✔
             </span>
-          )} */}
+          )}
 
           <button
             onClick={() => setEditModal(true)}
@@ -283,8 +278,12 @@ const AddItem = () => {
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y  ">
-                        {productsList.map(({ id, name, price }, index) => (
-                          <SingleProduct key={index} id={id} name={name} price={price} />
+                        {/* {productsList.map(({ id, name, price, favourite }, index) => (
+                          <SingleProduct key={index} id={id} name={name} price={price} favourite={favourite} />
+                        ))} */}
+
+                        {productsList.map((product, index) => (
+                          <SingleProduct key={index} {...product} />
                         ))}
                       </tbody>
                     </table>

@@ -2,7 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const productSlice = createSlice({
   name: 'product',
-  initialState: { isFavourite: [], value: [{ id: 1, name: 'Apple Laptop', favourite: false, price: '125000' }] },
+  initialState: {
+    isFavourite: [],
+    value: [
+      { id: 1, name: 'Apple Laptop', favourite: false, price: '125000' },
+      { id: 2, name: 'Dell Laptop', favourite: true, price: '875000' }
+    ]
+  },
   reducers: {
     addProduct: (state, action) => {
       state.value.push({
@@ -11,15 +17,18 @@ export const productSlice = createSlice({
       });
     },
     // editProduct: (state, action) => {
+    //   const { id } = action.payload;
     //   state.value.map((product) => {
-    //     if (product.id === action.payload.id) {
+    //     if (product.id === id) {
     //       return {
-    //         ...state,
     //         ...action.payload
+    //         // ...state.value,
+    //         // ...product
     //       };
     //     }
     //   });
     // },
+
     editProduct: (state, action) => {
       const { id } = action.payload;
       state.value.map((product) => {
@@ -32,8 +41,13 @@ export const productSlice = createSlice({
     },
 
     markFavourite(state, action) {
-      const existingIndex = state.value.findIndex((item) => item.id === action.payload);
-      state.isFavourite.push(existingIndex);
+      const { id } = action.payload;
+      // console.log('id', id);
+      state.value.map((product) => {
+        if (product.id === id) {
+          product.favourite = !product.favourite;
+        }
+      });
     },
 
     logout: (state) => {
