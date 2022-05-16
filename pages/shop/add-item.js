@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, CheckboxGroup, Footer, Input, Navbar } from '@/components/index';
+import { Button, Footer, Input, Navbar } from '@/components/index';
 import HookForm from '@/components/form/Form';
 import * as yup from 'yup';
 import Link from 'next/link';
@@ -47,7 +47,7 @@ export const SingleProduct = ({ id, name, price, favourite }) => {
               }}
               className="px-2 py-1 cursor-pointer font-semibold leading-tight text-white bg-amcovad-danger rounded-full"
             >
-             ❤
+              ❤
             </span>
           ) : (
             <span
@@ -56,7 +56,7 @@ export const SingleProduct = ({ id, name, price, favourite }) => {
               }}
               className="px-2 py-1 cursor-pointer font-semibold leading-tight text-white bg-amcovad-primary-400 rounded-full"
             >
-            ✔
+              ✔
             </span>
           )}
 
@@ -86,7 +86,7 @@ export const SingleProduct = ({ id, name, price, favourite }) => {
           </button>
         </div>
       </td>
-      {/* {editModal && id == product.id && ( */}
+
       {editModal && (
         <div className="fixed inset-0 z-10 overflow-y-auto">
           <div className="fixed inset-0 w-full h-full bg-black opacity-40" onClick={() => setEditModal(false)}></div>
@@ -158,8 +158,7 @@ export const EditForm = ({ id, name, price, closeModal }) => {
 export const ProductSchema = yup
   .object({
     name: yup.string().required('Name is required'),
-    price: yup.string().required('Price is required'),
-    favourite: yup.boolean()
+    price: yup.string().required('Price is required')
   })
   .required();
 
@@ -172,7 +171,7 @@ const AddItem = () => {
   const [modal, setModal] = useState(false);
 
   const onSubmit = (data) => {
-    dispatch(addProduct(data));
+    dispatch(addProduct({ ...data, favourite: false }));
     dispatch(() => setModal(false));
   };
 
@@ -232,17 +231,6 @@ const AddItem = () => {
                             </div>
                             <div className="col-span-full ">
                               <Input label="Price" name="price" type="number" />
-                            </div>
-                            <div className="hidden">
-                              <CheckboxGroup
-                                name="favourite"
-                                options={[
-                                  {
-                                    label: 'Favourite',
-                                    value: true
-                                  }
-                                ]}
-                              />
                             </div>
                             <div className="col-span-full ">
                               <Input label="Image URL" name="image" type="file" />
