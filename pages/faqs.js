@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import aboutImg from '../public/assets/about/about-image.png';
+import faqImg from '../public/assets/faqs/faq-image.png';
 import { Footer, Navbar } from '@/components/index';
-import tabData from '../data/about/tab';
+import faqData from '@/data/faqs/faqsData';
+import AccordionLayout from '@/components/Accordion/Accordion';
 
-const About = () => {
-  const [visibleTab, setVisibleTab] = useState(tabData[0].id);
+const Faqs = () => {
+  const [visibleTab, setVisibleTab] = useState(faqData[0].id);
 
   const style = {
     tabActive: `text-black border-b-[4px] border-amcovad-primary-400 text-amcovad-primary-400 `,
     tabContent: ` py-1 m-0 `,
     tabTitle: ` inline-block text-sm font-Inter font-medium p-4 lg:p-3 text-amcovad-black cursor-pointer `
   };
-  const tabTitles = tabData.map((item, index) => (
+  const tabTitles = faqData.map((item, index) => (
     <li
       key={index}
       onClick={() => setVisibleTab(item.id)}
@@ -22,17 +23,12 @@ const About = () => {
     </li>
   ));
 
-  const tabContent = tabData.map((item, index) => (
-    <div
-      className="text-sm mt-6 leading-6 text-amcovad-secondary-700"
-      key={index}
-      style={visibleTab === item.id ? {} : { display: 'none' }}
-    >
-      <h4 className="font-RozhaOne my-3 text-2xl lg:text-4xl text-amcovad-black">
-        {item.tabTitle.split(' ').slice(0, -1).join(' ')}{' '}
-        <span className="text-amcovad-primary-500">{item.tabTitle.split(' ').slice(-1).join(' ')}</span>
-      </h4>
-      {item.tabContent}
+  const tabContent = faqData.map((item, index) => (
+    <div className=" mt-6" key={index} style={visibleTab === item.id ? {} : { display: 'none' }}>
+      <h4 className="font-medium my-2 text-2xl lg:text-3xl text-amcovad-black">{item.tabTitle}</h4>
+      <div className="flex flex-col justify-center items-center w-full">
+        <AccordionLayout options={item.tabContent} />
+      </div>
     </div>
   ));
   return (
@@ -42,7 +38,7 @@ const About = () => {
         <div className=" 2xl:container 2xl:mx-auto overflow-hidden">
           <div className="w-screen mx-auto">
             <div className=" w-full pt-20 lg:pt-16 ">
-              <Image src={aboutImg} className="h-96" alt="contact page image" />
+              <Image src={faqImg} className="h-96" alt="contact page image" />
             </div>
           </div>
 
@@ -60,4 +56,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Faqs;
