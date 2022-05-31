@@ -1,30 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Button, Input, Label } from '@/components/index';
 import HookForm from '@/components/form/Form';
 import { SignInImage } from '/public/assets/signUp';
 import { SignInSchema } from '../schema/authSchema';
 import AuthPage from '@/components/AuthPage';
-import { useRouter } from 'next/router';
-
-import { useSelector, useDispatch } from 'react-redux';
-import { login } from '../app/reducers/authSlice';
 
 const SignIn = () => {
-  const router = useRouter();
-  const dispatch = useDispatch();
-  const { errors, isAuthenticated } = useSelector((state) => state.auth);
-
   const onSubmit = (data) => {
-    // alert(JSON.stringify(data));
-    dispatch(login(data));
+    alert(JSON.stringify(data));
   };
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.push('/dashboard');
-    }
-  }, [isAuthenticated, router]);
   return (
     <AuthPage
       title="Get your transactions covered and secured."

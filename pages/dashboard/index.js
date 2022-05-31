@@ -3,19 +3,8 @@ import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { coloredData, graphData, listData, transactData } from '@/data/dashboard/index';
 import { ColoredCard, GraphCard, ListCard } from '@/components/dashboard/component/index';
 
-import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
-
 import { Button } from '@/components/form';
 function Dashboard() {
-  const router = useRouter();
-  const { isAuthenticated } = useSelector((state) => state.auth);
-
-  React.useEffect(() => {
-    if (!isAuthenticated) {
-      router.push('/sign-in');
-    }
-  }, [isAuthenticated, router]);
   return (
     <>
       <DashboardLayout title="Dashboard">

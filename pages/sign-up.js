@@ -1,28 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button, CheckboxGroup, Input } from '@/components/index';
 import HookForm from '@/components/form/Form';
 import { SignUpImage } from '/public/assets/signUp';
 import Link from 'next/link';
 import { SignUpSchema } from '../schema/authSchema';
 import AuthPage from '@/components/AuthPage';
-import { useRouter } from 'next/router';
-
-import { useSelector, useDispatch } from 'react-redux';
-import { signup } from '../app/reducers/authSlice';
 
 const SignUp = () => {
-  const router = useRouter();
-  const dispatch = useDispatch();
-  const { errors, registerSuccess } = useSelector((state) => state.auth);
-  const onSubmit = ({ email, password }) => {
-    dispatch(signup({ name: email.slice(0, -10), email: email, password: password }));
+  const onSubmit = (data) => {
+    alert(JSON.stringify(data));
   };
-
-  useEffect(() => {
-    if (registerSuccess) {
-      router.push('/sign-in');
-    }
-  }, [registerSuccess, router]);
   return (
     <>
       <AuthPage
