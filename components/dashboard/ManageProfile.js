@@ -3,8 +3,6 @@ import Image from 'next/image';
 import { CaretIcon, SignOutIcon, UserIcon } from '@/public/assets/dashboard/navBarIcon';
 import User from '@/public/assets/dashboard/alliyy-adams.svg';
 import Link from 'next/link';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from 'app/reducers/authSlice';
 
 export const ManageSetting = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import classNames from 'classnames';
 import { RightCaret } from '@/public/assets/dashboard/navBarIcon';
 
 const AccordionLayout = ({ options }) => {
@@ -10,15 +10,27 @@ const AccordionLayout = ({ options }) => {
       {options.map(({ title, content }, index) => (
         <div
           key={title}
-          className="overflow-hidden flex w-full flex-col my-3 border-2 rounded-md border-amcovad-secondary-300"
+          className="overflow-hidden flex w-full flex-col my-3 border-2 rounded-md border-amcovad-secondary-300 hover:border-amcovad-primary-300"
         >
           <div
             onClick={() => setIsActive(isActive === index ? null : index)}
-            className="flex items-center p-4 justify-between  cursor-pointer bg-amcovad-secondary-100"
+            className="flex items-center p-5 lg:p-6 justify-between  cursor-pointer bg-amcovad-secondary-100 hover:bg-amcovad-white "
           >
             <div className="flex items-center gap-4 text-amcovad-secondary-600 font-bold">
-              <span>{isActive === index ? <RightCaret className="rotate-90" /> : <RightCaret />}</span>
-              <p className=" font-bold text-base text-amcovad-secondary-600"> {title}</p>
+              <span>
+                {isActive === index ? (
+                  <RightCaret className="rotate-90" stroke="#01A1DF" />
+                ) : (
+                  <RightCaret stroke="#5D6677" />
+                )}
+              </span>
+              <p
+                className={classNames(' font-bold text-sm md:text-base', {
+                  'text-amcovad-primary-500': isActive === index
+                })}
+              >
+                {title}
+              </p>
             </div>
           </div>
           {index === isActive && (
