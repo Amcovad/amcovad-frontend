@@ -57,7 +57,7 @@ const Navbar = ({ authPageOnly }) => {
   return (
     <header
       className={classNames(
-        'z-10 outline-[5px]',
+        'z-50 outline-[5px]',
         { 'fixed lg:border-b lg:border-amcovad-primary-200 2xl:mx-auto w-full': !authPageOnly },
         {
           'lg:hidden w-screen': authPageOnly
