@@ -67,8 +67,13 @@ const SignUp = () => {
           </div>
 
           <div>
-            <Button className=" w-full font-semibold text-amcovad-black py-2.5 px-5">Create account</Button>
+            <Button className="w-full font-semibold text-amcovad-black py-2.5 px-5">Create account</Button>
           </div>
+          {errors && (
+            <p className="block pt-2 text-base font-normal text-center text-amcovad-danger font-Inter ">
+              Error: {errors}
+            </p>
+          )}
           <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">
             Have an account,{' '}
             <Link href="/sign-in">

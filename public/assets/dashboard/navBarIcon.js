@@ -306,3 +306,11 @@ export const PlusIcon = () => {
     </svg>
   );
 };
+
+export const RightCaret = (props) => {
+  return (
+    <svg width={6} height={11} viewBox="0 0 6 11" {...props} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.75 9.5L5.25 5.25L0.75 1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+};

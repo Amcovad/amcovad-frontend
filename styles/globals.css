@@ -32,11 +32,11 @@ input:-webkit-autofill:active {
   @apply bg-amcovad-secondary-100;
 }
 p.paragraphs::first-letter {
-  @apply text-[280%] text-amcovad-secondary-600;
+  @apply text-amcovad-secondary-600;
 
   font-size: 330%;
   line-height: 2rem;
-  padding: 4px 1px;
+  padding: 6px 1px;
   margin-right: 2px;
   float: left;
 }
@@ -70,6 +70,19 @@ input[type='checkbox']:checked + label:before {
   @apply bg-amcovad-primary-500 border-amcovad-primary-400 text-amcovad-white h-[1.0625rem];
 }
 
+.upload {
+  @apply flex;
+  color: rgba(99, 115, 129, 1);
+  background-color: rgba(244, 246, 248, 1);
+  transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.upload-cover {
+  @apply bg-none rounded-2xl overflow-hidden px-6 py-10 relative text-center z-0;
+  color: rgba(33, 43, 54, 1);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  box-shadow: rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px;
+}
 .slick-dots li button:before {
   font-size: 8px !important;
   width: 32px !important;
