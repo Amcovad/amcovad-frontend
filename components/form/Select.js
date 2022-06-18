@@ -18,10 +18,10 @@ export function SelectField({ children, className, containerClassName, label, la
       <div className="flex justify-center items-center">
         <select
           className={classNames(
-            'relative flex flex-1 w-full rounded-md p-3.5 appearance-none transition ease-in-out bg-transparent text-amcovad-secondary-700 placeholder-amcovad-secondary-700 border-amcovad-secondary-300 text-base focus:outline-none border-2',
+            'relative flex flex-1 w-full rounded-md p-3.5 appearance-none transition ease-in-out bg-transparent text-secondary-700 placeholder-secondary-700 border-secondary-300 text-base focus:outline-none border-2',
             className,
-            { 'focus:border-amcovad-danger border-amcovad-danger': hasErrors },
-            { 'focus:border-amcovad-primary-500': !hasErrors }
+            { 'focus:border-danger-500 border-danger-500': hasErrors },
+            { 'focus:border-primary-500': !hasErrors }
           )}
           {...register(name)}
           id={name}

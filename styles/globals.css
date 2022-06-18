@@ -24,15 +24,15 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  @apply bg-amcovad-secondary-300;
+  @apply bg-secondary-300;
   -webkit-box-shadow: 0 0 0 30px #f5f6f8 inset !important;
 }
 
 .is-sticky {
-  @apply bg-amcovad-secondary-100;
+  @apply bg-secondary-25;
 }
 p.paragraphs::first-letter {
-  @apply text-amcovad-secondary-600;
+  @apply text-secondary-600;
 
   font-size: 330%;
   line-height: 2rem;
@@ -54,7 +54,7 @@ p.paragraphs::first-letter {
   scrollbar-width: none;
 }
 input[type='checkbox'] + label:before {
-  @apply w-4 h-4 border border-amcovad-secondary-400 pb-2 pl-[2px] mr-2.5 rounded-sm;
+  @apply w-4 h-4 border border-secondary-400 pb-2 pl-[2px] mr-2.5 rounded-sm;
   content: '\2714';
   display: inline-block;
   vertical-align: bottom;
@@ -67,7 +67,7 @@ input[type='checkbox'] + label:active:before {
 }
 
 input[type='checkbox']:checked + label:before {
-  @apply bg-amcovad-primary-500 border-amcovad-primary-400 text-amcovad-white h-[1.0625rem];
+  @apply bg-primary-500 border-primary-400 text-white h-[1.0625rem];
 }
 
 .upload {
@@ -130,19 +130,19 @@ body {
 .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle-active,
 .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:focus,
 .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:hover {
-  @apply border-2 border-amcovad-primary-500;
+  @apply border-2 border-primary-500;
 }
 .rs-picker-default .rs-picker-toggle {
-  @apply border-2 border-amcovad-secondary-300;
+  @apply border-2 border-secondary-300;
 }
 .rs-picker-toggle-textbox {
-  @apply bg-amcovad-secondary-200;
+  @apply bg-secondary-50;
 }
 .rs-picker-default .rs-btn,
 .rs-picker-default .rs-picker-toggle,
 .rs-picker-input .rs-btn,
 .rs-picker-input .rs-picker-toggle {
-  @apply !bg-amcovad-secondary-200;
+  @apply !bg-secondary-50;
 }
 .rs-picker-toggle-active,
 .rs-picker.rs-picker-focused {
@@ -150,5 +150,5 @@ body {
 }
 .rs-picker-has-value .rs-btn .rs-picker-toggle-value,
 .rs-picker-has-value .rs-picker-toggle .rs-picker-toggle-value {
-  @apply text-amcovad-secondary-700;
+  @apply text-secondary-700;
 }

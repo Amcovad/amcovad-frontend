@@ -12,7 +12,7 @@ const DashboardLayout = ({ alert: { message, type }, children, title }) => {
         <Navbar />
         <div className="w-full mt-20 lg:mt-[90px] px-6">
           <Alert type={type} message={message} />
-          <h1 className="text-xl leading-9 lg:text-2xl font-Inter lg:leading-10 font-medium text-amcovad-tertiary-color/90 ">
+          <h1 className="text-xl leading-9 lg:text-2xl font-Inter lg:leading-10 font-medium text-tertiary-color/90 ">
             {title}
           </h1>
         </div>

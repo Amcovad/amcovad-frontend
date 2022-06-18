@@ -7,13 +7,13 @@ const FulfilmentTimeline = ({ bgColor, fullTime, textColor, timeStart, timeEnd, 
     <section className="mb-2 rounded justify-between py-2 w-full ">
       <div className="flex items-center justify-center font-Inter gap-3 ">
         <div className="flex flex-col justify-between ">
-          <p className="text-amcovad-secondary-500 order-first text-xs mb-3 font-medium ">{timeStart}</p>
+          <p className="text-secondary-500 order-first text-xs mb-3 font-medium ">{timeStart}</p>
 
-          <p className="text-amcovad-secondary-500 order-last text-xs mt-3 font-medium ">{timeEnd}</p>
+          <p className="text-secondary-500 order-last text-xs mt-3 font-medium ">{timeEnd}</p>
         </div>
         <div className={classNames('w-screen lg:w-full rounded bg-cover p-2 ', bgColor)}>
           <p className={classNames('text-[13px] font-semibold ', textColor)}>{timeLine}</p>
-          <span className="text-amcovad-secondary-400 font-Inter text-xs font-medium ">{fullTime}</span>
+          <span className="text-secondary-400 font-Inter text-xs font-medium ">{fullTime}</span>
         </div>
       </div>
     </section>

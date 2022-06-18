@@ -9,9 +9,9 @@ const Faqs = () => {
   const [visibleTab, setVisibleTab] = useState(faqData[0].id);
 
   const style = {
-    tabActive: `text-black border-b-[4px] border-amcovad-primary-400 text-amcovad-primary-400 `,
+    tabActive: `text-black border-b-[4px] border-primary-400 text-primary-400 `,
     tabContent: ` py-1 m-0 `,
-    tabTitle: ` inline-block text-sm font-Inter font-medium p-4 lg:p-3 text-amcovad-black cursor-pointer `
+    tabTitle: ` inline-block text-sm font-Inter font-medium p-4 lg:p-3 text-black cursor-pointer `
   };
   const tabTitles = faqData.map((item, index) => (
     <li
@@ -25,7 +25,7 @@ const Faqs = () => {
 
   const tabContent = faqData.map((item, index) => (
     <div className=" mt-6" key={index} style={visibleTab === item.id ? {} : { display: 'none' }}>
-      <h4 className="font-medium my-2 text-2xl lg:text-3xl text-amcovad-black">{item.tabTitle}</h4>
+      <h4 className="font-medium my-2 text-2xl lg:text-3xl text-black">{item.tabTitle}</h4>
       <div className="flex flex-col justify-center items-center w-full">
         <AccordionLayout options={item.tabContent} />
       </div>

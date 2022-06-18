@@ -18,9 +18,9 @@ const Textarea = ({ className, label, labelClassName, name, placeholder }) => {
         placeholder={placeholder ? placeholder : label}
         {...register(name)}
         className={classNames(
-          'h-32 lg:h-48 px-4 w-full text-sm  text-amcovad-secondary-700  placeholder-transparent border-2 rounded-md border-amcovad-secondary-300 appearance-none focus:outline-none focus:ring-0  peer',
-          { 'focus:border-amcovad-danger': hasErrors },
-          { 'focus:border-amcovad-primary-500': !hasErrors },
+          'h-32 lg:h-48 px-4 w-full text-sm  text-secondary-700  placeholder-transparent border-2 rounded-md border-secondary-300 appearance-none focus:outline-none focus:ring-0  peer',
+          { 'focus:border-danger-500': hasErrors },
+          { 'focus:border-primary-500': !hasErrors },
           className
         )}
       />

@@ -4,15 +4,15 @@ module.exports = {
     'bg-[#01a1df]',
     'bg-[#9B51E0]',
     'bg-[#2F80ED]',
-    'text-amcovad-secondary-100',
-    'bg-amcovad-secondary-400',
-    'bg-amcovad-primary-500',
-    'bg-amcovad-secondary-green',
-    'bg-amcovad-primary-200',
-    'border-amcovad-danger/70 bg-amcovad-danger/10',
-    'border-amcovad-info/70 bg-amcovad-info/10',
-    'border-amcovad-success/70 bg-amcovad-success/10',
-    'border-amcovad-warning/70 bg-amcovad-warning/10'
+    'text-secondary-100',
+    'bg-secondary-500',
+    'bg-primary-500',
+    'bg-secondary-green',
+    'bg-primary-200',
+    'border-danger-500/70 bg-danger-500/10',
+    'border-info-500/70 bg-info/10',
+    'border-success-500/70 bg-success-500/10',
+    'border-warning-500/70 bg-warning-500/10'
   ],
   mode: 'jit',
   theme: {
@@ -141,37 +141,9 @@ module.exports = {
           900: '#7E2410'
         },
         white: '#FFFFFF',
-        lightgray: '#F5F6F8',
-        'amcovad-primary': {
-          100: '#99E1FC',
-          200: '#67D1FB',
-          300: '#34C2F9',
-          400: '#01B3F8',
-          500: '#01A1DF',
-          600: '#017DAE',
-          700: '#015A7C'
-        },
-        'amcovad-secondary': {
-          100: '#F5F6F8',
-          200: '#EBECEE',
-          300: '#D6D9DD',
-          400: '#AEB3BB',
-          500: '#858C99',
-          600: '#5D6677',
-          700: '#344055',
-          green: '#2FB07E'
-        },
-        'amcovad-tertiary': '#0C1A2C',
-        'amcovad-info': '#01C4DF',
-        'amcovad-white': '#FFFFFF',
-        'amcovad-black': '#000000',
-        'amcovad-danger': '#FB3640',
-        'amcovad-success': '#00CA69',
-        'amcovad-warning': '#F3C000',
-        'amcovad-warning-dark': '#B58F00',
-        'amcovad-tertiary-color': '#161E54',
-        'amcovad-orange': '#F5993F',
-        'amcovad-purple': '#9B51E0'
+        black: '#000000',
+        tertiary: '#0C1A2C',
+        lightgray: '#F5F6F8'
       }
     }
   },

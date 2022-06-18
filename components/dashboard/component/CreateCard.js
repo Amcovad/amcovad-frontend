@@ -14,7 +14,7 @@ const CreateCard = () => {
                   <PlusIcon />
                 </div>
                 <div className="px-4 py-2">
-                  <p className="font-Inter font-medium text-base text-center leading-7 cursor-pointer text-amcovad-secondary-500">
+                  <p className="font-Inter font-medium text-base text-center leading-7 cursor-pointer text-secondary-500">
                     Create Transaction
                   </p>
                 </div>

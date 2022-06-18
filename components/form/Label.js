@@ -15,14 +15,14 @@ export function Label({ className, floatLabel, floatLabelClass, htmlFor, name, t
       htmlFor={htmlFor || name}
       className={classNames(
         {
-          'absolute text-sm text-amcovad-secondary-700 duration-300 transform p-2 scale-75 top-2 left-2 z-10 origin-[0] peer-focus:left-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 ':
+          'absolute text-sm text-secondary-700 duration-300 transform p-2 scale-75 top-2 left-2 z-10 origin-[0] peer-focus:left-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 ':
             floatLabel
         },
-        { 'cursor-pointer text-amcovad-secondary-700 font-normal font-Inter': !floatLabel },
+        { 'cursor-pointer text-secondary-700 font-normal font-Inter': !floatLabel },
         { [className]: !floatLabel },
         { [floatLabelClass]: floatLabel },
-        { 'peer-focus:text-amcovad-danger': hasErrors },
-        { 'peer-focus:text-amcovad-primary-500': !hasErrors }
+        { 'peer-focus:text-danger-500': hasErrors },
+        { 'peer-focus:text-primary-500': !hasErrors }
       )}
     >
       {text}
@@ -42,8 +42,7 @@ Label.propTypes = {
 Label.defaultProps = {
   className: 'text-xs',
   floatLabel: null,
-  floatLabelClass:
-    'bg-amcovad-secondary-100 peer-focus:bg-amcovad-secondary-100 -translate-y-7 peer-focus:-translate-y-7',
+  floatLabelClass: 'bg-secondary-25 peer-focus:bg-secondary-25 -translate-y-7 peer-focus:-translate-y-7',
   htmlFor: null,
   name: null,
   text: null

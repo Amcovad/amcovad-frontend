@@ -1,24 +1,24 @@
 const FulfilmentTimeline = [
   {
-    bgColor: 'bg-amcovad-warning/20',
+    bgColor: 'bg-warning-400/20',
     fullTime: '12:00 - 01:00',
-    textColor: 'text-amcovad-warning-dark',
+    textColor: 'text-warning-400',
     timeStart: '12:00',
     timeEnd: '01:00',
     timeLine: 'Return 50k to Abdulmumin'
   },
   {
-    bgColor: 'bg-amcovad-purple/20',
+    bgColor: 'bg-purple-500/20',
     fullTime: '11:00 - 12:00',
-    textColor: 'text-amcovad-purple',
+    textColor: 'text-purple-400',
     timeStart: '11:00',
     timeEnd: '12:00',
     timeLine: 'Return 80k to Raymond Ali'
   },
   {
-    bgColor: 'bg-amcovad-success/20',
+    bgColor: 'bg-success-500/20',
     fullTime: '09:00 - 11:00',
-    textColor: 'text-amcovad-success',
+    textColor: 'text-success-500',
     timeStart: '09:00',
     timeEnd: '11:00',
     timeLine: 'Return 35k to Abdulmumin'

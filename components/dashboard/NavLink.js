@@ -11,15 +11,15 @@ const NavLink = ({ activeIcon, containerClassName, icon, name, url }) => {
   return (
     <li
       className={classNames(
-        'relative px-6 pb-2 pt-3 my-3  hover:bg-amcovad-secondary-200',
+        'relative px-6 pb-2 pt-3 my-3  hover:bg-secondary-50',
         {
-          'bg-amcovad-secondary-200 border-r-4 border-amcovad-primary-400 ': isActiveIcon
+          'bg-secondary-50 border-r-4 border-primary-500 ': isActiveIcon
         },
         containerClassName
       )}
     >
       <Link href={url} passHref>
-        <a className="inline-flex items-center w-full text-sm font-normal font-Inter text-amcovad-secondary-700 focus:text-amcovad-secondary-700 transition-colors duration-150 hover:text-amcovad-primary-400 ">
+        <a className="inline-flex items-center w-full text-sm font-normal font-Inter text-secondary-700 focus:text-secondary-700 transition-colors duration-150 hover:text-primary-400 ">
           <Image
             src={isActiveIcon ? activeIcon : icon}
             width="22px"
