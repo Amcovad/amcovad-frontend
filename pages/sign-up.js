@@ -34,11 +34,11 @@ const SignUp = () => {
                     <>
                       I have read, and I agree to the
                       <Link href="#" passHref>
-                        <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500"> Terms of Service </a>
+                        <a className=" text-primary-500 hover:text-primary-400"> Terms of Service </a>
                       </Link>
                       and
                       <Link href="#" passHref>
-                        <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500"> Privacy Policy</a>
+                        <a className=" text-primary-500 hover:text-primary-400"> Privacy Policy</a>
                       </Link>
                     </>
                   ),
@@ -56,7 +56,7 @@ const SignUp = () => {
                     <>
                       I agree to be contacted by
                       <Link href="#" passHref>
-                        <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500"> amcovad</a>
+                        <a className=" text-primary-500 hover:text-primary-400"> amcovad</a>
                       </Link>
                     </>
                   ),
@@ -67,17 +67,13 @@ const SignUp = () => {
           </div>
 
           <div>
-            <Button className="w-full font-semibold text-amcovad-black py-2.5 px-5">Create account</Button>
+            <Button className="w-full font-semibold text-black py-2.5 px-5">Create account</Button>
           </div>
-          {errors && (
-            <p className="block pt-2 text-base font-normal text-center text-amcovad-danger font-Inter ">
-              Error: {errors}
-            </p>
-          )}
-          <p className="block pt-2 text-center text-base text-amcovad-secondary-700 font-normal font-Inter ">
+
+          <p className="block pt-2 text-center text-base text-secondary-700 font-normal font-Inter ">
             Have an account,{' '}
             <Link href="/sign-in">
-              <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
+              <a className=" text-primary-500 hover:text-primary-400">
                 <b>Sign In</b>
               </a>
             </Link>

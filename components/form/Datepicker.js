@@ -15,7 +15,7 @@ const Datepicker = ({ name, label, labelClassName, placeholder }) => {
           name={name}
           htmlFor={name}
           text={label}
-          className={classNames('text-sm text-amcovad-secondary-700', labelClassName)}
+          className={classNames('text-sm text-secondary-700', labelClassName)}
         />
       )}
       <Controller

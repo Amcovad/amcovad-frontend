@@ -8,12 +8,12 @@ const TransactionColoredCard = ({ background, btnTitle, description, title, url 
     <div className={classNames('lg:w-1/3 shadow-lg rounded-3xl ', background)}>
       <div className=" p-5 h-52 bg-cover bg-[url('/assets/dashboard/LinePattern.png')] w-full">
         <div className="p-2 pb-6 my-2">
-          <p className="font-bold pb-3 text-amcovad-white text-lg">{title}</p>
-          <span className="text-sm  text-amcovad-white font-medium ">{description}</span>
+          <p className="font-bold pb-3 text-white text-lg">{title}</p>
+          <span className="text-sm  text-white font-medium ">{description}</span>
         </div>
         <p className="px-2">
           <Link href={url} passHref>
-            <a className="text-white hover:text-white border border-amcovad-warning hover:border-amcovad-white rounded-md py-2.5 px-10 capitalize">
+            <a className="text-white hover:text-white border border-warning hover:border-white rounded-md py-2.5 px-10 capitalize">
               {btnTitle}
             </a>
           </Link>

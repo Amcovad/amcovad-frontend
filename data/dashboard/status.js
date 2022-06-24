@@ -3,19 +3,19 @@ const status = [
     id: 'Fulfilled',
     label: 'Fulfilled',
     value: '30%',
-    color: 'bg-amcovad-orange'
+    color: 'bg-orange-400'
   },
   {
     id: 'Waiting',
     label: 'Waiting',
     value: '10%',
-    color: 'bg-amcovad-secondary-green'
+    color: 'bg-success-400'
   },
   {
     id: 'Ongoing',
     label: 'Ongoing',
     value: '75%',
-    color: 'bg-amcovad-primary-200'
+    color: 'bg-primary-300'
   }
 ];
 export default status;

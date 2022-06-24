@@ -37,14 +37,13 @@ const Input = ({ className, Icon, labelClassName, name, placeholder, label, type
         className={classNames(
           'block py-[16.5px] px-3.5 w-full text-sm  border-2 rounded-md  focus:outline-none focus:ring-0  peer',
           className,
-          { 'focus:border-amcovad-danger': hasErrors },
-          { 'focus:border-amcovad-primary-500': !hasErrors },
+          { 'focus:border-danger-500': hasErrors },
+          { 'focus:border-primary-500': !hasErrors },
           {
-            'placeholder-transparent border-amcovad-secondary-300 appearance-none bg-amcovad-secondary-100 text-amcovad-secondary-700':
-              label
+            'placeholder-transparent border-secondary-300 appearance-none bg-secondary-25 text-secondary-700': label
           },
           {
-            ' border-amcovad-secondary-300 bg-amcovad-secondary-100 placeholder:text-amcovad-secondary-700 font-Poppins text-amcovad-secondary-700':
+            ' border-secondary-300 bg-secondary-25 placeholder:text-secondary-700 font-Poppins text-secondary-700':
               placeholder
           }
         )}

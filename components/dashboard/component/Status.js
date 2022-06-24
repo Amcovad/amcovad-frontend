@@ -7,9 +7,9 @@ const Status = ({ label, value, color }) => {
     <div className="py-2">
       <div className="flex items-center">
         <div className={classNames('w-4 h-4 rounded', color)}></div>
-        <p className="text-sm text-amcovad-black/60 font-Poppins font-normal pl-3 ">{label}</p>
+        <p className="text-sm text-black/60 font-Poppins font-normal pl-3 ">{label}</p>
       </div>
-      <p className="text-2xl text-amcovad-black pl-7 font-Poppins font-bold">{value}</p>
+      <p className="text-2xl text-black pl-7 font-Poppins font-bold">{value}</p>
     </div>
   );
 };

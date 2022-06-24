@@ -1,20 +1,20 @@
 const fulfilmentUpdate = [
   {
-    buttonColor: 'bg-amcovad-orange',
+    buttonColor: 'bg-orange-400',
     name: 'Adams Aliyy',
     quantity: '100 pcs',
     status: 'Waiting',
     userImage: '/assets/dashboard/User2.png'
   },
   {
-    buttonColor: 'bg-amcovad-secondary-green',
+    buttonColor: 'bg-success-400',
     name: 'Raymond Ahmad',
     quantity: '8 pcs',
     status: 'Fulfilled',
     userImage: '/assets/dashboard/User1.png'
   },
   {
-    buttonColor: 'bg-amcovad-primary-200',
+    buttonColor: 'bg-primary-300',
     name: 'Soolihat Smart',
     quantity: '50 pcs',
     status: 'Ongoing',

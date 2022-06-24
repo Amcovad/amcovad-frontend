@@ -41,11 +41,11 @@ function Dashboard() {
                 })}
               </div>
               <div className="lg:p-2">
-                <div className=" rounded-lg w-full mt-2 border border-amcovad-secondary-200 py-6 relative overflow-hidden">
+                <div className=" rounded-lg w-full mt-2 border border-secondary-200 py-6 relative overflow-hidden">
                   <div className="px-3">
                     <div className="w-full flex items-center justify-between mb-4">
-                      <p className="text-amcovad-secondary-700 text-lg font-medium font-Poppins">Published Templates</p>
-                      <p className="flex items-center text-sm font-light py-1 px-2 border border-amcovad-secondary-200 hover:text-amcovad-secondary-700 text-amcovad-secondary-500 ">
+                      <p className="text-secondary-700 text-lg font-medium font-Poppins">Published Templates</p>
+                      <p className="flex items-center text-sm font-light py-1 px-2 border border-secondary-200 hover:text-secondary-700 text-secondary-500 ">
                         Today, 13 Sep 2021
                       </p>
                     </div>
@@ -55,26 +55,26 @@ function Dashboard() {
                       })}
                     </div>
                   </div>
-                  <div className="w-full p-2.5 bg-amcovad-white border rounded-b-lg border-amcovad-secondary-200 absolute bottom-0 z-30">
-                    <p className="text-center text-amcovad-primary-400 font-Inter text-[15px]">See All Announcement</p>
+                  <div className="w-full p-2.5 bg-white border rounded-b-lg border-secondary-200 absolute bottom-0 z-30">
+                    <p className="text-center text-primary-500 font-Inter text-[15px]">See All Announcement</p>
                   </div>
                 </div>
               </div>
             </div>
             <div className="w-full lg:w-[35%] ">
               <div className="m-2 ">
-                <div className="flex py-3 bg-amcovad-tertiary rounded-t-lg text-white text-lg px-4 font-medium">
+                <div className="flex py-3 bg-tertiary rounded-t-lg text-white text-lg px-4 font-medium">
                   <p>Recently Activity</p>
                 </div>
                 <div>
-                  <div className="rounded-b-lg p-2 flex 2xl:items-start w-full bg-amcovad-secondary-700">
+                  <div className="rounded-b-lg p-2 flex 2xl:items-start w-full bg-secondary-800">
                     <div className="w-full text-white font-Poppins px-2 py-4">
                       <div className=" w-full mb-4">
-                        <p className="text-[0.625rem] text-amcovad-secondary-400 font-Inter font-medium">
+                        <p className="text-[0.625rem] text-secondary-400 font-Inter font-medium">
                           10.40 AM, Fri 10 Sept 2022
                         </p>
                         <h1 className="font-medium font-Poppins text-lg my-1.5">Explore Modern Transaction. </h1>
-                        <p className="my-2 text-sm text-amcovad-secondary-400">
+                        <p className="my-2 text-sm text-secondary-400">
                           Kindly check the requirements and terms of work and make sure everything is right.
                         </p>
                       </div>
@@ -87,14 +87,12 @@ function Dashboard() {
                     </div>
                   </div>
                 </div>
-                <div className=" rounded-lg w-full mt-2 border border-amcovad-secondary-200 py-6 relative overflow-hidden">
+                <div className=" rounded-lg w-full mt-2 border border-secondary-200 py-6 pb-10 relative overflow-hidden">
                   <div className="px-3">
                     <div className="w-full flex items-center justify-between mb-4">
-                      <p className="text-amcovad-secondary-700 text-lg font-medium font-Poppins">
-                        Existing Transactions
-                      </p>
-                      <p className="flex items-center text-sm font-light py-1 px-2 border border-amcovad-secondary-200 hover:text-amcovad-secondary-700 text-amcovad-secondary-500 ">
-                        Today, 13 Sep 2021
+                      <p className="text-secondary-700 text-lg font-medium font-Poppins">Existing Transactions</p>
+                      <p className="flex items-center text-xs font-light py-1 px-2 border border-secondary-200 hover:text-secondary-700 text-secondary-500 ">
+                        Today, 14 Sep 2021
                       </p>
                     </div>
                     <div className="scrollbar max-h-[23.5rem] overflow-y-auto ">
@@ -103,10 +101,8 @@ function Dashboard() {
                       })}
                     </div>
                   </div>
-                  <div className="w-full p-2.5 bg-amcovad-white border rounded-b-lg border-amcovad-secondary-200 absolute bottom-0 z-30">
-                    <p className="text-center text-amcovad-primary-400 font-Inter text-[15px]">
-                      Creat a New Transaction
-                    </p>
+                  <div className="w-full p-2.5 bg-white border rounded-b-lg border-secondary-200 absolute bottom-0 z-30">
+                    <p className="text-center text-primary-500 font-Inter text-[15px]">Creat a New Transaction</p>
                   </div>
                 </div>
               </div>

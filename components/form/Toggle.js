@@ -18,7 +18,7 @@ const Toggle = ({ className, containerClassName, label, name }) => {
         />
         <span
           className={classNames(
-            'w-11 h-6 flex items-center flex-shrink-0  p-1 bg-amcovad-secondary-300 rounded-full duration-300 ease-in-out peer-checked:bg-amcovad-primary-500 after:w-5 after:h-5 after:bg-white after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-4',
+            'w-11 h-6 flex items-center flex-shrink-0  p-1 bg-secondary-300 rounded-full duration-300 ease-in-out peer-checked:bg-primary-500 after:w-5 after:h-5 after:bg-white after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-4',
             className
           )}
         />

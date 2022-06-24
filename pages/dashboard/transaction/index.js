@@ -16,12 +16,10 @@ function Transaction() {
                 <div className=" pl-12 lg:pl-16 object-center">
                   <Image src={TransactionImage} alt="Transaction page image" />
                 </div>
-                <p className="text-amcovad-secondary-500 my-4 font-bold text-xl lg:text-2xl">
-                  No Transaction created yet!
-                </p>
+                <p className="text-secondary-500 my-4 font-bold text-xl lg:text-2xl">No Transaction created yet!</p>
                 <Link passHref href="/dashboard/transaction/create">
                   <a>
-                    <Button className="w-full font-semibold text-amcovad-white py-2.5 px-5">Start Now</Button>
+                    <Button className="w-full font-semibold text-white py-2.5 px-5">Start Now</Button>
                   </a>
                 </Link>
               </div>

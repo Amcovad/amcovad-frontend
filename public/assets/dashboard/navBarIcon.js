@@ -57,7 +57,7 @@ export const UserIcon = (props) => {
     <svg width="30px" height="30px" {...props} viewBox="0 0 32 32" fill="#344055" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <style
-          dangerouslySetInnerHTML={{
+          danger-500ouslySetInnerHTML={{
             __html: '.cls-1{fill:none;stroke:#231f20;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}'
           }}
         />

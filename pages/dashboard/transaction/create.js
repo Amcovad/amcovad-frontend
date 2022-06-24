@@ -16,15 +16,15 @@ function Create() {
       onClick={() => setVisibleStep(item.id)}
       className={classNames(
         'w-1/2 relative h-1 flex items-center justify-center cursor-pointer transition duration-500 ease-in-out',
-        { 'bg-amcovad-primary-400': visibleStep === item.id },
-        { 'bg-amcovad-secondary-400': visibleStep !== item.id }
+        { 'bg-primary-500': visibleStep === item.id },
+        { 'bg-secondary-200': visibleStep !== item.id }
       )}
     >
       <div
         className={classNames(
           'h-7 w-7 rounded-full shadow flex items-center justify-center',
-          { 'bg-amcovad-primary-400 ring-offset-4 ring-2 ring-amcovad-primary-400': visibleStep === item.id },
-          { 'bg-amcovad-secondary-400': visibleStep !== item.id }
+          { 'bg-primary-500 ring-offset-4 ring-2 ring-primary-500': visibleStep === item.id },
+          { 'bg-secondary-200': visibleStep !== item.id }
         )}
       >
         <p className="text-white">{item.id}</p>
@@ -32,8 +32,8 @@ function Create() {
       <span
         className={classNames(
           'cursor-pointer absolute top-0 text-center mt-8  text-sm lg:text-base font-medium',
-          { 'text-amcovad-secondary-400': visibleStep === item.id },
-          { 'text-amcovad-secondary-600': visibleStep !== item.id }
+          { 'text-secondary-200': visibleStep === item.id },
+          { 'text-secondary-600': visibleStep !== item.id }
         )}
       >
         {item.label}
@@ -59,7 +59,7 @@ function Create() {
         <div className="h-full w-full py-6 px-3">
           <div className="container">
             <div className="lg:w-full ">
-              <div className="bg-amcovad-secondary-700 h-1 flex items-center justify-between">{Steps}</div>
+              <div className="bg-secondary-700 h-1 flex items-center justify-between">{Steps}</div>
               <HookForm>{Content}</HookForm>
               <StepNavigation handleClick={handleClick} visibleStep={visibleStep} data={data} />
             </div>
@@ -67,10 +67,10 @@ function Create() {
             <div className=" relative ">
               <div className=" bottom-0">
                 <div className="text-sm my-4">
-                  <h6 className="text-amcovad-secondary-700 font-Inter font-semibold leading-6 tracking-wider ">
+                  <h6 className="text-secondary-700 font-Inter font-semibold leading-6 tracking-wider ">
                     Learn from Templates
                   </h6>
-                  <p className="text-amcovad-secondary-600 font-normal">
+                  <p className="text-secondary-600 font-normal">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa ornare id augue leo arcu.
                   </p>
                 </div>

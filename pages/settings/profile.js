@@ -11,10 +11,10 @@ function ChangePassword() {
   return (
     <>
       <DashboardLayout title="Manage Profile">
-        <section className=" border-y-2 rounded-lg border-amcovad-primary-500 container px-5 py-8 mx-auto flex flex-col lg:flex-row items-center lg:justify-between my-3 ">
-          <div className="upload-cover px-1 my-8 mx-4  lg:w-2/5 bg-amcovad-secondary-100  z-10 rounded-lg p-8 flex items-center justify-start flex-col md:ml-auto w-full mt-10 md:mt-0  ">
+        <section className=" border-y-2 rounded-lg border-primary-500 container px-5 py-8 mx-auto flex flex-col lg:flex-row items-center lg:justify-between my-3 ">
+          <div className="upload-cover px-1 my-8 mx-4  lg:w-2/5 bg-secondary-25  z-10 rounded-lg p-8 flex items-center justify-start flex-col md:ml-auto w-full mt-10 md:mt-0  ">
             <div className=" lg:my-20">
-              <div className="border-dashed border h-36 m-auto p-2 w-36 rounded-full border-amcovad-secondary-700  ">
+              <div className="border-dashed border h-36 m-auto p-2 w-36 rounded-full border-secondary-700  ">
                 <div className="flex items-center justify-center h-full overflow-hidden relative w-full rounded-full outline-0">
                   <input
                     accept="image/*"
@@ -50,17 +50,17 @@ function ChangePassword() {
                 </div>
               </div>
 
-              <span className="flex items-center justify-center font-medium text-xs leading-4 mx-auto mb-0 mt-4 text-center text-amcovad-secondary-700 font-Inter">
+              <span className="flex items-center justify-center font-medium text-xs leading-4 mx-auto mb-0 mt-4 text-center text-secondary-700 font-Inter">
                 Allowed *.jpeg, *.jpg, *.png, *.gif <br />
                 max size of 1.2 MB
               </span>
             </div>
           </div>
-          <div className="upload-cover px-1 w-full lg:w-3/5 z-10 bg-amcovad-secondary-100 rounded-lg">
+          <div className="upload-cover px-1 w-full lg:w-3/5 z-10 bg-secondary-25 rounded-lg">
             <HookForm onSubmit={onSubmit} schema={profileSchema}>
               <div className="space-y-2">
                 <div className="w-full space-y-4 md:space-y-0">
-                  <h2 className=" text-lg text-end text-left py-2 text-amcovad-secondary-700 ">Personal info</h2>
+                  <h2 className=" text-lg text-end text-left py-2 text-secondary-700 ">Personal info</h2>
                   <div className="space-y-5 md:w-full">
                     <Input label="Full Name" name="fullName" />
                     <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
@@ -73,7 +73,7 @@ function ChangePassword() {
                     </div>
                   </div>
                 </div>
-                <h2 className=" text-lg text-end text-left py-1 text-amcovad-secondary-700 ">Change Password</h2>
+                <h2 className=" text-lg text-end text-left py-1 text-secondary-700 ">Change Password</h2>
                 <div className="w-full space-y-4 md:space-y-0">
                   <div className="md:w-full">
                     <div className=" relative ">

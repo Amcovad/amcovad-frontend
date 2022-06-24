@@ -15,7 +15,7 @@ const ColoredCard = ({ backgroundColor, className, isThreeColumn, icon, title, t
           <div className="px-4 pt-4 ">{icon}</div>
           <div className="px-4 py-2">
             <p className="font-Inter font-medium text-base leading-7">{title}</p>
-            <p className=" pt-2 pb-1 text-4xl font-Poppins font-medium leading-7 text-amcovad-tertiary">{total}</p>
+            <p className=" pt-2 pb-1 text-4xl font-Poppins font-medium leading-7 text-tertiary">{total}</p>
           </div>
         </div>
       </div>

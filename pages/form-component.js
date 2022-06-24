@@ -33,7 +33,7 @@ const SignIn = () => {
   return (
     <>
       <div className="w-full 2xl:mx-auto 2xl:container">
-        <section className="lg:bg-amcovad-primary-500 overflow-hidden max-w-full ">
+        <section className="lg:bg-primary-500 overflow-hidden max-w-full ">
           <div className=" bg-cover pb-24 lg:pb-0 bg-[url('../public/assets/signUp/md-hexagons.png')] bg-top bg-opacity-20 lg:bg-[url('../public/assets/signUp/hexagons.png')]">
             <Navbar authPageOnly />
             <div className="flex ">
@@ -45,12 +45,12 @@ const SignIn = () => {
                         <Image src={LogoBlack} alt="black logo" />
                       </a>
                     </Link>
-                    <div className="bg-amcovad-secondary-100 p-6 lg:p-8 ">
+                    <div className="bg-secondary-25 p-6 lg:p-8 ">
                       <div>
-                        <h1 className="font-RozhaOne max-w-[300px] md:max-w-[424px] text-2xl md:text-4xl font-extrabold lg:font-bold text-amcovad-secondary-600 pb-2">
+                        <h1 className="font-RozhaOne max-w-[300px] md:max-w-[424px] text-2xl md:text-4xl font-extrabold lg:font-bold text-secondary-600 pb-2">
                           Form Components UI
                         </h1>
-                        <p className="text-amcovad-secondary-700 text-[14px]">
+                        <p className="text-secondary-700 text-[14px]">
                           The starting point for your next project with Amcovad UI Kit, built on the newest version of
                           Tailwind ©, ready to be customized to your style.
                         </p>
@@ -78,10 +78,7 @@ const SignIn = () => {
                                     <>
                                       I have read, and I agree to the
                                       <Link href="#" passHref>
-                                        <a className=" text-amcovad-primary-400 hover:text-amcovad-primary-500">
-                                          {' '}
-                                          Terms of Service
-                                        </a>
+                                        <a className=" text-primary-400 hover:text-primary-500"> Terms of Service</a>
                                       </Link>
                                     </>
                                   ),
@@ -101,12 +98,10 @@ const SignIn = () => {
                           <div className="my-4">
                             <RadioGroup name="radio" options={sampleData} />
                           </div>
-                          <Textarea label="Your message" name="message" className="bg-amcovad-secondary-200" />
+                          <Textarea label="Your message" name="message" className="bg-secondary-50" />
 
                           <div>
-                            <Button className=" w-full font-semibold py-2.5 px-5 text-amcovad-black">
-                              Set Up Amcovad UI
-                            </Button>
+                            <Button className=" w-full font-semibold py-2.5 px-5 text-black">Set Up Amcovad UI</Button>
                           </div>
                         </HookForm>
                       </div>

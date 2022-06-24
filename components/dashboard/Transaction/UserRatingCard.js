@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const UserRatingCard = ({ name, rating, status, UserImage }) => {
   return (
     <div className="lg:w-1/3">
-      <div className="shadow-lg rounded-lg p-2 bg-amcovad-secondary-100 w-full">
+      <div className="shadow-lg rounded-lg p-2 bg-secondary-25 w-full">
         <ul>
           <li className="flex items-center ">
             <div className="block relative">
@@ -18,10 +18,10 @@ const UserRatingCard = ({ name, rating, status, UserImage }) => {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-sm pb-1.5 text-amcovad-secondary-700 font-medium ml-2">{name}</span>
+              <span className="text-sm pb-1.5 text-secondary-700 font-medium ml-2">{name}</span>
               <div className="flex items-center justify-center">
                 <Image src={rating} width={70} height={12} alt="stars" />
-                <span className="text-[10px] text-amcovad-secondary-500 font-Poppins ml-2">{status}</span>
+                <span className="text-[10px] text-secondary-500 font-Poppins ml-2">{status}</span>
               </div>
             </div>
           </li>

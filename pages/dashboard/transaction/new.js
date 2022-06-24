@@ -35,8 +35,8 @@ function Transaction() {
               </div>
               <div className="flex flex-col lg:flex-row gap-5 w-full">
                 <div className="w-full lg:w-5/12 lg:max-w-[400px]">
-                  <div className="rounded-3xl px-6 py-2 mt-6 bg-amcovad-secondary-100  w-full">
-                    <p className="font-semibold text-lg text-amcovad-black/75 pt-5">Fulfilment Update</p>
+                  <div className="rounded-3xl px-6 py-2 mt-6 bg-secondary-25  w-full">
+                    <p className="font-semibold text-lg text-black/75 pt-5">Fulfilment Update</p>
                     <div className="py-3">
                       <div className="flex items-center justify-between pr-4 text-sm font-Inter">
                         <p>Transaction party</p>
@@ -61,8 +61,8 @@ function Transaction() {
                   </div>
                 </div>
                 <div className="w-full lg:w-4/12 lg:max-w-[330px]">
-                  <div className="rounded-3xl p-4 mt-6 bg-amcovad-secondary-100  w-full">
-                    <p className="font-semibold text-lg text-amcovad-black/75 pt-2 dark:text-white">Status</p>
+                  <div className="rounded-3xl p-4 mt-6 bg-secondary-25  w-full">
+                    <p className="font-semibold text-lg text-black/75 pt-2 dark:text-white">Status</p>
                     <div className="flex items-center justify-between p-2">
                       <Image src={Chart} alt="profile image" />
                       <div>
@@ -76,10 +76,8 @@ function Transaction() {
                   </div>
                 </div>
                 <div className="lg:w-3/12 w-full flex-1 ">
-                  <div className="rounded-lg p-3 mt-6 border border-amcovad-secondary-300   w-full">
-                    <p className="text-amcovad-secondary-700 font-semibold font-Inter text-lg py-1 pb-4">
-                      Fulfilment Timeline
-                    </p>
+                  <div className="rounded-lg p-3 mt-6 border border-secondary-300   w-full">
+                    <p className="text-secondary-700 font-semibold font-Inter text-lg py-1 pb-4">Fulfilment Timeline</p>
                     <div className="scrollbar max-h-[13.5rem] overflow-y-auto ">
                       {fulfilmentTimelineData.map(
                         ({ bgColor, fullTime, textColor, timeStart, timeEnd, timeLine }, index) => {

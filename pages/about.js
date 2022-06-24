@@ -8,9 +8,9 @@ const About = () => {
   const [visibleTab, setVisibleTab] = useState(tabData[0].id);
 
   const style = {
-    tabActive: `text-black border-b-[4px] border-amcovad-primary-400 text-amcovad-primary-400 `,
+    tabActive: `text-black border-b-[4px] border-primary-400 text-primary-400 `,
     tabContent: ` py-1 m-0 `,
-    tabTitle: ` inline-block text-sm font-Inter font-medium p-4 lg:p-3 text-amcovad-black cursor-pointer `
+    tabTitle: ` inline-block text-sm font-Inter font-medium p-4 lg:p-3 text-black cursor-pointer `
   };
   const tabTitles = tabData.map((item, index) => (
     <li
@@ -24,13 +24,13 @@ const About = () => {
 
   const tabContent = tabData.map((item, index) => (
     <div
-      className="text-sm mt-6 leading-6 text-amcovad-secondary-700"
+      className="text-sm mt-6 leading-6 text-secondary-700"
       key={index}
       style={visibleTab === item.id ? {} : { display: 'none' }}
     >
-      <h4 className="font-RozhaOne my-3 text-2xl lg:text-4xl text-amcovad-black">
+      <h4 className="font-RozhaOne my-3 text-2xl lg:text-4xl text-black">
         {item.tabTitle.split(' ').slice(0, -1).join(' ')}{' '}
-        <span className="text-amcovad-primary-500">{item.tabTitle.split(' ').slice(-1).join(' ')}</span>
+        <span className="text-primary-500">{item.tabTitle.split(' ').slice(-1).join(' ')}</span>
       </h4>
       {item.tabContent}
     </div>
