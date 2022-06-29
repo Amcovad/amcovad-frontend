@@ -314,3 +314,143 @@ export const RightCaret = (props) => {
     </svg>
   );
 };
+
+export const EmailIcon = (props) => {
+  return (
+    <svg width={20} height={20} {...props} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M14.1667 17.0833H5.83332C3.33332 17.0833 1.66666 15.8333 1.66666 12.9166V7.08329C1.66666 4.16663 3.33332 2.91663 5.83332 2.91663H14.1667C16.6667 2.91663 18.3333 4.16663 18.3333 7.08329V12.9166C18.3333 15.8333 16.6667 17.0833 14.1667 17.0833Z"
+        stroke="#A3A9B2"
+        strokeWidth="1.5"
+        strokeMiterlimit={10}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M14.1667 7.5L11.5583 9.58333C10.7 10.2667 9.29167 10.2667 8.43334 9.58333L5.83334 7.5"
+        stroke="#A3A9B2"
+        strokeWidth="1.5"
+        strokeMiterlimit={10}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const HintIcon = (props) => {
+  return (
+    <svg width={16} height={16} viewBox="0 0 16 16" {...props} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M8.00004 14.6667C11.6667 14.6667 14.6667 11.6667 14.6667 8.00004C14.6667 4.33337 11.6667 1.33337 8.00004 1.33337C4.33337 1.33337 1.33337 4.33337 1.33337 8.00004C1.33337 11.6667 4.33337 14.6667 8.00004 14.6667Z"
+        stroke="#A3A9B2"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10.6643 7.99996H10.6703"
+        stroke="#A3A9B2"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7.99703 7.99996H8.00302"
+        stroke="#A3A9B2"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.32967 7.99996H5.33566"
+        stroke="#A3A9B2"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const SuccessIcon = (props) => {
+  return (
+    <svg width={16} height={16} viewBox="0 0 16 16" {...props} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M7.99992 14.6667C11.6666 14.6667 14.6666 11.6667 14.6666 8.00004C14.6666 4.33337 11.6666 1.33337 7.99992 1.33337C4.33325 1.33337 1.33325 4.33337 1.33325 8.00004C1.33325 11.6667 4.33325 14.6667 7.99992 14.6667Z"
+        stroke="#56DC9C"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.16675 7.99995L7.05341 9.88661L10.8334 6.11328"
+        stroke="#56DC9C"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const HelpIcon = (props) => {
+  return (
+    <svg width={16} height={16} viewBox="0 0 16 16" {...props} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M7.99992 14.6667C11.6666 14.6667 14.6666 11.6667 14.6666 8.00004C14.6666 4.33337 11.6666 1.33337 7.99992 1.33337C4.33325 1.33337 1.33325 4.33337 1.33325 8.00004C1.33325 11.6667 4.33325 14.6667 7.99992 14.6667Z"
+        stroke="#FC7A80"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M8 5.33337V8.66671" stroke="#FC7A80" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M7.99634 10.6666H8.00233"
+        stroke="#FC7A80"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const ArrowIcon = (props) => {
+  return (
+    <svg width={12} height={8} {...props} viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1 1.5L6 6.5L11 1.5"
+        stroke="#667085"
+        strokewidth="1.66667"
+        strokelinecap="round"
+        strokelinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const SelectArrowIcon = (props) => (
+  <svg width={12} height={8} fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="m1 1.5 5 5 5-5" stroke="#667085" strokeWidth={1.667} strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const TestIcon = (props) => (
+  <svg width={20} height={20} {...props} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M18.2751 10.7167C18.2584 10.875 18.2334 11.025 18.1917 11.175C17.3251 10.4417 16.2001 10 14.9751 10C12.2167 10 9.97507 12.2417 9.97507 15C9.97507 16.225 10.4167 17.35 11.1501 18.2167C11.0001 18.2583 10.8501 18.2833 10.6917 18.3C9.98341 18.3667 9.25841 18.3333 8.50841 18.2083C5.08341 17.625 2.32507 14.85 1.75841 11.4167C0.81674 5.70833 5.68341 0.841665 11.3917 1.78333C14.8251 2.35 17.6001 5.10833 18.1834 8.53333C18.3084 9.28333 18.3417 10.0083 18.2751 10.7167Z"
+      stroke="white"
+      strokewidth="1.5"
+      strokelinecap="round"
+      strokelinejoin="round"
+    />
+    <path
+      d="M18.1918 11.175C18.0751 11.5833 17.8584 11.95 17.5501 12.2583L12.2334 17.575C11.9251 17.8833 11.5584 18.1 11.1501 18.2167C10.4168 17.35 9.9751 16.225 9.9751 15C9.9751 12.2417 12.2168 10 14.9751 10C16.2001 10 17.3251 10.4417 18.1918 11.175Z"
+      stroke="white"
+      strokewidth="1.5"
+      strokelinecap="round"
+      strokelinejoin="round"
+    />
+  </svg>
+);

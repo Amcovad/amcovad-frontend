@@ -3,26 +3,30 @@ import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
 
-export function Label({ className, floatLabel, floatLabelClass, htmlFor, name, text }) {
+export function Label({ className, checked, floatLabel, floatLabelClass, htmlFor, name, supportLabel, text }) {
   const {
-    formState: { errors }
+    formState: { dirtyFields, errors }
   } = useFormContext();
 
   const hasErrors = !!errors?.[name];
+  const isValid = !!dirtyFields?.[name] && !hasErrors;
 
   return (
     <label
       htmlFor={htmlFor || name}
       className={classNames(
+        'font-Inter',
         {
           'absolute text-sm text-secondary-700 duration-300 transform p-2 scale-75 top-2 left-2 z-10 origin-[0] peer-focus:left-2  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 ':
             floatLabel
         },
-        { 'cursor-pointer text-secondary-700 font-normal font-Inter': !floatLabel },
+        { 'pointer-events-none': checked },
+        { 'block mb-2 cursor-pointer text-secondary-700 font-normal ': !floatLabel },
         { [className]: !floatLabel },
         { [floatLabelClass]: floatLabel },
-        { 'peer-focus:text-danger-500': hasErrors },
-        { 'peer-focus:text-primary-500': !hasErrors }
+        { 'text-success-600': isValid },
+        { 'text-secondary-800': !hasErrors && !isValid },
+        { 'text-danger-500': hasErrors }
       )}
     >
       {text}
@@ -46,4 +50,44 @@ Label.defaultProps = {
   htmlFor: null,
   name: null,
   text: null
+};
+
+export const HelperLabel = ({ checked, helperLabelClassName, htmlFor, name, text, title }) => {
+  return (
+    <div className="ml-2 pt-2 text-sm font-Inter">
+      {title && (
+        <label
+          htmlFor={htmlFor || name}
+          className={classNames(
+            'font-semibold text-secondary-800 ',
+            { 'pointer-events-none': checked },
+            helperLabelClassName
+          )}
+        >
+          {title}
+        </label>
+      )}
+      {text && (
+        <p id={htmlFor || name} className="text-xs font-normal text-secondary-600 ">
+          {text}
+        </p>
+      )}
+    </div>
+  );
+};
+
+HelperLabel.propTypes = {
+  helperLabelClassName: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  htmlFor: PropTypes.string,
+  text: PropTypes.string,
+  title: PropTypes.node
+};
+
+HelperLabel.defaultProps = {
+  helperLabelClassName: null,
+  htmlFor: null,
+  name: null,
+  text: null,
+  title: null
 };

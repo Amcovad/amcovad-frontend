@@ -96,14 +96,16 @@ const Navbar = ({ authPageOnly }) => {
             <li>
               <Link href="/sign-in">
                 <a>
-                  <Button outline>Sign in</Button>
+                  <Button outline className="uppercase">
+                    Sign in
+                  </Button>
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/sign-up">
                 <a>
-                  <Button className="text-white ml-4 py-2.5 px-5 ">Try it now</Button>
+                  <Button className="ml-4 uppercase">Try it now</Button>
                 </a>
               </Link>
             </li>

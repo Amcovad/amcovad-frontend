@@ -7,6 +7,7 @@ import Select from '@/components/form/Select';
 import RadioGroup from '@/components/form/RadioGroup';
 import HookForm from '@/components/form/Form';
 import { LogoBlack, SignInImage } from '/public/assets/signUp';
+import { EmailIcon, TestIcon } from '@/public/assets/dashboard/navBarIcon';
 
 const SignIn = () => {
   const FormSchema = yup
@@ -57,21 +58,83 @@ const SignIn = () => {
                       </div>
                       <div className="mt-8">
                         <HookForm onSubmit={onSubmit} schema={FormSchema}>
-                          <Input label="Email address" name="email" type="email" />
-                          <Input label="Password" name="password" type="password" />
+                          <Input
+                            label="Email address"
+                            name="email"
+                            type="email"
+                            leadingIcon={<EmailIcon />}
+                            withHintText="This is a hint text to help your email."
+                            withHintIcon
+                            floatLabel
+                          />
+                          <Input
+                            label="Password"
+                            name="password"
+                            type="password"
+                            withHintText="This is a hint text to help your password."
+                          />
 
                           <Select
-                            defaultOption="Chooose The best wiisely"
-                            label="Choose Select"
+                            floatLabel
+                            leadingIcon={<EmailIcon />}
+                            withHintIcon
+                            withHintText="This is a hint text to help user select state of origin."
+                            defaultOption="Select your State of Origin"
+                            label="State of Origin"
                             name="select"
                             options={sampleData}
                           />
                           <div className="my-4">
-                            <Toggle name="toggle" label="Click the Toggle" />
+                            <Toggle
+                              name="toggle"
+                              label="Remember me"
+                              helperLabel
+                              description="Save my login details for next time."
+                            />
                           </div>
-                          <div className=" mt-8 mb-3">
+                          <div className="my-4">
+                            <Toggle
+                              // checked
+                              disabled
+                              name="toggledisable"
+                              label="Remind me tomorrow"
+                              helperLabel
+                              description="Disabled details remind next time."
+                            />
+                          </div>
+                          <div className=" mt-4 mb-3">
                             <CheckboxGroup
+                              minusIcon
+                              // size="md"
+                              disabled
+                              checked
+                              name="acceptTerm"
+                              // helperLabel
+                              description="This is a checkbox description"
+                              options={[
+                                {
+                                  label: (
+                                    <>
+                                      Disabled checked I have agree to the
+                                      <Link href="#" passHref>
+                                        <a className=" text-primary-400 hover:text-primary-500"> Terms of Service</a>
+                                      </Link>
+                                    </>
+                                  ),
+                                  value: true
+                                }
+                              ]}
+                            />
+                          </div>
+                          <div className=" mt-4 mb-3">
+                            <CheckboxGroup
+                              // minusIcon
+                              // size="md"
+                              // disabled
+                              // checked
                               name="acceptTerms"
+                              helperLabel
+                              description="This is a checkbox description"
                               options={[
                                 {
                                   label: (
@@ -96,15 +159,68 @@ const SignIn = () => {
                           </div>
 
                           <div className="my-4">
-                            <RadioGroup name="radio" options={sampleData} />
+                            <RadioGroup
+                              // checkIcon
+                              size="md"
+                              //disabled
+                              //checked
+                              name="radio"
+                              // columns
+                              options={sampleData}
+                            />
                           </div>
-                          <Textarea label="Your message" name="message" className="bg-secondary-50" />
+                          <Textarea
+                            floatLabel
+                            leadingIcon={<EmailIcon />}
+                            withHintIcon
+                            withHintText="This is a hint text to help user Textarea."
+                            label="Your message"
+                            name="message"
+                          />
 
                           <div>
-                            <Button className=" w-full font-semibold py-2.5 px-5 text-black">Set Up Amcovad UI</Button>
+                            <Button className="w-full text-center" size="md">
+                              Set Up Amcovad UI
+                            </Button>
                           </div>
                         </HookForm>
                       </div>
+                    </div>
+                    <div className="my-4 flex flex-wrap items-center bg-secondary-25 p-5">
+                      <Button size="xs">Button xs CTA</Button>
+                      <Button size="sm">Button sm CTA</Button>
+                      <Button
+                        size="md"
+                        rightIcon={
+                          <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              fillrule="evenodd"
+                              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                              cliprule="evenodd"
+                            />
+                          </svg>
+                        }
+                      >
+                        Button md CTA
+                      </Button>
+                      <Button leftIcon={<TestIcon />} size="lg">
+                        Button lg CTA
+                      </Button>
+                      <Button
+                        size="xl"
+                        outline
+                        rightIcon={
+                          <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              fillrule="evenodd"
+                              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                              cliprule="evenodd"
+                            />
+                          </svg>
+                        }
+                      >
+                        Button xl CTA
+                      </Button>
                     </div>
                   </div>
                 </div>
