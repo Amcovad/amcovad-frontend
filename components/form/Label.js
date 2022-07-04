@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
 
-export function Label({ className, checked, floatLabel, floatLabelClass, htmlFor, name, supportLabel, text }) {
+export function Label({ className, checked, floatLabel, floatLabelClass, htmlFor, name, text }) {
   const {
     formState: { dirtyFields, errors }
   } = useFormContext();

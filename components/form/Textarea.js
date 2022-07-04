@@ -14,8 +14,8 @@ const Textarea = ({
   name,
   placeholder,
   rows,
-  withHintIcon,
-  withHintText
+  hintIcon,
+  hintText
 }) => {
   const {
     register,
@@ -63,10 +63,10 @@ const Textarea = ({
 
         {floatLabel && <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />}
 
-        {withHintIcon && !isValid && (
+        {hintIcon && !isValid && (
           <div
             className={classNames('absolute top-5 right-0 flex items-center pr-3 pointer-events-none', {
-              hidden: withHintIcon === hasErrors
+              hidden: hintIcon === hasErrors
             })}
           >
             <HintIcon />
@@ -85,7 +85,7 @@ const Textarea = ({
         )}
       </div>
 
-      {withHintText && <p className="pt-1 text-sm text-secondary-700">This is a hint text to help user.</p>}
+      {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText}</p>}
       <ErrorMessage name={name} />
     </>
   );

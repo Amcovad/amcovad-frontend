@@ -14,8 +14,8 @@ export function SelectField({
   labelClassName,
   leadingIcon,
   name,
-  withHintIcon,
-  withHintText
+  hintIcon,
+  hintText
 }) {
   const {
     register,
@@ -62,10 +62,10 @@ export function SelectField({
         <div className={classNames('absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none')}>
           <SelectArrowIcon />
         </div>
-        {withHintIcon && !isValid && (
+        {hintIcon && !isValid && (
           <div
             className={classNames('absolute inset-y-0 right-0 flex items-center pr-8 pointer-events-none', {
-              hidden: withHintIcon === hasErrors
+              hidden: hintIcon === hasErrors
             })}
           >
             <HintIcon />
@@ -84,12 +84,12 @@ export function SelectField({
           </div>
         )}
       </div>
-      {withHintText && <p className="pt-1 text-sm text-secondary-700">{withHintText} </p>}
+      {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText} </p>}
     </>
   );
 }
 
-const Select = ({ defaultOption, floatLabel, label, leadingIcon, name, options, withHintIcon, withHintText }) => {
+const Select = ({ defaultOption, floatLabel, label, leadingIcon, name, options, hintIcon, hintText }) => {
   return (
     <>
       <SelectField
@@ -97,8 +97,8 @@ const Select = ({ defaultOption, floatLabel, label, leadingIcon, name, options, 
         label={label ? label : defaultOption}
         leadingIcon={leadingIcon}
         name={name}
-        withHintIcon={withHintIcon}
-        withHintText={withHintText}
+        hintIcon={hintIcon}
+        hintText={hintText}
       >
         {defaultOption && (
           <option key={name} value="">

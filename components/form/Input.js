@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { ShowPasswordIcon, HidePasswordIcon } from '@/public/assets/signUp/passwordSvgs';
-import { ArrowIcon, EmailIcon, HelpIcon, HintIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
+import { HelpIcon, HintIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
 
@@ -11,8 +11,8 @@ const Input = ({
   Icon,
   leadingIcon,
   labelClassName,
-  withHintIcon,
-  withHintText,
+  hintIcon,
+  hintText,
   name,
   placeholder,
   label,
@@ -25,14 +25,9 @@ const Input = ({
   } = useFormContext();
 
   const [showPassword, setShowPassword] = useState(false);
-  const [showHintTitle, setShowHintTitle] = useState(false);
 
   const handleShowPassword = () => {
     setShowPassword((show) => !show);
-  };
-
-  const handleHintIconTitle = () => {
-    setShowHintTitle((showHint) => !showHint);
   };
 
   const PasswordIcon = showPassword ? (
@@ -84,11 +79,15 @@ const Input = ({
 
         {floatLabel && <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />}
 
-        {withHintIcon && !isValid && (
+        {hintIcon && !isValid && (
           <div
-            className={classNames('absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none', {
-              'pr-8': hasErrors
-            })}
+            className={classNames(
+              'absolute inset-y-0 right-0 flex items-center pointer-events-none',
+              { 'pr-3': !isValid && !hasErrors },
+              {
+                'pr-8': hasErrors
+              }
+            )}
           >
             <HintIcon />
           </div>
@@ -106,15 +105,19 @@ const Input = ({
         )}
         {inputIcon && !isValid && (
           <div
-            className={classNames('absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer', {
-              'pr-8': hasErrors
-            })}
+            className={classNames(
+              'absolute inset-y-0 right-0 flex items-center cursor-pointer',
+              { 'pr-3': !isValid && !hasErrors },
+              {
+                'pr-8': hasErrors
+              }
+            )}
           >
             {inputIcon}
           </div>
         )}
       </div>
-      {withHintText && <p className="pt-1 text-sm text-secondary-700">{withHintText}</p>}
+      {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText}</p>}
       <ErrorMessage name={name} />
     </>
   );

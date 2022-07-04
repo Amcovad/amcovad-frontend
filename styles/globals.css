@@ -68,8 +68,6 @@ p.paragraphs::first-letter {
   -ms-user-select: none;
   user-select: none;
   flex-shrink: 0;
-  /* height: 1rem;
-  width: 1rem; */
   color: #f2fbff;
 
   border-color: #8d94a0;
@@ -78,11 +76,7 @@ p.paragraphs::first-letter {
 .form-checkbox {
   background-color: #fff;
 }
-/* .form-radio.md,
-.form-checkbox.md {
-  height: 1.25rem;
-  width: 1.25rem;
-} */
+
 .form-radio {
   border-radius: 100%;
 }
@@ -99,27 +93,13 @@ p.paragraphs::first-letter {
   background-position: center;
   background-repeat: no-repeat;
 }
+.form-checkbox:disabled {
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .form-checkbox:checked {
   background-color: #f2fbff;
 }
-/* .form-radio {
-  height: 1rem;
-  width: 1rem;
-} */
-/* .form-radioo:checked {
-  background-image: url('../public/assets/form/radioIcon.svg');
-  height: 1rem;
-  width: 1rem;
-} */
-/* .form-checkboxx:checked {
-  background-image: url('../public/assets/form/checkIcon.svg');
-  background-image: url('../public/assets/form/minusIcon.svg');
-}
-.form-checkboxx:checked.md {
-  background-image: url('../public/assets/form/checkIcon-md.svg');
-  background-image: url('../public/assets/form/minusIcon.svg');
-} */
-
 .form-checkbox:focus,
 .form-radio:focus {
   outline: none;
@@ -131,8 +111,6 @@ p.paragraphs::first-letter {
   background-color: #f5f6f8;
   border-color: #d0d3d8;
 }
-
-/* .form-radio:checked:hover */
 .form-checkbox:checked:hover {
   border-color: #01b3f8;
   background-color: #f2fbff;
@@ -142,36 +120,10 @@ p.paragraphs::first-letter {
   background-color: #f5f6f8;
   border-color: #d0d3d8;
 }
-/* .form-radio:checked:focus */
 .form-checkbox:checked:focus {
   border-color: #01b3f8;
   background-color: #f2fbff;
 }
-/* .form-checkboxx:disabled:checked,
-.form-checkboxx:checked:disabled {
-  background-image: url('../public/assets/form/checkIcon-disabled.svg');
-}
-
-.form-radio:disabled.md,
-.form-checkbox:disabled.md {
-  background-image: url('../public/assets/form/checkIcon-disabled-md.svg');  
-} */
-
-/* .form-checkbox:checked:hover,
-.form-radio:checked:hover {
-  border-color: #01b3f8;
-  background-color: #f2fbff;
-}
-.form-checkbox:disabled:hover,
-.form-radio:disabled:hover {
-  background-color: #f5f6f8;
-  border-color: #d0d3d8;
-}
-.form-checkbox:checked:focus,
-.form-radio:checked:focus {
-  border-color: #01b3f8;
-  background-color: #f2fbff;
-} */
 
 .upload {
   @apply flex;

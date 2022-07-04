@@ -422,9 +422,9 @@ export const ArrowIcon = (props) => {
       <path
         d="M1 1.5L6 6.5L11 1.5"
         stroke="#667085"
-        strokewidth="1.66667"
-        strokelinecap="round"
-        strokelinejoin="round"
+        strokeWidth="1.66667"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -436,21 +436,38 @@ export const SelectArrowIcon = (props) => (
   </svg>
 );
 
+export const MultiplyIcon = (props) => (
+  <svg width={12} height={12} viewBox="0 0 12 12" {...props} fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.25 9.25L9.25 3.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M9.25 9.25L3.25 3.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 export const TestIcon = (props) => (
   <svg width={20} height={20} {...props} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M18.2751 10.7167C18.2584 10.875 18.2334 11.025 18.1917 11.175C17.3251 10.4417 16.2001 10 14.9751 10C12.2167 10 9.97507 12.2417 9.97507 15C9.97507 16.225 10.4167 17.35 11.1501 18.2167C11.0001 18.2583 10.8501 18.2833 10.6917 18.3C9.98341 18.3667 9.25841 18.3333 8.50841 18.2083C5.08341 17.625 2.32507 14.85 1.75841 11.4167C0.81674 5.70833 5.68341 0.841665 11.3917 1.78333C14.8251 2.35 17.6001 5.10833 18.1834 8.53333C18.3084 9.28333 18.3417 10.0083 18.2751 10.7167Z"
       stroke="white"
-      strokewidth="1.5"
-      strokelinecap="round"
-      strokelinejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M18.1918 11.175C18.0751 11.5833 17.8584 11.95 17.5501 12.2583L12.2334 17.575C11.9251 17.8833 11.5584 18.1 11.1501 18.2167C10.4168 17.35 9.9751 16.225 9.9751 15C9.9751 12.2417 12.2168 10 14.9751 10C16.2001 10 17.3251 10.4417 18.1918 11.175Z"
       stroke="white"
-      strokewidth="1.5"
-      strokelinecap="round"
-      strokelinejoin="round"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const TestIcon2 = (props) => (
+  <svg fill="currentColor" {...props} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+    <path
+      fillRule="evenodd"
+      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+      clipRule="evenodd"
     />
   </svg>
 );

@@ -7,7 +7,9 @@ import Select from '@/components/form/Select';
 import RadioGroup from '@/components/form/RadioGroup';
 import HookForm from '@/components/form/Form';
 import { LogoBlack, SignInImage } from '/public/assets/signUp';
-import { EmailIcon, TestIcon } from '@/public/assets/dashboard/navBarIcon';
+import { EmailIcon, TestIcon, TestIcon2 } from '@/public/assets/dashboard/navBarIcon';
+import Badge from '@/components/form/Badge';
+import UserPhoto from '@/public/assets/dashboard/User2.png';
 
 const SignIn = () => {
   const FormSchema = yup
@@ -63,22 +65,22 @@ const SignIn = () => {
                             name="email"
                             type="email"
                             leadingIcon={<EmailIcon />}
-                            withHintText="This is a hint text to help your email."
-                            withHintIcon
+                            hintText="This is a hint text to help your email."
+                            hintIcon
                             floatLabel
                           />
                           <Input
                             label="Password"
                             name="password"
                             type="password"
-                            withHintText="This is a hint text to help your password."
+                            hintText="This is a hint text to help your password."
                           />
 
                           <Select
                             floatLabel
                             leadingIcon={<EmailIcon />}
-                            withHintIcon
-                            withHintText="This is a hint text to help user select state of origin."
+                            hintIcon
+                            hintText="This is a hint text to help user select state of origin."
                             defaultOption="Select your State of Origin"
                             label="State of Origin"
                             name="select"
@@ -94,8 +96,8 @@ const SignIn = () => {
                           </div>
                           <div className="my-4">
                             <Toggle
-                              // checked
-                              disabled
+                              checked
+                              //disabled
                               name="toggledisable"
                               label="Remind me tomorrow"
                               helperLabel
@@ -104,13 +106,12 @@ const SignIn = () => {
                           </div>
                           <div className=" mt-4 mb-3">
                             <CheckboxGroup
-                              minusIcon
                               // size="md"
                               disabled
-                              checked
+                              //checked
                               name="acceptTerm"
-                              // helperLabel
-                              description="This is a checkbox description"
+                              //helperLabel
+                              description="This is a checkbox description example"
                               options={[
                                 {
                                   label: (
@@ -161,22 +162,28 @@ const SignIn = () => {
                           <div className="my-4">
                             <RadioGroup
                               // checkIcon
-                              size="md"
+                              // size="md"
                               //disabled
                               //checked
                               name="radio"
                               // columns
+                              // helperLabel
+                              // description="This is a checkbox description"
                               options={sampleData}
                             />
                           </div>
                           <Textarea
                             floatLabel
                             leadingIcon={<EmailIcon />}
-                            withHintIcon
-                            withHintText="This is a hint text to help user Textarea."
+                            hintIcon
+                            hintText="This is a hint text to help user Textarea."
                             label="Your message"
                             name="message"
                           />
+
+                          <div className="my-4">
+                            <Badge hasIcon text="New feature" avatar={UserPhoto} />
+                          </div>
 
                           <div>
                             <Button className="w-full text-center" size="md">
@@ -188,39 +195,48 @@ const SignIn = () => {
                     </div>
                     <div className="my-4 flex flex-wrap items-center bg-secondary-25 p-5">
                       <Button size="xs">Button xs CTA</Button>
-                      <Button size="sm">Button sm CTA</Button>
+                      <Button size="sm" color="danger">
+                        Button sm CTA
+                      </Button>
                       <Button
                         size="md"
+                        color="secondary"
                         rightIcon={
                           <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path
-                              fillrule="evenodd"
+                              fillRule="evenodd"
                               d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                              cliprule="evenodd"
+                              clipRule="evenodd"
                             />
                           </svg>
                         }
                       >
                         Button md CTA
                       </Button>
-                      <Button leftIcon={<TestIcon />} size="lg">
+                      <Button color="warning" leftIcon={<TestIcon />} size="lg">
                         Button lg CTA
                       </Button>
                       <Button
                         size="xl"
                         outline
+                        color="success"
                         rightIcon={
                           <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path
-                              fillrule="evenodd"
+                              fillRule="evenodd"
                               d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                              cliprule="evenodd"
+                              clipRule="evenodd"
                             />
                           </svg>
                         }
                       >
                         Button xl CTA
                       </Button>
+                      <Button size="lg" color="success">
+                        <TestIcon />
+                      </Button>
+
+                      <Button size="sm" outline color="danger" icon={<TestIcon2 />}></Button>
                     </div>
                   </div>
                 </div>

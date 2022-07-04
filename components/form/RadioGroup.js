@@ -2,10 +2,22 @@ import React from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { ErrorMessage } from '.';
-import { Label } from './Label';
+import { Label, HelperLabel } from './Label';
 import classNames from 'classnames';
 
-export function Radio({ checked, checkIcon, disabled, label, name, radioClassName, size, value }) {
+export function Radio({
+  checked,
+  checkIcon,
+  description,
+  disabled,
+  helperLabel,
+  helperLabelClassName,
+  label,
+  name,
+  radioClassName,
+  size,
+  value
+}) {
   const iconName = {
     radio: {
       sm: 'bg-radio-sm',
@@ -14,20 +26,10 @@ export function Radio({ checked, checkIcon, disabled, label, name, radioClassNam
     'disabled-radio': {
       sm: 'bg-radio-sm-disabled',
       md: 'bg-radio-md-disabled'
-    },
-    'checked-radio': {
-      sm: 'bg-checked-radio-sm',
-      md: 'bg-checked-radio-md'
-    },
-    'disabled-checked-radio': {
-      sm: 'bg-checked-radio-sm-disabled',
-      md: 'bg-checked-radio-md-disabled'
     }
   };
 
-  const iconClass = checkIcon ? 'checked-radio' : 'radio';
-  const iconClassDisabled = disabled && checked && !checkIcon ? 'disabled-radio' : 'disabled-checked-radio';
-  const iconClassDisabledOnly = disabled && !checked && !checkIcon ? 'disabled-radio' : 'disabled-checked-radio';
+  const iconClass = (disabled && checked) || disabled ? 'disabled-radio' : 'radio';
   const { register } = useFormContext();
   return (
     <>
@@ -36,17 +38,8 @@ export function Radio({ checked, checkIcon, disabled, label, name, radioClassNam
           checked={checked}
           disabled={disabled}
           className={`form-radio ${
-            checkIcon
-              ? 'checked:bg-primary-500 checked:hover:bg-primary-500 checked:hover:border-primary-500 checked:focus:bg-primary-500 checked:focus:border-primary-500 disabled:checked:bg-secondary-25'
-              : 'checked:bg-secondary-25 checked:hover:bg-secondary-25 checked:hover:border-primary-500 checked:focus:bg-secondary-25 checked:focus:border-primary-500 '
-          }  ${disabled && checked && checkIcon ? 'checked:bg-secondary-25' : ''}
-          disabled:bg-secondary-25 disabled:border-secondary-100 disabled:hover:bg-secondary-25 disabled:hover:border-secondary-100 ${
-            disabled && !checked
-              ? `disabled:${iconName[iconClassDisabledOnly][size]}`
-              : `checked:${iconName[iconClassDisabledOnly][size]}`
-          } ${
-            disabled && checked
-              ? `disabled:${iconName[iconClassDisabled][size]}`
+            disabled || (disabled && checked)
+              ? `disabled:${iconName[iconClass][size]}`
               : `checked:${iconName[iconClass][size]}`
           }
           ${size === 'md' ? 'w-5 h-5' : 'w-4 h-4'} ${radioClassName}`}
@@ -56,7 +49,19 @@ export function Radio({ checked, checkIcon, disabled, label, name, radioClassNam
           type="radio"
           value={value}
         />
-        <Label name={name} htmlFor={`radio-${value}`} text={label} className="mx-2 mb-0" />
+        {label && !helperLabel && (
+          <Label name={name} className="mx-2 mb-0" htmlFor={`radio-${value}`} text={label} checked={checked} />
+        )}
+        {helperLabel && (
+          <HelperLabel
+            name={name}
+            htmlFor={`radio-${value}`}
+            helperLabelClassName={helperLabelClassName}
+            title={label}
+            text={description}
+            checked={checked}
+          />
+        )}
       </div>
     </>
   );
@@ -82,17 +87,19 @@ Radio.defaultProps = {
   value: ''
 };
 
-// Radio.propTypes = {
-//   label: PropTypes.node.isRequired,
-//   name: PropTypes.string,
-//   value: PropTypes.any
-// };
-// Radio.defaultProps = {
-//   name: null,
-//   value: null
-// };
-
-const RadioGroup = ({ checked, checkIcon, columns, disabled, name, options, radioClassName, size }) => {
+const RadioGroup = ({
+  checked,
+  checkIcon,
+  columns,
+  description,
+  disabled,
+  helperLabel,
+  helperLabelClassName,
+  name,
+  options,
+  radioClassName,
+  size
+}) => {
   return (
     <>
       <div className={classNames('flex flex-wrap ', { 'flex-col gap-2': columns })}>
@@ -105,7 +112,10 @@ const RadioGroup = ({ checked, checkIcon, columns, disabled, name, options, radi
             <Radio
               checked={checked}
               disabled={disabled}
+              description={description}
               checkIcon={checkIcon}
+              helperLabel={helperLabel}
+              helperLabelClassName={helperLabelClassName}
               size={size}
               key={index}
               name={name}

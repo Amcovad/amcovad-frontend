@@ -13,7 +13,6 @@ export function Checkbox({
   helperLabel,
   helperLabelClassName,
   label,
-  minusIcon,
   name,
   size,
   value
@@ -23,23 +22,14 @@ export function Checkbox({
       sm: 'bg-checked-sm',
       md: 'bg-checked-md'
     },
-    minus: {
-      sm: 'bg-minus-sm',
-      md: 'bg-minus-md'
-    },
     'disabled-checked': {
       sm: 'bg-checked-sm-disabled',
       md: 'bg-checked-md-disabled'
-    },
-    'disabled-minus': {
-      sm: 'bg-minus-sm-disabled',
-      md: 'bg-minus-md-disabled'
     }
   };
 
   const { register } = useFormContext();
-  const iconClass = minusIcon ? 'minus' : 'checked';
-  const iconClassDisabled = disabled && checked && !minusIcon ? 'disabled-checked' : 'disabled-minus';
+  const iconClass = (disabled && checked) || disabled ? 'disabled-checked' : 'checked';
 
   return (
     <>
@@ -50,8 +40,8 @@ export function Checkbox({
             disabled={disabled}
             id={`checkbox-${name}-${value.toString()}`}
             className={`form-checkbox ${
-              disabled && checked
-                ? `disabled:${iconName[iconClassDisabled][size]}`
+              disabled || (disabled && checked)
+                ? `disabled:${iconName[iconClass][size]}`
                 : `checked:${iconName[iconClass][size]}`
             }
             ${size === 'md' ? 'w-5 h-5' : 'w-4 h-4'} ${checkboxClassName}`}
@@ -92,11 +82,11 @@ Checkbox.propTypes = {
   checkboxClassName: PropTypes.string,
   helperLabel: PropTypes.bool,
   helperLabelClassName: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.node.isRequired,
   minusIcon: PropTypes.bool,
   name: PropTypes.string,
   size: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.bool
 };
 Checkbox.defaultProps = {
   checked: null,
@@ -106,11 +96,11 @@ Checkbox.defaultProps = {
   disabled: false,
   helperLabel: false,
   helperLabelClassName: null,
-  label: '',
+  label: null,
   size: 'sm',
   minusIcon: false,
   name: '',
-  value: ''
+  value: false
 };
 
 export function CheckboxGroup({
@@ -157,5 +147,5 @@ CheckboxGroup.propTypes = {
   options: PropTypes.array
 };
 CheckboxGroup.defaultProps = {
-  options: null
+  options: []
 };

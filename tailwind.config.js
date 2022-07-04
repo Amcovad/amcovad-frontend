@@ -37,11 +37,11 @@ module.exports = {
     boxShadow: {
       'primary-xs': '0px 0px 0px 4px rgba(1, 179, 248, 0.2)',
       'primary-sm': '0px 0px 0px 4px rgba(172, 230, 253, 0.4)',
-      'secondary-xs': 'box-shadow: 0px 0px 0px 4px rgba(52, 64, 85, 0.2)',
+      'secondary-xs': '0px 0px 0px 4px rgba(52, 64, 85, 0.2)',
       'success-xs': ' 0px 0px 0px 4px rgba(0, 202, 105, 0.2)',
       'danger-xs': '0px 0px 0px 4px rgba(255, 81, 81, 0.25)',
-      'warning-xs': 'box-shadow: 0px 0px 0px 4px rgba(234, 196, 53, 0.2)',
-      normal: 'box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05)'
+      'warning-xs': '0px 0px 0px 4px rgba(234, 196, 53, 0.2)',
+      normal: '0px 1px 2px rgba(16, 24, 40, 0.05)'
     },
     fontFamily: {
       RozhaOne: ['Rozha One', 'serif'],
