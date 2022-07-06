@@ -182,7 +182,14 @@ const SignIn = () => {
                           />
 
                           <div className="my-4">
-                            <Badge hasIcon text="New feature" avatar={UserPhoto} />
+                            <Badge
+                              //hasAfterIcon
+                              text="New feature"
+                              // avatar={UserPhoto}
+                              // icon={<TestIcon2 width={12} height={12} />}
+                              color="purple"
+                              // moreInfo="We’ve just released a new feature"
+                            />
                           </div>
 
                           <div>

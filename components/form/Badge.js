@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { MultiplyIcon } from '@/public/assets/dashboard/navBarIcon';
 
-const Badge = ({ avatar, color, hasIcon, text }) => {
+const Badge = ({ avatar, color, hasAfterIcon, icon, moreInfo, text }) => {
   const styles = {
     defaultColor: {
       primary: 'bg-primary-400',
@@ -17,8 +17,8 @@ const Badge = ({ avatar, color, hasIcon, text }) => {
       pink: 'bg-pink-500',
       orange: 'bg-orange-500'
     },
-    hasIcon: {
-      primary: 'bg-primary-50 text-primary-600',
+    hasAfterIcon: {
+      primary: 'bg-primary-25 text-primary-600',
       secondary: 'bg-secondary-25 text-secondary-500',
       danger: 'bg-danger-25 text-danger-600',
       warning: 'bg-warning-50 text-warning-600',
@@ -41,41 +41,69 @@ const Badge = ({ avatar, color, hasIcon, text }) => {
     }
   };
 
-  const hasIconClass = hasIcon ? 'hasIcon' : 'defaultColor';
+  const hasAfterIconClass = hasAfterIcon ? 'hasAfterIcon' : 'defaultColor';
   return (
     <span
-      className={classNames(
-        'font-Inter font-medium mr-2 rounded-2xl text-center inline-flex items-center justify-center gap-1.5',
-        { 'text-xs text-secondary-25 px-2 py-0.5': !hasIcon },
-        { 'text-sm py-1 pr-3 pl-1.5': hasIcon },
-        styles[hasIconClass][color]
-      )}
+      className={`${
+        moreInfo && `py-1 pr-3 pl-1.5 rounded-2xl inline-flex items-center gap-1.5 ${styles.hasAfterIcon[color]}`
+      }`}
     >
-      {hasIcon && (
-        <span className="w-4 h-4 ">
-          <Image className="rounded-full" src={avatar} alt="Avatar" />
-        </span>
+      <span
+        className={classNames(
+          'font-Inter font-medium mr-2 rounded-2xl text-center inline-flex items-center justify-center gap-1.5 ',
+          { 'text-xs text-secondary-25 px-2 py-0.5': !hasAfterIcon && !icon },
+          { 'text-sm py-1 pr-3 pl-1.5': hasAfterIcon && !icon && moreInfo },
+          styles[hasAfterIconClass][color]
+        )}
+      >
+        {hasAfterIcon && avatar && (
+          <span className="w-4 h-4 ">
+            <Image className="rounded-full" src={avatar} alt="Avatar" />
+          </span>
+        )}
+
+        {text}
+        {icon && (
+          <span
+            className={classNames(
+              'w-6 h-5 py-1 px-1.5 border rounded-2xl inline-flex items-center justify-center',
+              styles.hasAfterIcon[color]
+            )}
+          >
+            <span className="w3 h3">{icon}</span>
+          </span>
+        )}
+        {hasAfterIcon && (
+          <span className="w-3 h-3 cursor-pointer">{<MultiplyIcon stroke={styles.iconColor[color]} />}</span>
+        )}
+      </span>
+      {moreInfo && (
+        <>
+          <p className={classNames('text-sm')}>{moreInfo}</p>
+          <span className="w-3 h-3 cursor-pointer">{<MultiplyIcon stroke={styles.iconColor[color]} />}</span>
+        </>
       )}
-      {text}
-      {/* <p className={classNames('text-sm py-1 pr-3 pl-1.5 rounded-2xl', styles.defaultColor[color])}>
-        We’ve just released a new feature
-      </p> */}
-      {hasIcon && <span className="w-3 h-3 cursor-pointer">{<MultiplyIcon stroke={styles.iconColor[color]} />}</span>}
     </span>
   );
 };
 
 Badge.propTypes = {
-  avatar: PropTypes.node,
+  avatar: PropTypes.shape({
+    avatar: PropTypes.string
+  }),
   color: PropTypes.string,
-  hasIcon: PropTypes.bool,
+  hasAfterIcon: PropTypes.bool,
+  icon: PropTypes.node,
+  moreInfo: PropTypes.string,
   text: PropTypes.string
 };
 
 Badge.defaultProps = {
   avatar: null,
-  color: 'primary',
-  hasIcon: false,
+  color: 'success',
+  hasAfterIcon: false,
+  icon: null,
+  moreInfo: null,
   text: ''
 };
 export default Badge;
