@@ -55,29 +55,3 @@ const FormIcons = ({ hintIcon, isValid, hasErrors, isTextArea, isSelect }) => {
 };
 
 export default FormIcons;
-{
-  /* {hintIcon && !isValid && (
-          <div
-            className={classNames(
-              'absolute inset-y-0 right-0 flex items-center pointer-events-none',
-              { 'pr-3': !isValid && !hasErrors },
-              {
-                'pr-8': hasErrors
-              }
-            )}
-          >
-            <HintIcon />
-          </div>
-        )}
-        {hasErrors && (
-          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-            <HelpIcon />
-          </div>
-        )}
-
-        {isValid && (
-          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-            <SuccessIcon />
-          </div>
-        )} */
-}
