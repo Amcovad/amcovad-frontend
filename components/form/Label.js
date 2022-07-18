@@ -3,13 +3,22 @@ import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
 
-export function Label({ className, checked, floatLabel, floatLabelClass, htmlFor, name, text }) {
+export function Label({ className, checked, feedBack, floatLabel, floatLabelClass, htmlFor, name, text }) {
   const {
     formState: { dirtyFields, errors }
   } = useFormContext();
 
   const hasErrors = !!errors?.[name];
   const isValid = !!dirtyFields?.[name] && !hasErrors;
+
+  const FEEDBACK = {
+    ALL: 'ALL',
+    ERROR: 'ERROR',
+    SUCCESS: 'SUCCESS',
+    NONE: 'NONE'
+  };
+  const showError = hasErrors && (feedBack === FEEDBACK.ALL || feedBack === FEEDBACK.ERROR);
+  const showSuccess = isValid && (feedBack === FEEDBACK.ALL || feedBack === FEEDBACK.SUCCESS);
 
   return (
     <label
@@ -24,9 +33,9 @@ export function Label({ className, checked, floatLabel, floatLabelClass, htmlFor
         { 'block mb-2 cursor-pointer text-secondary-700 font-normal ': !floatLabel },
         { [className]: !floatLabel },
         { [floatLabelClass]: floatLabel },
-        { 'text-success-600': isValid },
+        { 'text-success-600': showSuccess },
         { 'text-secondary-800': !hasErrors && !isValid },
-        { 'text-danger-500': hasErrors }
+        { 'text-danger-500': showError }
       )}
     >
       {text}
@@ -36,6 +45,7 @@ export function Label({ className, checked, floatLabel, floatLabelClass, htmlFor
 
 Label.propTypes = {
   className: PropTypes.string,
+  feedBack: PropTypes.string,
   floatLabel: PropTypes.any,
   floatLabelClass: PropTypes.string,
   htmlFor: PropTypes.string,
@@ -45,6 +55,7 @@ Label.propTypes = {
 
 Label.defaultProps = {
   className: 'text-xs',
+  feedBack: 'ALL',
   floatLabel: null,
   floatLabelClass: 'bg-secondary-25 peer-focus:bg-secondary-25 -translate-y-7 peer-focus:-translate-y-7',
   htmlFor: null,

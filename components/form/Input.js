@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { ShowPasswordIcon, HidePasswordIcon } from '@/public/assets/signUp/passwordSvgs';
-import { HelpIcon, HintIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
+import FormIcons from './FormIcons';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
 
 const Input = ({
   className,
+  feedBack,
   Icon,
   leadingIcon,
   labelClassName,
@@ -40,10 +41,18 @@ const Input = ({
 
   const hasErrors = !!errors?.[name];
   const isValid = !!dirtyFields?.[name] && !hasErrors;
+  const FEEDBACK = {
+    ALL: 'ALL',
+    ERROR: 'ERROR',
+    SUCCESS: 'SUCCESS',
+    NONE: 'NONE'
+  };
+  const showError = hasErrors && (feedBack === FEEDBACK.ALL || feedBack === FEEDBACK.ERROR);
+  const showSuccess = isValid && (feedBack === FEEDBACK.ALL || feedBack === FEEDBACK.SUCCESS);
 
   return (
     <>
-      {label && !floatLabel && <Label className="text-base" name={name} htmlFor={name} text={label} />}
+      {label && !floatLabel && <Label feedBack="NONE" className="text-base" name={name} htmlFor={name} text={label} />}
       <div className="relative z-0 mb-2 w-full group">
         {leadingIcon && (
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">{leadingIcon}</div>
@@ -62,47 +71,22 @@ const Input = ({
                 floatLabel
             },
             {
-              'border-danger-500 focus:border-danger-200 focus:ring-danger-200 focus:shadow-danger-xs': hasErrors
+              errorClassName: showError
             },
             {
-              'border-success-500 focus:border-success-200 focus:ring-success-200 focus:shadow-success-xs': isValid
+              successClassName: showSuccess
             },
             {
-              'focus:border-primary-200 focus:ring-primary-200 focus:shadow-primary-sm': !hasErrors && !isValid
+              focusClassName: !hasErrors && !isValid
             },
             {
-              ' border-secondary-300 bg-secondary-25 placeholder:text-secondary-700 font-Poppins text-secondary-700':
-                placeholder
+              ' placeHolderClassName': placeholder
             }
           )}
         />
-
         {floatLabel && <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />}
 
-        {hintIcon && !isValid && (
-          <div
-            className={classNames(
-              'absolute inset-y-0 right-0 flex items-center pointer-events-none',
-              { 'pr-3': !isValid && !hasErrors },
-              {
-                'pr-8': hasErrors
-              }
-            )}
-          >
-            <HintIcon />
-          </div>
-        )}
-        {hasErrors && (
-          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-            <HelpIcon />
-          </div>
-        )}
-
-        {isValid && (
-          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-            <SuccessIcon />
-          </div>
-        )}
+        <FormIcons hintIcon={hintIcon} isValid={isValid} hasErrors={hasErrors} />
         {inputIcon && !isValid && (
           <div
             className={classNames(
@@ -124,6 +108,7 @@ const Input = ({
 };
 Input.propTypes = {
   className: PropTypes.string,
+  feedBack: PropTypes.string,
   Icon: PropTypes.shape({
     width: PropTypes.number,
     height: PropTypes.number,
@@ -136,6 +121,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  feedBack: 'ALL',
   label: null,
   type: 'text',
   placeholder: null,

@@ -7,7 +7,6 @@ import classNames from 'classnames';
 
 export function Radio({
   checked,
-  checkIcon,
   description,
   disabled,
   helperLabel,
@@ -50,7 +49,14 @@ export function Radio({
           value={value}
         />
         {label && !helperLabel && (
-          <Label name={name} className="mx-2 mb-0" htmlFor={`radio-${value}`} text={label} checked={checked} />
+          <Label
+            name={name}
+            className="mx-2 mb-0"
+            feedBack="NONE"
+            htmlFor={`radio-${value}`}
+            text={label}
+            checked={checked}
+          />
         )}
         {helperLabel && (
           <HelperLabel
@@ -68,7 +74,6 @@ export function Radio({
 }
 Radio.propTypes = {
   checked: PropTypes.bool,
-  checkIcon: PropTypes.bool,
   disabled: PropTypes.bool,
   label: PropTypes.node.isRequired,
   name: PropTypes.string,
@@ -78,7 +83,6 @@ Radio.propTypes = {
 };
 Radio.defaultProps = {
   checked: null,
-  checkIcon: false,
   disabled: false,
   label: null,
   name: '',

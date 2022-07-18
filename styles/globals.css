@@ -207,3 +207,19 @@ body {
 .rs-picker-has-value .rs-picker-toggle .rs-picker-toggle-value {
   @apply text-secondary-700;
 }
+
+.errorClassName {
+  @apply border-danger-500 focus:border-danger-200 focus:ring-danger-200 focus:shadow-danger-xs;
+}
+
+.successClassName {
+  @apply border-success-500 focus:border-success-200 focus:ring-success-200 focus:shadow-success-xs;
+}
+
+.focusClassName {
+  @apply focus:border-primary-200 focus:ring-primary-200 focus:shadow-primary-sm;
+}
+
+.placeHolderClassName {
+  @apply border-secondary-300 bg-secondary-25 placeholder:text-secondary-700 font-Poppins text-secondary-700;
+}

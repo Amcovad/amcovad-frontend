@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
-import { SelectArrowIcon, HelpIcon, HintIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
+import { SelectArrowIcon } from '@/public/assets/dashboard/navBarIcon';
+import FormIcons from './FormIcons';
 
 export function SelectField({
   children,
   className,
   containerClassName,
   floatLabel,
+  feedBack,
   label,
   labelClassName,
   leadingIcon,
@@ -24,10 +26,18 @@ export function SelectField({
 
   const hasErrors = !!errors?.[name];
   const isValid = !!dirtyFields?.[name] && !hasErrors;
+  const FEEDBACK = {
+    ALL: 'ALL',
+    ERROR: 'ERROR',
+    SUCCESS: 'SUCCESS',
+    NONE: 'NONE'
+  };
+  const showError = hasErrors && (feedBack === FEEDBACK.ALL || feedBack === FEEDBACK.ERROR);
+  const showSuccess = isValid && (feedBack === FEEDBACK.ALL || feedBack === FEEDBACK.SUCCESS);
 
   return (
     <>
-      {label && !floatLabel && <Label className="text-base" name={name} htmlFor={name} text={label} />}
+      {label && !floatLabel && <Label feedBack="NONE" className="text-base" name={name} htmlFor={name} text={label} />}
       <div className={classNames('relative z-0 mb-2 w-full group', containerClassName)}>
         {leadingIcon && (
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">{leadingIcon}</div>
@@ -44,13 +54,13 @@ export function SelectField({
                 floatLabel
             },
             {
-              'border-danger-500 focus:border-danger-200 focus:ring-danger-200 focus:shadow-danger-xs': hasErrors
+              errorClassName: showError
             },
             {
-              'border-success-500 focus:border-success-200 focus:ring-success-200 focus:shadow-success-xs': isValid
+              successClassName: showSuccess
             },
             {
-              'focus:border-primary-200 focus:ring-primary-200 focus:shadow-primary-sm': !hasErrors && !isValid
+              focusClassName: !hasErrors && !isValid
             }
           )}
         >
@@ -62,32 +72,31 @@ export function SelectField({
         <div className={classNames('absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none')}>
           <SelectArrowIcon />
         </div>
-        {hintIcon && !isValid && (
-          <div
-            className={classNames('absolute inset-y-0 right-0 flex items-center pr-8 pointer-events-none', {
-              hidden: hintIcon === hasErrors
-            })}
-          >
-            <HintIcon />
-          </div>
-        )}
-
-        {hasErrors && (
-          <div className="absolute inset-y-0 right-0 flex items-center pr-8 pointer-events-none">
-            <HelpIcon />
-          </div>
-        )}
-
-        {isValid && (
-          <div className="absolute inset-y-0 right-0 flex items-center pr-8 pointer-events-none">
-            <SuccessIcon />
-          </div>
-        )}
+        <FormIcons hintIcon={hintIcon} isValid={isValid} hasErrors={hasErrors} isSelect />
       </div>
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText} </p>}
     </>
   );
 }
+
+SelectField.propTypes = {
+  feedBack: PropTypes.string,
+  floatLabel: PropTypes.bool,
+  label: PropTypes.string,
+  leadingIcon: PropTypes.node,
+  name: PropTypes.string.isRequired,
+  hintIcon: PropTypes.bool,
+  hintText: PropTypes.string
+};
+
+SelectField.defaultProps = {
+  feedBack: 'ALL',
+  floatLabel: false,
+  label: null,
+  leadingIcon: null,
+  hintIcon: false,
+  hintText: null
+};
 
 const Select = ({ defaultOption, floatLabel, label, leadingIcon, name, options, hintIcon, hintText }) => {
   return (

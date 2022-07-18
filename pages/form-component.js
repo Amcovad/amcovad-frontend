@@ -7,8 +7,8 @@ import Select from '@/components/form/Select';
 import RadioGroup from '@/components/form/RadioGroup';
 import HookForm from '@/components/form/Form';
 import { LogoBlack, SignInImage } from '/public/assets/signUp';
-import { EmailIcon, TestIcon, TestIcon2 } from '@/public/assets/dashboard/navBarIcon';
-import Badge from '@/components/form/Badge';
+import { EmailIcon, TestIcon, TestIcon1, TestIcon2 } from '@/public/assets/dashboard/navBarIcon';
+import { Badge, BadgeGroup } from '@/components/form/Badge';
 import UserPhoto from '@/public/assets/dashboard/User2.png';
 
 const SignIn = () => {
@@ -187,8 +187,16 @@ const SignIn = () => {
                               text="New feature"
                               // avatar={UserPhoto}
                               // icon={<TestIcon2 width={12} height={12} />}
-                              color="purple"
+                              // color="purple"
                               // moreInfo="We’ve just released a new feature"
+                            />
+                            <BadgeGroup
+                              text="Badge feature"
+                              //avatar={UserPhoto}
+                              afterIcon
+                              //icon={<TestIcon1 width={12} height={12} />}
+                              // color="primary"
+                              badgeText="We’ve just released a new feature"
                             />
                           </div>
 

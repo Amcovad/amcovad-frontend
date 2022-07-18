@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
-import { HelpIcon, HintIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
+import FormIcons from './FormIcons';
 
 const Textarea = ({
   className,
@@ -46,43 +46,23 @@ const Textarea = ({
                 floatLabel
             },
             {
-              'border-danger-500 focus:border-danger-200 focus:ring-danger-200 focus:shadow-danger-xs': hasErrors
+              errorClassName: hasErrors
             },
             {
-              'border-success-500 focus:border-success-200 focus:ring-success-200 focus:shadow-success-xs': isValid
+              successClassName: isValid
             },
             {
-              'focus:border-primary-200 focus:ring-primary-200 focus:shadow-primary-sm': !hasErrors && !isValid
+              focusClassName: !hasErrors && !isValid
             },
             {
-              ' border-secondary-300 bg-secondary-25 placeholder:text-secondary-700 font-Poppins text-secondary-700':
-                placeholder
+              ' placeHolderClassName': placeholder
             }
           )}
         ></textarea>
 
         {floatLabel && <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />}
 
-        {hintIcon && !isValid && (
-          <div
-            className={classNames('absolute top-5 right-0 flex items-center pr-3 pointer-events-none', {
-              hidden: hintIcon === hasErrors
-            })}
-          >
-            <HintIcon />
-          </div>
-        )}
-        {hasErrors && (
-          <div className="absolute top-5 right-0 flex items-center pr-3 pointer-events-none">
-            <HelpIcon />
-          </div>
-        )}
-
-        {isValid && (
-          <div className="absolute top-5 right-0 flex items-center pr-3 pointer-events-none">
-            <SuccessIcon />
-          </div>
-        )}
+        <FormIcons hintIcon={hintIcon} isValid={isValid} hasErrors={hasErrors} isTextArea />
       </div>
 
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText}</p>}
