@@ -17,26 +17,15 @@ const styles = {
     orange: 'bg-orange-500'
   },
   badgeGroup: {
-    primary: 'bg-primary-25 text-primary-600',
-    secondary: 'bg-secondary-25 text-secondary-500',
-    danger: 'bg-danger-25 text-danger-600',
+    primary: 'bg-primary-50 text-primary-600',
+    secondary: 'bg-secondary-50 text-secondary-500',
+    danger: 'bg-danger-50 text-danger-600',
     warning: 'bg-warning-50 text-warning-600',
-    success: 'bg-success-25 text-success-600',
+    success: 'bg-success-50 text-success-600',
     info: 'bg-info-50 text-info-600',
-    purple: 'bg-purple-50 text-purple-600',
-    pink: 'bg-pink-50 text-pink-600',
-    orange: 'bg-orange-50 text-orange-600'
-  },
-  iconColor: {
-    primary: '#018FC6',
-    secondary: '#777F8D',
-    danger: '#C92B33',
-    warning: '#BB9D2A',
-    success: '#00A254',
-    info: '#019DB2',
-    purple: '#6938EF',
-    pink: '#DD2590',
-    orange: '#EC4A0A'
+    purple: 'bg-purple-100 text-purple-600',
+    pink: 'bg-pink-100 text-pink-600',
+    orange: 'bg-orange-100 text-orange-600'
   }
 };
 export const Badge = ({ color, text }) => {
@@ -59,48 +48,44 @@ Badge.propTypes = {
 
 Badge.defaultProps = {
   color: 'primary',
-  text: ''
+  text: null
 };
 
-export const BadgeGroup = ({ afterIcon, avatar, badgeText, color, icon, text }) => {
-  const outputText = text && !badgeText ? text : badgeText;
-  const outputIcon = afterIcon && !icon ? <MultiplyIcon stroke={styles.iconColor[color]} /> : icon;
+export const BadgeGroup = ({ afterIcon, avatar, badgeText, color, text }) => {
   return (
     <span
       className={classNames(
         'font-Inter py-1 font-medium mr-2 rounded-2xl  inline-flex items-center justify-center gap-1.5',
-        { 'text-sm pr-3 pl-1.5 text-center': !icon },
-        { 'w-6 h-5 px-1.5 border': icon },
+        { 'text-sm pr-3 pl-1.5 text-center': badgeText || text },
+        { 'w-6 h-5 px-1.5 border': !badgeText && !text },
         styles.badgeGroup[color]
       )}
     >
-      {badgeText && <Badge text={text} color={color} />}
+      {badgeText && <Badge text={badgeText} color={color} />}
       {avatar && (
         <span className="w-4 h-4 ">
           <Image className="rounded-full" src={avatar} alt="Avatar" />
         </span>
       )}
-      {outputText} {outputIcon && <span className="w3 h3 cursor-pointer">{outputIcon}</span>}
+      {text} <span className="w3 h3 cursor-pointer">{afterIcon}</span>
     </span>
   );
 };
 
 BadgeGroup.propTypes = {
-  // afterIcon: PropTypes.bool,
+  afterIcon: PropTypes.node,
   avatar: PropTypes.shape({
     avatar: PropTypes.string
   }),
   badgeText: PropTypes.string,
   color: PropTypes.string,
-  icon: PropTypes.node,
   text: PropTypes.string
 };
 
 BadgeGroup.defaultProps = {
-  // afterIcon: true,
+  afterIcon: <MultiplyIcon />,
   avatar: null,
-  color: 'primary',
+  color: 'success',
   badgeText: null,
-  icon: null,
-  text: ''
+  text: null
 };

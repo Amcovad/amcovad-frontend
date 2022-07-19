@@ -5,6 +5,7 @@ import { ShowPasswordIcon, HidePasswordIcon } from '@/public/assets/signUp/passw
 import FormIcons from './FormIcons';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
+import { showError, showSuccess } from '@/utils/form-helpers';
 
 const Input = ({
   className,
@@ -41,18 +42,12 @@ const Input = ({
 
   const hasErrors = !!errors?.[name];
   const isValid = !!dirtyFields?.[name] && !hasErrors;
-  const FEEDBACK = {
-    ALL: 'ALL',
-    ERROR: 'ERROR',
-    SUCCESS: 'SUCCESS',
-    NONE: 'NONE'
-  };
-  const showError = hasErrors && (feedBack === FEEDBACK.ALL || feedBack === FEEDBACK.ERROR);
-  const showSuccess = isValid && (feedBack === FEEDBACK.ALL || feedBack === FEEDBACK.SUCCESS);
 
   return (
     <>
-      {label && !floatLabel && <Label feedBack="NONE" className="text-base" name={name} htmlFor={name} text={label} />}
+      {label && !floatLabel && (
+        <Label feedBack="FEEDBACK.NONE" className="text-base" name={name} htmlFor={name} text={label} />
+      )}
       <div className="relative z-0 mb-2 w-full group">
         {leadingIcon && (
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">{leadingIcon}</div>
@@ -71,10 +66,10 @@ const Input = ({
                 floatLabel
             },
             {
-              errorClassName: showError
+              errorClassName: showError(hasErrors, feedBack)
             },
             {
-              successClassName: showSuccess
+              successClassName: showSuccess(isValid, feedBack)
             },
             {
               focusClassName: !hasErrors && !isValid
@@ -84,9 +79,18 @@ const Input = ({
             }
           )}
         />
-        {floatLabel && <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />}
+        {floatLabel && (
+          <Label
+            name={name}
+            feedBack={feedBack}
+            htmlFor={name}
+            floatLabel
+            text={label}
+            floatLabelClass={labelClassName}
+          />
+        )}
 
-        <FormIcons hintIcon={hintIcon} isValid={isValid} hasErrors={hasErrors} />
+        <FormIcons hintIcon={hintIcon} feedBack={feedBack} isValid={isValid} hasErrors={hasErrors} />
         {inputIcon && !isValid && (
           <div
             className={classNames(
@@ -121,7 +125,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  feedBack: 'ALL',
+  feedBack: 'FEEDBACK.ALL',
   label: null,
   type: 'text',
   placeholder: null,

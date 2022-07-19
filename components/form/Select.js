@@ -5,7 +5,7 @@ import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
 import { SelectArrowIcon } from '@/public/assets/dashboard/navBarIcon';
 import FormIcons from './FormIcons';
-
+import { showError, showSuccess } from '@/utils/form-helpers';
 export function SelectField({
   children,
   className,
@@ -26,18 +26,12 @@ export function SelectField({
 
   const hasErrors = !!errors?.[name];
   const isValid = !!dirtyFields?.[name] && !hasErrors;
-  const FEEDBACK = {
-    ALL: 'ALL',
-    ERROR: 'ERROR',
-    SUCCESS: 'SUCCESS',
-    NONE: 'NONE'
-  };
-  const showError = hasErrors && (feedBack === FEEDBACK.ALL || feedBack === FEEDBACK.ERROR);
-  const showSuccess = isValid && (feedBack === FEEDBACK.ALL || feedBack === FEEDBACK.SUCCESS);
 
   return (
     <>
-      {label && !floatLabel && <Label feedBack="NONE" className="text-base" name={name} htmlFor={name} text={label} />}
+      {label && !floatLabel && (
+        <Label feedBack="FEEDBACK.NONE" className="text-base" name={name} htmlFor={name} text={label} />
+      )}
       <div className={classNames('relative z-0 mb-2 w-full group', containerClassName)}>
         {leadingIcon && (
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">{leadingIcon}</div>
@@ -54,10 +48,10 @@ export function SelectField({
                 floatLabel
             },
             {
-              errorClassName: showError
+              errorClassName: showError(hasErrors, feedBack)
             },
             {
-              successClassName: showSuccess
+              successClassName: showSuccess(isValid, feedBack)
             },
             {
               focusClassName: !hasErrors && !isValid
@@ -67,12 +61,21 @@ export function SelectField({
           {children}
         </select>
 
-        {floatLabel && <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />}
+        {floatLabel && (
+          <Label
+            name={name}
+            feedBack={feedBack}
+            htmlFor={name}
+            floatLabel
+            text={label}
+            floatLabelClass={labelClassName}
+          />
+        )}
 
         <div className={classNames('absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none')}>
           <SelectArrowIcon />
         </div>
-        <FormIcons hintIcon={hintIcon} isValid={isValid} hasErrors={hasErrors} isSelect />
+        <FormIcons hintIcon={hintIcon} feedBack={feedBack} isValid={isValid} hasErrors={hasErrors} isSelect />
       </div>
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText} </p>}
     </>
@@ -90,7 +93,7 @@ SelectField.propTypes = {
 };
 
 SelectField.defaultProps = {
-  feedBack: 'ALL',
+  feedBack: 'FEEDBACK.ALL',
   floatLabel: false,
   label: null,
   leadingIcon: null,
@@ -98,11 +101,12 @@ SelectField.defaultProps = {
   hintText: null
 };
 
-const Select = ({ defaultOption, floatLabel, label, leadingIcon, name, options, hintIcon, hintText }) => {
+const Select = ({ defaultOption, floatLabel, feedBack, label, leadingIcon, name, options, hintIcon, hintText }) => {
   return (
     <>
       <SelectField
         floatLabel={floatLabel}
+        feedBack={feedBack}
         label={label ? label : defaultOption}
         leadingIcon={leadingIcon}
         name={name}

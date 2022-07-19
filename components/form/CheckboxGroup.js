@@ -54,7 +54,7 @@ export function Checkbox({
           <Label
             name={name}
             className="ml-2 mb-1 "
-            feedBack="NONE"
+            feedBack="FEEDBACK.NONE"
             htmlFor={`checkbox-${name}-${value.toString()}`}
             text={label}
             checked={checked}

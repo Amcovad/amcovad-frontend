@@ -52,7 +52,7 @@ export function Radio({
           <Label
             name={name}
             className="mx-2 mb-0"
-            feedBack="NONE"
+            feedBack="FEEDBACK.NONE"
             htmlFor={`radio-${value}`}
             text={label}
             checked={checked}

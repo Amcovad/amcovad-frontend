@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
 import FormIcons from './FormIcons';
+import { showError, showSuccess } from '@/utils/form-helpers';
 
 const Textarea = ({
   className,
   floatLabel,
+  feedBack,
   label,
   leadingIcon,
   labelClassName,
@@ -27,7 +29,9 @@ const Textarea = ({
 
   return (
     <>
-      {label && !floatLabel && <Label className="text-base" name={name} htmlFor={name} text={label} />}
+      {label && !floatLabel && (
+        <Label feedBack="FEEDBACK.NONE" className="text-base" name={name} htmlFor={name} text={label} />
+      )}
 
       <div className="relative z-0 mb-2 w-full group">
         {leadingIcon && (
@@ -46,10 +50,10 @@ const Textarea = ({
                 floatLabel
             },
             {
-              errorClassName: hasErrors
+              errorClassName: showError(hasErrors, feedBack)
             },
             {
-              successClassName: isValid
+              successClassName: showSuccess(isValid, feedBack)
             },
             {
               focusClassName: !hasErrors && !isValid
@@ -60,9 +64,18 @@ const Textarea = ({
           )}
         ></textarea>
 
-        {floatLabel && <Label name={name} htmlFor={name} floatLabel text={label} floatLabelClass={labelClassName} />}
+        {floatLabel && (
+          <Label
+            name={name}
+            feedBack={feedBack}
+            htmlFor={name}
+            floatLabel
+            text={label}
+            floatLabelClass={labelClassName}
+          />
+        )}
 
-        <FormIcons hintIcon={hintIcon} isValid={isValid} hasErrors={hasErrors} isTextArea />
+        <FormIcons hintIcon={hintIcon} feedBack={feedBack} isValid={isValid} hasErrors={hasErrors} isTextArea />
       </div>
 
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText}</p>}
@@ -72,6 +85,7 @@ const Textarea = ({
 };
 Textarea.propTypes = {
   className: PropTypes.string,
+  feedBack: PropTypes.string,
   label: PropTypes.string,
   labelClassName: PropTypes.string,
   name: PropTypes.string.isRequired,
@@ -81,6 +95,7 @@ Textarea.propTypes = {
 
 Textarea.defaultProps = {
   className: null,
+  feedBack: 'FEEDBACK.ALL',
   label: null,
   rows: '3',
   labelClassName: 'bg-secondary-25 peer-focus:bg-secondary-25 -translate-y-7 peer-focus:-translate-y-7',

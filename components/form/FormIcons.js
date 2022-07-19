@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { HelpIcon, HintIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
 
-const FormIcons = ({ hintIcon, isValid, hasErrors, isTextArea, isSelect }) => {
+const FormIcons = ({ feedBack, hintIcon, isValid, hasErrors, isTextArea, isSelect }) => {
   return (
     <>
       {hintIcon && !isValid && (
@@ -37,7 +37,7 @@ const FormIcons = ({ hintIcon, isValid, hasErrors, isTextArea, isSelect }) => {
         </div>
       )}
 
-      {isValid && (
+      {isValid && (feedBack === 'FEEDBACK.SUCCESS' || feedBack === 'FEEDBACK.ALL') && (
         <div
           className={classNames(
             'absolute right-0 flex items-center pointer-events-none',
