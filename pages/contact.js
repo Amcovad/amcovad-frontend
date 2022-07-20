@@ -43,40 +43,20 @@ const Contact = () => {
                 <HookForm onSubmit={onSubmit} schema={contactUsSchema}>
                   <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
                     <div className="col-span-full sm:col-span-2 ">
-                      <Input
-                        label="Your name here"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-8"
-                        name="fullName"
-                        type="text"
-                      />
+                      <Input label="Your name here" name="fullName" type="text" />
                     </div>
                     <div className="col-span-full sm:col-span-2">
-                      <Input
-                        label="Your email"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-8"
-                        name="email"
-                        type="text"
-                      />
+                      <Input label="Your email" name="email" type="text" />
                     </div>
                     <div className="col-span-full sm:col-span-2">
-                      <Input
-                        label="Phone"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-8"
-                        name="phone"
-                        type="number"
-                      />
+                      <Input label="Phone" name="phone" type="number" />
                     </div>
 
                     <div className="col-span-full ">
-                      <Input
-                        label="Subject"
-                        labelClassName="italic bg-transparent peer-focus:bg-transparent -translate-y-9 peer-focus:-translate-y-8"
-                        name="subject"
-                        type="text"
-                      />
+                      <Input label="Subject" name="subject" type="text" />
                     </div>
                     <div className="col-span-full">
-                      <Textarea label="Your message" name="message" className="bg-secondary-25" />
+                      <Textarea rows="5" label="Your message" name="message" className="bg-secondary-25" />
                     </div>
                   </div>
                   <div className="pt-2">

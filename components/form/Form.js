@@ -2,8 +2,9 @@ import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-const HookForm = ({ onSubmit, children, schema, defaultValues = {} }) => {
+const HookForm = ({ onSubmit, children, schema, defaultValues }) => {
   const methods = useForm({
+    mode: 'onChange',
     defaultValues,
     resolver: yupResolver(schema)
   });
