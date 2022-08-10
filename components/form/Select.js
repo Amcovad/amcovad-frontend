@@ -6,6 +6,8 @@ import classNames from 'classnames';
 import { SelectArrowIcon } from '@/public/assets/dashboard/navBarIcon';
 import FormIcons from './FormIcons';
 import { showError, showSuccess } from '@/utils/form-helpers';
+import ToolTip from '@/components/form/Tooltip';
+import { HintIcon } from '@/public/assets/dashboard/navBarIcon';
 export function SelectField({
   children,
   className,
@@ -17,7 +19,10 @@ export function SelectField({
   leadingIcon,
   name,
   hintIcon,
-  hintText
+  hintText,
+  hintIconTitle,
+  hintIconContent,
+  hintContentPlacement
 }) {
   const {
     register,
@@ -30,7 +35,27 @@ export function SelectField({
   return (
     <>
       {label && !floatLabel && (
-        <Label feedBack="FEEDBACK.NONE" className="text-base" name={name} htmlFor={name} text={label} />
+        <Label
+          feedBack="FEEDBACK.NONE"
+          className="text-base flex items-center gap-x-2"
+          hintIconTitle={hintIconTitle}
+          hintIconContent={hintIconContent}
+          hintContentPlacement={hintContentPlacement}
+          name={name}
+          htmlFor={name}
+          text={label}
+        >
+          {hintIcon && (
+            <ToolTip
+              arrow={hintIconArrow}
+              title={hintIconTitle}
+              content={hintIconContent}
+              placement={hintContentPlacement}
+            >
+              <HintIcon />
+            </ToolTip>
+          )}
+        </Label>
       )}
       <div className={classNames('relative z-0 mb-2 w-full group', containerClassName)}>
         {leadingIcon && (
@@ -75,7 +100,18 @@ export function SelectField({
         <div className={classNames('absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none')}>
           <SelectArrowIcon />
         </div>
-        <FormIcons hintIcon={hintIcon} feedBack={feedBack} isValid={isValid} hasErrors={hasErrors} isSelect />
+
+        <FormIcons
+          hintIconTitle={hintIconTitle}
+          hintIconContent={hintIconContent}
+          hintContentPlacement={hintContentPlacement}
+          floatLabel={floatLabel}
+          hintIcon={hintIcon}
+          feedBack={feedBack}
+          isValid={isValid}
+          hasErrors={hasErrors}
+          isSelect
+        />
       </div>
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText} </p>}
     </>
@@ -101,7 +137,20 @@ SelectField.defaultProps = {
   hintText: null
 };
 
-const Select = ({ defaultOption, floatLabel, feedBack, label, leadingIcon, name, options, hintIcon, hintText }) => {
+const Select = ({
+  defaultOption,
+  floatLabel,
+  feedBack,
+  label,
+  leadingIcon,
+  name,
+  options,
+  hintIcon,
+  hintText,
+  hintIconTitle,
+  hintIconContent,
+  hintContentPlacement
+}) => {
   return (
     <>
       <SelectField
@@ -112,6 +161,9 @@ const Select = ({ defaultOption, floatLabel, feedBack, label, leadingIcon, name,
         name={name}
         hintIcon={hintIcon}
         hintText={hintText}
+        hintIconTitle={hintIconTitle}
+        hintIconContent={hintIconContent}
+        hintContentPlacement={hintContentPlacement}
       >
         {defaultOption && (
           <option key={name} value="">

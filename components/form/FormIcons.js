@@ -1,14 +1,26 @@
 import React from 'react';
 import classNames from 'classnames';
 import { HelpIcon, HintIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
+import ToolTip from '@/components/form/Tooltip';
 
-const FormIcons = ({ feedBack, hintIcon, isValid, hasErrors, isTextArea, isSelect }) => {
+const FormIcons = ({
+  feedBack,
+  floatLabel,
+  hintIcon,
+  isValid,
+  hasErrors,
+  hintIconTitle,
+  hintIconContent,
+  hintContentPlacement,
+  isTextArea,
+  isSelect
+}) => {
   return (
     <>
-      {hintIcon && !isValid && (
+      {hintIcon && !isValid && floatLabel && (
         <div
           className={classNames(
-            'absolute right-0 flex items-center pointer-events-none',
+            'absolute right-0 flex items-center',
             { 'top-5': isTextArea },
             { 'inset-y-0': !isTextArea },
             { 'pr-3': !isValid && !hasErrors && !isSelect },
@@ -19,7 +31,9 @@ const FormIcons = ({ feedBack, hintIcon, isValid, hasErrors, isTextArea, isSelec
             { 'pr-8': !hasErrors && isSelect }
           )}
         >
-          <HintIcon />
+          <ToolTip title={hintIconTitle} content={hintIconContent} placement={hintContentPlacement}>
+            <HintIcon />
+          </ToolTip>
         </div>
       )}
 

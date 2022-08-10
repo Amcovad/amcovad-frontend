@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { ShowPasswordIcon, HidePasswordIcon } from '@/public/assets/signUp/passwordSvgs';
-import FormIcons from './FormIcons';
+import FormIcons from '@/components/form/FormIcons';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
 import { showError, showSuccess } from '@/utils/form-helpers';
+import { HintIcon } from '@/public/assets/dashboard/navBarIcon';
+import ToolTip from '@/components/form/Tooltip';
 
 const Input = ({
   className,
@@ -15,6 +17,10 @@ const Input = ({
   labelClassName,
   hintIcon,
   hintText,
+  hintIconArrow,
+  hintIconTitle,
+  hintIconContent,
+  hintContentPlacement,
   name,
   placeholder,
   label,
@@ -46,7 +52,27 @@ const Input = ({
   return (
     <>
       {label && !floatLabel && (
-        <Label feedBack="FEEDBACK.NONE" className="text-base" name={name} htmlFor={name} text={label} />
+        <Label
+          feedBack="FEEDBACK.NONE"
+          className="text-base flex items-center gap-x-2"
+          hintIconTitle={hintIconTitle}
+          hintIconContent={hintIconContent}
+          hintContentPlacement={hintContentPlacement}
+          name={name}
+          htmlFor={name}
+          text={label}
+        >
+          {hintIcon && (
+            <ToolTip
+              arrow={hintIconArrow}
+              title={hintIconTitle}
+              content={hintIconContent}
+              placement={hintContentPlacement}
+            >
+              <HintIcon />
+            </ToolTip>
+          )}
+        </Label>
       )}
       <div className="relative z-0 mb-2 w-full group">
         {leadingIcon && (
@@ -84,13 +110,21 @@ const Input = ({
             name={name}
             feedBack={feedBack}
             htmlFor={name}
-            floatLabel
+            floatLabel={floatLabel}
             text={label}
             floatLabelClass={labelClassName}
           />
         )}
-
-        <FormIcons hintIcon={hintIcon} feedBack={feedBack} isValid={isValid} hasErrors={hasErrors} />
+        <FormIcons
+          hintIconTitle={hintIconTitle}
+          hintIconContent={hintIconContent}
+          hintContentPlacement={hintContentPlacement}
+          floatLabel={floatLabel}
+          hintIcon={hintIcon}
+          feedBack={feedBack}
+          isValid={isValid}
+          hasErrors={hasErrors}
+        />
         {inputIcon && !isValid && (
           <div
             className={classNames(

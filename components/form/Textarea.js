@@ -5,6 +5,8 @@ import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
 import FormIcons from './FormIcons';
 import { showError, showSuccess } from '@/utils/form-helpers';
+import ToolTip from '@/components/form/Tooltip';
+import { HintIcon } from '@/public/assets/dashboard/navBarIcon';
 
 const Textarea = ({
   className,
@@ -17,7 +19,10 @@ const Textarea = ({
   placeholder,
   rows,
   hintIcon,
-  hintText
+  hintText,
+  hintIconTitle,
+  hintIconContent,
+  hintContentPlacement
 }) => {
   const {
     register,
@@ -30,7 +35,27 @@ const Textarea = ({
   return (
     <>
       {label && !floatLabel && (
-        <Label feedBack="FEEDBACK.NONE" className="text-base" name={name} htmlFor={name} text={label} />
+        <Label
+          feedBack="FEEDBACK.NONE"
+          className="text-base flex items-center gap-x-2"
+          hintIconTitle={hintIconTitle}
+          hintIconContent={hintIconContent}
+          hintContentPlacement={hintContentPlacement}
+          name={name}
+          htmlFor={name}
+          text={label}
+        >
+          {hintIcon && (
+            <ToolTip
+              arrow={hintIconArrow}
+              title={hintIconTitle}
+              content={hintIconContent}
+              placement={hintContentPlacement}
+            >
+              <HintIcon />
+            </ToolTip>
+          )}
+        </Label>
       )}
 
       <div className="relative z-0 mb-2 w-full group">
@@ -75,7 +100,17 @@ const Textarea = ({
           />
         )}
 
-        <FormIcons hintIcon={hintIcon} feedBack={feedBack} isValid={isValid} hasErrors={hasErrors} isTextArea />
+        <FormIcons
+          hintIconTitle={hintIconTitle}
+          hintIconContent={hintIconContent}
+          hintContentPlacement={hintContentPlacement}
+          floatLabel={floatLabel}
+          hintIcon={hintIcon}
+          feedBack={feedBack}
+          isValid={isValid}
+          hasErrors={hasErrors}
+          isTextArea
+        />
       </div>
 
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText}</p>}

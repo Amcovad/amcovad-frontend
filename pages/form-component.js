@@ -69,19 +69,29 @@ const SignIn = () => {
                             hintIcon
                             floatLabel
                             feedBack="FEEDBACK.SUCCESS"
+                            hintIconTitle="Account Verification"
+                            hintIconContent="Your BVN number will be used to identify you as a valid account holder. In most scenarios, this is to prevent fraud."
+                            hintContentPlacement="topEnd"
                           />
                           <Input
                             label="Password"
                             name="password"
                             type="password"
+                            hintIcon
                             hintText="This is a hint text to help your password."
                             feedBack="FEEDBACK.SUCCESS"
+                            // hintIconTitle="Account Verification"
+                            hintIconContent="Enter your personal password"
+                            hintContentPlacement="right"
+                            // hintIconArrow={false}
                           />
 
                           <Select
                             floatLabel
                             leadingIcon={<EmailIcon />}
                             hintIcon
+                            hintIconContent="Select your State of Origin"
+                            hintContentPlacement="topEnd"
                             hintText="This is a hint text to help user select state of origin."
                             defaultOption="Select your State of Origin"
                             label="State of Origin"
@@ -183,6 +193,9 @@ const SignIn = () => {
                             label="Your message"
                             name="message"
                             // feedBack="FEEDBACK.SUCCESS"
+                            hintIconTitle="Account Verification"
+                            hintIconContent="Your BVN number will be used to identify you as a valid account holder. In most scenarios, this is to prevent fraud."
+                            hintContentPlacement="topEnd"
                           />
 
                           <div className="my-4">
