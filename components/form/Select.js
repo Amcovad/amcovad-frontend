@@ -23,7 +23,8 @@ export function SelectField({
   toolTipTitle,
   toolTipContent,
   toolTipColor,
-  toolTipPlacement
+  toolTipPlacement,
+  showTooltipArrow
 }) {
   const {
     register,
@@ -39,10 +40,6 @@ export function SelectField({
         <Label
           feedBack="FEEDBACK.NONE"
           className="text-base flex items-center gap-x-2"
-          toolTipTitle={toolTipTitle}
-          toolTipContent={toolTipContent}
-          toolTipPlacement={toolTipPlacement}
-          toolTipColor={toolTipColor}
           name={name}
           htmlFor={name}
           text={label}
@@ -105,16 +102,17 @@ export function SelectField({
         </div>
 
         <FormIcons
-          toolTipColor={toolTipColor}
-          toolTipTitle={toolTipTitle}
-          toolTipContent={toolTipContent}
-          toolTipPlacement={toolTipPlacement}
           floatLabel={floatLabel}
           toolTip={toolTip}
           feedBack={feedBack}
           isValid={isValid}
           hasErrors={hasErrors}
           isSelect
+          showTooltipArrow={showTooltipArrow}
+          toolTipColor={toolTipColor}
+          toolTipTitle={toolTipTitle}
+          toolTipContent={toolTipContent}
+          toolTipPlacement={toolTipPlacement}
         />
       </div>
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText} </p>}
@@ -151,6 +149,7 @@ const Select = ({
   options,
   toolTip,
   hintText,
+  showTooltipArrow,
   toolTipTitle,
   toolTipContent,
   toolTipColor,
@@ -168,6 +167,7 @@ const Select = ({
         hintText={hintText}
         toolTipTitle={toolTipTitle}
         toolTipContent={toolTipContent}
+        showTooltipArrow={showTooltipArrow}
         toolTipColor={toolTipColor}
         toolTipPlacement={toolTipPlacement}
       >

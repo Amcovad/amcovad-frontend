@@ -101,6 +101,7 @@ const SignIn = () => {
                             name="select"
                             options={sampleData}
                             feedBack="FEEDBACK.SUCCESS"
+                            showTooltipArrow={false}
                           />
                           <div className="my-4">
                             <Toggle
@@ -200,6 +201,7 @@ const SignIn = () => {
                             toolTipContent="Your BVN number will be used to identify you as a valid account holder. In most scenarios, this is to prevent fraud."
                             toolTipPlacement="topEnd"
                             toolTipColor="light"
+                            // showTooltipArrow={false}
                           />
 
                           <div className="my-4">

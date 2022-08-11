@@ -20,6 +20,7 @@ const Textarea = ({
   rows,
   toolTip,
   hintText,
+  showTooltipArrow,
   toolTipTitle,
   toolTipContent,
   toolTipColor,
@@ -39,10 +40,6 @@ const Textarea = ({
         <Label
           feedBack="FEEDBACK.NONE"
           className="text-base flex items-center gap-x-2"
-          toolTipTitle={toolTipTitle}
-          toolTipContent={toolTipContent}
-          toolTipPlacement={toolTipPlacement}
-          toolTipColor={toolTipColor}
           name={name}
           htmlFor={name}
           text={label}
@@ -104,16 +101,17 @@ const Textarea = ({
         )}
 
         <FormIcons
-          toolTipTitle={toolTipTitle}
-          toolTipContent={toolTipContent}
-          toolTipPlacement={toolTipPlacement}
-          toolTipColor={toolTipColor}
           floatLabel={floatLabel}
           toolTip={toolTip}
           feedBack={feedBack}
           isValid={isValid}
           hasErrors={hasErrors}
           isTextArea
+          showTooltipArrow={showTooltipArrow}
+          toolTipTitle={toolTipTitle}
+          toolTipContent={toolTipContent}
+          toolTipPlacement={toolTipPlacement}
+          toolTipColor={toolTipColor}
         />
       </div>
 

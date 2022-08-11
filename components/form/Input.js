@@ -56,9 +56,6 @@ const Input = ({
         <Label
           feedBack="FEEDBACK.NONE"
           className="text-base flex items-center gap-x-2"
-          toolTipTitle={toolTipTitle}
-          toolTipContent={toolTipContent}
-          toolTipPlacement={toolTipPlacement}
           name={name}
           htmlFor={name}
           text={label}
@@ -122,6 +119,7 @@ const Input = ({
           toolTipTitle={toolTipTitle}
           toolTipContent={toolTipContent}
           toolTipPlacement={toolTipPlacement}
+          showTooltipArrow={showTooltipArrow}
           floatLabel={floatLabel}
           toolTip={toolTip}
           feedBack={feedBack}

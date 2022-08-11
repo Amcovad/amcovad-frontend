@@ -13,6 +13,7 @@ const FormIcons = ({
   toolTipContent,
   toolTipColor,
   toolTipPlacement,
+  showTooltipArrow,
   isTextArea,
   isSelect
 }) => {
@@ -32,7 +33,13 @@ const FormIcons = ({
             { 'pr-8': !hasErrors && isSelect }
           )}
         >
-          <ToolTip color={toolTipColor} title={toolTipTitle} content={toolTipContent} placement={toolTipPlacement}>
+          <ToolTip
+            arrow={showTooltipArrow}
+            color={toolTipColor}
+            title={toolTipTitle}
+            content={toolTipContent}
+            placement={toolTipPlacement}
+          >
             <ToolTipIcon />
           </ToolTip>
         </div>
