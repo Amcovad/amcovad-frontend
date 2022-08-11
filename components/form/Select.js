@@ -7,7 +7,7 @@ import { SelectArrowIcon } from '@/public/assets/dashboard/navBarIcon';
 import FormIcons from './FormIcons';
 import { showError, showSuccess } from '@/utils/form-helpers';
 import ToolTip from '@/components/form/Tooltip';
-import { HintIcon } from '@/public/assets/dashboard/navBarIcon';
+import { ToolTipIcon } from '@/public/assets/dashboard/navBarIcon';
 export function SelectField({
   children,
   className,
@@ -18,11 +18,12 @@ export function SelectField({
   labelClassName,
   leadingIcon,
   name,
-  hintIcon,
+  toolTip,
   hintText,
-  hintIconTitle,
-  hintIconContent,
-  hintContentPlacement
+  toolTipTitle,
+  toolTipContent,
+  toolTipColor,
+  toolTipPlacement
 }) {
   const {
     register,
@@ -38,21 +39,23 @@ export function SelectField({
         <Label
           feedBack="FEEDBACK.NONE"
           className="text-base flex items-center gap-x-2"
-          hintIconTitle={hintIconTitle}
-          hintIconContent={hintIconContent}
-          hintContentPlacement={hintContentPlacement}
+          toolTipTitle={toolTipTitle}
+          toolTipContent={toolTipContent}
+          toolTipPlacement={toolTipPlacement}
+          toolTipColor={toolTipColor}
           name={name}
           htmlFor={name}
           text={label}
         >
-          {hintIcon && (
+          {toolTip && (
             <ToolTip
-              arrow={hintIconArrow}
-              title={hintIconTitle}
-              content={hintIconContent}
-              placement={hintContentPlacement}
+              arrow={showTooltipArrow}
+              title={toolTipTitle}
+              content={toolTipContent}
+              placement={toolTipPlacement}
+              color={toolTipColor}
             >
-              <HintIcon />
+              <ToolTipIcon />
             </ToolTip>
           )}
         </Label>
@@ -102,11 +105,12 @@ export function SelectField({
         </div>
 
         <FormIcons
-          hintIconTitle={hintIconTitle}
-          hintIconContent={hintIconContent}
-          hintContentPlacement={hintContentPlacement}
+          toolTipColor={toolTipColor}
+          toolTipTitle={toolTipTitle}
+          toolTipContent={toolTipContent}
+          toolTipPlacement={toolTipPlacement}
           floatLabel={floatLabel}
-          hintIcon={hintIcon}
+          toolTip={toolTip}
           feedBack={feedBack}
           isValid={isValid}
           hasErrors={hasErrors}
@@ -124,7 +128,7 @@ SelectField.propTypes = {
   label: PropTypes.string,
   leadingIcon: PropTypes.node,
   name: PropTypes.string.isRequired,
-  hintIcon: PropTypes.bool,
+  toolTip: PropTypes.bool,
   hintText: PropTypes.string
 };
 
@@ -133,7 +137,7 @@ SelectField.defaultProps = {
   floatLabel: false,
   label: null,
   leadingIcon: null,
-  hintIcon: false,
+  toolTip: false,
   hintText: null
 };
 
@@ -145,11 +149,12 @@ const Select = ({
   leadingIcon,
   name,
   options,
-  hintIcon,
+  toolTip,
   hintText,
-  hintIconTitle,
-  hintIconContent,
-  hintContentPlacement
+  toolTipTitle,
+  toolTipContent,
+  toolTipColor,
+  toolTipPlacement
 }) => {
   return (
     <>
@@ -159,11 +164,12 @@ const Select = ({
         label={label ? label : defaultOption}
         leadingIcon={leadingIcon}
         name={name}
-        hintIcon={hintIcon}
+        toolTip={toolTip}
         hintText={hintText}
-        hintIconTitle={hintIconTitle}
-        hintIconContent={hintIconContent}
-        hintContentPlacement={hintContentPlacement}
+        toolTipTitle={toolTipTitle}
+        toolTipContent={toolTipContent}
+        toolTipColor={toolTipColor}
+        toolTipPlacement={toolTipPlacement}
       >
         {defaultOption && (
           <option key={name} value="">

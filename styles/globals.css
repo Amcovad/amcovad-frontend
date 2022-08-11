@@ -249,3 +249,7 @@ p + p {
 .rs-tooltip[class*='placement-bottom']::after {
   border-bottom-color: #344055;
 }
+
+.rs-popover {
+  padding: 2px 0px;
+}

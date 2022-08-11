@@ -2,48 +2,57 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { Whisper, Tooltip } from 'rsuite';
+import { Whisper, Popover, Tooltip } from 'rsuite';
 
 export default function ToolTip({ arrow, children, color, content, placement, title }) {
+  const CustomComponent = ({ content, color, title }) => (
+    <div
+      className={classNames(
+        'text-xs text-left font-Inter max-w-xs py-2 px-3 cursor-pointer rounded-md relative',
+        { 'bg-white ': color === 'light' },
+        { 'bg-secondary-800': color === 'dark' }
+      )}
+    >
+      <div>
+        {title && (
+          <p
+            className={classNames(
+              'font-medium py-1',
+              { 'text-secondary-700 ': color === 'light' },
+              { 'text-white': color === 'dark' }
+            )}
+          >
+            {title}
+          </p>
+        )}
+        <p
+          className={classNames(
+            'font-normal font-Inter leading-[18px]',
+            { 'text-secondary-500 ': color === 'light' },
+            { 'text-white': color === 'dark' },
+            { 'pb-1': title }
+          )}
+        >
+          {content}
+        </p>
+      </div>
+    </div>
+  );
+
   return (
     <Whisper
       placement={placement}
-      // trigger="click"
-      trigger="hover"
+      trigger="click"
       speaker={
-        <Tooltip arrow={arrow}>
-          <div
-            className={classNames(
-              'text-xs text-left font-Inter max-w-xs py-2 px-3 cursor-pointer rounded-md relative',
-              { 'bg-white ': color === 'light' },
-              { 'bg-secondary-800': color === 'dark' }
-            )}
-          >
-            <div>
-              {title && (
-                <p
-                  className={classNames(
-                    'font-medium py-1',
-                    { 'text-secondary-700 ': color === 'light' },
-                    { 'text-white': color === 'dark' }
-                  )}
-                >
-                  {title}
-                </p>
-              )}
-              <p
-                className={classNames(
-                  'font-normal font-Inter leading-[18px]',
-                  { 'text-secondary-500 ': color === 'light' },
-                  { 'text-white': color === 'dark' },
-                  { 'pb-1': title }
-                )}
-              >
-                {content}
-              </p>
-            </div>
-          </div>
-        </Tooltip>
+        color === 'light' ? (
+          <Popover arrow={arrow}>
+            <CustomComponent content={content} color={color} title={title} />
+          </Popover>
+        ) : (
+          <Tooltip arrow={arrow}>
+            <CustomComponent content={content} color={color} title={title} />
+          </Tooltip>
+        )
       }
     >
       <span>{children}</span>

@@ -1,23 +1,24 @@
 import React from 'react';
 import classNames from 'classnames';
-import { HelpIcon, HintIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
+import { HelpIcon, ToolTipIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
 import ToolTip from '@/components/form/Tooltip';
 
 const FormIcons = ({
   feedBack,
   floatLabel,
-  hintIcon,
+  toolTip,
   isValid,
   hasErrors,
-  hintIconTitle,
-  hintIconContent,
-  hintContentPlacement,
+  toolTipTitle,
+  toolTipContent,
+  toolTipColor,
+  toolTipPlacement,
   isTextArea,
   isSelect
 }) => {
   return (
     <>
-      {hintIcon && !isValid && floatLabel && (
+      {toolTip && !isValid && floatLabel && (
         <div
           className={classNames(
             'absolute right-0 flex items-center',
@@ -27,12 +28,12 @@ const FormIcons = ({
             {
               'pr-8': hasErrors && !isSelect
             },
-            { hidden: hintIcon === hasErrors && isSelect },
+            { hidden: toolTip === hasErrors && isSelect },
             { 'pr-8': !hasErrors && isSelect }
           )}
         >
-          <ToolTip title={hintIconTitle} content={hintIconContent} placement={hintContentPlacement}>
-            <HintIcon />
+          <ToolTip color={toolTipColor} title={toolTipTitle} content={toolTipContent} placement={toolTipPlacement}>
+            <ToolTipIcon />
           </ToolTip>
         </div>
       )}

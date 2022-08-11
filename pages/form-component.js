@@ -66,32 +66,35 @@ const SignIn = () => {
                             type="email"
                             leadingIcon={<EmailIcon />}
                             hintText="This is a hint text to help your email."
-                            hintIcon
+                            toolTip
                             floatLabel
                             feedBack="FEEDBACK.SUCCESS"
-                            hintIconTitle="Account Verification"
-                            hintIconContent="Your BVN number will be used to identify you as a valid account holder. In most scenarios, this is to prevent fraud."
-                            hintContentPlacement="topEnd"
+                            toolTipTitle="Account Verification"
+                            toolTipContent="Your BVN number will be used to identify you as a valid account holder. In most scenarios, this is to prevent fraud."
+                            toolTipPlacement="topEnd"
+                            // showTooltipArrow={false}
+                            toolTipColor="light"
                           />
                           <Input
                             label="Password"
                             name="password"
                             type="password"
-                            hintIcon
+                            toolTip
                             hintText="This is a hint text to help your password."
                             feedBack="FEEDBACK.SUCCESS"
-                            // hintIconTitle="Account Verification"
-                            hintIconContent="Enter your personal password"
-                            hintContentPlacement="right"
-                            // hintIconArrow={false}
+                            toolTipTitle="Account Verification"
+                            toolTipContent="Enter your personal password"
+                            toolTipPlacement="right"
+                            // showTooltipArrow={false}
+                            toolTipColor="dark"
                           />
 
                           <Select
                             floatLabel
                             leadingIcon={<EmailIcon />}
-                            hintIcon
-                            hintIconContent="Select your State of Origin"
-                            hintContentPlacement="topEnd"
+                            toolTip
+                            toolTipContent="Select your State of Origin"
+                            toolTipPlacement="topEnd"
                             hintText="This is a hint text to help user select state of origin."
                             defaultOption="Select your State of Origin"
                             label="State of Origin"
@@ -188,14 +191,15 @@ const SignIn = () => {
                           <Textarea
                             floatLabel
                             leadingIcon={<EmailIcon />}
-                            hintIcon
+                            toolTip
                             hintText="This is a hint text to help user Textarea."
                             label="Your message"
                             name="message"
                             // feedBack="FEEDBACK.SUCCESS"
-                            hintIconTitle="Account Verification"
-                            hintIconContent="Your BVN number will be used to identify you as a valid account holder. In most scenarios, this is to prevent fraud."
-                            hintContentPlacement="topEnd"
+                            toolTipTitle="Account Verification"
+                            toolTipContent="Your BVN number will be used to identify you as a valid account holder. In most scenarios, this is to prevent fraud."
+                            toolTipPlacement="topEnd"
+                            toolTipColor="light"
                           />
 
                           <div className="my-4">

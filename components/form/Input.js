@@ -6,21 +6,22 @@ import FormIcons from '@/components/form/FormIcons';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
 import { showError, showSuccess } from '@/utils/form-helpers';
-import { HintIcon } from '@/public/assets/dashboard/navBarIcon';
+import { ToolTipIcon } from '@/public/assets/dashboard/navBarIcon';
 import ToolTip from '@/components/form/Tooltip';
 
 const Input = ({
   className,
+  toolTipColor,
   feedBack,
   Icon,
   leadingIcon,
   labelClassName,
-  hintIcon,
+  toolTip,
   hintText,
-  hintIconArrow,
-  hintIconTitle,
-  hintIconContent,
-  hintContentPlacement,
+  showTooltipArrow,
+  toolTipTitle,
+  toolTipContent,
+  toolTipPlacement,
   name,
   placeholder,
   label,
@@ -55,21 +56,22 @@ const Input = ({
         <Label
           feedBack="FEEDBACK.NONE"
           className="text-base flex items-center gap-x-2"
-          hintIconTitle={hintIconTitle}
-          hintIconContent={hintIconContent}
-          hintContentPlacement={hintContentPlacement}
+          toolTipTitle={toolTipTitle}
+          toolTipContent={toolTipContent}
+          toolTipPlacement={toolTipPlacement}
           name={name}
           htmlFor={name}
           text={label}
         >
-          {hintIcon && (
+          {toolTip && (
             <ToolTip
-              arrow={hintIconArrow}
-              title={hintIconTitle}
-              content={hintIconContent}
-              placement={hintContentPlacement}
+              color={toolTipColor}
+              arrow={showTooltipArrow}
+              title={toolTipTitle}
+              content={toolTipContent}
+              placement={toolTipPlacement}
             >
-              <HintIcon />
+              <ToolTipIcon />
             </ToolTip>
           )}
         </Label>
@@ -116,11 +118,12 @@ const Input = ({
           />
         )}
         <FormIcons
-          hintIconTitle={hintIconTitle}
-          hintIconContent={hintIconContent}
-          hintContentPlacement={hintContentPlacement}
+          toolTipColor={toolTipColor}
+          toolTipTitle={toolTipTitle}
+          toolTipContent={toolTipContent}
+          toolTipPlacement={toolTipPlacement}
           floatLabel={floatLabel}
-          hintIcon={hintIcon}
+          toolTip={toolTip}
           feedBack={feedBack}
           isValid={isValid}
           hasErrors={hasErrors}
