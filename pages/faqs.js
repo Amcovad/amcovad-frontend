@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
 import Image from 'next/image';
 import faqImg from '../public/assets/faqs/faq-image.png';
@@ -80,7 +81,7 @@ const Faqs = () => {
           </div>
           <div className="text-center">
             <h1 className="font-Inter text-xl md:text-2xl font-semibold text-[#002432] py-2">Still have questions?</h1>
-            <p className="py-2 text-[#4A5568] text-base">Can’t find the answers you are looking for?</p>
+            <p className="py-2 text-[#4A5568] text-sm md:text-base">Can’t find the answers you are looking for?</p>
             <Button className="my-3 font-medium text-base md:text-xl font-Inter text-white capitalize py-3.5 px-7">
               Contact Us Now
             </Button>
