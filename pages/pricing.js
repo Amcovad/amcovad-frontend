@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import priceImg from '../public/assets/faqs/faq-image.png';
 import { Button, Footer, Navbar } from '@/components/index';
@@ -25,7 +24,7 @@ const Faqs = () => {
                 Unlimited transactions and networking without feature limitations forever
               </p>
 
-              <button className="mt-4 font-Inter rounded-md shadow-normal text-primary-500 font-medium text-base lg:text-xl px-9 py-5 bg-primary-25">
+              <button className="mt-4 font-Inter rounded-md shadow-normal text-primary-500 hover:text-white hover:bg-primary-500 font-medium text-base lg:text-xl px-9 py-5 bg-primary-50">
                 Get Started For Free
               </button>
 
@@ -56,7 +55,7 @@ const Faqs = () => {
                   </div>
                 </div>
                 <div className="h-[530px] lg:h-[600px] w-[320px] md:w-[300px] lg:w-[400px] xl:w-[445px] border border-warning-500 rounded-lg">
-                  <div className="border-y-4 flex flex-col items-center relative h-[530px] lg:h-[600px] border-warning-500 rounded-md">
+                  <div className="border-y-[6px] flex flex-col items-center relative h-[530px] lg:h-[600px] border-warning-500 rounded-md">
                     <div className="  flex flex-col items-center justify-between">
                       <div className="text-center p-10 pt-14">
                         <Image src={SecuritySafeImg} alt="Security Lock image" />
@@ -91,25 +90,28 @@ const Faqs = () => {
         <div>
           <div className="mt-2  avatar-group text-center">
             <div className="relative z-20 inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 -ml-4  transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out text-size-xs hover:z-40">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&h=800&q=60"
                 className="w-full rounded-full"
+                layout="fill"
                 alt="user2"
               />
             </div>
 
             <div className="relative z-30 inline-flex justify-center w-14 h-14 lg:w-16 lg:h-16 -ml-4  transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out text-size-xs hover:z-30">
-              <img
+              <Image
                 src=" https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&h=500&q=80"
                 className="w-full rounded-full"
+                layout="fill"
                 alt="user3"
               />
             </div>
 
             <div className="relative z-20 inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 -ml-4  transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out text-size-xs hover:z-30">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&h=500&q=60"
                 className="w-full rounded-full"
+                layout="fill"
                 alt="user3"
               />
             </div>
