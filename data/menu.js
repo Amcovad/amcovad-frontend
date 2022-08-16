@@ -9,7 +9,7 @@ const menu = [
   },
   {
     title: 'Pricing',
-    url: '/pricing"'
+    url: '/pricing'
   },
   {
     title: 'Contact us',

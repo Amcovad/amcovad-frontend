@@ -8,14 +8,14 @@ const Button = ({ className, children, color, icon, leftIcon, onClick, outline, 
     sm: 'py-2 px-[1.125rem] text-sm',
     md: 'py-2.5 px-4 text-base',
     lg: 'py-2.5 px-[1.125rem] text-lg',
-    xl: 'px-6 py-3.5 text-xl'
+    xl: 'px-6 py-3.5'
   };
   const styles = {
     solid: {
       primary: 'text-white bg-primary-500 hover:bg-primary-600 hover:text-white focus:shadow-primary-xs ',
       secondary: 'text-white bg-secondary-800 hover:bg-secondary-900 hover:text-white focus:shadow-secondary-xs',
       danger: 'text-white bg-danger-600 hover:bg-danger-500 hover:text-white focus:shadow-danger-xs',
-      warning: 'text-white bg-warning-600 hover:bg-warning-500 hover:text-white focus:shadow-warning-xs',
+      warning: 'text-white bg-warning-500 hover:bg-warning-600 hover:text-white focus:shadow-warning-xs',
       success: 'text-white bg-success-600 hover:bg-success-500 hover:text-white focus:shadow-success-xs'
     },
     outline: {
@@ -37,7 +37,7 @@ const Button = ({ className, children, color, icon, leftIcon, onClick, outline, 
     <button
       onClick={onClick}
       className={classNames(
-        'transition duration-150 focus:outline-none font-medium rounded text-center inline-flex items-center justify-center mr-2',
+        'transition duration-150 focus:outline-none font-Inter font-medium rounded text-center inline-flex items-center justify-center mr-2',
         styles[outlineClass][color],
         sizes[size],
         className
