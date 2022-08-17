@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
 import { Whisper, Popover, Tooltip } from 'rsuite';
+import { ToolTipIcon } from '@/public/assets/dashboard/navBarIcon';
 
-export default function ToolTip({ arrow, children, color, content, placement, title }) {
+export default function ToolTip({ arrow, children, color, content, placement, toolTipIcon, title }) {
   const CustomComponent = ({ content, color, title }) => (
     <div
       className={classNames(
@@ -55,7 +55,7 @@ export default function ToolTip({ arrow, children, color, content, placement, ti
         )
       }
     >
-      <span>{children}</span>
+      <span>{children || toolTipIcon}</span>
     </Whisper>
   );
 }
@@ -86,11 +86,13 @@ ToolTip.propTypes = {
     'autoHorizontalStart',
     'autoHorizontalEnd'
   ]).isRequired,
-  title: PropTypes.string
+  title: PropTypes.string,
+  toolTipIcon: PropTypes.element.isRequired
 };
 
 ToolTip.defaultProps = {
   arrow: true,
   color: 'dark',
-  title: null
+  title: null,
+  toolTipIcon: <ToolTipIcon />
 };

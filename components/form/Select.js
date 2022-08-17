@@ -4,10 +4,9 @@ import { Label, ErrorMessage } from '.';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
 import { SelectArrowIcon } from '@/public/assets/dashboard/navBarIcon';
-import FormIcons from './FormIcons';
 import { showError, showSuccess } from '@/utils/form-helpers';
 import ToolTip from '@/components/form/Tooltip';
-import { ToolTipIcon } from '@/public/assets/dashboard/navBarIcon';
+import { HelpIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
 export function SelectField({
   children,
   className,
@@ -24,6 +23,7 @@ export function SelectField({
   toolTipContent,
   toolTipColor,
   toolTipPlacement,
+  toolTipIcon,
   showTooltipArrow
 }) {
   const {
@@ -51,9 +51,8 @@ export function SelectField({
               content={toolTipContent}
               placement={toolTipPlacement}
               color={toolTipColor}
-            >
-              <ToolTipIcon />
-            </ToolTip>
+              toolTipIcon={toolTipIcon}
+            />
           )}
         </Label>
       )}
@@ -101,19 +100,44 @@ export function SelectField({
           <SelectArrowIcon />
         </div>
 
-        <FormIcons
-          floatLabel={floatLabel}
-          toolTip={toolTip}
-          feedBack={feedBack}
-          isValid={isValid}
-          hasErrors={hasErrors}
-          isSelect
-          showTooltipArrow={showTooltipArrow}
-          toolTipColor={toolTipColor}
-          toolTipTitle={toolTipTitle}
-          toolTipContent={toolTipContent}
-          toolTipPlacement={toolTipPlacement}
-        />
+        {toolTip && floatLabel && (
+          <div
+            className={classNames(
+              'absolute right-0 flex items-center inset-y-0',
+              { 'pr-8': !hasErrors && !isValid },
+              { hidden: toolTip === hasErrors || isValid }
+            )}
+          >
+            <ToolTip
+              arrow={showTooltipArrow}
+              color={toolTipColor}
+              title={toolTipTitle}
+              content={toolTipContent}
+              placement={toolTipPlacement}
+              toolTipIcon={toolTipIcon}
+            />
+          </div>
+        )}
+
+        {hasErrors && (
+          <div
+            className={classNames('absolute right-0 flex items-center pointer-events-none inset-y-0', {
+              'pr-8': hasErrors
+            })}
+          >
+            <HelpIcon />
+          </div>
+        )}
+
+        {isValid && (feedBack === 'FEEDBACK.SUCCESS' || feedBack === 'FEEDBACK.ALL') && (
+          <div
+            className={classNames('absolute right-0 flex items-center pointer-events-none inset-y-0', {
+              'pr-8': isValid
+            })}
+          >
+            <SuccessIcon />
+          </div>
+        )}
       </div>
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText} </p>}
     </>
@@ -153,7 +177,8 @@ const Select = ({
   toolTipTitle,
   toolTipContent,
   toolTipColor,
-  toolTipPlacement
+  toolTipPlacement,
+  toolTipIcon
 }) => {
   return (
     <>
@@ -170,6 +195,7 @@ const Select = ({
         showTooltipArrow={showTooltipArrow}
         toolTipColor={toolTipColor}
         toolTipPlacement={toolTipPlacement}
+        toolTipIcon={toolTipIcon}
       >
         {defaultOption && (
           <option key={name} value="">

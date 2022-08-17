@@ -3,10 +3,9 @@ import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
-import FormIcons from './FormIcons';
 import { showError, showSuccess } from '@/utils/form-helpers';
 import ToolTip from '@/components/form/Tooltip';
-import { ToolTipIcon } from '@/public/assets/dashboard/navBarIcon';
+import { HelpIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
 
 const Textarea = ({
   className,
@@ -24,7 +23,8 @@ const Textarea = ({
   toolTipTitle,
   toolTipContent,
   toolTipColor,
-  toolTipPlacement
+  toolTipPlacement,
+  toolTipIcon
 }) => {
   const {
     register,
@@ -51,9 +51,8 @@ const Textarea = ({
               content={toolTipContent}
               placement={toolTipPlacement}
               color={toolTipColor}
-            >
-              <ToolTipIcon />
-            </ToolTip>
+              toolTipIcon={toolTipIcon}
+            />
           )}
         </Label>
       )}
@@ -100,19 +99,45 @@ const Textarea = ({
           />
         )}
 
-        <FormIcons
-          floatLabel={floatLabel}
-          toolTip={toolTip}
-          feedBack={feedBack}
-          isValid={isValid}
-          hasErrors={hasErrors}
-          isTextArea
-          showTooltipArrow={showTooltipArrow}
-          toolTipTitle={toolTipTitle}
-          toolTipContent={toolTipContent}
-          toolTipPlacement={toolTipPlacement}
-          toolTipColor={toolTipColor}
-        />
+        {toolTip && floatLabel && (
+          <div
+            className={classNames(
+              'absolute right-0 flex items-center top-5',
+              { 'pr-3': !isValid && !hasErrors },
+              { 'pr-8': hasErrors },
+              { hidden: isValid }
+            )}
+          >
+            <ToolTip
+              arrow={showTooltipArrow}
+              color={toolTipColor}
+              title={toolTipTitle}
+              content={toolTipContent}
+              placement={toolTipPlacement}
+              toolTipIcon={toolTipIcon}
+            />
+          </div>
+        )}
+
+        {hasErrors && (
+          <div
+            className={classNames('absolute right-0 flex items-center pointer-events-none top-5', {
+              'pr-3': hasErrors
+            })}
+          >
+            <HelpIcon />
+          </div>
+        )}
+
+        {isValid && (feedBack === 'FEEDBACK.SUCCESS' || feedBack === 'FEEDBACK.ALL') && (
+          <div
+            className={classNames('absolute right-0 flex items-center pointer-events-none top-5', {
+              'pr-3': isValid
+            })}
+          >
+            <SuccessIcon />
+          </div>
+        )}
       </div>
 
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText}</p>}

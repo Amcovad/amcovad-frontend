@@ -74,6 +74,7 @@ const SignIn = () => {
                             toolTipPlacement="topEnd"
                             // showTooltipArrow={false}
                             toolTipColor="light"
+                            //toolTipIcon={<EmailIcon />}
                           />
                           <Input
                             label="Password"
@@ -91,6 +92,7 @@ const SignIn = () => {
 
                           <Select
                             floatLabel
+                            // toolTipIcon={<EmailIcon />}
                             leadingIcon={<EmailIcon />}
                             toolTip
                             toolTipContent="Select your State of Origin"
@@ -192,6 +194,7 @@ const SignIn = () => {
                           <Textarea
                             floatLabel
                             leadingIcon={<EmailIcon />}
+                            // toolTipIcon={<EmailIcon />}
                             toolTip
                             hintText="This is a hint text to help user Textarea."
                             label="Your message"
@@ -200,7 +203,7 @@ const SignIn = () => {
                             toolTipTitle="Account Verification"
                             toolTipContent="Your BVN number will be used to identify you as a valid account holder. In most scenarios, this is to prevent fraud."
                             toolTipPlacement="topEnd"
-                            toolTipColor="light"
+                            toolTipColor="dark"
                             // showTooltipArrow={false}
                           />
 
