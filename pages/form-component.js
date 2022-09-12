@@ -66,28 +66,44 @@ const SignIn = () => {
                             type="email"
                             leadingIcon={<EmailIcon />}
                             hintText="This is a hint text to help your email."
-                            hintIcon
+                            toolTip
                             floatLabel
                             feedBack="FEEDBACK.SUCCESS"
+                            toolTipTitle="Account Verification"
+                            toolTipContent="Your BVN number will be used to identify you as a valid account holder. In most scenarios, this is to prevent fraud."
+                            toolTipPlacement="topEnd"
+                            // showTooltipArrow={false}
+                            toolTipColor="light"
+                            //toolTipIcon={<EmailIcon />}
                           />
                           <Input
                             label="Password"
                             name="password"
                             type="password"
+                            toolTip
                             hintText="This is a hint text to help your password."
                             feedBack="FEEDBACK.SUCCESS"
+                            toolTipTitle="Account Verification"
+                            toolTipContent="Enter your personal password"
+                            toolTipPlacement="right"
+                            // showTooltipArrow={false}
+                            toolTipColor="dark"
                           />
 
                           <Select
                             floatLabel
+                            // toolTipIcon={<EmailIcon />}
                             leadingIcon={<EmailIcon />}
-                            hintIcon
+                            toolTip
+                            toolTipContent="Select your State of Origin"
+                            toolTipPlacement="topEnd"
                             hintText="This is a hint text to help user select state of origin."
                             defaultOption="Select your State of Origin"
                             label="State of Origin"
                             name="select"
                             options={sampleData}
                             feedBack="FEEDBACK.SUCCESS"
+                            showTooltipArrow={false}
                           />
                           <div className="my-4">
                             <Toggle
@@ -178,11 +194,17 @@ const SignIn = () => {
                           <Textarea
                             floatLabel
                             leadingIcon={<EmailIcon />}
-                            hintIcon
+                            // toolTipIcon={<EmailIcon />}
+                            toolTip
                             hintText="This is a hint text to help user Textarea."
                             label="Your message"
                             name="message"
                             // feedBack="FEEDBACK.SUCCESS"
+                            toolTipTitle="Account Verification"
+                            toolTipContent="Your BVN number will be used to identify you as a valid account holder. In most scenarios, this is to prevent fraud."
+                            toolTipPlacement="topEnd"
+                            toolTipColor="dark"
+                            // showTooltipArrow={false}
                           />
 
                           <div className="my-4">

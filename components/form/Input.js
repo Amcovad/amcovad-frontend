@@ -2,19 +2,26 @@ import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { ShowPasswordIcon, HidePasswordIcon } from '@/public/assets/signUp/passwordSvgs';
-import FormIcons from './FormIcons';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
 import { showError, showSuccess } from '@/utils/form-helpers';
+import { HelpIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
+import ToolTip from '@/components/form/Tooltip';
 
 const Input = ({
   className,
+  toolTipColor,
   feedBack,
   Icon,
   leadingIcon,
   labelClassName,
-  hintIcon,
+  toolTip,
   hintText,
+  showTooltipArrow,
+  toolTipTitle,
+  toolTipContent,
+  toolTipPlacement,
+  toolTipIcon,
   name,
   placeholder,
   label,
@@ -46,7 +53,24 @@ const Input = ({
   return (
     <>
       {label && !floatLabel && (
-        <Label feedBack="FEEDBACK.NONE" className="text-base" name={name} htmlFor={name} text={label} />
+        <Label
+          feedBack="FEEDBACK.NONE"
+          className="text-base flex items-center gap-x-2"
+          name={name}
+          htmlFor={name}
+          text={label}
+        >
+          {toolTip && (
+            <ToolTip
+              color={toolTipColor}
+              arrow={showTooltipArrow}
+              title={toolTipTitle}
+              content={toolTipContent}
+              placement={toolTipPlacement}
+              toolTipIcon={toolTipIcon}
+            />
+          )}
+        </Label>
       )}
       <div className="relative z-0 mb-2 w-full group">
         {leadingIcon && (
@@ -84,13 +108,43 @@ const Input = ({
             name={name}
             feedBack={feedBack}
             htmlFor={name}
-            floatLabel
+            floatLabel={floatLabel}
             text={label}
             floatLabelClass={labelClassName}
           />
         )}
 
-        <FormIcons hintIcon={hintIcon} feedBack={feedBack} isValid={isValid} hasErrors={hasErrors} />
+        {toolTip && floatLabel && (
+          <div
+            className={classNames(
+              'absolute right-0 flex items-center inset-y-0',
+              { 'pr-8': hasErrors },
+              { hidden: isValid },
+              { 'pr-3': !isValid && !hasErrors }
+            )}
+          >
+            {hasErrors && (
+              <div className={classNames('absolute right-0 flex items-center pointer-events-none inset-y-0 pr-3')}>
+                <HelpIcon />
+              </div>
+            )}
+            <ToolTip
+              arrow={showTooltipArrow}
+              color={toolTipColor}
+              title={toolTipTitle}
+              content={toolTipContent}
+              placement={toolTipPlacement}
+              toolTipIcon={toolTipIcon}
+            />
+          </div>
+        )}
+
+        {isValid && (feedBack === 'FEEDBACK.SUCCESS' || feedBack === 'FEEDBACK.ALL') && (
+          <div className={classNames('absolute right-0 flex items-center pointer-events-none inset-y-0 pr-3')}>
+            <SuccessIcon />
+          </div>
+        )}
+
         {inputIcon && !isValid && (
           <div
             className={classNames(

@@ -1,25 +1,47 @@
 import React from 'react';
 import classNames from 'classnames';
-import { HelpIcon, HintIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
+import { HelpIcon, ToolTipIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
+import ToolTip from '@/components/form/Tooltip';
 
-const FormIcons = ({ feedBack, hintIcon, isValid, hasErrors, isTextArea, isSelect }) => {
+const FormIcons = ({
+  feedBack,
+  floatLabel,
+  toolTip,
+  isValid,
+  hasErrors,
+  toolTipTitle,
+  toolTipContent,
+  toolTipColor,
+  toolTipPlacement,
+  showTooltipArrow,
+  isTextArea,
+  isSelect
+}) => {
   return (
     <>
-      {hintIcon && !isValid && (
+      {toolTip && !isValid && floatLabel && (
         <div
           className={classNames(
-            'absolute right-0 flex items-center pointer-events-none',
+            'absolute right-0 flex items-center',
             { 'top-5': isTextArea },
             { 'inset-y-0': !isTextArea },
             { 'pr-3': !isValid && !hasErrors && !isSelect },
             {
               'pr-8': hasErrors && !isSelect
             },
-            { hidden: hintIcon === hasErrors && isSelect },
+            { hidden: toolTip === hasErrors && isSelect },
             { 'pr-8': !hasErrors && isSelect }
           )}
         >
-          <HintIcon />
+          <ToolTip
+            arrow={showTooltipArrow}
+            color={toolTipColor}
+            title={toolTipTitle}
+            content={toolTipContent}
+            placement={toolTipPlacement}
+          >
+            <ToolTipIcon />
+          </ToolTip>
         </div>
       )}
 

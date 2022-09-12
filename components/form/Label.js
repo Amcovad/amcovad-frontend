@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
 import { showError, showSuccess } from '@/utils/form-helpers';
-
-export function Label({ className, checked, feedBack, floatLabel, floatLabelClass, htmlFor, name, text }) {
+export function Label({ className, checked, children, feedBack, floatLabel, floatLabelClass, htmlFor, name, text }) {
   const {
     formState: { dirtyFields, errors }
   } = useFormContext();
@@ -22,7 +21,7 @@ export function Label({ className, checked, feedBack, floatLabel, floatLabelClas
             floatLabel
         },
         { 'pointer-events-none': checked },
-        { 'block mb-2 cursor-pointer text-secondary-700 font-normal ': !floatLabel },
+        { 'block mb-1.5 cursor-pointer text-secondary-700 font-normal ': !floatLabel },
         { [className]: !floatLabel },
         { [floatLabelClass]: floatLabel },
         { 'text-success-600': showSuccess(isValid, feedBack) },
@@ -31,6 +30,7 @@ export function Label({ className, checked, feedBack, floatLabel, floatLabelClas
       )}
     >
       {text}
+      {children}
     </label>
   );
 }

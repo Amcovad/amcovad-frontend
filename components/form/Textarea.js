@@ -3,8 +3,9 @@ import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { Label, ErrorMessage } from '.';
 import classNames from 'classnames';
-import FormIcons from './FormIcons';
 import { showError, showSuccess } from '@/utils/form-helpers';
+import ToolTip from '@/components/form/Tooltip';
+import { HelpIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
 
 const Textarea = ({
   className,
@@ -16,8 +17,14 @@ const Textarea = ({
   name,
   placeholder,
   rows,
-  hintIcon,
-  hintText
+  toolTip,
+  hintText,
+  showTooltipArrow,
+  toolTipTitle,
+  toolTipContent,
+  toolTipColor,
+  toolTipPlacement,
+  toolTipIcon
 }) => {
   const {
     register,
@@ -30,7 +37,24 @@ const Textarea = ({
   return (
     <>
       {label && !floatLabel && (
-        <Label feedBack="FEEDBACK.NONE" className="text-base" name={name} htmlFor={name} text={label} />
+        <Label
+          feedBack="FEEDBACK.NONE"
+          className="text-base flex items-center gap-x-2"
+          name={name}
+          htmlFor={name}
+          text={label}
+        >
+          {toolTip && (
+            <ToolTip
+              arrow={showTooltipArrow}
+              title={toolTipTitle}
+              content={toolTipContent}
+              placement={toolTipPlacement}
+              color={toolTipColor}
+              toolTipIcon={toolTipIcon}
+            />
+          )}
+        </Label>
       )}
 
       <div className="relative z-0 mb-2 w-full group">
@@ -75,7 +99,45 @@ const Textarea = ({
           />
         )}
 
-        <FormIcons hintIcon={hintIcon} feedBack={feedBack} isValid={isValid} hasErrors={hasErrors} isTextArea />
+        {toolTip && floatLabel && (
+          <div
+            className={classNames(
+              'absolute right-0 flex items-center top-5',
+              { 'pr-3': !isValid && !hasErrors },
+              { 'pr-8': hasErrors },
+              { hidden: isValid }
+            )}
+          >
+            <ToolTip
+              arrow={showTooltipArrow}
+              color={toolTipColor}
+              title={toolTipTitle}
+              content={toolTipContent}
+              placement={toolTipPlacement}
+              toolTipIcon={toolTipIcon}
+            />
+          </div>
+        )}
+
+        {hasErrors && (
+          <div
+            className={classNames('absolute right-0 flex items-center pointer-events-none top-5', {
+              'pr-3': hasErrors
+            })}
+          >
+            <HelpIcon />
+          </div>
+        )}
+
+        {isValid && (feedBack === 'FEEDBACK.SUCCESS' || feedBack === 'FEEDBACK.ALL') && (
+          <div
+            className={classNames('absolute right-0 flex items-center pointer-events-none top-5', {
+              'pr-3': isValid
+            })}
+          >
+            <SuccessIcon />
+          </div>
+        )}
       </div>
 
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText}</p>}
