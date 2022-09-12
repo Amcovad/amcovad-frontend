@@ -19,7 +19,7 @@ const NavLink = ({ activeIcon, containerClassName, icon, name, url }) => {
       )}
     >
       <Link href={url} passHref>
-        <a className="inline-flex items-center w-full text-sm font-normal font-Inter text-secondary-700 focus:text-secondary-700 transition-colors duration-150 hover:text-primary-400 ">
+        <a className="inline-flex items-center w-full text-sm font-normal font-Inter text-secondary-700 focus:text-secondary-700 transition-colors duration-150 hover:text-primary-500 ">
           <Image
             src={isActiveIcon ? activeIcon : icon}
             width="22px"

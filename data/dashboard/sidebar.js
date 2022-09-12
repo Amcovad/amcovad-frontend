@@ -15,14 +15,14 @@ const sidebar = [
     activeIcon: '/assets/dashboard/published.svg',
     icon: '/assets/dashboard/published.svg',
     name: 'Templates',
-    url: '/published-templates'
+    url: '/dashboard/templates'
   },
 
   {
     activeIcon: '/assets/dashboard/draft.svg',
     icon: '/assets/dashboard/draft.svg',
     name: 'Drafts',
-    url: '/drafts'
+    url: '/dashboard/drafts'
   },
   {
     activeIcon: '/assets/dashboard/wallet.svg',
