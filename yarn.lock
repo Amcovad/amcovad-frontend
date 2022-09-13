@@ -10318,10 +10318,10 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rsuite-table@^5.3.6:
-  version "5.3.6"
-  resolved "https://registry.yarnpkg.com/rsuite-table/-/rsuite-table-5.3.6.tgz#e9347e0615dfdec07883b153937a4f0ff5227c5e"
-  integrity sha512-PNW0X62hDqxaV2MCLJvLs1nulHfHeTzGIC6B3RBS6GZM8jjc06z33CPBReX/T2wLNZ+d6znimLTZKujvfIZipw==
+rsuite-table@^5.6.0:
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/rsuite-table/-/rsuite-table-5.6.1.tgz#bf756215ce218674256c03184f07d987d7a46dea"
+  integrity sha512-keC+1juRl7oTDjzoU3KmHApDInckVVhYsN+KsG2aCee0UVwBL8o15mJxz39DtR7tuCDQfmCnLZ8YomwZhaXAlg==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@juggle/resize-observer" "^3.3.1"
@@ -10331,10 +10331,10 @@ rsuite-table@^5.3.6:
     lodash "^4.17.21"
     react-is "^17.0.2"
 
-rsuite@^5.6.4:
-  version "5.6.4"
-  resolved "https://registry.yarnpkg.com/rsuite/-/rsuite-5.6.4.tgz#01e46a3a5f511994693b0067ebd2dc58dc83df6b"
-  integrity sha512-haFLU9p/3MdDF/IqFZPVflAVvzDg7K7jwmpKY+IgaAnpkLzYiGJ5R/t036ssFweqGKWxsOK/HXKW5VG9/Inr6w==
+rsuite@^5.16.4:
+  version "5.16.4"
+  resolved "https://registry.yarnpkg.com/rsuite/-/rsuite-5.16.4.tgz#e3102d0049e87608e546db5ed72821330fd74a46"
+  integrity sha512-m7jaLs/HxVPsjWNjraF0qckpuMerkEkitclv266FpG8cWcMcttUqK9u+51SSPA8vKA/prZi+znkLewO2pYvPow==
   dependencies:
     "@babel/runtime" "^7.8.4"
     "@juggle/resize-observer" "^3.3.1"
@@ -10349,8 +10349,8 @@ rsuite@^5.6.4:
     lodash "^4.17.11"
     prop-types "^15.7.2"
     react-virtualized "^9.22.3"
-    rsuite-table "^5.3.6"
-    schema-typed "^2.0.2"
+    rsuite-table "^5.6.0"
+    schema-typed "^2.0.3"
 
 rsvp@^4.8.4:
   version "4.8.5"
@@ -10421,10 +10421,10 @@ scheduler@^0.20.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
-schema-typed@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/schema-typed/-/schema-typed-2.0.2.tgz#e33acc5d66449d30b417ead9fff4c98e199f7578"
-  integrity sha512-E8GAANjZ8oYwyQJEyf/93W1QERTCwu8N7aMUbgBWbYvqzZE8f/kAZaL5D9knr7yLEgMnwJQ4pd8x8EVZ0PpzUA==
+schema-typed@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/schema-typed/-/schema-typed-2.0.3.tgz#bfd84b31fbb2d13e748736637281032d8bcb2be8"
+  integrity sha512-4KckVnJjTtVugYpSAoQrcH4quE4yIVTvI/nHEqtwdceBr/ZCuH2LfV8/gaZFrYU7cwwyufLKaswt28aqQ1T9ww==
   dependencies:
     "@babel/runtime" "^7.16.0"
 

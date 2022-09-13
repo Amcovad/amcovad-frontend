@@ -4,8 +4,9 @@ import { Label, ErrorMessage } from '.';
 import { useFormContext } from 'react-hook-form';
 import classNames from 'classnames';
 import { SelectArrowIcon } from '@/public/assets/dashboard/navBarIcon';
-import FormIcons from './FormIcons';
 import { showError, showSuccess } from '@/utils/form-helpers';
+import ToolTip from '@/components/form/Tooltip';
+import { HelpIcon, SuccessIcon } from '@/public/assets/dashboard/navBarIcon';
 export function SelectField({
   children,
   className,
@@ -16,8 +17,14 @@ export function SelectField({
   labelClassName,
   leadingIcon,
   name,
-  hintIcon,
-  hintText
+  toolTip,
+  hintText,
+  toolTipTitle,
+  toolTipContent,
+  toolTipColor,
+  toolTipPlacement,
+  toolTipIcon,
+  showTooltipArrow
 }) {
   const {
     register,
@@ -30,7 +37,24 @@ export function SelectField({
   return (
     <>
       {label && !floatLabel && (
-        <Label feedBack="FEEDBACK.NONE" className="text-base" name={name} htmlFor={name} text={label} />
+        <Label
+          feedBack="FEEDBACK.NONE"
+          className="text-base flex items-center gap-x-2"
+          name={name}
+          htmlFor={name}
+          text={label}
+        >
+          {toolTip && (
+            <ToolTip
+              arrow={showTooltipArrow}
+              title={toolTipTitle}
+              content={toolTipContent}
+              placement={toolTipPlacement}
+              color={toolTipColor}
+              toolTipIcon={toolTipIcon}
+            />
+          )}
+        </Label>
       )}
       <div className={classNames('relative z-0 mb-2 w-full group', containerClassName)}>
         {leadingIcon && (
@@ -75,7 +99,45 @@ export function SelectField({
         <div className={classNames('absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none')}>
           <SelectArrowIcon />
         </div>
-        <FormIcons hintIcon={hintIcon} feedBack={feedBack} isValid={isValid} hasErrors={hasErrors} isSelect />
+
+        {toolTip && floatLabel && (
+          <div
+            className={classNames(
+              'absolute right-0 flex items-center inset-y-0',
+              { 'pr-8': !hasErrors && !isValid },
+              { hidden: toolTip === hasErrors || isValid }
+            )}
+          >
+            <ToolTip
+              arrow={showTooltipArrow}
+              color={toolTipColor}
+              title={toolTipTitle}
+              content={toolTipContent}
+              placement={toolTipPlacement}
+              toolTipIcon={toolTipIcon}
+            />
+          </div>
+        )}
+
+        {hasErrors && (
+          <div
+            className={classNames('absolute right-0 flex items-center pointer-events-none inset-y-0', {
+              'pr-8': hasErrors
+            })}
+          >
+            <HelpIcon />
+          </div>
+        )}
+
+        {isValid && (feedBack === 'FEEDBACK.SUCCESS' || feedBack === 'FEEDBACK.ALL') && (
+          <div
+            className={classNames('absolute right-0 flex items-center pointer-events-none inset-y-0', {
+              'pr-8': isValid
+            })}
+          >
+            <SuccessIcon />
+          </div>
+        )}
       </div>
       {hintText && <p className="pt-1 text-sm text-secondary-700">{hintText} </p>}
     </>
@@ -88,7 +150,7 @@ SelectField.propTypes = {
   label: PropTypes.string,
   leadingIcon: PropTypes.node,
   name: PropTypes.string.isRequired,
-  hintIcon: PropTypes.bool,
+  toolTip: PropTypes.bool,
   hintText: PropTypes.string
 };
 
@@ -97,11 +159,27 @@ SelectField.defaultProps = {
   floatLabel: false,
   label: null,
   leadingIcon: null,
-  hintIcon: false,
+  toolTip: false,
   hintText: null
 };
 
-const Select = ({ defaultOption, floatLabel, feedBack, label, leadingIcon, name, options, hintIcon, hintText }) => {
+const Select = ({
+  defaultOption,
+  floatLabel,
+  feedBack,
+  label,
+  leadingIcon,
+  name,
+  options,
+  toolTip,
+  hintText,
+  showTooltipArrow,
+  toolTipTitle,
+  toolTipContent,
+  toolTipColor,
+  toolTipPlacement,
+  toolTipIcon
+}) => {
   return (
     <>
       <SelectField
@@ -110,8 +188,14 @@ const Select = ({ defaultOption, floatLabel, feedBack, label, leadingIcon, name,
         label={label ? label : defaultOption}
         leadingIcon={leadingIcon}
         name={name}
-        hintIcon={hintIcon}
+        toolTip={toolTip}
         hintText={hintText}
+        toolTipTitle={toolTipTitle}
+        toolTipContent={toolTipContent}
+        showTooltipArrow={showTooltipArrow}
+        toolTipColor={toolTipColor}
+        toolTipPlacement={toolTipPlacement}
+        toolTipIcon={toolTipIcon}
       >
         {defaultOption && (
           <option key={name} value="">
