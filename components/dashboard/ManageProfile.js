@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { CaretIcon, SignOutIcon, UserIcon } from '@/public/assets/dashboard/navBarIcon';
-import User from '@/public/assets/dashboard/alliyy-adams.svg';
+import User from '@/public/assets/dashboard/User-image.jpg';
 import Link from 'next/link';
 
 export const ManageSetting = () => {
   return (
     <div>
-      <ul className="pt-2 w-40 px-1 bg-secondary-100 absolute rounded right-0 lg:left-0 shadow mt-12 sm:mt-16">
+      <ul className="pt-2 w-40 px-1 bg-secondary-100 absolute rounded right-0 lg:left-0 shadow mt-12 sm:mt-[4.125rem]">
         <li className="flex justify-between text-secondary-700 p-2 hover:text-primary-500 cursor-pointer items-center">
           <div className="flex items-center">
             <UserIcon width={18} height={18} />
@@ -37,12 +37,19 @@ const ManageProfile = () => {
       <div className="flex items-center relative cursor-pointer" onClick={() => setProfile(!profile)}>
         <div className="rounded-full">
           {profile && <ManageSetting />}
-          <div className="relative w-10 h-10">
-            <Image src={User} alt="profile image" />
+          <div className="relative hidden lg:block ">
+            <Image src={User} alt="profile image" className="rounded-lg" objectFit="cover"
+              width={46} height={46}
+            />
+          </div>
+          <div className="relative lg:hidden block ">
+            <Image src={User} alt="profile image" className="rounded-lg" objectFit="cover"
+              width={40} height={40}
+            />
           </div>
         </div>
-        <p className="lg:block hidden text-secondary-700 font-Poppins text-base font-normal mx-3">Admin</p>
-        <div className="cursor-pointer pl-2 lg:pl-0 text-secondary-500">
+        <p className="lg:block hidden text-secondary-700 font-Poppins text-base font-normal mx-1"></p>
+        <div className="cursor-pointer pl-2 lg:pl-0 lg:block hidden text-secondary-500">
           <CaretIcon width={15} height={7} />
         </div>
       </div>

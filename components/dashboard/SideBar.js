@@ -5,21 +5,23 @@ import NavLink from './NavLink';
 import Logo from '@/public/assets/logo/logo.svg';
 import sidebarData from '@/data/dashboard/sidebar';
 import Settings from '@/public/assets/dashboard/Setting.svg';
+import UserProfileCard from './UserProfileCard';
 
 const SideBar = () => {
   return (
     <>
-      <aside className="h-full bg-secondary-25 overflow-y-auto lg:block  lg:relative lg:w-1/5 lg:z-auto right-0 hidden scrollbar">
+      <aside className="h-full bg-secondary-25 overflow-y-auto lg:block fixed lg:relative lg:w-full lg:z-auto left-0 hidden scrollbar">
         <div className="relative hidden lg:block  mb-10 ">
-          <div className="h-[73px] bg-secondary-25 z-50 lg:w-1/5 flex items-center px-8 top-0 fixed">
+          <div className="h-[5.39rem] bg-secondary-200 z-50 lg:w-1/5 flex items-center px-8 top-0 fixed">
             <Link href="/" passHref>
               <a>
                 <Image src={Logo} width="167" height="42" alt="logo" />
               </a>
             </Link>
           </div>
-          <div className="absolute lg:relative  h-full shadow bg-secondary-25 hidden lg:block pt-20">
+          <div className="absolute lg:relative  h-full shadow bg-secondary-25 hidden lg:block">
             <div className="overflow-y-auto ">
+              <UserProfileCard />
               <ul className=" pb-6">
                 {sidebarData.map((data, index) => {
                   return (

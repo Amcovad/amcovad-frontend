@@ -6,3 +6,7 @@ export { default as transactionCardData } from './transactionCard';
 export { default as statusData } from './status';
 export { default as fulfilmentUpdateData } from './fulfilmentUpdate';
 export { default as fulfilmentTimelineData } from './fulfilmentTimeline';
+export { default as newActionsData } from './newActions';
+export { default as suggestedFeedData } from './suggestedFeed';
+export { default as TemplateData } from './newTemplate'
+export { default as transactionsData } from './transactions'

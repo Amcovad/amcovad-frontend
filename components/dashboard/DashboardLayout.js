@@ -2,36 +2,63 @@ import React from 'react';
 import SideBar from './SideBar';
 import Navbar from './Navbar';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Alert from '@/components/dashboard/component/Alert';
 
-const DashboardLayout = ({ alert: { message, type }, children, title }) => {
+const DashboardLayout = ({ alert: { message, type }, children, sideWidget, title }) => {
   return (
-    <div className="flex h-screen">
-      <SideBar />
-      <div className="relative w-full lg:w-4/5 h-full overflow-y-auto scrollbar">
-        <Navbar />
-        <div className="w-full mt-20 lg:mt-[90px] px-6">
-          <Alert type={type} message={message} />
-          <h1 className="text-xl leading-9 lg:text-2xl font-Inter lg:leading-10 font-medium text-tertiary-color/90 ">
-            {title}
-          </h1>
+    <>
+      <Navbar />
+      <div className="flex flex-col lg:flex-row gap-x-3 pt-16 lg:pt-[5.39rem] flex-no-wrap">
+        <div className="relative w-[20%] min-w-[20%]">
+          <div className=" w-full">
+            <SideBar />
+
+          </div>
         </div>
-        {children}
+        <div className={classNames("relative w-full ", { 'lg:w-[52%]': sideWidget })}>
+          <div className={classNames("w-full lg:fixed lg:overflow-y-auto scrollbar h-full", { "lg:w-[80%]": sideWidget })}>
+            <div className={classNames("lg:w-[65%] w-full pt-4 lg:pb-20 lg:mb-16 ", { "lg:w-[65%]": sideWidget }, { "lg:w-[78%]": !sideWidget })}>
+              <div className=" relative">
+                <Alert type={type} message={message} />
+                <h1 className="text-2xl pl-3 lg:pl-0 leading-9 font-Poppins mb-5 mt-3 lg:text-3xl lg:font-Inter lg:leading-10 font-bold text-secondary-800 ">
+                  {title}
+                </h1>
+                {children}
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        {
+          sideWidget &&
+          <div className="relative w-full lg:w-[27%]">
+            <div className=" w-full lg:w-[27%] lg:fixed lg:right-0 sm:overflow-y-auto scrollbar h-full ">
+              {sideWidget}
+            </div>
+          </div>
+        }
+
       </div>
-    </div>
+
+
+    </>
   );
 };
 
 DashboardLayout.propTypes = {
+  alert: PropTypes.object,
   children: PropTypes.node,
+  sideWidget: PropTypes.node,
   title: PropTypes.string,
-  alert: PropTypes.any
 };
 
 DashboardLayout.defaultProps = {
+  alert: { message: null, type: null },
   children: null,
+  sideWidget: null,
   title: null,
-  alert: { message: null, type: null }
 };
 
 export default DashboardLayout;

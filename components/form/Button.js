@@ -14,6 +14,7 @@ const Button = ({ className, children, color, icon, leftIcon, onClick, outline, 
     solid: {
       primary: 'text-white bg-primary-500 hover:bg-primary-600 hover:text-white focus:shadow-primary-xs ',
       secondary: 'text-white bg-secondary-800 hover:bg-secondary-900 hover:text-white focus:shadow-secondary-xs',
+      "secondary-50": 'text-secondary-500 bg-secondary-50 hover:bg-secondary-100 hover:text-secondary-600 focus:shadow-secondary-xs',
       danger: 'text-white bg-danger-600 hover:bg-danger-500 hover:text-white focus:shadow-danger-xs',
       warning: 'text-white bg-warning-500 hover:bg-warning-600 hover:text-white focus:shadow-warning-xs',
       success: 'text-white bg-success-600 hover:bg-success-500 hover:text-white focus:shadow-success-xs'
@@ -66,7 +67,7 @@ Button.defaultProps = {
   className: '',
   leftIcon: null,
   outline: false,
-  onClick: () => {},
+  onClick: () => { },
   rightIcon: null,
   size: 'sm'
 };

@@ -7,10 +7,11 @@ import sidebarData from '@/data/dashboard/sidebar';
 import Logo from '@/public/assets/logo/logo.svg';
 import Settings from '@/public/assets/dashboard/Setting.svg';
 import { XIcon } from '@/public/assets/dashboard/navBarIcon';
+import UserProfileCard from './UserProfileCard';
 
 const MobileSidebar = ({ onClick }) => {
   return (
-    <div className="fixed z-40 sm:relative w-64 md:w-96 shadow pb-4 overflow-y-auto  lg:hidden transition duration-150 ease-in-out h-full">
+    <div className="fixed left-0 z-40 w-72 h-screen md:w-96 pb-4 overflow-y-auto lg:hidden overflow-x-hidden">
       <div className="flex flex-col justify-between h-full w-full">
         <div className="bg-secondary-25">
           <div className="flex items-center justify-between px-3  bg-secondary-25 z-50 top-0 sticky">
@@ -22,10 +23,11 @@ const MobileSidebar = ({ onClick }) => {
               </Link>
             </div>
             <div id="closeSideBar" className="flex items-center justify-center h-10 w-10" onClick={onClick}>
-              <XIcon width="16px" height="16px" />
+              <XIcon width="14px" height="14px" />
             </div>
           </div>
-          <ul className=" pt-6 ">
+          <UserProfileCard />
+          <ul className=" pt-2 ">
             {sidebarData.map((data, index) => {
               return (
                 <NavLink key={index} name={data.name} activeIcon={data.activeIcon} url={data.url} icon={data.icon} />
